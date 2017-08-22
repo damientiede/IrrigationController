@@ -1,20 +1,127 @@
-<!--The content below is only a placeholder and can be replaced.-->
-<div style="text-align:center">
-  <h1>
-    Welcome to {{title}}!
-  </h1>
-  <img width="300" src="data:image/svg+xml;base64,PD94bWwgdmVyc2lvbj0iMS4wIiBlbmNvZGluZz0idXRmLTgiPz4NCjwhLS0gR2VuZXJhdG9yOiBBZG9iZSBJbGx1c3RyYXRvciAxOS4xLjAsIFNWRyBFeHBvcnQgUGx1Zy1JbiAuIFNWRyBWZXJzaW9uOiA2LjAwIEJ1aWxkIDApICAtLT4NCjxzdmcgdmVyc2lvbj0iMS4xIiBpZD0iTGF5ZXJfMSIgeG1sbnM9Imh0dHA6Ly93d3cudzMub3JnLzIwMDAvc3ZnIiB4bWxuczp4bGluaz0iaHR0cDovL3d3dy53My5vcmcvMTk5OS94bGluayIgeD0iMHB4IiB5PSIwcHgiDQoJIHZpZXdCb3g9IjAgMCAyNTAgMjUwIiBzdHlsZT0iZW5hYmxlLWJhY2tncm91bmQ6bmV3IDAgMCAyNTAgMjUwOyIgeG1sOnNwYWNlPSJwcmVzZXJ2ZSI+DQo8c3R5bGUgdHlwZT0idGV4dC9jc3MiPg0KCS5zdDB7ZmlsbDojREQwMDMxO30NCgkuc3Qxe2ZpbGw6I0MzMDAyRjt9DQoJLnN0MntmaWxsOiNGRkZGRkY7fQ0KPC9zdHlsZT4NCjxnPg0KCTxwb2x5Z29uIGNsYXNzPSJzdDAiIHBvaW50cz0iMTI1LDMwIDEyNSwzMCAxMjUsMzAgMzEuOSw2My4yIDQ2LjEsMTg2LjMgMTI1LDIzMCAxMjUsMjMwIDEyNSwyMzAgMjAzLjksMTg2LjMgMjE4LjEsNjMuMiAJIi8+DQoJPHBvbHlnb24gY2xhc3M9InN0MSIgcG9pbnRzPSIxMjUsMzAgMTI1LDUyLjIgMTI1LDUyLjEgMTI1LDE1My40IDEyNSwxNTMuNCAxMjUsMjMwIDEyNSwyMzAgMjAzLjksMTg2LjMgMjE4LjEsNjMuMiAxMjUsMzAgCSIvPg0KCTxwYXRoIGNsYXNzPSJzdDIiIGQ9Ik0xMjUsNTIuMUw2Ni44LDE4Mi42aDBoMjEuN2gwbDExLjctMjkuMmg0OS40bDExLjcsMjkuMmgwaDIxLjdoMEwxMjUsNTIuMUwxMjUsNTIuMUwxMjUsNTIuMUwxMjUsNTIuMQ0KCQlMMTI1LDUyLjF6IE0xNDIsMTM1LjRIMTA4bDE3LTQwLjlMMTQyLDEzNS40eiIvPg0KPC9nPg0KPC9zdmc+DQo=">
+﻿<div class="row">
+    <div class="col-md-3"></div>
+    <div class="col-md-6">
+        <ul class="nav nav-pills">
+          <li role="presentation" class="active"><a href="#">Home</a></li>
+          <li role="presentation"><a href="history">History</a></li>
+          <li role="presentation"><a href="schedules">Schedules</a></li>
+        </ul>
+    </div>
+    <div class="col-md-3"></div>
 </div>
-<h2>Here are some links to help you start: </h2>
-<ul>
-  <li>
-    <h2><a target="_blank" href="https://angular.io/tutorial">Tour of Heroes</a></h2>
-  </li>
-  <li>
-    <h2><a target="_blank" href="https://github.com/angular/angular-cli/wiki">CLI Documentation</a></h2>
-  </li>
-  <li>
-    <h2><a target="_blank" href="https://blog.angular.io//">Angular blog</a></h2>
-  </li>
-</ul>
+<div class="row">
+    <div class="col-md-3"></div>
+    <div class="col-md-6">
+        <div class="panel {{getStatusClass()}}">
+            <div class="panel-heading">
+                <div class="panel-title">
+                    {{status.State}}
+                </div>
+                <div class="panel-content">
+                   <div class="row" ng-show='Status.Duration > 0'>
+                       <div class="progress" >
+                           <div class="progress-bar progress-bar-success progress-bar-striped" role="progressbar" 
+                               aria-valuenow="{{elapsed}}" aria-valuemin="0" aria-valuemax="{{duration}}" style="width: {{elapsed}}%;min-width:2em;">
+                               {{elapsed}}%
+                           </div>
+                       </div>
+                   </div>
+                   <div class="row" ng-show='Status.Duration > 0'>
+                       <div class="col-md-6">
+                           Start:{{formatDateShort(status.Start)}}
+                       </div>
+                       <div class="col-md-6">
+                           End:{{getEnd()}}
+                       </div>
+                   </div>
+                </div>
+            </div>
+        </div>        
+    </div>
+    <div class="col-md-3"></div>
+</div>
+<div class="row">
+    <div class="col-md-3"></div>
+    <div class="col-md-3">
+        <div class="panel panel-info">
+            <div class="panel-heading">
+                <div class="panel-title">
+                    Pressure: {{status.Pressure}} kPa
+                </div>
+            </div>
+        </div>
+    </div>
+    <div class="col-md-3">
+        <div class="panel panel-info">
+            <div class="panel-heading">
+                <div class="panel-title">
+                    {{formatDateShort(status.TimeStamp)}}
+                </div>
+            </div>
+        </div>
+    </div>                              
+    <div class="col-md-3"></div>
+</div>
+<div class="row">
+    <form name="ManualProgram">
+    <div class="col-md-3"></div>
+    <div class="col-md-3">    
+       <div class="input-group input-group-lg">
+          <span class="input-group-addon" id="addon1">Station  </span>
+            <select id="selStation" class="form-control" aria-describedby="addon1" ng-model="ManualStation" required>
+               <option value="1">1</option>
+               <option value="2">2</option>
+               <option value="3">3</option>
+               <option value="4">4</option>
+               <option value="5">5</option>
+               <option value="6">6</option>
+               <option value="7">7</option>
+               <option value="8">8</option>               
+          </select>          
+       </div> 
+    </div>
+    <div class="col-md-3">    
+        <div class="input-group input-group-lg">
+            <span class="input-group-addon" id="addon2">Duration</span>
+            <select id="tbDuration" class="form-control" aria-describedby="addon2" ng-model="ManualDuration" required>
+               <option value="5">5 minutes</option>
+               <option value="30">30 minutes</option>
+               <option value="45">45 minutes</option>
+               <option value="60">1 hour</option>
+               <option value="120">2 hours</option>
+               <option value="150">2.5 hours</option>
+               <option value="180">3 hours</option>
+               <option value="210">3.5 hours</option>               
+               <option value="240">4 hours</option>
+               <option value="270">4.5 hours</option>
+               <option value="300">5 hours</option>
+               <option value="330">5.5 hours</option>               
+               <option value="360">6 hours</option>               
+          </select>
 
+            <!--input type="number" class="form-control" id="tbDuration" aria-describedby="addon1" placeholder="1 - 360" ng-model="ManualDuration" min="1" max="360" required> </input-->
+        </div>
+    </div>
+    <div class="col-md-3"></div>              
+    </form>
+</div>
+<div class="row">
+    <div class="col-md-3"></div>
+    <div class="col-md-6">          
+        <button type="button" class="btn btn-success btn-lg" ng-click="ManualStart()">Start</button>
+        <button type="button" class="btn btn-danger btn-lg" ng-click="Stop()">Stop</button>
+        <!--a class="btn btn-default" href="history" role="button">History</a-->        
+        <p class="bg-danger">{{errorMessage}}</p>    
+    </div>
+    <div class="col-md-3"></div>
+</div>
+<div class="row">
+    <div class="col-md-3"></div>
+    <div class="col-md-6">        
+        <div class="alert alert-success" role="alert" ng-if="getShowAlert()">
+            {{ManualCommandSuccess}}
+        </div>        
+    </div>
+    <div class="col-md-3"></div>
+</div>
+<br />
