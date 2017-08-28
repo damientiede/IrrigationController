@@ -1,9 +1,6 @@
 import { BrowserModule } from '@angular/platform-browser';
 import { NgModule } from '@angular/core';
-//import { HttpModule, HttpClient } from '@angular/http';
-import {HttpClient, HttpEvent, HttpHandler, 
-         HttpInterceptor, HttpRequest 
-} from '@angular/common/http';
+import { HttpModule, JsonpModule } from '@angular/http';
 import { FormsModule } from '@angular/forms';
 import { AppComponent } from './app.component';
 import { IrrigationControllerService} from './services/IrrigationController.service';
@@ -13,7 +10,9 @@ import { IrrigationControllerService} from './services/IrrigationController.serv
   ],
   imports: [
     BrowserModule,
-    FormsModule
+    FormsModule,
+    HttpModule, 
+    JsonpModule
   ],
   providers: [IrrigationControllerService],
   bootstrap: [AppComponent]

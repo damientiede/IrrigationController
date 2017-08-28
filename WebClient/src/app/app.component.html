@@ -15,10 +15,10 @@
         <div class="panel {{getStatusClass()}}">
             <div class="panel-heading">
                 <div class="panel-title">
-                    {{status.State}}
+                    {{status.state}}
                 </div>
                 <div class="panel-content">
-                   <div class="row" ng-show='Status.Duration > 0'>
+                   <div class="row" *ngIf='status.duration > 0'>
                        <div class="progress" >
                            <div class="progress-bar progress-bar-success progress-bar-striped" role="progressbar" 
                                aria-valuenow="{{elapsed}}" aria-valuemin="0" aria-valuemax="{{duration}}" style="width: {{elapsed}}%;min-width:2em;">
@@ -28,7 +28,7 @@
                    </div>
                    <div class="row" ng-show='Status.Duration > 0'>
                        <div class="col-md-6">
-                           Start:{{formatDateShort(status.Start)}}
+                           Start:{{formatDateShort(status.start)}}
                        </div>
                        <div class="col-md-6">
                            End:{{getEnd()}}
@@ -46,7 +46,7 @@
         <div class="panel panel-info">
             <div class="panel-heading">
                 <div class="panel-title">
-                    Pressure: {{status.Pressure}} kPa
+                    Pressure: {{status.pressure}} kPa
                 </div>
             </div>
         </div>
@@ -55,7 +55,7 @@
         <div class="panel panel-info">
             <div class="panel-heading">
                 <div class="panel-title">
-                    {{formatDateShort(status.TimeStamp)}}
+                    {{formatDateShort(status.updatedAt)}}
                 </div>
             </div>
         </div>
@@ -67,8 +67,8 @@
     <div class="col-md-3"></div>
     <div class="col-md-3">    
        <div class="input-group input-group-lg">
-          <span class="input-group-addon" id="addon1">Station  </span>
-            <select id="selStation" class="form-control" aria-describedby="addon1" ng-model="ManualStation" required>
+          <span class="input-group-addon">Station  </span>
+            <select id="selStation" class="form-control" [(ngModel)]="manualStation" required>
                <option value="1">1</option>
                <option value="2">2</option>
                <option value="3">3</option>
@@ -82,8 +82,8 @@
     </div>
     <div class="col-md-3">    
         <div class="input-group input-group-lg">
-            <span class="input-group-addon" id="addon2">Duration</span>
-            <select id="tbDuration" class="form-control" aria-describedby="addon2" ng-model="ManualDuration" required>
+            <span class="input-group-addon">Duration</span>
+            <select id="tbDuration" class="form-control" [(ngModel)]="ManualDuration" required>
                <option value="5">5 minutes</option>
                <option value="30">30 minutes</option>
                <option value="45">45 minutes</option>

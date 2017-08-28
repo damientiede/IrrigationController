@@ -1,11 +1,13 @@
-export class IrrigationControllerStatus {
-    state:string;
-    mode:string
-    pressure:number;
-    station:number;    
-    start:Date;
-    duration:number;
-    scheduleId:number;
-    inputs:string;
-    outputs:string;
+export class IStatus {
+    constructor(
+        public state:string,
+        public mode:string,
+        public pressure:number,
+        public station:number,   
+        public start:Date,
+        public duration:number,
+        public scheduleId:number,
+        public inputs:string,
+        public outputs:string
+    ){}
 }
