@@ -8,6 +8,7 @@ export class IStatus {
         public duration:number,
         public scheduleId:number,
         public inputs:string,
-        public outputs:string
+        public outputs:string,
+        public updatedAt:Date
     ){}
 }

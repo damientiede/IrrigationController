@@ -1,4 +1,6 @@
 import { Component, OnInit } from '@angular/core';
+import {Router} from "@angular/router";
+import * as moment from 'moment';
 //import { ToasterService } from 'angular2-toaster/angular2-toaster';
 //import { SlimLoadingBarService } from 'ng2-slim-loading-bar';
 import { IrrigationControllerService} from './services/IrrigationController.service';
@@ -12,11 +14,14 @@ import { IEvent } from './model/event';
 })
 
 export class AppComponent implements OnInit {  
-  //ictrlService:IrrigationControllerService;
   status : IStatus;
+  manualStation:number = 1;
+  manualDuration:number = 5;
   elapsed:number = 0;
   loaded:boolean = false;
-  constructor (private dataService:IrrigationControllerService) { }
+  constructor (private dataService:IrrigationControllerService,
+               private router:Router
+              ) { }
 
   ngOnInit() {
     this.getStatus();    
@@ -47,13 +52,49 @@ export class AppComponent implements OnInit {
   isLoaded() {
     return this.loaded;
   }
+  getDuration() {
+    if (this.status != null) {
+      return this.status.duration;
+    }
+    return 0;
+  }
   getStatusClass(){
     return '';
   }
   formatDateShort(date) {
-    return date;
+    return moment(date).format("dd/MM/yyyy");
+  }  
+  getState() {
+    if (this.status != null) {
+      return this.status.state;
+    }
+    return '';
+  }
+  getStartTime() {
+    if (this.status != null) {
+      return moment(this.status.start).format("HH:mm");
+    }
+    return '';
   }
   getEnd() {
+    if (this.status != null) {
+      return moment(this.status.start).add(this.status.duration,'minutes').format("HH:mm");
+    }
     return '';
+  }
+  getPressure() {
+    if (this.status != null) {
+      return `${this.status.pressure} kPa`;
+    }
+    return '';
+  }
+  getLastUpdated() {
+    if (this.status != null) {
+      return moment(this.status.updatedAt).format("Do MMM YYYY h:mm:ss a");
+    }
+    return '';    
+  }
+  navToHistory() {
+    this.router.navigate(['history']);
   }
 }

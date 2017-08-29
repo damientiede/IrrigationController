@@ -15,20 +15,20 @@
         <div class="panel {{getStatusClass()}}">
             <div class="panel-heading">
                 <div class="panel-title">
-                    {{status.state}}
+                    {{getState()}}
                 </div>
-                <div class="panel-content">
-                   <div class="row" *ngIf='status.duration > 0'>
+                <div class="panel-content" *ngIf="getDuration() > 0">
+                   <div class="row" >
                        <div class="progress" >
                            <div class="progress-bar progress-bar-success progress-bar-striped" role="progressbar" 
-                               aria-valuenow="{{elapsed}}" aria-valuemin="0" aria-valuemax="{{duration}}" style="width: {{elapsed}}%;min-width:2em;">
+                               attr.aria-valuenow="{{elapsed}}" attr.aria-valuemin="0" attr.aria-valuemax="{{duration}}" style="width: {{elapsed}}%;min-width:2em;">
                                {{elapsed}}%
                            </div>
                        </div>
                    </div>
-                   <div class="row" ng-show='Status.Duration > 0'>
+                   <div class="row">
                        <div class="col-md-6">
-                           Start:{{formatDateShort(status.start)}}
+                           Start:{{getStartTime()}}
                        </div>
                        <div class="col-md-6">
                            End:{{getEnd()}}
@@ -46,7 +46,7 @@
         <div class="panel panel-info">
             <div class="panel-heading">
                 <div class="panel-title">
-                    Pressure: {{status.pressure}} kPa
+                    Pressure: {{getPressure()}}
                 </div>
             </div>
         </div>
@@ -55,7 +55,7 @@
         <div class="panel panel-info">
             <div class="panel-heading">
                 <div class="panel-title">
-                    {{formatDateShort(status.updatedAt)}}
+                    {{getLastUpdated()}}                    
                 </div>
             </div>
         </div>
@@ -63,7 +63,7 @@
     <div class="col-md-3"></div>
 </div>
 <div class="row">
-    <form name="ManualProgram">
+    <!--form name="ManualProgram"-->
     <div class="col-md-3"></div>
     <div class="col-md-3">    
        <div class="input-group input-group-lg">
@@ -83,7 +83,7 @@
     <div class="col-md-3">    
         <div class="input-group input-group-lg">
             <span class="input-group-addon">Duration</span>
-            <select id="tbDuration" class="form-control" [(ngModel)]="ManualDuration" required>
+            <select id="tbDuration" class="form-control" [(ngModel)]="manualDuration" required>
                <option value="5">5 minutes</option>
                <option value="30">30 minutes</option>
                <option value="45">45 minutes</option>
@@ -103,13 +103,13 @@
         </div>
     </div>
     <div class="col-md-3"></div>              
-    </form>
+    <!--/form-->
 </div>
 <div class="row">
     <div class="col-md-3"></div>
     <div class="col-md-6">          
-        <button type="button" class="btn btn-success btn-lg" ng-click="ManualStart()">Start</button>
-        <button type="button" class="btn btn-danger btn-lg" ng-click="Stop()">Stop</button>
+        <button type="button" class="btn btn-success btn-lg" ng-click="manualStart()">Start</button>
+        <button type="button" class="btn btn-danger btn-lg" ng-click="stop()">Stop</button>
         <!--a class="btn btn-default" href="history" role="button">History</a-->        
         <p class="bg-danger">{{errorMessage}}</p>    
     </div>
