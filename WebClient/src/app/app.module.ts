@@ -1,14 +1,17 @@
 import { BrowserModule } from '@angular/platform-browser';
 import { NgModule } from '@angular/core';
-import { RouterModule }   from '@angular/router';
+import { RouterModule } from '@angular/router';
 import { HttpModule, JsonpModule } from '@angular/http';
 import { FormsModule } from '@angular/forms';
 import { AppComponent } from './app.component';
+import { NavComponent } from './nav.component/nav.component';
 import { HistoryComponent} from './history.component/history.component';
 import { IrrigationControllerService} from './services/IrrigationController.service';
+
 @NgModule({
-  declarations: [
+    declarations: [
     AppComponent,
+    NavComponent,
     HistoryComponent
   ],
   imports: [
@@ -17,9 +20,13 @@ import { IrrigationControllerService} from './services/IrrigationController.serv
     HttpModule, 
     JsonpModule,
     RouterModule.forRoot([
-      {
+      {      
         path: 'history',
         component: HistoryComponent
+      },
+      {
+        path: 'home',
+        component: AppComponent
       }
     ])
   ],

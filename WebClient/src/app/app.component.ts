@@ -59,7 +59,9 @@ export class AppComponent implements OnInit {
     return 0;
   }
   getStatusClass(){
-    return '';
+    if(this.status.state.indexOf("Irrigating") > -1) { return "panel-success"; }
+    if(this.status.state.indexOf("Fault") > -1) { return "panel-danger"; }
+    return "panel-default";
   }
   formatDateShort(date) {
     return moment(date).format("dd/MM/yyyy");
