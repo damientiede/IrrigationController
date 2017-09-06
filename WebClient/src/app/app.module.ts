@@ -3,14 +3,18 @@ import { NgModule } from '@angular/core';
 import { RouterModule } from '@angular/router';
 import { HttpModule, JsonpModule } from '@angular/http';
 import { FormsModule } from '@angular/forms';
+import { AuthGuard } from './common/auth.guard';
 import { AppComponent } from './app.component';
+import { StatusComponent } from './status.component/status.component';
 import { NavComponent } from './nav.component/nav.component';
 import { HistoryComponent} from './history.component/history.component';
 import { IrrigationControllerService} from './services/IrrigationController.service';
+import { routes } from './app.routes';
 
 @NgModule({
-    declarations: [
+  declarations: [
     AppComponent,
+    StatusComponent,
     NavComponent,
     HistoryComponent
   ],
@@ -19,18 +23,10 @@ import { IrrigationControllerService} from './services/IrrigationController.serv
     FormsModule,
     HttpModule, 
     JsonpModule,
-    RouterModule.forRoot([
-      {      
-        path: 'history',
-        component: HistoryComponent
-      },
-      {
-        path: 'home',
-        component: AppComponent
-      }
-    ])
-  ],
-  providers: [IrrigationControllerService],
+    RouterModule.forRoot(routes,
+    {enableTracing:true}
+  )],
+  providers: [IrrigationControllerService,AuthGuard],
   bootstrap: [AppComponent]
 })
 export class AppModule { }

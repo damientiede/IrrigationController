@@ -7,7 +7,7 @@ import { IStatus} from '../model/status';
 import { IEvent } from '../model/event';
 
 @Component({
-  selector: 'app-root',
+  selector: 'history-component',
   templateUrl: './history.component.html',
   //styleUrls: ['./app.component.css']
 })
