@@ -12,8 +12,48 @@ import { IEvent } from '../model/event';
   //styleUrls: ['./app.component.css']
 })
 
-export class HistoryComponent implements OnInit {  
-    ngOnInit() {
-           
-      }
+export class HistoryComponent implements OnInit { 
+  events: IEvent[] = [];
+  eventTypes: string[] = [
+    'Application', 'Fault','IO','Irrigation start','Irrigation stop'
+  ];
+  
+  constructor (private dataService:IrrigationControllerService
+   ) { }
+
+  ngOnInit() {
+    this.getEvents(); 
+  }
+
+  getEvents() {
+    console.log('getStatus()');
+    this.dataService
+      .getEvents()
+      .subscribe((data: IEvent[]) => {
+            console.log(data.length);
+            if (data.length > 0) {
+              this.events = data;
+              //this.loaded = true;
+            }            
+          },
+          error => () => {
+              console.log('Something went wrong...');
+              //this._toasterService.pop('error', 'Damn', 'Something went wrong...');
+          },
+          () => {
+              console.log('Success');
+              //this._toasterService.pop('success', 'Complete', 'Getting all values complete');
+              //this._slimLoadingBarService.complete();
+          });     
+  }
+
+  timeFormat(date) {
+    return moment(date).format("h:mm:ss a");
+  }
+
+  getEventType(et) {
+
+  }
+
+
 }

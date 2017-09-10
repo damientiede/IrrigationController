@@ -23,9 +23,8 @@ import { routes } from './app.routes';
     FormsModule,
     HttpModule, 
     JsonpModule,
-    RouterModule.forRoot(routes,
-    {enableTracing:true}
-  )],
+    RouterModule.forRoot(routes)
+  ],
   providers: [IrrigationControllerService,AuthGuard],
   bootstrap: [AppComponent]
 })

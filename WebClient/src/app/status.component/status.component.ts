@@ -6,6 +6,7 @@ import * as moment from 'moment';
 import { IrrigationControllerService} from '../services/IrrigationController.service';
 import { IStatus} from '../model/status';
 import { IEvent } from '../model/event';
+import { ICommand } from '../model/command';
 
 @Component({
   selector: 'status-component',
@@ -96,7 +97,46 @@ export class StatusComponent implements OnInit {
     }
     return '';    
   }
-  navToHistory() {
-    this.router.navigate(['history']);
+  manualStop() {
+    let cmd = new ICommand(
+      0,  //id
+      4,  //commandtype
+      '', //params
+      new Date, //issued
+      null, //actioned
+      new Date, //createdAt
+      null  //updatedAt
+    );
+    this.sendCommand(cmd);
   }
+  manualStart() {
+    if (this.manualStation != null && this.manualDuration != null) {
+      let cmd = new ICommand(
+        0,  //id
+        3,  //commandtype
+        `${this.manualStation}, ${this.manualDuration}`,
+        new Date, //issued
+        null, //actioned
+        new Date, //createdAt
+        null  //updatedAt
+      );
+      this.sendCommand(cmd);
+    }
+  }
+  sendCommand(cmd:ICommand) {
+    this.dataService.sendCommand(cmd)
+    .subscribe(() => {},
+      error => () => {
+        console.log('Something went wrong...');
+        //this._toasterService.pop('error', 'Damn', 'Something went wrong...');
+      },
+      () => {
+        console.log('Success');
+        //this._toasterService.pop('success', 'Complete', 'Getting all values complete');
+        //this._slimLoadingBarService.complete();
+    });           
+    }
+  /* navToHistory() {
+    this.router.navigate(['history']);
+  } */
 }
