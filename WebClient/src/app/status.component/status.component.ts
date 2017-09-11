@@ -1,7 +1,8 @@
-import { Component, OnInit } from '@angular/core';
+import { Component, OnInit, ViewContainerRef  } from '@angular/core';
 import {Router} from "@angular/router";
 import * as moment from 'moment';
 //import { ToasterService } from 'angular2-toaster/angular2-toaster';
+import { ToastsManager } from 'ng2-toastr/ng2-toastr';
 //import { SlimLoadingBarService } from 'ng2-slim-loading-bar';
 import { IrrigationControllerService} from '../services/IrrigationController.service';
 import { IStatus} from '../model/status';
@@ -20,8 +21,12 @@ export class StatusComponent implements OnInit {
   elapsed:number = 0;
   loaded:boolean = false;
   constructor (private dataService:IrrigationControllerService,
+               public toastr: ToastsManager, 
+               vcr: ViewContainerRef,      
                private router:Router
-              ) { }
+              ) { 
+    this.toastr.setRootViewContainerRef(vcr);
+  }
 
   ngOnInit() {
     this.getStatus();    
@@ -128,15 +133,12 @@ export class StatusComponent implements OnInit {
     .subscribe(() => {},
       error => () => {
         console.log('Something went wrong...');
-        //this._toasterService.pop('error', 'Damn', 'Something went wrong...');
+        this.toastr.error('Something went wrong...','Damn');
       },
       () => {
         console.log('Success');
-        //this._toasterService.pop('success', 'Complete', 'Getting all values complete');
+        this.toastr.success('It will take a few moments to process.','Command sent' );
         //this._slimLoadingBarService.complete();
     });           
-    }
-  /* navToHistory() {
-    this.router.navigate(['history']);
-  } */
+  }
 }
