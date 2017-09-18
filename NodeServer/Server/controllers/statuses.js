@@ -1,6 +1,21 @@
 const Statuses = require('../models').Status;
 
 module.exports = {
+      get(req,res) {
+
+            Solenoid.findAll({ where: { deviceId: req.query.id } })
+                  .then(projects => {
+                        // projects will be an array of Project instances with the specified name
+                      })
+                      
+            let device = Devices
+                  .findById(req.body.deviceId)
+                  .then
+
+
+      }
+
+
    list(req, res) {
       return Statuses
          .all()
