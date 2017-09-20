@@ -1,25 +1,20 @@
 const eventTypes = require('./eventtypes');
 const commandTypes = require('./commandtypes');
-const status = require('./status');
+const devices = require('./devices');
+const accounts = require('./accounts');
+const solenoids = require('./solenoids');
+const spis = require('./spis');
 
-const seedEventTypes = () => {
-    eventTypes.seed();
-}
-const seedCommandTypes = () => {
-    commandTypes.seed();
-}
-const seedStatus = () => {
-    status.seed();
-}
 const seedAll = () => {
-    seedEventTypes();
-    seedCommandTypes();
-    seedStatus();
+    eventTypes.seed();
+    commandTypes.seed();
+    devices.seed();
+    accounts.seed();
+    users.seed();    
+    solenoids.seed();
+    spis.seed();
 }
-module.exports = {
-    seedEventTypes,
-    seedCommandTypes,
-    seedStatus,
+module.exports = {    
     seedAll
 };
 

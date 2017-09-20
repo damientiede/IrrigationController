@@ -1,9 +1,5 @@
 module.exports = (sequelize, DataTypes) => {
-    const Solenoid = sequelize.define('Solenoid', {   
-        /* deviceId: {
-            type: DataTypes.INTEGER,
-            allowNull:false
-        }, */
+    const Solenoid = sequelize.define('Solenoid', {          
         name: {
             type: DataTypes.STRING,
             allowNull:false

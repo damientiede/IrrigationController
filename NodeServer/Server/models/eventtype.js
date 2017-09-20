@@ -5,12 +5,6 @@ module.exports = (sequelize, DataTypes) => {
       allowNull:false
     },
     description: DataTypes.STRING
-  }, {
-    classMethods: {
-      associate: function(models) {
-        // associations can be defined here
-      }
-    }
   });
   return EventType;
 };

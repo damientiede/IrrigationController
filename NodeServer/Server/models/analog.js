@@ -15,11 +15,23 @@ module.exports = (sequelize, DataTypes) => {
         address: {
             type: DataTypes.STRING,
             allowNull:false
-        },  
-        value: {
+        }, 
+        multiplier: {
+            type: DataTypes.DOUBLE,
+            allowNull:false
+        },
+        rawValue: {
             type: DataTypes.INTEGER,
             allowNull:false
-        }        
+        },
+        units: {
+            type: DataTypes.STRING,
+            allowNull:false
+        }, 
+        value: {
+            type: DataTypes.DOUBLE,
+            allowNull:false
+        }    
     });
 
     Analog.associate = (models) => {

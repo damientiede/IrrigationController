@@ -9,12 +9,12 @@ module.exports = (sequelize, DataTypes) => {
       allowNull: false
     },
     mode: {
-      type: DataTypes.STRING,
-      allowNull: false
+      type: DataTypes.ENUM,
+      values:['Manual','Auto','Off']
     },
     state: {
-      type: DataTypes.STRING,
-      allowNull: false
+        type: DataTypes.ENUM,
+        values:['Monitoring','Irrigating','Fault']
     },
     start: DataTypes.DATE,
     duration: DataTypes.INTEGER,

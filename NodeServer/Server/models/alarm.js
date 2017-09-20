@@ -9,13 +9,17 @@ module.exports = (sequelize, DataTypes) => {
             allowNull:false
         },
         hardwareType: {
-            type: DataTypes.STRING,
-            allowNull:false
+            type: DataTypes.ENUM,
+            values:['GPIO','Distributed','SPI']
         },
         address: {
             type: DataTypes.STRING,
             allowNull:false
-        },      
+        },  
+        value: {
+            type: DataTypes.INTEGER,
+            allowNull:false
+        }    
     });
     
     Alarm.associate = (models) => {

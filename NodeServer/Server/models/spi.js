@@ -4,11 +4,11 @@ module.exports = (sequelize, DataTypes) => {
             type: DataTypes.STRING,
             allowNull:false
         },
-        ADCClock: {
+        Clock: {
           type: DataTypes.INTEGER,
           allowNull:false
         },
-        ADCCS: {
+        CS: {
             type: DataTypes.INTEGER,
             allowNull:false
           },
@@ -19,11 +19,7 @@ module.exports = (sequelize, DataTypes) => {
         MOSI: {
             type: DataTypes.INTEGER,
             allowNull:false
-        },
-        hardwareType: {
-          type: DataTypes.STRING,
-          allowNull:false
-        }                 
+        },                       
     });
 
     Solenoid.associate = (models) => {
