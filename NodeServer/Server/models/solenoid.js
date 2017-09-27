@@ -19,7 +19,8 @@ module.exports = (sequelize, DataTypes) => {
         value: {
             type: DataTypes.INTEGER,
             allowNull:false
-        }     
+        },
+        requiresPump: DataTypes.BOOLEAN     
     });
 
     Solenoid.associate = (models) => {
@@ -27,21 +28,7 @@ module.exports = (sequelize, DataTypes) => {
           foreignKey: 'deviceId',
           onDelete: 'CASCADE',
         });
-    };
-    
-    
-    , {
-        classMethods: {
-            associate: (models) => {
-            // EventHistory.hasMany(models.EventType, {
-            //   foreignKey: 'eventtypeId',
-            //   as 'eventTypes'
-            // });
-            // associations can be defined here
-            }
-        }
-    });
-    Solenoid.belongsTo(Device);
+    };            
     return Solenoid;
   };
   

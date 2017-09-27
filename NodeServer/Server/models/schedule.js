@@ -1,7 +1,7 @@
 module.exports = (sequelize, DataTypes) => {
   const Schedule = sequelize.define('Schedule', {
-    stationId: { 
-      type:DataTypes.INTEGER,
+    name: { 
+      type:DataTypes.STRING,
       allowNull:false
     },
     start: { 
@@ -14,13 +14,16 @@ module.exports = (sequelize, DataTypes) => {
     },
     repeat: DataTypes.BOOLEAN,
     interval: DataTypes.INTEGER,
-    enabled: DataTypes.BOOLEAN
-  }, {
-    classMethods: {
-      associate: function(models) {
-        // associations can be defined here
-      }
-    }
+    enabled: DataTypes.BOOLEAN  
   });
+  Schedule.associate = (models) => {
+    Schedule.hasOne(models.Solenoid, {
+      foreignKey: 'solenoidId'      
+    });
+    Schedule.belongsTo(models.Device, {
+        foreignKey: 'deviceId',
+        onDelete: 'CASCADE',
+    });
+  };
   return Schedule;
 };

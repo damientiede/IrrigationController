@@ -10,7 +10,7 @@ const seedAll = () => {
     commandTypes.seed();
     devices.seed();
     accounts.seed();
-    users.seed();    
+    //users.seed();    
     solenoids.seed();
     spis.seed();
 }

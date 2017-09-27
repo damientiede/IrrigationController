@@ -7,9 +7,7 @@ const solenoidsController = require('../controllers').solenoids;
 const alarmsController = require('../controllers').alarms;
 const analogsController = require('../controllers').analogs;
 const spisController = require('../controllers').spis;
-const accountsController = require('../controllers').accounts;
 const usersController = require('../controllers').users;
-const devicesController = require('../controllers').devices;
 
 module.exports = (app) => {
    app.get('/api',(req, res) => res.status(200).send({
@@ -39,20 +37,20 @@ module.exports = (app) => {
    app.get('/api/devices', devicesController.list);
    app.put('/api/devices/:id', devicesController.update);
    
-   app.post('/api/solenoids', solenoidController.create);
-   app.get('/api/solenoids/:id', solenoidController.single);
-   app.get('/api/solenoids/:deviceid', solenoidController.list);
-   app.put('/api/solenoids/:id', solenoidController.update);
+   app.post('/api/solenoids', solenoidsController.create);
+   app.get('/api/solenoids/:id', solenoidsController.single);
+   app.get('/api/solenoids/:deviceid', solenoidsController.list);
+   app.put('/api/solenoids/:id', solenoidsController.update);
 
-   app.post('/api/alarms', alarmController.create);
-   app.get('/api/alarms/:id', alarmController.single);
-   app.get('/api/alarms/:deviceid', alarmController.list);
-   app.put('/api/alarms/:id', alarmController.update);
+   app.post('/api/alarms', alarmsController.create);
+   app.get('/api/alarms/:id', alarmsController.single);
+   app.get('/api/alarms/:deviceid', alarmsController.list);
+   app.put('/api/alarms/:id', alarmsController.update);
 
-   app.post('/api/analogs', analogController.create);
-   app.get('/api/analogs/:id', analogController.single);
-   app.get('/api/analogs/:deviceid', analogController.list);
-   app.put('/api/analogs/:id', analogController.update);
+   app.post('/api/analogs', analogsController.create);
+   app.get('/api/analogs/:id', analogsController.single);
+   app.get('/api/analogs/:deviceid', analogsController.list);
+   app.put('/api/analogs/:id', analogsController.update);
 
    app.post('/api/spis', spisController.create);
    app.get('/api/spis/:id', spisController.single);

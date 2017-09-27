@@ -23,7 +23,7 @@ module.exports = (sequelize, DataTypes) => {
     });
     
     Alarm.associate = (models) => {
-        Solenoid.belongsTo(models.Device, {
+        Alarm.belongsTo(models.Device, {
             foreignKey: 'deviceId',
             onDelete: 'CASCADE',
         });

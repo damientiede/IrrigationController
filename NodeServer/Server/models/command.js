@@ -20,5 +20,11 @@ module.exports = (sequelize, DataTypes) => {
           }
         }
     });
+    Command.associate = (models) => {
+      Command.belongsTo(models.Device, {
+          foreignKey: 'deviceId',
+          onDelete: 'CASCADE',
+      });
+    };
     return Command;
 };

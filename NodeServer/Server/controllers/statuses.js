@@ -13,15 +13,15 @@ module.exports = {
                   .then
 
 
-      }
+      },
 
 
-   list(req, res) {
+   /* list(req, res) {
       return Statuses
          .all()
          .then(status => res.status(200).send(status))
          .catch(error => res.status(400).send(error));
-   },
+   }, */
    update(req, res) {
       return Statuses.update({
          state: req.body.state,

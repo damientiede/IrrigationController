@@ -22,8 +22,8 @@ module.exports = (sequelize, DataTypes) => {
         },                       
     });
 
-    Solenoid.associate = (models) => {
-      Solenoid.belongsTo(models.Device, {
+    Spi.associate = (models) => {
+      Spi.belongsTo(models.Device, {
         foreignKey: 'deviceId',
         onDelete: 'CASCADE',
       });

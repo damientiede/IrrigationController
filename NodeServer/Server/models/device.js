@@ -16,9 +16,10 @@ module.exports = (sequelize, DataTypes) => {
         type: DataTypes.ENUM,
         values:['Monitoring','Irrigating','Fault']
     },
-    start: DataTypes.DATE,
-    duration: DataTypes.INTEGER,
-    solenoid: DataTypes.STRING,    
+    manualStart: DataTypes.DATE,
+    manualDuration: DataTypes.INTEGER,
+    manualSolenoid: DataTypes.INTEGER,        
+    pumpSolenoid: DataTypes.INTEGER,
     softwareVersion: {
       type: DataTypes.STRING,
       allowNull: false

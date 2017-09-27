@@ -2,6 +2,55 @@
 module.exports = {
     up: function(queryInterface, Sequelize) {
     return [
+        //devices        
+        queryInterface.createTable('Devices', {
+            id: {
+                allowNull: false,
+                autoIncrement: true,
+                primaryKey: true,
+                type: Sequelize.INTEGER
+            },
+            name: {
+                type: Sequelize.STRING,
+                allowNull:false
+            },
+            description: {
+                type: Sequelize.STRING,
+                allowNull: false
+            },
+            mode: {
+                type: Sequelize.ENUM,
+                values:['Manual','Auto','Off']
+            },
+            state: {
+                type: Sequelize.ENUM,
+                values:['Monitoring','Irrigating','Fault']
+            },   
+            manualStart: {
+                type: Sequelize.DATE                
+            },
+            manualDuration: {
+                type: Sequelize.INTEGER                
+            },
+            manualSolenoid: {
+                type: Sequelize.INTEGER
+            }, 
+            pumpSolenoid: {
+                type: Sequelize.INTEGER
+            },  
+            softwareVersion: {
+                type: Sequelize.STRING,
+                allowNull: false
+            },
+            createdAt: {
+                allowNull: false,
+                type: Sequelize.DATE
+            },
+            updatedAt: {
+                allowNull: false,
+                type: Sequelize.DATE
+            }
+        }),         
         //accounts
         queryInterface.createTable('Accounts', {
             id: {
@@ -26,34 +75,34 @@ module.exports = {
                 allowNull: false,
                 type: Sequelize.DATE
             }
-        }),
-        //devices        
-        queryInterface.createTable('Devices', {
+        }),   
+        //users                
+        queryInterface.createTable('Users', {
             id: {
                 allowNull: false,
                 autoIncrement: true,
                 primaryKey: true,
                 type: Sequelize.INTEGER
             },
-            name: {
+            firstName: {
                 type: Sequelize.STRING,
                 allowNull:false
             },
-            description: {
+            lastName: {
                 type: Sequelize.STRING,
-                allowNull: false
+                allowNull:false
             },
-            mode: {
-                type: Sequelize.ENUM,
-                values:['Manual','Auto','Off']
-            },
-            state: {
-                type: Sequelize.ENUM,
-                values:['Monitoring','Irrigating','Fault']
-            },          
-            softwareVersion: {
+            email: {
                 type: Sequelize.STRING,
-                allowNull: false
+                allowNull:false
+            },
+            mobile: {
+                type: Sequelize.STRING,
+                allowNull:false
+            },      
+            password: {
+                type: Sequelize.STRING,
+                allowNull:false
             },
             createdAt: {
                 allowNull: false,
@@ -62,40 +111,8 @@ module.exports = {
             updatedAt: {
                 allowNull: false,
                 type: Sequelize.DATE
-            }
-        }),
-        
-        //commands
-        queryInterface.createTable('Commands', {
-            id: {
-                allowNull: false,
-                autoIncrement: true,
-                primaryKey: true,
-                type: Sequelize.INTEGER
-            },
-            commandtype: {
-                type: Sequelize.INTEGER
-            },
-            params: {
-                type: Sequelize.STRING
-            },
-            issued: {
-                type: Sequelize.DATE,
-                allowNull:false
-            },
-            actioned: {
-                type:Sequelize.DATE,
-                allowNull:true
-            },
-            createdAt: {
-                allowNull: false,
-                type: Sequelize.DATE
-            },
-            updatedAt: {
-                allowNull: false,
-                type: Sequelize.DATE
-            }
-        }),
+            }           
+        }),             
         //commandtype
         queryInterface.createTable('CommandTypes', {
             id: {
@@ -118,31 +135,7 @@ module.exports = {
                 allowNull: false,
                 type: Sequelize.DATE
             }
-        }),
-        
-        //event
-        queryInterface.createTable('Events', {
-            id: {
-                type: Sequelize.INTEGER,
-                allowNull: false,
-                autoIncrement: true,
-                primaryKey: true
-            },
-            eventtype: {
-                type: Sequelize.INTEGER
-            },
-            eventvalue: {
-                type: Sequelize.STRING
-            },
-            createdAt: {
-                allowNull: false,
-                type: Sequelize.DATE
-            },
-            updatedAt: {
-                allowNull: false,
-                type: Sequelize.DATE
-            }
-        }),
+        }),                
         //eventtype
         queryInterface.createTable('EventTypes', {
             id: {
@@ -156,41 +149,6 @@ module.exports = {
             },
             description: {
                 type: Sequelize.STRING
-            },
-            createdAt: {
-                allowNull: false,
-                type: Sequelize.DATE
-            },
-            updatedAt: {
-                allowNull: false,
-                type: Sequelize.DATE
-            }
-        }),
-        //schedules
-        queryInterface.createTable('Schedules', {
-            id: {
-                allowNull: false,
-                autoIncrement: true,
-                primaryKey: true,
-                type: Sequelize.INTEGER
-            },
-            stationId: {
-                type: Sequelize.INTEGER
-            },
-            start: {
-                type: Sequelize.DATE
-            },
-            duration: {
-                type: Sequelize.INTEGER
-            },
-            repeat: {
-                type: Sequelize.BOOLEAN
-            },
-            interval: {
-                type: Sequelize.INTEGER
-            },
-            enabled: {
-                type: Sequelize.BOOLEAN
             },
             createdAt: {
                 allowNull: false,
@@ -229,6 +187,9 @@ module.exports = {
                 type: Sequelize.INTEGER,
                 allowNull:false
             },
+            requiresPump: {
+                type: Sequelize.BOOLEAN
+            },
             createdAt: {
                 allowNull: false,
                 type: Sequelize.DATE
@@ -246,7 +207,7 @@ module.exports = {
                     as: 'deviceId'
                 },
             }
-        }),  
+        }),                  
         //spis
         queryInterface.createTable('Spis', {
             id: {
@@ -259,11 +220,11 @@ module.exports = {
                 type: Sequelize.STRING,
                 allowNull:false
             },
-            ADCClock: {
+            Clock: {
               type: Sequelize.INTEGER,
               allowNull:false
             },
-            ADCCS: {
+            CS: {
                 type: Sequelize.INTEGER,
                 allowNull:false
               },
@@ -396,35 +357,28 @@ module.exports = {
                     as: 'deviceId'
                 },
             }
-        }),      
-        //users 
-        /*       
-        queryInterface.createTable('_Users', {
+        }), 
+        //commands
+        queryInterface.createTable('Commands', {
             id: {
                 allowNull: false,
                 autoIncrement: true,
                 primaryKey: true,
                 type: Sequelize.INTEGER
             },
-            firstName: {
-                type: Sequelize.STRING,
+            commandtype: {
+                type: Sequelize.INTEGER
+            },
+            params: {
+                type: Sequelize.STRING
+            },
+            issued: {
+                type: Sequelize.DATE,
                 allowNull:false
             },
-            lastName: {
-                type: Sequelize.STRING,
-                allowNull:false
-            },
-            email: {
-                type: Sequelize.EMAIL,
-                allowNull:false
-            },
-            mobile: {
-                type: Sequelize.STRING,
-                allowNull:false
-            },      
-            password: {
-                type: Sequelize.STRING,
-                allowNull:false
+            actioned: {
+                type:Sequelize.DATE,
+                allowNull:true
             },
             createdAt: {
                 allowNull: false,
@@ -433,11 +387,104 @@ module.exports = {
             updatedAt: {
                 allowNull: false,
                 type: Sequelize.DATE
-            }           
-        })  */      
+            },
+            deviceId: {
+                type: Sequelize.INTEGER,
+                onDelete: 'CASCADE',
+                references: {
+                    model: 'Devices',
+                    key: 'id',
+                    as: 'deviceId'
+                },
+            },
+        }),          
+        //schedules
+        queryInterface.createTable('Schedules', {
+            id: {
+                allowNull: false,
+                autoIncrement: true,
+                primaryKey: true,
+                type: Sequelize.INTEGER
+            },
+            stationId: {
+                type: Sequelize.INTEGER
+            },
+            start: {
+                type: Sequelize.DATE
+            },
+            duration: {
+                type: Sequelize.INTEGER
+            },
+            repeat: {
+                type: Sequelize.BOOLEAN
+            },
+            interval: {
+                type: Sequelize.INTEGER
+            },
+            enabled: {
+                type: Sequelize.BOOLEAN
+            },
+            createdAt: {
+                allowNull: false,
+                type: Sequelize.DATE
+            },
+            updatedAt: {
+                allowNull: false,
+                type: Sequelize.DATE
+            },
+            deviceId: {
+                type: Sequelize.INTEGER,
+                onDelete: 'CASCADE',
+                references: {
+                    model: 'Devices',
+                    key: 'id',
+                    as: 'deviceId'
+                },
+            },
+            solenoidId: {
+                type: Sequelize.INTEGER,
+                references: {
+                    model: 'Solenoids',
+                    key: 'id',
+                    as: 'solenoidId'
+                }
+            }
+        }),   
+        //event
+        queryInterface.createTable('Events', {
+            id: {
+                type: Sequelize.INTEGER,
+                allowNull: false,
+                autoIncrement: true,
+                primaryKey: true
+            },
+            eventtype: {
+                type: Sequelize.INTEGER
+            },
+            eventvalue: {
+                type: Sequelize.STRING
+            },
+            createdAt: {
+                allowNull: false,
+                type: Sequelize.DATE
+            },
+            updatedAt: {
+                allowNull: false,
+                type: Sequelize.DATE
+            },
+            deviceId: {
+                type: Sequelize.INTEGER,
+                onDelete: 'CASCADE',
+                references: {
+                    model: 'Devices',
+                    key: 'id',
+                    as: 'deviceId'
+                },
+            }
+        })             
     ]},      
     down: function(queryInterface, Sequelize) {
-    return [
+    return [        
         //accounts
         queryInterface.dropTable('Accounts'),
         //alarms
@@ -452,16 +499,16 @@ module.exports = {
         queryInterface.dropTable('Events'),
         //eventtypes
         queryInterface.dropTable('EventTypes'),
-        //schedules
-        queryInterface.dropTable('Schedules'),
         //solenoids
         queryInterface.dropTable('Solenoids'),
+        //schedules
+        queryInterface.dropTable('Schedules'),        
         //spis
         queryInterface.dropTable('Spis'),
         //users
         queryInterface.dropTable('Users'),
         //devices
-        queryInterface.dropTable('Devices')
+        queryInterface.dropTable('Devices'),
     ]
   }
 };
