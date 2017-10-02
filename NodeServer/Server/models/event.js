@@ -14,6 +14,6 @@ module.exports = (sequelize, DataTypes) => {
           foreignKey: 'deviceId',
           onDelete: 'CASCADE',
       });
-    };
+    }; 
     return Event;
 };

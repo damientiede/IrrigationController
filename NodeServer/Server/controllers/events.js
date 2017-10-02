@@ -6,13 +6,16 @@ module.exports = {
          .create({
             eventtype: parseInt(req.body.eventtype),
             eventvalue: req.body.eventvalue,
+            deviceId: parseInt(req.body.deviceId)
          })
          .then(event => res.status(201).send(event))
          .catch(error => res.status(400).send(error));
    },
    list(req, res) {
       return Event
-         .all()
+         .findAll({ 
+            where: { deviceid: parseInt(req.params.deviceid) }
+         })
          .then(events => res.status(200).send(events))
          .catch(error => res.status(400).send(error));
    },

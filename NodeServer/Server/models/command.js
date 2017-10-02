@@ -13,18 +13,12 @@ module.exports = (sequelize, DataTypes) => {
           type:DataTypes.DATE,
           allowNull:true
         },
-    }, {
-        classMethods: {
-          associate: function(models) {
-            // associations can be defined here
-          }
-        }
     });
     Command.associate = (models) => {
       Command.belongsTo(models.Device, {
           foreignKey: 'deviceId',
           onDelete: 'CASCADE',
       });
-    };
+    }; 
     return Command;
 };

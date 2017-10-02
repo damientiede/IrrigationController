@@ -3,7 +3,7 @@ module.exports = (sequelize, DataTypes) => {
     name: { 
       type:DataTypes.STRING,
       allowNull:false
-    },
+    },   
     start: { 
       type:DataTypes.DATE,
       allowNull:false
@@ -17,13 +17,14 @@ module.exports = (sequelize, DataTypes) => {
     enabled: DataTypes.BOOLEAN  
   });
   Schedule.associate = (models) => {
-    Schedule.hasOne(models.Solenoid, {
-      foreignKey: 'solenoidId'      
-    });
+    /* Schedule.hasOne(models.Solenoid, {
+      foreignKey: 'solenoidId',
+      as: 'solenoid'      
+    }); */
     Schedule.belongsTo(models.Device, {
         foreignKey: 'deviceId',
         onDelete: 'CASCADE',
-    });
+    }); 
   };
   return Schedule;
 };

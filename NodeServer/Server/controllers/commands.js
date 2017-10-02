@@ -14,9 +14,12 @@ module.exports = {
    },
    pending(req, res) {
       return Command
-         .findAll({
-	     where: { actioned: null }
-	 })
+         .findAll({ 
+            where: { 
+                  deviceid: parseInt(req.params.deviceid),
+                  actioned:null
+            }
+          })         
          .then(commands => res.status(200).send(commands))
          .catch(error => res.status(400).send(error));
    },

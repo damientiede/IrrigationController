@@ -8,7 +8,8 @@ module.exports = {
                 description: req.body.description,
                 hardwareType: req.body.hardwaretype,            
                 address: req.body.address,
-                value:0
+                value:0,
+                deviceId: req.body.deviceId
             })
             .then(solenoid => res.status(201).send(solenoid))
             .catch(error => res.status(400).send(error));

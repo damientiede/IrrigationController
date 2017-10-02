@@ -406,9 +406,9 @@ module.exports = {
                 primaryKey: true,
                 type: Sequelize.INTEGER
             },
-            stationId: {
-                type: Sequelize.INTEGER
-            },
+            name: {
+                type: Sequelize.STRING
+            },            
             start: {
                 type: Sequelize.DATE
             },

@@ -1,4 +1,9 @@
 const Device = require('../models').Device;
+const Solenoid = require('../models').Solenoid;
+const Alarm = require('../models').Alarm;
+const Spi = require('../models').Spi;
+const Analog = require('../models').Analog;
+const Command = require('../models').Command;
 
 module.exports = {
    create(req, res) {      
@@ -18,7 +23,14 @@ module.exports = {
    },
    single(req, res) {
         return Device
-            .findById(req.params.id)
+            .find({
+                where: {id: req.params.id},
+                include: [{all:true}]
+/*                 include: [
+                    {model: Solenoid, as: 'solenoids'},
+                    {model: Spi, as: 'spis'},
+                ]                
+ */            })
             .then(device => res.status(200).send(device))
             .catch(error => res.status(400).send(error));   
    },
