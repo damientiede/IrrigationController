@@ -8,6 +8,7 @@ module.exports = {
                 description: req.body.description,
                 hardwareType: req.body.hardwaretype,            
                 address: req.body.address,
+                deviceId: parseInt(req.body.deviceid),
                 value:0
             })
             .then(alarm => res.status(201).send(alarm))
@@ -22,7 +23,7 @@ module.exports = {
    list(req, res) {
         return Alarm
             .findAll({ 
-                where: { deviceid: parseInt(req.params.deviceid) }
+                where: { deviceId: parseInt(req.params.deviceid) }
 	        })
             .then(alarms => res.status(200).send(alarms))
             .catch(error => res.status(400).send(error));
@@ -30,7 +31,7 @@ module.exports = {
    update(req, res) {
         return Alarm
             .update({        
-                deviceid: parseInt(req.body.deviceid),
+                deviceId: parseInt(req.body.deviceid),
                 name: req.body.name,
                 hardwareType: parseInt(req.body.hardwaretype),            
                 address: req.body.address,

@@ -33,4 +33,13 @@ module.exports = {
             .then(account => res.status(200).send(account))
             .catch(error => res.status(400).send(error));
    },
+   delete(req, res) {
+    return Account
+        .destroy({
+            where: {id:req.params.id},
+            truncate:true
+        })  
+        .then(affectedRows => res.status(200).send())                    
+        .catch(error => res.status(400).send(error));
+    }
 };

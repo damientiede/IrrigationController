@@ -6,10 +6,21 @@ module.exports = {
          .create({
             commandtype: parseInt(req.body.commandtype),
             params: req.body.params,
-	    issued: new Date(),
-            actioned: null
+	      issued: new Date(),
+            actioned: null,
+            deviceId: parseInt(req.body.deviceid)
          })
          .then(command => res.status(201).send(command))
+         .catch(error => res.status(400).send(error));
+   },
+   list(req, res) {
+      return Command
+         .findAll({ 
+            where: { 
+                  deviceid: parseInt(req.params.deviceid)                  
+            }
+          })         
+         .then(commands => res.status(200).send(commands))
          .catch(error => res.status(400).send(error));
    },
    pending(req, res) {
@@ -25,9 +36,9 @@ module.exports = {
    },
    update(req, res) {
       return Command.update({
-         actioned: req.body.actioned
+         actioned: Date.parse(req.body.actioned)
       }, {
-	 where: { id: req.body.commandid }
+	 where: { id: req.params.commandid }
       })
       .then(command => res.status(200).send(command))
       .catch(error => res.status(400).send(error));

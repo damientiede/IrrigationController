@@ -6,7 +6,7 @@ module.exports = {
          .create({
             eventtype: parseInt(req.body.eventtype),
             eventvalue: req.body.eventvalue,
-            deviceId: parseInt(req.body.deviceId)
+            deviceId: parseInt(req.body.deviceid)
          })
          .then(event => res.status(201).send(event))
          .catch(error => res.status(400).send(error));
