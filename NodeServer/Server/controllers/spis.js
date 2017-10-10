@@ -42,4 +42,12 @@ module.exports = {
             .then(spi => res.status(200).send(spi))
             .catch(error => res.status(400).send(error));
    },
+   listByDevice(req, res) {    
+        return Spi
+        .findAll({
+            where: {deviceid: req.params.deviceid}        
+        })
+        .then(spis => res.status(200).send(spis))
+        .catch(error => res.status(400).send(error));  
+        }
 };

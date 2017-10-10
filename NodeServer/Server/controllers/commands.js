@@ -15,10 +15,17 @@ module.exports = {
    },
    list(req, res) {
       return Command
+      .findAll({ limit: 100 })         
+      .then(commands => res.status(200).send(commands))
+      .catch(error => res.status(400).send(error));
+   },
+   listByDevice(req, res) {
+      return Command
          .findAll({ 
             where: { 
                   deviceid: parseInt(req.params.deviceid)                  
-            }
+            },
+            limit:100
           })         
          .then(commands => res.status(200).send(commands))
          .catch(error => res.status(400).send(error));

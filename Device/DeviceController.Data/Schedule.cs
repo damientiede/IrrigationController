@@ -6,7 +6,7 @@ using System.Threading.Tasks;
 
 namespace DeviceController.Data
 {
-    class Schedule
+    public class Schedule
     {
     }
 }

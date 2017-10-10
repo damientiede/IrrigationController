@@ -49,4 +49,12 @@ module.exports = {
             .then(alarm => res.status(200).send(alarm))
             .catch(error => res.status(400).send(error));
    },
+   listByDevice(req, res) {    
+        return Analog
+        .findAll({
+            where: {deviceid: req.params.deviceid}        
+        })
+        .then(analogs => res.status(200).send(analogs))
+        .catch(error => res.status(400).send(error));  
+        }
 };

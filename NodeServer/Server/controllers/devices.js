@@ -16,7 +16,8 @@ module.exports = {
                 start:req.body.start,
                 duration:req.body.duration,
                 solenoid:req.body.solenoid,
-                softwareVersion:req.body.softwareVersion
+                softwareVersion:req.body.softwareVersion,
+                deviceMAC:req.body
             })
             .then(device => res.status(201).send(device))
             .catch(error => res.status(400).send(error));
@@ -57,4 +58,23 @@ module.exports = {
             .then(device => res.status(200).send(device))
             .catch(error => res.status(400).send(error));
    },
+   register(req, res) {
+        return Device
+            .findOrCreate({
+                where:{deviceMAC:req.params.mac},
+                defaults:{
+                    name:'DeviceName',
+                    description:'Device description',
+                    softwareVersion:'0.0.0.1'
+                    //deviceMAC: req.params.mac
+                }
+            })
+            .spread((device,created) => {
+                if (created) {
+                    console.log("New device successfully registered");
+                }
+                res.status(201).send(device);
+            })
+            .catch(error => res.status(400).send(error));
+   }
 };

@@ -1,2 +1,6 @@
 C:\Users\Dad\Documents\Visual Studio 2015\Projects\DeviceController\DeviceController\bin\Debug\DeviceController.exe.config
 C:\Users\Dad\Source\Repos\IrrigationController\Device\DeviceController\bin\Debug\DeviceController.exe.config
+C:\Users\Dad\Source\Repos\IrrigationController\Device\DeviceController\bin\Debug\DeviceController.exe
+C:\Users\Dad\Source\Repos\IrrigationController\Device\DeviceController\bin\Debug\DeviceController.pdb
+C:\Users\Dad\Source\Repos\IrrigationController\Device\DeviceController\obj\Debug\DeviceController.exe
+C:\Users\Dad\Source\Repos\IrrigationController\Device\DeviceController\obj\Debug\DeviceController.pdb

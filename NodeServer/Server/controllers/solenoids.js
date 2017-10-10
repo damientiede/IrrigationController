@@ -23,22 +23,33 @@ module.exports = {
    list(req, res) {
         return Solenoid
             .findAll({ 
-                where: { deviceid: parseInt(req.params.deviceid) }
+                //where: { deviceid: parseInt(req.params.deviceid) }
 	        })
             .then(solenoids => res.status(200).send(solenoids))
             .catch(error => res.status(400).send(error));
    },
    update(req, res) {
-        return Config.update({        
-            deviceid: parseInt(req.body.deviceid),
+        return Solenoid.update({        
+            deviceId: parseInt(req.body.deviceid),
             name: req.body.name,
-            hardwaretype: parseInt(req.body.hardwaretype),
-            channeltype: parseInt(req.body.channeltype),
-            address: req.body.address
+            description: req.body.description,
+            hardwaretype: req.body.hardwaretype,
+            requiresPump: req.body.requiresPump,
+            address: req.body.address,
+            value: parseInt(req.body.value)
         }, {
 	        where: { id: req.body.id }
         })
-        .then(configs => res.status(200).send(configs))
+        .then(solenoids => res.status(200).send(solenoids))
         .catch(error => res.status(400).send(error));
    },
+   listByDevice(req, res) {
+       console.log('listByDevice()');
+        return Solenoid
+        .findAll({
+            where: {deviceid: req.params.deviceid}        
+        })
+        .then(solenoids => res.status(200).send(solenoids))
+        .catch(error => res.status(400).send(error));  
+   }
 };

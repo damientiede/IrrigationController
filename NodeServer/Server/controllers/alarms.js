@@ -42,4 +42,12 @@ module.exports = {
             .then(alarm => res.status(200).send(alarm))
             .catch(error => res.status(400).send(error));
    },
+   listByDevice(req, res) {    
+        return Alarm
+        .findAll({
+            where: {deviceid: req.params.deviceid}        
+        })
+        .then(alarms => res.status(200).send(alarms))
+        .catch(error => res.status(400).send(error));  
+        }
 };

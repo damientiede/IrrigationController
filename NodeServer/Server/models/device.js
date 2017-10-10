@@ -24,6 +24,10 @@ module.exports = (sequelize, DataTypes) => {
       type: DataTypes.STRING,
       allowNull: false
     },
+    deviceMAC: {
+      type: DataTypes.STRING,
+      allowNull: false
+    }
   });
 
   Device.associate = (models) => {

@@ -4,6 +4,7 @@ const devices = require('./devices');
 const accounts = require('./accounts');
 const solenoids = require('./solenoids');
 const spis = require('./spis');
+const alarms = require('./alarms');
 
 const seedAll = () => {
     eventTypes.seed();
@@ -13,6 +14,7 @@ const seedAll = () => {
     //users.seed();    
     solenoids.seed();
     spis.seed();
+    alarms.seed();
 }
 module.exports = {    
     seedAll
