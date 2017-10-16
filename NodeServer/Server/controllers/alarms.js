@@ -6,9 +6,9 @@ module.exports = {
             .create({            
                 name: req.body.name,
                 description: req.body.description,
-                hardwareType: req.body.hardwaretype,            
+                hardwareType: req.body.hardwareType,            
                 address: req.body.address,
-                deviceId: parseInt(req.body.deviceid),
+                deviceId: parseInt(req.body.deviceId),
                 value:0
             })
             .then(alarm => res.status(201).send(alarm))
@@ -31,9 +31,9 @@ module.exports = {
    update(req, res) {
         return Alarm
             .update({        
-                deviceId: parseInt(req.body.deviceid),
+                deviceId: parseInt(req.body.deviceId),
                 name: req.body.name,
-                hardwareType: parseInt(req.body.hardwaretype),            
+                hardwareType: req.body.hardwareType,            
                 address: req.body.address,
                 value: req.body.value
             }, {

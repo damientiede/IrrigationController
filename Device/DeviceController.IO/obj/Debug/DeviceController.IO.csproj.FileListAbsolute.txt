@@ -1,0 +1,15 @@
+C:\Users\Dad\Source\Repos\IrrigationController\Device\DeviceController.IO\bin\Debug\DeviceController.IO.dll
+C:\Users\Dad\Source\Repos\IrrigationController\Device\DeviceController.IO\bin\Debug\DeviceController.IO.pdb
+C:\Users\Dad\Source\Repos\IrrigationController\Device\DeviceController.IO\bin\Debug\Raspberry.IO.GeneralPurpose.dll
+C:\Users\Dad\Source\Repos\IrrigationController\Device\DeviceController.IO\bin\Debug\Raspberry.IO.Interop.dll
+C:\Users\Dad\Source\Repos\IrrigationController\Device\DeviceController.IO\bin\Debug\Raspberry.System.dll
+C:\Users\Dad\Source\Repos\IrrigationController\Device\DeviceController.IO\bin\Debug\Raspberry.IO.dll
+C:\Users\Dad\Source\Repos\IrrigationController\Device\DeviceController.IO\bin\Debug\Raspberry.IO.GeneralPurpose.pdb
+C:\Users\Dad\Source\Repos\IrrigationController\Device\DeviceController.IO\bin\Debug\Raspberry.IO.GeneralPurpose.xml
+C:\Users\Dad\Source\Repos\IrrigationController\Device\DeviceController.IO\bin\Debug\Raspberry.IO.Interop.pdb
+C:\Users\Dad\Source\Repos\IrrigationController\Device\DeviceController.IO\bin\Debug\Raspberry.System.xml
+C:\Users\Dad\Source\Repos\IrrigationController\Device\DeviceController.IO\bin\Debug\Raspberry.IO.pdb
+C:\Users\Dad\Source\Repos\IrrigationController\Device\DeviceController.IO\bin\Debug\Raspberry.IO.xml
+C:\Users\Dad\Source\Repos\IrrigationController\Device\DeviceController.IO\obj\Debug\DeviceController.IO.csprojResolveAssemblyReference.cache
+C:\Users\Dad\Source\Repos\IrrigationController\Device\DeviceController.IO\obj\Debug\DeviceController.IO.dll
+C:\Users\Dad\Source\Repos\IrrigationController\Device\DeviceController.IO\obj\Debug\DeviceController.IO.pdb

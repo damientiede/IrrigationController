@@ -30,17 +30,17 @@ module.exports = {
    },
    update(req, res) {
         return Solenoid.update({        
-            deviceId: parseInt(req.body.deviceid),
+            deviceId: parseInt(req.body.deviceId),
             name: req.body.name,
             description: req.body.description,
-            hardwaretype: req.body.hardwaretype,
+            hardwareType: req.body.hardwareType,
             requiresPump: req.body.requiresPump,
             address: req.body.address,
             value: parseInt(req.body.value)
         }, {
 	        where: { id: req.body.id }
         })
-        .then(solenoids => res.status(200).send(solenoids))
+        .then(solenoid => res.status(200).send(solenoid))
         .catch(error => res.status(400).send(error));
    },
    listByDevice(req, res) {

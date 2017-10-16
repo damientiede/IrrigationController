@@ -14,3 +14,15 @@ C:\Users\Dad\Source\Repos\IrrigationController\Device\TestHarness\obj\Debug\Test
 C:\Users\Dad\Source\Repos\IrrigationController\Device\TestHarness\bin\Debug\log4net.dll
 C:\Users\Dad\Source\Repos\IrrigationController\Device\TestHarness\bin\Debug\Newtonsoft.Json.dll
 C:\Users\Dad\Source\Repos\IrrigationController\Device\TestHarness\bin\Debug\Newtonsoft.Json.xml
+C:\Users\Dad\Source\Repos\IrrigationController\Device\TestHarness\bin\Debug\DeviceController.IO.dll
+C:\Users\Dad\Source\Repos\IrrigationController\Device\TestHarness\bin\Debug\Raspberry.IO.GeneralPurpose.dll
+C:\Users\Dad\Source\Repos\IrrigationController\Device\TestHarness\bin\Debug\Raspberry.IO.Interop.dll
+C:\Users\Dad\Source\Repos\IrrigationController\Device\TestHarness\bin\Debug\Raspberry.System.dll
+C:\Users\Dad\Source\Repos\IrrigationController\Device\TestHarness\bin\Debug\Raspberry.IO.dll
+C:\Users\Dad\Source\Repos\IrrigationController\Device\TestHarness\bin\Debug\DeviceController.IO.pdb
+C:\Users\Dad\Source\Repos\IrrigationController\Device\TestHarness\bin\Debug\Raspberry.IO.GeneralPurpose.pdb
+C:\Users\Dad\Source\Repos\IrrigationController\Device\TestHarness\bin\Debug\Raspberry.IO.GeneralPurpose.xml
+C:\Users\Dad\Source\Repos\IrrigationController\Device\TestHarness\bin\Debug\Raspberry.IO.Interop.pdb
+C:\Users\Dad\Source\Repos\IrrigationController\Device\TestHarness\bin\Debug\Raspberry.System.xml
+C:\Users\Dad\Source\Repos\IrrigationController\Device\TestHarness\bin\Debug\Raspberry.IO.pdb
+C:\Users\Dad\Source\Repos\IrrigationController\Device\TestHarness\bin\Debug\Raspberry.IO.xml

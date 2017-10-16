@@ -93,6 +93,10 @@
       <Project>{e078f29f-5f0c-4aeb-8831-df4ab4be798e}</Project>
       <Name>DeviceController.Data</Name>
     </ProjectReference>
+    <ProjectReference Include="..\DeviceController.IO\DeviceController.IO.csproj">
+      <Project>{d74196af-7887-4aac-be4a-af257aecec4f}</Project>
+      <Name>DeviceController.IO</Name>
+    </ProjectReference>
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
   <!-- To modify your build process, add your task inside one of the targets below and uncomment it. 

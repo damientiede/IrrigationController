@@ -86,7 +86,7 @@ namespace DeviceController.Data
         public async Task<List<Command>> GetCommands(int deviceId)
         {                     
             List<Command> commands = null;
-            HttpResponseMessage response = await client.GetAsync(string.Format("commands/{0}", deviceId));
+            HttpResponseMessage response = await client.GetAsync(string.Format("device/{0}/commands", deviceId));
             if (response.IsSuccessStatusCode)
             {
                 commands = await response.Content.ReadAsAsync<List<Command>>();
@@ -106,7 +106,7 @@ namespace DeviceController.Data
         public async Task<List<Alarm>> GetAlarms(int deviceId)
         {
             List<Alarm> alarms = null;
-            HttpResponseMessage response = await client.GetAsync(string.Format("alarms/{0}", deviceId));
+            HttpResponseMessage response = await client.GetAsync(string.Format("device/{0}/alarms", deviceId));
             if (response.IsSuccessStatusCode)
             {
                 alarms = await response.Content.ReadAsAsync<List<Alarm>>();
@@ -116,7 +116,7 @@ namespace DeviceController.Data
         public async Task<List<Spi>> GetSpis(int deviceId)
         {
             List<Spi> spis = null;
-            HttpResponseMessage response = await client.GetAsync(string.Format("spis/{0}", deviceId));
+            HttpResponseMessage response = await client.GetAsync(string.Format("device/{0}/spis", deviceId));
             if (response.IsSuccessStatusCode)
             {
                 spis = await response.Content.ReadAsAsync<List<Spi>>();
@@ -126,7 +126,7 @@ namespace DeviceController.Data
         public async Task<List<Analog>> GetAnalogs(int deviceId)
         {
             List<Analog> analogs = null;
-            HttpResponseMessage response = await client.GetAsync(string.Format("analogs/{0}", deviceId));
+            HttpResponseMessage response = await client.GetAsync(string.Format("device/{0}/analogs", deviceId));
             if (response.IsSuccessStatusCode)
             {
                 analogs = await response.Content.ReadAsAsync<List<Analog>>();
