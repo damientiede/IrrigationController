@@ -7,11 +7,12 @@ using System.Threading.Tasks;
 namespace DeviceController.IO.Solenoids
 {    
     public class DistributedSolenoid : ISolenoid
-    {
-        private int _id;
+    {        
         private string address;
         private bool state;        
-        public int Id { get { return _id; } }
+        public int Id { get ; }
+        public string Name { get; set; }
+        public string Description { get; set; }
         public string Address
         {
             get { return address; }
@@ -25,7 +26,7 @@ namespace DeviceController.IO.Solenoids
         {
             address = addr;
             state = false;
-            _id = id;
+            Id = id;
         }
         public void On()
         {

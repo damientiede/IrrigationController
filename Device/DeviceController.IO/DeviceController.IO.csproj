@@ -43,13 +43,17 @@
     <Reference Include="System.Xml" />
   </ItemGroup>
   <ItemGroup>
-    <Compile Include="Alarm.cs" />
-    <Compile Include="Analog.cs" />
+    <Compile Include="Alarms\DistributedAlarm.cs" />
+    <Compile Include="Alarms\GPIOAlarm.cs" />
+    <Compile Include="Alarms\IAlarm.cs" />
+    <Compile Include="Alarms\SPIAlarm.cs" />
+    <Compile Include="Analogs\IAnalog.cs" />
+    <Compile Include="Analogs\SPIAnalog.cs" />
     <Compile Include="Solenoids\DistributedSolenoid.cs" />
     <Compile Include="Solenoids\GPIOSolenoid.cs" />
     <Compile Include="Solenoids\ISolenoid.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
-    <Compile Include="SPI.cs" />
+    <Compile Include="SpiDevice.cs" />
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
   <!-- To modify your build process, add your task inside one of the targets below and uncomment it. 

@@ -6,12 +6,12 @@ module.exports = {
             .create({            
                 name: req.body.name,
                 description: req.body.description,
-                hardwareType: req.body.hardwaretype,            
+                hardwareType: req.body.hardwareType,            
                 address: req.body.address,
                 multiplier: parseFloat(req.body.multiplier),
                 rawValue: 0,
                 units: req.body.units,
-                deviceid: parseInt(req.body.deviceid),
+                deviceId: parseInt(req.body.deviceId),
                 value:0
             })
             .then(analog => res.status(201).send(analog))

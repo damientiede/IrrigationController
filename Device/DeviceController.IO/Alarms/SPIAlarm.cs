@@ -3,11 +3,10 @@ using System.Collections.Generic;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
-using Raspberry.IO.GeneralPurpose;
 
-namespace DeviceController.IO.Solenoids
+namespace DeviceController.IO.Alarms
 {
-    public class GPIOSolenoid : ISolenoid
+    public class SPIAlarm:IAlarm
     {
         public int Id { get; }
         public string Name { get; set; }
@@ -15,20 +14,10 @@ namespace DeviceController.IO.Solenoids
         public string Address { get; set; }
         private bool state;
         public bool State { get { return state; } }
-        private GpioConnection connection;
-                        
-        public GPIOSolenoid(int id, string address)
+        public SPIAlarm(int id, string address)
         {
-            Address = address;
-            state = false;
             Id = id;
-        }
-        public void On()
-        {
-            state = true;
-        }
-        public void Off()
-        {
+            Address = address;
             state = false;
         }
     }

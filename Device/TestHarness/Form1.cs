@@ -11,6 +11,8 @@ using System.Windows.Forms;
 using DeviceController.Data;
 using DeviceController.IO;
 using DeviceController.IO.Solenoids;
+using DeviceController.IO.Analogs;
+using DeviceController.IO.Alarms;
 using log4net;
 
 namespace TestHarness
@@ -53,12 +55,12 @@ namespace TestHarness
             foreach (Solenoid solenoid in sols)
             {
                 //textBox1.Text += string.Format("SolenoidId:{0} name:{1} Description:{2} HardwareType:{3} Address:{4} Value:{5} RequiresPump:{6} DeviceId:{7} \r\n", solenoid.Id, solenoid.Name, solenoid.Description, solenoid.HardwareType, solenoid.Address, solenoid.Value,solenoid.RequiresPump, solenoid.DeviceId);
-                if (solenoid.HardwareType == "GPIO")
+                if (solenoid.HardwareType == HardwareTypes.GPIO)
                 {
                     GPIOSolenoid s = new GPIOSolenoid(solenoid.Id, solenoid.Address);
                     solenoids.Add(s);
                 }
-                if (solenoid.HardwareType == "Distributed")
+                if (solenoid.HardwareType == HardwareTypes.Distributed)
                 {
                     DistributedSolenoid s = new DistributedSolenoid(solenoid.Id, solenoid.Address);
                     solenoids.Add(s);
@@ -71,16 +73,40 @@ namespace TestHarness
         }
 
         private async void button3_Click(object sender, EventArgs e)
-        {            
-            List<Alarm> alarms = await data.GetAlarms(1);
-            if (alarms.Count() > 0)
+        {
+            List<IAlarm> alarms = new List<IAlarm>();     
+            List<Alarm> al = await data.GetAlarms(1);
+            if (al.Count() > 0)
             {
-                textBox1.Text += string.Format("GetAlarms() {0} alarms retrieved \r\n", alarms.Count());
-                //log.DebugFormat("GetCommands() {0} commands retrieved", commands.Count());
+                textBox1.Text += string.Format("GetAlarms() {0} alarms retrieved \r\n", al.Count());                
             }
-            foreach (Alarm alarm in alarms)
+            foreach (Alarm alarm in al)
             {
-                textBox1.Text += string.Format("AlarmId:{0} name:{1} description:{2} hardwareType:{3} Address:{4} Value:{5} DeviceId:{6} \r\n", alarm.Id, alarm.Name, alarm.Description, alarm.HardwareType, alarm.Address, alarm.Value, alarm.DeviceId);               
+                if (alarm.HardwareType == HardwareTypes.GPIO)
+                {
+                    GPIOAlarm a = new GPIOAlarm(alarm.Id, alarm.Address);
+                    a.Name = alarm.Name;
+                    a.Description = alarm.Description;
+                    alarms.Add(a);
+                }
+                if (alarm.HardwareType == HardwareTypes.Distributed)
+                {
+                    DistributedAlarm a = new DistributedAlarm(alarm.Id, alarm.Address);
+                    a.Name = alarm.Name;
+                    a.Description = alarm.Description;
+                    alarms.Add(a);
+                }
+                if (alarm.HardwareType == HardwareTypes.SPI)
+                {
+                    SPIAlarm a = new SPIAlarm(alarm.Id, alarm.Address);
+                    a.Name = alarm.Name;
+                    a.Description = alarm.Description;
+                    alarms.Add(a);
+                }
+            }
+            foreach (IAlarm alarm in alarms)
+            {
+                textBox1.Text += string.Format("AlarmId:{0} name:{1} description:{2} Address:{3} Value:{4} \r\n", alarm.Id, alarm.Name, alarm.Description, alarm.Address, alarm.State);
             }
         }
 
@@ -102,8 +128,7 @@ namespace TestHarness
             List<Event> events = await data.GetEvents(1);
             if (events.Count() > 0)
             {
-                textBox1.Text += string.Format("GetEvents() {0} events retrieved \r\n", events.Count());
-                //log.DebugFormat("GetCommands() {0} commands retrieved", commands.Count());
+                textBox1.Text += string.Format("GetEvents() {0} events retrieved \r\n", events.Count());               
             }
             foreach (Event ev in events)
             {
@@ -118,15 +143,42 @@ namespace TestHarness
 
         private async void button4_Click(object sender, EventArgs e)
         {
+            List<SpiDevice> spiDevices = new List<SpiDevice>();
             List<Spi> spis = await data.GetSpis(1);
             if (spis.Count() > 0)
             {
-                textBox1.Text += string.Format("GetSpis() {0} spis retrieved \r\n", spis.Count());
-                //log.DebugFormat("GetCommands() {0} commands retrieved", commands.Count());
+                textBox1.Text += string.Format("GetSpis() {0} spis retrieved \r\n", spis.Count());                
             }
             foreach (Spi s in spis)
             {
-                textBox1.Text += string.Format("Id:{0} name:{1} Clock:{2} CS:{3} MISO:{4} MOSI:{5} createdAt:{3} \r\n", s.Id, s.Name, s.Clock, s.CS,s.MISO, s.MOSI,s.CreatedAt.ToString());
+                SpiDevice spiDevice = new SpiDevice(s.Id, s.Name, s.Clock, s.CS, s.MISO, s.MOSI);
+                textBox1.Text += string.Format("Id:{0} name:{1} Clock:{2} CS:{3} MISO:{4} MOSI:{5} \r\n", spiDevice.Id, spiDevice.Name, spiDevice.Clock, spiDevice.CS, spiDevice.MISO, spiDevice.MOSI);
+            }
+        }
+
+        private async void Analogs_Click(object sender, EventArgs e)
+        {
+            List<IAnalog> analogs = new List<IAnalog>();
+            List<Analog> an = await data.GetAnalogs(1);
+            if (analogs.Count() > 0)
+            {
+                textBox1.Text += string.Format("GetAnalogs() {0} analogs retrieved \r\n", analogs.Count());                
+            }
+            foreach (Analog a in an)
+            {                
+                if (a.HardwareType == HardwareTypes.SPI)
+                {
+                    SPIAnalog analog = new SPIAnalog(a.Id, a.Address);
+                    analog.Multiplier = a.Multiplier;
+                    analog.Units = a.Units;
+                    analog.Name = a.Name;
+                    analog.Description = a.Description;
+                    analogs.Add(analog);
+                }
+            }
+            foreach (IAnalog a in analogs)
+            {
+                textBox1.Text += string.Format("Id:{0} name:{1} description:{2} Address:{3} Value:{4} Multiplier:{5} Units;{6} \r\n", a.Id, a.Name, a.Description, a.Address, a.Value, a.Multiplier, a.Units);
             }
         }
     }
