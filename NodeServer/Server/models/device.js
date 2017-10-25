@@ -10,7 +10,7 @@ module.exports = (sequelize, DataTypes) => {
     },
     mode: {
       type: DataTypes.ENUM,
-      values:['Manual','Auto','Off']
+      values:['Manual','Auto','Fault']
     },
     state: {
         type: DataTypes.ENUM,

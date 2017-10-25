@@ -3,6 +3,8 @@ const commandTypes = require('./commandtypes');
 const devices = require('./devices');
 const accounts = require('./accounts');
 const solenoids = require('./solenoids');
+const schedules = require('./schedules');
+const analogs = require('./analogs');
 const spis = require('./spis');
 const alarms = require('./alarms');
 
@@ -11,8 +13,9 @@ const seedAll = () => {
     commandTypes.seed();
     devices.seed();
     accounts.seed();
-    //users.seed();    
+    analogs.seed();    
     solenoids.seed();
+    schedules.seed();
     spis.seed();
     alarms.seed();
 }

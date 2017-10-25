@@ -11,6 +11,7 @@ namespace DeviceController.Data
         public int Id;
         public int EventType;
         public string EventValue;
+        public int DeviceId;
         public DateTime CreatedAt;
         public DateTime UpdatedAt;
     }

@@ -1,12 +1,13 @@
 const Event = require('../models').Event;
 
 module.exports = {
-   create(req, res) {      
+   create(req, res) { 
+      console.log(req.body);     
       return Event
          .create({
-            eventtype: parseInt(req.body.eventtype),
-            eventvalue: req.body.eventvalue,
-            deviceId: parseInt(req.body.deviceid)
+            eventType: parseInt(req.body.EventType),
+            eventValue: req.body.EventValue,
+            deviceId: parseInt(req.body.DeviceId)
          })
          .then(event => res.status(201).send(event))
          .catch(error => res.status(400).send(error));
@@ -14,7 +15,7 @@ module.exports = {
    list(req, res) {
       return Event
          .findAll({ 
-            where: { deviceid: parseInt(req.params.deviceid) }
+            where: { deviceId: parseInt(req.params.deviceId) }
          })
          .then(events => res.status(200).send(events))
          .catch(error => res.status(400).send(error));

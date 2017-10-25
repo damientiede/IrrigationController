@@ -37,7 +37,10 @@ module.exports = {
             }, 
             pumpSolenoid: {
                 type: Sequelize.INTEGER
-            },  
+            }, 
+            deviceMAC: {
+                type: Sequelize.STRING
+            },
             softwareVersion: {
                 type: Sequelize.STRING,
                 allowNull: false

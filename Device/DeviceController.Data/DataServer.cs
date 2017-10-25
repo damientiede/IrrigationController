@@ -50,14 +50,14 @@ namespace DeviceController.Data
             // return URI of the created resource.
             return response.Headers.Location;
         }
-        public async Task<Uri> PutCommand(Command c)
+        public async Task PutCommand(Command c)
         {            
             HttpResponseMessage response = await client.PostAsJsonAsync(string.Format("commands/{0}", c.Id), c);
             Console.WriteLine("PutCommand response: {0}", response.StatusCode.ToString());
             response.EnsureSuccessStatusCode();
 
             // return URI of the created resource.
-            return response.Headers.Location;
+            return;// response.Headers.Location;
         }
 
         //public async Task<List<Schedule>> GetSchedules(int deviceId)

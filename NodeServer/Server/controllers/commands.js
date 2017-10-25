@@ -4,11 +4,11 @@ module.exports = {
    create(req, res) {      
       return Command
          .create({
-            commandtype: parseInt(req.body.commandtype),
-            params: req.body.params,
+            commandtype: parseInt(req.body.CommandType),
+            params: req.body.Params,
 	      issued: new Date(),
             actioned: null,
-            deviceId: parseInt(req.body.deviceid)
+            deviceId: parseInt(req.body.deviceId)
          })
          .then(command => res.status(201).send(command))
          .catch(error => res.status(400).send(error));
@@ -23,7 +23,7 @@ module.exports = {
       return Command
          .findAll({ 
             where: { 
-                  deviceid: parseInt(req.params.deviceid)                  
+                  deviceId: parseInt(req.params.deviceId)                  
             },
             limit:100
           })         
@@ -34,7 +34,7 @@ module.exports = {
       return Command
          .findAll({ 
             where: { 
-                  deviceid: parseInt(req.params.deviceid),
+                  deviceId: parseInt(req.params.deviceId),
                   actioned:null
             }
           })         
@@ -43,9 +43,9 @@ module.exports = {
    },
    update(req, res) {
       return Command.update({
-         actioned: Date.parse(req.body.actioned)
+         actioned: Date.parse(req.body.Actioned)
       }, {
-	 where: { id: req.params.commandid }
+	 where: { id: req.params.commandId }
       })
       .then(command => res.status(200).send(command))
       .catch(error => res.status(400).send(error));

@@ -6,7 +6,7 @@ module.exports = {
             .create({            
                 name: req.body.name,
                 description: req.body.description,
-                hardwareType: req.body.hardwaretype,            
+                hardwareType: req.body.hardwareType,            
                 address: req.body.address,
                 value:0
             })
@@ -22,7 +22,7 @@ module.exports = {
    list(req, res) {
         return Spi
             .findAll({ 
-                where: { deviceid: parseInt(req.params.deviceid) }
+                where: { deviceId: parseInt(req.params.deviceId) }
 	        })
             .then(spis => res.status(200).send(spis))
             .catch(error => res.status(400).send(error));
@@ -30,7 +30,7 @@ module.exports = {
    update(req, res) {
         return Spi
             .update({        
-                deviceid: parseInt(req.body.deviceid),
+                deviceId: parseInt(req.body.deviceId),
                 name: req.body.name,
                 Clock: parseInt(req.body.Clock),            
                 CS: parseInt(req.body.CS),            
@@ -45,7 +45,7 @@ module.exports = {
    listByDevice(req, res) {    
         return Spi
         .findAll({
-            where: {deviceid: req.params.deviceid}        
+            where: {deviceId: req.params.deviceId}        
         })
         .then(spis => res.status(200).send(spis))
         .catch(error => res.status(400).send(error));  

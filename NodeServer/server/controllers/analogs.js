@@ -26,7 +26,7 @@ module.exports = {
    list(req, res) {
         return Analog
             .findAll({ 
-                where: { deviceid: parseInt(req.params.deviceid) }
+                where: { deviceId: parseInt(req.params.deviceId) }
 	        })
             .then(analog => res.status(200).send(analog))
             .catch(error => res.status(400).send(error));
@@ -41,18 +41,18 @@ module.exports = {
                 multiplier: parseFloat(req.body.multiplier),
                 rawValue: parseInt(req.body.rawValue),
                 units: req.body.units,
-                deviceid: parseInt(req.body.deviceid),
+                deviceId: parseInt(req.body.deviceId),
                 value:parseFloat(req.body.value)
             }, {
 	            where: { id: req.body.id }
             })
-            .then(alarm => res.status(200).send(alarm))
+            .then(analog => res.status(200).send(analog))
             .catch(error => res.status(400).send(error));
    },
    listByDevice(req, res) {    
         return Analog
         .findAll({
-            where: {deviceid: req.params.deviceid}        
+            where: {deviceId: req.params.deviceId}        
         })
         .then(analogs => res.status(200).send(analogs))
         .catch(error => res.status(400).send(error));  

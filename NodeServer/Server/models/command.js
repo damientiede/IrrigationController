@@ -1,6 +1,6 @@
 module.exports = (sequelize, DataTypes) => {
     const Command = sequelize.define('Command', {
-        commandtype: { 
+        commandType: { 
           type: DataTypes.INTEGER,
           allowNull:false
         },

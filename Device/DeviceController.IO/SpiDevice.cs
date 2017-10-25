@@ -23,5 +23,10 @@ namespace DeviceController.IO
             MISO = miso;
             MOSI = mosi;
         }
+        public string Report()
+        {
+            return string.Format("SpiDevice Id:{0} Name:{1} Clock:{2} CS:{3} MISO:{4} MOSI:{5}",
+                Id, Name, Clock, CS, MISO, MOSI);
+        }
     }    
 }

@@ -7,7 +7,7 @@ module.exports = {
                 firstName: req.body.firstName,
                 lastName: req.body.lastName,
                 email: req.body.email,
-                mobile: req.body.hardwaretype,            
+                mobile: req.body.mobile,            
                 password: req.body.password            
             })
             .then(user => res.status(201).send(user))
@@ -31,7 +31,7 @@ module.exports = {
                 firstName: req.body.firstName,
                 lastName: req.body.lastName,
                 email: req.body.email,
-                mobile: req.body.hardwaretype,            
+                mobile: req.body.mobile,            
                 password: req.body.password             
             }, {
 	            where: { id: req.body.id }

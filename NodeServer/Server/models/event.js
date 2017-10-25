@@ -1,10 +1,10 @@
 module.exports = (sequelize, DataTypes) => {
     const Event = sequelize.define('Event', {
-      eventtype: {
+      eventType: {
         type: DataTypes.INTEGER,
         allowNull:false
       },
-      eventvalue: {
+      eventValue: {
         type: DataTypes.STRING,
         allowNull:false
       }  

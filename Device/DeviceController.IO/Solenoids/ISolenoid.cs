@@ -15,5 +15,6 @@ namespace DeviceController.IO.Solenoids
         void Off();
         bool State { get; }
         string Address { get; set; }
+        string Report();
     }
 }

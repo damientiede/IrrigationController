@@ -17,5 +17,6 @@ namespace DeviceController.IO.Analogs
         double Multiplier { get; set; }
         string Address { get; set; }
         string Units { get; set; }
+        string Report();
     }
 }

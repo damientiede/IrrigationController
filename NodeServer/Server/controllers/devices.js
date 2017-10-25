@@ -1,9 +1,4 @@
 const Device = require('../models').Device;
-const Solenoid = require('../models').Solenoid;
-const Alarm = require('../models').Alarm;
-const Spi = require('../models').Spi;
-const Analog = require('../models').Analog;
-const Command = require('../models').Command;
 
 module.exports = {
    create(req, res) {      
@@ -13,9 +8,10 @@ module.exports = {
                 description: req.body.description,
                 mode:req.body.mode,
                 state:req.body.state,
-                start:req.body.start,
-                duration:req.body.duration,
-                solenoid:req.body.solenoid,
+                manualStart:req.body.manualStart,
+                manualDuration:req.body.manualDuration,
+                manualSolenoid:req.body.manualSolenoid,
+                pumpSolenoid:req.body.pumpSolenoid,
                 softwareVersion:req.body.softwareVersion,
                 deviceMAC:req.body
             })
@@ -25,13 +21,9 @@ module.exports = {
    single(req, res) {
         return Device
             .find({
-                where: {id: req.params.id},
-                include: [{all:true}]
-/*                 include: [
-                    {model: Solenoid, as: 'solenoids'},
-                    {model: Spi, as: 'spis'},
-                ]                
- */            })
+                where: {id: req.params.id}
+                //include: [{all:true}]
+             })
             .then(device => res.status(200).send(device))
             .catch(error => res.status(400).send(error));   
    },
@@ -48,9 +40,10 @@ module.exports = {
                 description: req.body.description,
                 mode:req.body.mode,
                 state:req.body.state,
-                start:req.body.start,
-                duration:req.body.duration,
-                solenoid:req.body.solenoid,
+                manualStart:req.body.manualStart,
+                manualDuration:req.body.manualDuration,
+                manualSolenoid:req.body.manualSolenoid,
+                pumpSolenoid:req.body.pumpSolenoid,
                 softwareVersion:req.body.softwareVersion            
             }, {
 	            where: { id: req.body.id }
@@ -61,7 +54,7 @@ module.exports = {
    register(req, res) {
         return Device
             .findOrCreate({
-                where:{deviceMAC:req.params.mac},
+                where:{deviceMAC:req.params.deviceMAC},
                 defaults:{
                     name:'DeviceName',
                     description:'Device description',

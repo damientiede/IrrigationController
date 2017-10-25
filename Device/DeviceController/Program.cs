@@ -10,6 +10,8 @@ namespace DeviceController
     {
         static void Main(string[] args)
         {
+            DeviceController d = new DeviceController("http://192.168.1.108:8000/api/");
+            d.Run();
         }
     }
 }

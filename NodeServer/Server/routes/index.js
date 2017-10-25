@@ -9,6 +9,7 @@ const analogsController = require('../controllers').analogs;
 const spisController = require('../controllers').spis;
 const usersController = require('../controllers').users;
 const deviceStatusController = require('../controllers').deviceStatuses;
+const schedulesController = require('../controllers').schedules;
 
 module.exports = (app) => {
    app.get('/api',(req, res) => res.status(200).send({
@@ -17,19 +18,19 @@ module.exports = (app) => {
 
    //Events
    app.post('/api/events', eventsController.create);
-   app.get('/api/device/:deviceid/events', eventsController.list);
+   app.get('/api/device/:deviceId/events', eventsController.list);
 
    //Commands
    app.get('/api/commands', commandsController.list);
-   app.get('/api/device/:deviceid/commands', commandsController.listByDevice);
-   app.get('/api/device/:deviceid/pendingcommands', commandsController.pending);
-   app.put('/api/commands/:commandid', commandsController.update);
+   app.get('/api/device/:deviceId/commands', commandsController.listByDevice);
+   app.get('/api/device/:deviceId/pendingcommands', commandsController.pending);
+   app.put('/api/commands/:commandId', commandsController.update);
    app.post('/api/commands', commandsController.create);
 
    //Devices
    app.get('/api/devices', devicesController.list);
-   app.get('/api/devicestatus/:deviceid', deviceStatusController.single);
-   app.get('/api/device/:mac/register', devicesController.register);
+   app.get('/api/devicestatus/:deviceId', deviceStatusController.single);
+   app.get('/api/device/:deviceMAC/register', devicesController.register);
    app.post('/api/devices', devicesController.create);
    app.get('/api/devices/:id', devicesController.single);   
    app.put('/api/devices/:id', devicesController.update);
@@ -52,27 +53,34 @@ module.exports = (app) => {
    app.get('/api/solenoids/:id', solenoidsController.single);
    app.get('/api/solenoids', solenoidsController.list);
    app.put('/api/solenoids/:id', solenoidsController.update);
-   app.get('/api/device/:deviceid/solenoids', solenoidsController.listByDevice);
+   app.get('/api/device/:deviceId/solenoids', solenoidsController.listByDevice);
 
    //Alarms
    app.post('/api/alarms', alarmsController.create);
    app.get('/api/alarms/:id', alarmsController.single);
-   app.get('/api/alarms/:deviceid', alarmsController.list);
+   app.get('/api/alarms/:deviceId', alarmsController.list);
    app.put('/api/alarms/:id', alarmsController.update);
-   app.get('/api/device/:deviceid/alarms', alarmsController.listByDevice);
+   app.get('/api/device/:deviceId/alarms', alarmsController.listByDevice);
 
    //Analogs   
    app.post('/api/analogs', analogsController.create);
    app.get('/api/analogs/:id', analogsController.single);
-   app.get('/api/analogs/:deviceid', analogsController.list);
+   app.get('/api/analogs/:deviceId', analogsController.list);
    app.put('/api/analogs/:id', analogsController.update);
-   app.get('/api/device/:deviceid/analogs', analogsController.listByDevice);
+   app.get('/api/device/:deviceId/analogs', analogsController.listByDevice);
 
    //Spis
    app.post('/api/spis', spisController.create);
    app.get('/api/spis/:id', spisController.single);
-   app.get('/api/spis/:deviceid', spisController.list);
+   app.get('/api/spis', spisController.list);
    app.put('/api/spis/:id', spisController.update);
-   app.get('/api/device/:deviceid/spis', spisController.listByDevice);
+   app.get('/api/device/:deviceId/spis', spisController.listByDevice);
+
+   //Schedules
+   app.post('/api/schedules', schedulesController.create);
+   app.get('/api/schedules/:id', schedulesController.single);
+   app.get('/api/schedules', schedulesController.list);
+   app.put('/api/schedules/:id', schedulesController.update);
+   app.get('/api/device/:deviceId/schedules', schedulesController.listByDevice);
 };
 

@@ -19,6 +19,10 @@ namespace DeviceController.IO.Alarms
             Id = id;
             Address = address;
             state = false;
-        }        
+        }
+        public string Report()
+        {
+            return string.Format("GPIOAlarm Id:{0} Name:{1} Address:{2} Description:{3} State:{4}", Id, Name, Description, Address, State);
+        }
     }
 }

@@ -36,5 +36,10 @@ namespace DeviceController.IO.Solenoids
         {
             state = false;
         }
+        public string Report()
+        {
+            return string.Format("DistributedSolenoid Id:{0} Name:{1} Description:{2} Address:{3} State:{4}", 
+                Id, Name, Description, Address, State);
+        }
     }       
 }

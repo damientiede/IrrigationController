@@ -10,25 +10,33 @@ module.exports = {
                     name:'Station1',
                     description:'Test solenoid 1',
                     hardwareType:'GPIO',
-                    address:'P1Pin25',			        
+                    address:'P1Pin25',
+                    requiresPump:true,
+                    deviceId:1,			        
                     value:0});
                 Solenoid.create({
                     name:'Station2',
                     description:'Test solenoid 2',
                     hardwareType:'GPIO',
-                    address:'P1Pin28',			        
+                    address:'P1Pin28',
+                    requiresPump:true,
+                    deviceId:1,			        
                     value:0});
                 Solenoid.create({
                     name:'Station3',
                     description:'Test solenoid 3',
                     hardwareType:'GPIO',
-                    address:'P1Pin26',			        
+                    address:'P1Pin26',
+                    requiresPump:false,	
+                    deviceId:1,		        
                     value:0});
                 Solenoid.create({
                     name:'Station4',
                     description:'Test solenoid 4',
                     hardwareType:'GPIO',
-                    address:'P1Pin21',			        
+                    address:'P1Pin21',
+                    requiresPump:false,	
+                    deviceId:1,		        
                     value:0});
                 console.log('Created 4 solenoid records');	   		
 	        }

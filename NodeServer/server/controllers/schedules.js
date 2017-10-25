@@ -10,8 +10,8 @@ module.exports = {
                 repeat: req.body.repeat,
                 interval: parseInt(req.body.interval),
                 enabled:req.body.enabled,
-                solenoidid: parseInt(req.body.solenoidid),
-                deviceid: parseInt(req.body.deviceid)
+                solenoidId: parseInt(req.body.solenoidId),
+                deviceId: parseInt(req.body.deviceId)
             })
             .then(schedule => res.status(201).send(schedule))
             .catch(error => res.status(400).send(error));
@@ -25,7 +25,7 @@ module.exports = {
    list(req, res) {
         return Schedule
             .findAll({ 
-                where: { deviceid: parseInt(req.params.deviceid) }
+                where: { deviceId: parseInt(req.params.deviceId) }
 	        })
             .then(schedules => res.status(200).send(schedules))
             .catch(error => res.status(400).send(error));
@@ -39,12 +39,20 @@ module.exports = {
                 repeat: req.body.repeat,
                 interval: parseInt(req.body.interval),
                 enabled:req.body.enabled,
-                solenoidid: parseInt(req.body.solenoidid),
-                deviceid: parseInt(req.body.deviceid)
+                solenoidId: parseInt(req.body.solenoidId),
+                deviceId: parseInt(req.body.deviceId)
             }, {
 	            where: { id: req.body.id }
             })
             .then(schedule => res.status(200).send(schedule))
             .catch(error => res.status(400).send(error));
    },
+   listByDevice(req, res) {    
+    return Schedule
+    .findAll({
+        where: {deviceId: req.params.deviceId}        
+    })
+    .then(schedules => res.status(200).send(schedules))
+    .catch(error => res.status(400).send(error));  
+    }
 };

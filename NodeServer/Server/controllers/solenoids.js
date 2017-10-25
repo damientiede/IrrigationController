@@ -6,7 +6,7 @@ module.exports = {
             .create({            
                 name: req.body.name,
                 description: req.body.description,
-                hardwareType: req.body.hardwaretype,            
+                hardwareType: req.body.hardwareType,            
                 address: req.body.address,
                 value:0,
                 deviceId: req.body.deviceId
@@ -47,7 +47,7 @@ module.exports = {
        console.log('listByDevice()');
         return Solenoid
         .findAll({
-            where: {deviceid: req.params.deviceid}        
+            where: {deviceId: req.params.deviceId}        
         })
         .then(solenoids => res.status(200).send(solenoids))
         .catch(error => res.status(400).send(error));  

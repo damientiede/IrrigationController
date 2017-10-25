@@ -13,5 +13,6 @@ namespace DeviceController.IO.Alarms
         string Description { get; set; }       
         bool State { get; }
         string Address { get; set; }
+        string Report();
     }
 }

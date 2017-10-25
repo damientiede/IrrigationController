@@ -23,7 +23,7 @@ module.exports = {
    list(req, res) {
         return Alarm
             .findAll({ 
-                where: { deviceId: parseInt(req.params.deviceid) }
+                where: { deviceId: parseInt(req.params.deviceId) }
 	        })
             .then(alarms => res.status(200).send(alarms))
             .catch(error => res.status(400).send(error));
@@ -45,7 +45,7 @@ module.exports = {
    listByDevice(req, res) {    
         return Alarm
         .findAll({
-            where: {deviceid: req.params.deviceid}        
+            where: {deviceId: req.params.deviceId}        
         })
         .then(alarms => res.status(200).send(alarms))
         .catch(error => res.status(400).send(error));  

@@ -33,5 +33,10 @@ namespace DeviceController.IO.Analogs
         {
             //read data from SPI channel
         }
+        public string Report()
+        {
+            return string.Format("SPIAnalog Id:{0} Name:{1} Description:{2} Address:{3} Multiplier:{4} Units:{5} Value:{6}", 
+                Id, Name, Description, Address, Multiplier, Units, Value);
+        }
     }
 }
