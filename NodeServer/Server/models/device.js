@@ -14,7 +14,7 @@ module.exports = (sequelize, DataTypes) => {
     },
     state: {
         type: DataTypes.ENUM,
-        values:['Monitoring','Irrigating','Fault']
+        values:['Off','Standby','Irrigating','Fault']
     },
     manualStart: DataTypes.DATE,
     manualDuration: DataTypes.INTEGER,
@@ -32,7 +32,7 @@ module.exports = (sequelize, DataTypes) => {
 
   Device.associate = (models) => {
     Device.hasMany(models.Solenoid, {
-      foreignKey: 'id',
+      foreignKey: 'deviceId',
       as: 'solenoids',
     });
     Device.hasMany(models.Alarm, {
@@ -40,7 +40,7 @@ module.exports = (sequelize, DataTypes) => {
       as: 'alarms'
     });
     Device.hasMany(models.Analog, {
-      foreignKey: 'deviceId',
+      foreignKey: 'id',
       as: 'analogs'
     });
     Device.hasMany(models.Spi, {

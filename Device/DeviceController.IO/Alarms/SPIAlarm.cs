@@ -3,26 +3,46 @@ using System.Collections.Generic;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
+using DeviceController.Data;
 
 namespace DeviceController.IO.Alarms
 {
-    public class SPIAlarm:IAlarm
+    public class SPIAlarm : IAlarm
     {
-        public int Id { get; }
-        public string Name { get; set; }
-        public string Description { get; set; }
-        public string Address { get; set; }
-        private bool state;
-        public bool State { get { return state; } }
-        public SPIAlarm(int id, string address)
+        public int Id { get { return alarm.Id; } }
+        public string Name { get { return alarm.Name; } }
+        public string Description { get { return alarm.Description; } }
+        public string Address { get { return alarm.Address; } }
+        public Alarm alarm { get { return _alarm; } }
+        private Alarm _alarm;
+        private DataServer dataServer;
+
+        public bool State
         {
-            Id = id;
-            Address = address;
-            state = false;
+            get { return (alarm.Value == 1); }
+            set
+            {
+                if (value != (alarm.Value == 1))
+                {
+                    if (value)
+                    {
+                        alarm.Value = 1;
+                    }
+                    else
+                    {
+                        alarm.Value = 0;
+                    }
+                }
+            }
+        }
+        public SPIAlarm(Alarm a, DataServer d)
+        {
+            _alarm = a;
+            dataServer = d;
         }
         public string Report()
         {
-            return string.Format("SPIAlarm Id:{0} Name:{1} Description:{2} Address:{3} State:{4}", Id, Name, Description, Address, State);
+            return string.Format("DistributedAlarm Id:{0} Name:{1} Address:{2} Description:{3} State:{4}", Id, Name, Description, Address, State);
         }
     }
 }

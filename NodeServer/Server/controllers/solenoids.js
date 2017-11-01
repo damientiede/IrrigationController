@@ -1,5 +1,12 @@
 const Solenoid = require('../models').Solenoid;
 
+function parseHardwareType(hwType)
+{    
+    if (hwType == 0) { return 'GPIO';}
+    if (hwType == 1) { return 'Distributed';}
+    if (hwType == 2) { return 'SPI';}    
+    return 'None';
+}
 module.exports = {
    create(req, res) {      
         return Solenoid
@@ -22,29 +29,26 @@ module.exports = {
    },
    list(req, res) {
         return Solenoid
-            .findAll({ 
-                //where: { deviceid: parseInt(req.params.deviceid) }
-	        })
+            .findAll()
             .then(solenoids => res.status(200).send(solenoids))
             .catch(error => res.status(400).send(error));
    },
    update(req, res) {
         return Solenoid.update({        
-            deviceId: parseInt(req.body.deviceId),
-            name: req.body.name,
-            description: req.body.description,
-            hardwareType: req.body.hardwareType,
-            requiresPump: req.body.requiresPump,
-            address: req.body.address,
-            value: parseInt(req.body.value)
+            deviceId: parseInt(req.body.DeviceId),
+            name: req.body.Name,
+            description: req.body.Description,
+            hardwareType: parseHardwareType(req.body.HardwareType),
+            requiresPump: req.body.RequiresPump,
+            address: req.body.Address,
+            value: parseInt(req.body.Value)
         }, {
-	        where: { id: req.body.id }
+	        where: { id: req.params.id }
         })
         .then(solenoid => res.status(200).send(solenoid))
         .catch(error => res.status(400).send(error));
    },
-   listByDevice(req, res) {
-       console.log('listByDevice()');
+   listByDevice(req, res) {       
         return Solenoid
         .findAll({
             where: {deviceId: req.params.deviceId}        

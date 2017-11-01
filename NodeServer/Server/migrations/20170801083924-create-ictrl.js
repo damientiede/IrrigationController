@@ -369,7 +369,7 @@ module.exports = {
                 primaryKey: true,
                 type: Sequelize.INTEGER
             },
-            commandtype: {
+            commandType: {
                 type: Sequelize.INTEGER
             },
             params: {
@@ -461,10 +461,10 @@ module.exports = {
                 autoIncrement: true,
                 primaryKey: true
             },
-            eventtype: {
+            eventType: {
                 type: Sequelize.INTEGER
             },
-            eventvalue: {
+            eventValue: {
                 type: Sequelize.STRING
             },
             createdAt: {

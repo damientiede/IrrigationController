@@ -22,12 +22,14 @@ module.exports = (sequelize, DataTypes) => {
         },
         requiresPump: DataTypes.BOOLEAN     
     });
+    
     Solenoid.associate = (models) => {
         Solenoid.belongsTo(models.Device, {
             foreignKey: 'deviceId',
             onDelete: 'CASCADE',
         });
-    }     
+    };
+    
     return Solenoid;
   };
   

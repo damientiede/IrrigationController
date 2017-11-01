@@ -13,3 +13,7 @@ C:\Users\Dad\Source\Repos\IrrigationController\Device\DeviceController.IO\bin\De
 C:\Users\Dad\Source\Repos\IrrigationController\Device\DeviceController.IO\obj\Debug\DeviceController.IO.csprojResolveAssemblyReference.cache
 C:\Users\Dad\Source\Repos\IrrigationController\Device\DeviceController.IO\obj\Debug\DeviceController.IO.dll
 C:\Users\Dad\Source\Repos\IrrigationController\Device\DeviceController.IO\obj\Debug\DeviceController.IO.pdb
+C:\Users\Dad\Source\Repos\IrrigationController\Device\DeviceController.IO\bin\Debug\DeviceController.Data.dll
+C:\Users\Dad\Source\Repos\IrrigationController\Device\DeviceController.IO\bin\Debug\System.Net.Http.Formatting.dll
+C:\Users\Dad\Source\Repos\IrrigationController\Device\DeviceController.IO\bin\Debug\DeviceController.Data.pdb
+C:\Users\Dad\Source\Repos\IrrigationController\Device\DeviceController.IO\bin\Debug\System.Net.Http.Formatting.xml

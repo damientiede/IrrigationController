@@ -12,7 +12,8 @@ namespace DeviceController.Data
 {
     public class DataServer
     {
-        string Uri;
+        public string Uri;
+        int DeviceId;
         HttpClient client;
         public DataServer(string uri)
         {
@@ -52,14 +53,23 @@ namespace DeviceController.Data
         }
         public async Task PutCommand(Command c)
         {            
-            HttpResponseMessage response = await client.PostAsJsonAsync(string.Format("commands/{0}", c.Id), c);
-            Console.WriteLine("PutCommand response: {0}", response.StatusCode.ToString());
+            HttpResponseMessage response = await client.PutAsJsonAsync(string.Format("commands/{0}", c.Id), c);
+            //Console.WriteLine("PutCommand response: {0}", response.StatusCode.ToString());
             response.EnsureSuccessStatusCode();
 
             // return URI of the created resource.
             return;// response.Headers.Location;
         }
 
+        public async Task PutSolenoid(Solenoid s)
+        {
+            HttpResponseMessage response = await client.PutAsJsonAsync(string.Format("solenoids/{0}",s.Id),s);
+            //Console.WriteLine("PutCommand response: {0}", response.StatusCode.ToString());
+            response.EnsureSuccessStatusCode();
+
+            // return URI of the created resource.
+            return;// response.Headers.Location;
+        }
         //public async Task<List<Schedule>> GetSchedules(int deviceId)
         //{
         //    List<Schedule> schedule = null;
@@ -86,7 +96,7 @@ namespace DeviceController.Data
         public async Task<List<Command>> GetCommands(int deviceId)
         {                     
             List<Command> commands = null;
-            HttpResponseMessage response = await client.GetAsync(string.Format("device/{0}/commands", deviceId));
+            HttpResponseMessage response = await client.GetAsync(string.Format("device/{0}/pendingcommands", deviceId));
             if (response.IsSuccessStatusCode)
             {
                 commands = await response.Content.ReadAsAsync<List<Command>>();

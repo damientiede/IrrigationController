@@ -23,21 +23,34 @@ namespace DeviceController
         private DataServer dataServer;
         private int deviceId = -1;
         private string macAddress = String.Empty;
+        private IOFactory ioFactory;
+
         List<ISolenoid> Solenoids;
         List<IAlarm> Alarms;
         List<IAnalog> Analogs;
         List<SpiDevice> Spis;
         List<Command> Commands;
         List<Schedule> Schedules;
-        enum State { Monitor = 0, WaitForTimeout, ConfirmReset, WaitForReset }
+
+        Solenoid PumpSolenoid;
+        //Solenoid ManualSolednoid;
+        IrrigationProgram ManualProgram;
+
+        Schedule ActiveSchedule;
+
+        enum State { Irrigating = 0, Standby, Off, Fault }
         State state;
         enum Mode { Auto = 0, Manual, Off }
         Mode mode;
+
         public DeviceController(string url)
         {
             log4net.Config.XmlConfigurator.Configure();            
             log = LogManager.GetLogger("Device");
-            dataServerUrl = url;
+            //dataServerUrl = url;
+
+            dataServer = new DataServer(url);
+            ioFactory = new IOFactory(dataServer);
 
             Spis = new List<SpiDevice>();
             Solenoids = new List<ISolenoid>();
@@ -50,6 +63,7 @@ namespace DeviceController
         #region Config
         protected  void Init()
         {
+            log.Info("=====================================================");
             log.InfoFormat("DeviceController.Init(): Initializing device...");
             //get device mac address
             macAddress =
@@ -61,9 +75,7 @@ namespace DeviceController
             if (string.IsNullOrEmpty(macAddress))
             {
                 throw new Exception("Could not read device mac address");
-            }
-
-            dataServer = new DataServer(dataServerUrl);
+            }            
 
             //register with server
             while (deviceId < 0)
@@ -74,7 +86,7 @@ namespace DeviceController
                     Thread.Sleep(5000);
                 }
             }
-            CreateEvent(1, "DeviceController start");
+            CreateEvent(EventTypes.Application, "DeviceController start");
             //get device config
             LoadSpis();
             LoadSolenoids();
@@ -82,7 +94,7 @@ namespace DeviceController
             LoadAnalogs();
             LoadSchedules();
             
-            CreateEvent(1, "DeviceController initialization complete");
+            CreateEvent(EventTypes.Application, "DeviceController initialization complete");
             log.InfoFormat("DeviceController.Init(): Initialization complete.");
         }
         protected async void Register()
@@ -113,21 +125,11 @@ namespace DeviceController
         {
             log.InfoFormat("LoadSolenoids()");
             List<Solenoid> solenoids = await dataServer.GetSolenoids(deviceId);
-            foreach (Solenoid s in solenoids)
+            if (solenoids != null)
             {
-                switch (s.HardwareType)
+                foreach (Solenoid s in solenoids)
                 {
-                    case HardwareTypes.GPIO:
-                        Solenoids.Add(new GPIOSolenoid(s.Id, s.Address));
-                        break;
-                    case HardwareTypes.Distributed:
-                        Solenoids.Add(new DistributedSolenoid(s.Id, s.Address));
-                        break;
-                    case HardwareTypes.SPI:
-                        //Solenoids.Add(new SPISolenoid(s.Id, s.Address));
-                        break;
-                    default:
-                        break;
+                    Solenoids.Add(ioFactory.CreateSolenoid(s));
                 }
             }
             foreach (ISolenoid solenoid in Solenoids)
@@ -142,20 +144,7 @@ namespace DeviceController
             List<Alarm> alarms = await dataServer.GetAlarms(deviceId);
             foreach (Alarm a in alarms)
             {
-                switch (a.HardwareType)
-                {
-                    case HardwareTypes.GPIO:
-                        Alarms.Add(new GPIOAlarm(a.Id, a.Address));
-                        break;
-                    case HardwareTypes.Distributed:
-                        Alarms.Add(new DistributedAlarm(a.Id, a.Address));
-                        break;
-                    case HardwareTypes.SPI:
-                        Alarms.Add(new SPIAlarm(a.Id, a.Address));
-                        break;
-                    default:
-                        break;
-                }
+                Alarms.Add(ioFactory.CreateAlarm(a));               
             }
             foreach (IAlarm alarm in Alarms)
             {
@@ -169,20 +158,7 @@ namespace DeviceController
             List<Analog> analogs = await dataServer.GetAnalogs(deviceId);
             foreach (Analog a in analogs)
             {
-                switch (a.HardwareType)
-                {
-                    case HardwareTypes.GPIO:
-                        //Analogs.Add(new GPIOAnalog(a.Id, a.Address));
-                        break;
-                    case HardwareTypes.Distributed:
-                        //Analogs.Add(new DistributedAlarm(a.Id, a.Address));
-                        break;
-                    case HardwareTypes.SPI:
-                        Analogs.Add(new SPIAnalog(a.Id, a.Address));
-                        break;
-                    default:
-                        break;
-                }
+                Analogs.Add(ioFactory.CreateAnalog(a));
             }
             foreach (IAnalog analog in Analogs)
             {
@@ -234,15 +210,52 @@ namespace DeviceController
                     ProcessCommands();
 
                     //poll alarm status
-                    
+                                 
                     if (mode == Mode.Auto)
                     {
-                        //process Schedules
+                        if (ActiveSchedule != null)
+                        {
+                            //check to see if program is finished
+                            if (ActiveSchedule.Start.AddMinutes(ActiveSchedule.Duration) < DateTime.Now)
+                            {
+                                //schedule finished
+                                SwitchSolenoid(ActiveSchedule.SolenoidId, false);
+                                CreateEvent(EventTypes.IrrigationStop, string.Format("{0} completed",ActiveSchedule.Name));
+                                ActiveSchedule = null;
+                                state = State.Standby;
+                            }
+                        }
+
+                        //check for next active schedule
+                        foreach (Schedule s in Schedules)
+                        {
+                            if ((s.Start < DateTime.Now) && (s.Enabled))
+                            {
+                                //new active schedule
+                                ActiveSchedule = s;
+                                SwitchSolenoid(s.SolenoidId, true);
+                                CreateEvent(EventTypes.IrrigationStart, string.Format("{0} started", ActiveSchedule.Name));
+                                state = State.Irrigating;
+                                break;
+                            }
+                        }
                     }
-                    else
+
+                    if (mode == Mode.Manual)
                     {
-                        //process manual station
-                    }
+                        if (state == State.Irrigating)
+                        {
+                            //check to see if manual program is finished
+                            if (ManualProgram.Completed)
+                            {
+                                //schedule finished
+                                SwitchSolenoid(ManualProgram.SolenoidId, false);
+                                CreateEvent(EventTypes.IrrigationStop, "Manual program completed");
+                                ManualProgram = null;
+                                state = State.Standby;
+                            }
+                        }
+                    }                                                                                            
 
                     Thread.Sleep(5000);
                     //bShutdown = true;
@@ -253,11 +266,11 @@ namespace DeviceController
                 }                
             }
         }
-        public async void CreateEvent(int eventType, string desc)
+        public async void CreateEvent(EventTypes eventType, string desc)
         {            
             try
             {
-                Event e = new Event { EventType = eventType, CreatedAt = DateTime.Now, EventValue = desc, DeviceId=deviceId };
+                Event e = new Event { EventType = (int)eventType, CreatedAt = DateTime.Now, EventValue = desc, DeviceId=deviceId };
                 await dataServer.PostEvent(e);
             }
             catch (Exception ex)
@@ -270,7 +283,69 @@ namespace DeviceController
             //get commands
             try
             {
-                Commands = await dataServer.GetCommands(deviceId);
+                List<Command> commands = await dataServer.GetCommands(deviceId);
+                foreach (Command cmd in commands)
+                {
+                    switch (cmd.CommandType)
+                    {
+                        //shutdown
+                        case 1:
+                            Shutdown();
+                            ActionCommand(cmd);
+                            break;
+                        
+                        //Switch to Auto
+                        case 2:
+                            if (mode != Mode.Auto)
+                            {
+                                log.Info("Switching to Auto mode");
+                                CreateEvent(EventTypes.Application, "Switching to Auto mode");
+                                mode = Mode.Auto;
+                            }
+                            ActionCommand(cmd);
+                            break;
+
+                        //Switch to Manual
+                        case 3:
+                            ManualProgram = new IrrigationProgram(cmd);
+                            log.Info("Switching to Manual mode");
+                            CreateEvent(EventTypes.Application, "Switching to Manual mode");
+                            mode = Mode.Manual;
+                            
+                            //switch off all solenoids
+                            SolenoidsOff();
+
+                            //switch on solenoid for manual program
+                            SwitchSolenoid(ManualProgram.SolenoidId, true);
+
+                            CreateEvent(EventTypes.IrrigationStart, string.Format("Manual irrigation program: {0} for {1} minutes"
+                                , ManualProgram.SolenoidId, ManualProgram.Duration));
+                            ActionCommand(cmd);
+                            break;
+
+                        //Off - turn off all solenoids
+                        case 4:
+                            SolenoidsOff();
+                            state = State.Standby;
+                            CreateEvent(EventTypes.Application, "Switching all solenoids off");
+                            if (ManualProgram != null)
+                            {
+                                if (!ManualProgram.Completed)
+                                {
+                                    log.InfoFormat("Aborting manual irrigation program");
+                                    ManualProgram = null;
+                                    CreateEvent(EventTypes.IrrigationStop, "Aborting manual irrigation program");
+                                }
+                            }
+
+                            ActionCommand(cmd);
+                            break;
+                        
+                            //Get schedules
+                        case 5:
+                            break;
+                    }
+                }
 
             }
             catch (Exception ex)
@@ -278,6 +353,43 @@ namespace DeviceController
                 log.ErrorFormat("GetCommands(): {0}", ex.Message);
             }
 
+        }
+        public async void SwitchSolenoid(int solenoidId, bool value)
+        {
+            //ISolenoid s = Solenoids.Where(i => i.Id == solenoidId).Single() as ISolenoid;
+            foreach (ISolenoid s in Solenoids)
+            {
+                if (s.Id == solenoidId)
+                {
+                    if (value)
+                    {
+                        s.On();
+                    }
+                    else
+                    {
+                        s.Off();
+                    }
+                }
+            }                     
+        }        
+        public async void ActionCommand(Command cmd)
+        {
+            cmd.Actioned = DateTime.Now;
+            await dataServer.PutCommand(cmd);
+        }
+        public async void Shutdown()
+        {
+            log.Info("DeviceController application shutdown");
+            CreateEvent(EventTypes.Application, "DeviceController application shutdown");
+            bShutdown = true;
+        }
+        public void SolenoidsOff()
+        {
+            log.Debug("SolenoidsOff()");
+            foreach (ISolenoid s in Solenoids)
+            {
+                s.Off();
+            }
         }
     }
 }

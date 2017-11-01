@@ -4,32 +4,68 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 using Raspberry.IO.GeneralPurpose;
+using DeviceController.Data;
 
 namespace DeviceController.IO.Solenoids
 {
     public class GPIOSolenoid : ISolenoid
     {
-        public int Id { get; }
-        public string Name { get; set; }
-        public string Description { get; set; }
-        public string Address { get; set; }
-        private bool state;
-        public bool State { get { return state; } }
+        public int Id
+        {
+            get { return solenoid.Id; }
+        }
+        public string Name
+        {
+            get { return solenoid.Name; }
+        }
+        public string Description
+        {
+            get { return solenoid.Description; }
+        }
+        public string Address
+        {
+            get { return solenoid.Address; }
+        }        
+        public bool State
+        {
+            get { return (solenoid.Value == 1); }
+            set
+            {
+                if (value)
+                {
+                    solenoid.Value = 1;
+                }
+                else
+                {
+                    solenoid.Value = 0;
+                }
+            }
+        }
         private GpioConnection connection;
+        private Solenoid _solenoid;
+        private DataServer dataServer;
+        public Solenoid solenoid { get { return _solenoid; } }
                         
-        public GPIOSolenoid(int id, string address)
+        public GPIOSolenoid(Solenoid s, DataServer d)
         {
-            Address = address;
-            state = false;
-            Id = id;
+            _solenoid = s;
+            dataServer = d;
         }
-        public void On()
+        public async void On()
         {
-            state = true;
+            if (!State)
+            {
+                State = true;
+                await dataServer.PutSolenoid(_solenoid);
+            }            
         }
-        public void Off()
+        public async void Off()
         {
-            state = false;
+            if (State)
+            {
+                State = false;
+                await dataServer.PutSolenoid(_solenoid);
+            }            
         }
         public string Report()
         {

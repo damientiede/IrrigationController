@@ -25,9 +25,7 @@ module.exports = {
    },
    list(req, res) {
         return Analog
-            .findAll({ 
-                where: { deviceId: parseInt(req.params.deviceId) }
-	        })
+            .findAll()
             .then(analog => res.status(200).send(analog))
             .catch(error => res.status(400).send(error));
    },

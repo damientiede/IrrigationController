@@ -7,6 +7,7 @@ const schedules = require('./schedules');
 const analogs = require('./analogs');
 const spis = require('./spis');
 const alarms = require('./alarms');
+const commands = require('./commands');
 
 const seedAll = () => {
     eventTypes.seed();
@@ -18,6 +19,7 @@ const seedAll = () => {
     schedules.seed();
     spis.seed();
     alarms.seed();
+    commands.seed();
 }
 module.exports = {    
     seedAll

@@ -6,6 +6,7 @@ using System.Threading.Tasks;
 
 namespace DeviceController.Data
 {
+    public enum EventTypes { Unused=0, Application, Fault, IO, IrrigationStart, IrrigationStop }
     public class Event
     {
         public int Id;

@@ -49,11 +49,18 @@
     <Compile Include="Alarms\SPIAlarm.cs" />
     <Compile Include="Analogs\IAnalog.cs" />
     <Compile Include="Analogs\SPIAnalog.cs" />
+    <Compile Include="IOFactory.cs" />
     <Compile Include="Solenoids\DistributedSolenoid.cs" />
     <Compile Include="Solenoids\GPIOSolenoid.cs" />
     <Compile Include="Solenoids\ISolenoid.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
     <Compile Include="SpiDevice.cs" />
+  </ItemGroup>
+  <ItemGroup>
+    <ProjectReference Include="..\DeviceController.Data\DeviceController.Data.csproj">
+      <Project>{e078f29f-5f0c-4aeb-8831-df4ab4be798e}</Project>
+      <Name>DeviceController.Data</Name>
+    </ProjectReference>
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
   <!-- To modify your build process, add your task inside one of the targets below and uncomment it. 

@@ -3,22 +3,41 @@ using System.Collections.Generic;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
+using DeviceController.Data;
 
 namespace DeviceController.IO.Alarms
 {
-    public class GPIOAlarm:IAlarm
+    public class GPIOAlarm : IAlarm
     {
-        public int Id { get; }
-        public string Name { get; set; }
-        public string Description { get; set; }
-        public string Address { get; set; }
-        private bool state;
-        public bool State { get { return state; } }
-        public GPIOAlarm(int id, string address)
+        public int Id { get { return alarm.Id; } }
+        public string Name { get { return alarm.Name; } }
+        public string Description { get { return alarm.Description; } }
+        public string Address { get { return alarm.Address; } }
+        public Alarm alarm { get { return _alarm; } }        
+        private Alarm _alarm;
+        private DataServer dataServer;
+
+        public bool State {
+            get { return (alarm.Value == 1); }
+            set
+            {
+                if (value != (alarm.Value == 1))
+                {
+                    if (value)
+                    {
+                        alarm.Value = 1;
+                    }
+                    else
+                    {
+                        alarm.Value = 0;
+                    }
+                }
+            }
+        }
+        public GPIOAlarm(Alarm a, DataServer d)
         {
-            Id = id;
-            Address = address;
-            state = false;
+            _alarm = a;
+            dataServer = d;
         }
         public string Report()
         {

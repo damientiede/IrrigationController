@@ -16,15 +16,17 @@ module.exports = (sequelize, DataTypes) => {
     interval: DataTypes.INTEGER,
     enabled: DataTypes.BOOLEAN  
   });
+
   Schedule.associate = (models) => {
-    /* Schedule.hasOne(models.Solenoid, {
-      foreignKey: 'solenoidId',
+    Schedule.hasOne(models.Solenoid, {
+      foreignKey: 'id',
       as: 'solenoid'      
-    }); */
+    });
     Schedule.belongsTo(models.Device, {
         foreignKey: 'deviceId',
         onDelete: 'CASCADE',
     }); 
   };
+
   return Schedule;
 };

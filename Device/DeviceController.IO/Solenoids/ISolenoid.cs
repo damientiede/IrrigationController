@@ -3,18 +3,20 @@ using System.Collections.Generic;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
+using DeviceController.Data;
 
 namespace DeviceController.IO.Solenoids
 {
     public interface ISolenoid
     {
         int Id { get; }
-        string Name { get; set; }
-        string Description { get; set; }
+        string Name { get; }
+        string Description { get; }
         void On();
         void Off();
-        bool State { get; }
-        string Address { get; set; }
+        bool State { get; set; }
+        string Address { get; }
         string Report();
+        Solenoid solenoid { get; }
     }
 }

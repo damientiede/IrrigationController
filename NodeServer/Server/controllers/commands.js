@@ -4,7 +4,7 @@ module.exports = {
    create(req, res) {      
       return Command
          .create({
-            commandtype: parseInt(req.body.CommandType),
+            commandType: parseInt(req.body.CommandType),
             params: req.body.Params,
 	      issued: new Date(),
             actioned: null,

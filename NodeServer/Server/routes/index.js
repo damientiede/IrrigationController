@@ -58,7 +58,7 @@ module.exports = (app) => {
    //Alarms
    app.post('/api/alarms', alarmsController.create);
    app.get('/api/alarms/:id', alarmsController.single);
-   app.get('/api/alarms/:deviceId', alarmsController.list);
+   app.get('/api/alarms', alarmsController.list);
    app.put('/api/alarms/:id', alarmsController.update);
    app.get('/api/device/:deviceId/alarms', alarmsController.listByDevice);
 
