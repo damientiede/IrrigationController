@@ -6,13 +6,15 @@ using System.Threading.Tasks;
 
 namespace DeviceController.Data
 {
+    public enum DeviceMode { Auto, Manual, Diagnostic }
+    public enum DeviceState { Standby, Irrigating, Fault }
     public class Device
     {
         public int Id;
         public string Name;
-        public string Description;        
-        public enum State { Monitor, WaitForTimeout, ConfirmReset, WaitForReset }
-        public enum Mode { Auto, Manual, Standby }
+        public string Description;
+        public DeviceState State;
+        public DeviceMode Mode;
         public string SoftWareVersion;
         public DateTime? manualStart;
         public string deviceMAC;
@@ -21,23 +23,10 @@ namespace DeviceController.Data
         public Solenoid manualSolenoid;
         public Solenoid pumpSolenoid;
         public DateTime CreatedAt;
-        public DateTime UpdatedAt;
-
-        //List<Solenoid> Solenoids;
-        //List<Alarm> Alarms;
-        //List<Analog> Analogs;
-        //List<Spi> Spis;
-        //List<Command> Commands;
-        //List<Schedule> Schedules;
+        public DateTime UpdatedAt;       
 
         public Device()
-        {
-            //List<Solenoid> Solenoids = new List<Solenoid>();
-            //List<Alarm> Alarms = new List<Alarm>();
-            //List<Analog> Analogs = new List<Analog>();
-            //List<Spi> Spis = new List<Spi>();
-            //List<Command> Commands = new List<Command>();
-            //List<Schedule> Schedules = new List<Schedule>();
+        {           
         }
     }
 }

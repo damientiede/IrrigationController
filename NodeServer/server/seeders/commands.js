@@ -8,7 +8,7 @@ module.exports = {
 	   if (c ==0) {
 	      Command.create(
               { commandType:3,
-                params:'Shelter,360',
+                params:'1,360',
                 issued: new Date()
                });
               console.log('Created 1 command');	   		
@@ -16,3 +16,4 @@ module.exports = {
 	})
    }
 };
+

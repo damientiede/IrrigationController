@@ -13,7 +13,7 @@ namespace DeviceController.Data
     public class DataServer
     {
         public string Uri;
-        int DeviceId;
+        public int DeviceId;
         HttpClient client;
         public DataServer(string uri)
         {
@@ -64,6 +64,15 @@ namespace DeviceController.Data
         public async Task PutSolenoid(Solenoid s)
         {
             HttpResponseMessage response = await client.PutAsJsonAsync(string.Format("solenoids/{0}",s.Id),s);
+            //Console.WriteLine("PutCommand response: {0}", response.StatusCode.ToString());
+            response.EnsureSuccessStatusCode();
+
+            // return URI of the created resource.
+            return;// response.Headers.Location;
+        }
+        public async Task PutDevice(Device d)
+        {
+            HttpResponseMessage response = await client.PutAsJsonAsync(string.Format("devices/{0}", d.Id), d);
             //Console.WriteLine("PutCommand response: {0}", response.StatusCode.ToString());
             response.EnsureSuccessStatusCode();
 

@@ -20,11 +20,13 @@ module.exports = {
             },
             mode: {
                 type: Sequelize.ENUM,
-                values:['Manual','Auto','Off']
+                values:['Manual','Auto','Diagnostic'],
+                default:'Manual'
             },
             state: {
                 type: Sequelize.ENUM,
-                values:['Monitoring','Irrigating','Fault']
+                values:['Standby','Irrigating','Fault'],
+                default:'Standby'
             },   
             manualStart: {
                 type: Sequelize.DATE                

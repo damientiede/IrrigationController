@@ -9,8 +9,8 @@ module.exports = {
               Device.create({
                     name:'TestDevice1',
                     description:'Seeded for testing',
-                    mode:'Off',
-                    state:'Monitoring',			        			        
+                    state:'Standby',
+                    mode:'Manual',
 			        manualStart:null,
                     manualDuration:0,
                     manualSolenoid:0,
