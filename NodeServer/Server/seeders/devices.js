@@ -11,12 +11,13 @@ module.exports = {
                     description:'Seeded for testing',
                     state:'Standby',
                     mode:'Manual',
-			        manualStart:null,
-                    manualDuration:0,
-                    manualSolenoid:0,
+                    status:'Seeded',
+			        programStart:null,
+                    programDuration:0,
+                    programSolenoid:0,
                     pumpSolenoid:0,
                     softwareVersion:'0.0.1',
-                    deviceMAC:'TestSeed'
+                    deviceMAC:'9CB70D839BC4'
 	      });
           console.log('Created 1 device record');	   		
 	   }

@@ -11,7 +11,8 @@ module.exports = {
               CommandType.create({title:'Manual',description:'Changes to manual mode'});
               CommandType.create({title:'Off',description:'Powers off all solenoids and stops all programs'});
               CommandType.create({title:'GetSchedules',description:'Instructs the controller to refresh the schedule cache'});
-              console.log('Created 5 command types');	   		
+              CommandType.create({title:'LoadConfig',description:'Instructs the controller to reload its configuration'});
+              console.log('Created 6 command types');	   		
 	   }
 	})
    }

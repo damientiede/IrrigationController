@@ -78,30 +78,7 @@ namespace DeviceController.Data
 
             // return URI of the created resource.
             return;// response.Headers.Location;
-        }
-        //public async Task<List<Schedule>> GetSchedules(int deviceId)
-        //{
-        //    List<Schedule> schedule = null;
-        //    HttpResponseMessage response = await client.GetAsync(path);
-        //    if (response.IsSuccessStatusCode)
-        //    {
-        //        schedule = await response.Content.ReadAsAsync<List<Schedule>>();
-        //    }
-        //    return schedule;
-        //}
-
-        //public static async Task<List<EventHistory>> GetEvents(string path)
-        //{
-        //    InitClient();
-        //    List<EventHistory> events = null;
-        //    HttpResponseMessage response = await client.GetAsync(path);
-        //    if (response.IsSuccessStatusCode)
-        //    {
-        //        events = await response.Content.ReadAsAsync<List<EventHistory>>();
-        //    }
-        //    return events;
-        //}
-
+        }        
         public async Task<List<Command>> GetCommands(int deviceId)
         {                     
             List<Command> commands = null;
@@ -111,6 +88,16 @@ namespace DeviceController.Data
                 commands = await response.Content.ReadAsAsync<List<Command>>();
             }
             return commands;
+        }
+        public async Task<List<CommandType>> GetCommandTypes()
+        {
+            List<CommandType> commandTypes = null;
+            HttpResponseMessage response = await client.GetAsync("commandtypes");
+            if (response.IsSuccessStatusCode)
+            {
+                commandTypes = await response.Content.ReadAsAsync<List<CommandType>>();
+            }
+            return commandTypes;
         }
         public async Task<List<Solenoid>> GetSolenoids(int deviceId)
         {

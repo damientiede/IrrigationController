@@ -6,16 +6,12 @@ using System.Threading.Tasks;
 
 namespace DeviceController.Data
 {
-    public class Command
+    public class CommandType
     {
         public int Id;
-        public string CommandType;
-        public string Params;
-        public int DeviceId;
-        public DateTime? Issued;
-        public DateTime? Actioned;
+        public string Title;
+        public string Description;        
         public DateTime? CreatedAt;
         public DateTime? UpdatedAt;
-
     }
 }

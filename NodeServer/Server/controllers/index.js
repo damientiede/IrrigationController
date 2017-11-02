@@ -6,6 +6,7 @@ const solenoids = require('./solenoids');
 const analogs = require('./analogs');
 const spis = require('./spis');
 const commands = require('./commands');
+const commandTypes = require('./commandtypes');
 const deviceStatuses = require('./deviceStatuses');
 const schedules = require('./schedules');
 const users = require('./users');
@@ -19,6 +20,7 @@ module.exports = {
    analogs,
    spis,
    commands,
+   commandTypes,
    schedules,
    users,
    deviceStatuses

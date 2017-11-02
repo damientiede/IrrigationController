@@ -28,13 +28,16 @@ module.exports = {
                 values:['Standby','Irrigating','Fault'],
                 default:'Standby'
             },   
-            manualStart: {
+            status: {
+                type: Sequelize.STRING
+            },
+            programStart: {
                 type: Sequelize.DATE                
             },
-            manualDuration: {
+            programDuration: {
                 type: Sequelize.INTEGER                
             },
-            manualSolenoid: {
+            programSolenoid: {
                 type: Sequelize.INTEGER
             }, 
             pumpSolenoid: {
@@ -372,7 +375,7 @@ module.exports = {
                 type: Sequelize.INTEGER
             },
             commandType: {
-                type: Sequelize.INTEGER
+                type: Sequelize.STRING
             },
             params: {
                 type: Sequelize.STRING
@@ -494,6 +497,12 @@ module.exports = {
         queryInterface.dropTable('Accounts'),
         //alarms
         queryInterface.dropTable('Alarms'),
+        //schedules
+        queryInterface.dropTable('Schedules'),        
+        //spis
+        queryInterface.dropTable('Spis'),
+        //solenoids
+        queryInterface.dropTable('Solenoids'),        
         //analogs
         queryInterface.dropTable('Analogs'),
         //commands
@@ -503,13 +512,7 @@ module.exports = {
         //events
         queryInterface.dropTable('Events'),
         //eventtypes
-        queryInterface.dropTable('EventTypes'),
-        //solenoids
-        queryInterface.dropTable('Solenoids'),
-        //schedules
-        queryInterface.dropTable('Schedules'),        
-        //spis
-        queryInterface.dropTable('Spis'),
+        queryInterface.dropTable('EventTypes'),                
         //users
         queryInterface.dropTable('Users'),
         //devices

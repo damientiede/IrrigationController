@@ -5171,3 +5171,194 @@
 2017-11-02 18:24:52,448 INFO  - SPIAnalog Id:1 Name: Description: Address:http://192.168.1.100/k2 Multiplier:0 Units: Value:0
 2017-11-02 18:24:52,449 DEBUG - 1 Analogs configured
 2017-11-02 18:25:42,346 INFO  - DeviceController application shutdown
+2017-11-03 10:46:40,568 INFO  - =====================================================
+2017-11-03 10:46:40,607 INFO  - DeviceController.Init(): Initializing device...
+2017-11-03 10:46:40,634 DEBUG - Registering device 9CB70D839BC4 with server...
+2017-11-03 10:46:41,317 DEBUG - DeviceController start, registered with deviceId:2
+2017-11-03 10:46:41,340 INFO  - LoadSpis()
+2017-11-03 10:46:41,348 INFO  - LoadSolenoids()
+2017-11-03 10:46:41,359 INFO  - LoadAlarms()
+2017-11-03 10:46:41,376 INFO  - LoadAnalogs()
+2017-11-03 10:46:41,380 INFO  - LoadSchedules() todo
+2017-11-03 10:46:41,382 INFO  - DeviceController.Init(): Initialization complete.
+2017-11-03 10:46:41,435 DEBUG - 0 Solenoids configured
+2017-11-03 10:46:41,454 DEBUG - 0 Alarms configured
+2017-11-03 10:46:41,457 DEBUG - 0 Analogs configured
+2017-11-03 10:53:53,095 INFO  - =====================================================
+2017-11-03 10:53:53,115 INFO  - DeviceController.Init(): Initializing device...
+2017-11-03 10:53:53,152 DEBUG - Registering device 9CB70D839BC4 with server...
+2017-11-03 10:53:53,624 DEBUG - DeviceController start, registered with deviceId:1
+2017-11-03 10:53:53,638 INFO  - LoadSpis()
+2017-11-03 10:53:53,644 INFO  - LoadSolenoids()
+2017-11-03 10:53:53,652 INFO  - LoadAlarms()
+2017-11-03 10:53:53,658 INFO  - LoadAnalogs()
+2017-11-03 10:53:53,662 INFO  - LoadSchedules() todo
+2017-11-03 10:53:53,663 INFO  - DeviceController.Init(): Initialization complete.
+2017-11-03 10:53:53,678 DEBUG - LoadSpis(): Id:1 name:Test SPI 1 Clock:0 CS:0 MISO:18 MOSI:20 
+
+2017-11-03 10:53:53,679 INFO  - SpiDevice Id:1 Name:Test SPI 1 Clock:0 CS:0 MISO:18 MOSI:20
+2017-11-03 10:53:53,713 INFO  - DistributedAlarm Id:1 Name:Station1 Address:Test alarm 1 Description:http://192.168.1.100/k2 State:False
+2017-11-03 10:53:53,714 INFO  - GPIOAlarm Id:2 Name:Station2 Address:Test alarm 2 Description:P1Pin28 State:False
+2017-11-03 10:53:53,715 INFO  - GPIOSolenoid Id:1 Name:Station1 Description:Test solenoid 1 Address:P1Pin25 State:False
+2017-11-03 10:53:53,715 INFO  - GPIOSolenoid Id:2 Name:Station2 Description:Test solenoid 2 Address:P1Pin28 State:False
+2017-11-03 10:53:53,715 INFO  - GPIOSolenoid Id:3 Name:Station3 Description:Test solenoid 3 Address:P1Pin26 State:False
+2017-11-03 10:53:53,715 INFO  - GPIOSolenoid Id:4 Name:Station4 Description:Test solenoid 4 Address:P1Pin21 State:False
+2017-11-03 10:53:53,715 DEBUG - 4 Solenoids configured
+2017-11-03 10:53:53,716 INFO  - DistributedAlarm Id:3 Name:Station3 Address:Test alarm 3 Description:1 State:False
+2017-11-03 10:53:53,716 INFO  - GPIOAlarm Id:4 Name:Station4 Address:Test alarm 4 Description:P1Pin21 State:False
+2017-11-03 10:53:53,716 DEBUG - 4 Alarms configured
+2017-11-03 10:53:53,724 INFO  - SPIAnalog Id:1 Name: Description: Address:http://192.168.1.100/k2 Multiplier:0 Units: Value:0
+2017-11-03 10:53:53,724 DEBUG - 1 Analogs configured
+2017-11-03 11:21:43,487 INFO  - =====================================================
+2017-11-03 11:21:43,506 INFO  - DeviceController.Init(): Initializing device...
+2017-11-03 11:21:43,541 DEBUG - Registering device 9CB70D839BC4 with server...
+2017-11-03 11:21:44,019 DEBUG - DeviceController start, registered with deviceId:1
+2017-11-03 11:21:44,033 INFO  - LoadCommandTypes()
+2017-11-03 11:21:44,041 INFO  - LoadSpis()
+2017-11-03 11:21:44,051 INFO  - LoadSolenoids()
+2017-11-03 11:21:44,060 INFO  - LoadAlarms()
+2017-11-03 11:21:44,066 INFO  - LoadAnalogs()
+2017-11-03 11:21:44,069 INFO  - LoadSchedules() todo
+2017-11-03 11:21:44,069 INFO  - DeviceController.Init(): Initialization complete.
+2017-11-03 11:21:44,135 DEBUG - LoadSpis(): Id:1 name:Test SPI 1 Clock:0 CS:0 MISO:18 MOSI:20 
+
+2017-11-03 11:21:44,136 INFO  - SpiDevice Id:1 Name:Test SPI 1 Clock:0 CS:0 MISO:18 MOSI:20
+2017-11-03 11:21:44,154 INFO  - DistributedAlarm Id:1 Name:Station1 Address:Test alarm 1 Description:http://192.168.1.100/k2 State:False
+2017-11-03 11:21:44,154 INFO  - SPIAnalog Id:1 Name: Description: Address:http://192.168.1.100/k2 Multiplier:0 Units: Value:0
+2017-11-03 11:21:44,155 DEBUG - 1 Analogs configured
+2017-11-03 11:21:44,155 INFO  - GPIOAlarm Id:2 Name:Station2 Address:Test alarm 2 Description:P1Pin28 State:False
+2017-11-03 11:21:44,157 INFO  - DistributedAlarm Id:3 Name:Station3 Address:Test alarm 3 Description:1 State:False
+2017-11-03 11:21:44,157 INFO  - GPIOAlarm Id:4 Name:Station4 Address:Test alarm 4 Description:P1Pin21 State:False
+2017-11-03 11:21:44,157 DEBUG - 4 Alarms configured
+2017-11-03 11:21:44,176 INFO  - GPIOSolenoid Id:1 Name:Station1 Description:Test solenoid 1 Address:P1Pin25 State:False
+2017-11-03 11:21:44,176 INFO  - GPIOSolenoid Id:2 Name:Station2 Description:Test solenoid 2 Address:P1Pin28 State:False
+2017-11-03 11:21:44,176 INFO  - GPIOSolenoid Id:3 Name:Station3 Description:Test solenoid 3 Address:P1Pin26 State:False
+2017-11-03 11:21:44,176 INFO  - GPIOSolenoid Id:4 Name:Station4 Description:Test solenoid 4 Address:P1Pin21 State:False
+2017-11-03 11:21:44,176 DEBUG - 4 Solenoids configured
+2017-11-03 11:26:00,190 INFO  - =====================================================
+2017-11-03 11:26:00,207 INFO  - DeviceController.Init(): Initializing device...
+2017-11-03 11:26:00,237 DEBUG - Registering device 9CB70D839BC4 with server...
+2017-11-03 11:26:00,698 DEBUG - DeviceController start, registered with deviceId:1
+2017-11-03 11:26:00,717 INFO  - LoadSpis()
+2017-11-03 11:26:00,727 INFO  - LoadSolenoids()
+2017-11-03 11:26:00,735 INFO  - LoadAlarms()
+2017-11-03 11:26:00,742 INFO  - LoadAnalogs()
+2017-11-03 11:26:00,769 INFO  - LoadSchedules() todo
+2017-11-03 11:26:00,770 INFO  - DeviceController.LoadConfig(): Configuration complete.
+2017-11-03 11:26:00,782 DEBUG - LoadSpis(): Id:1 name:Test SPI 1 Clock:0 CS:0 MISO:18 MOSI:20 
+
+2017-11-03 11:26:00,783 INFO  - SpiDevice Id:1 Name:Test SPI 1 Clock:0 CS:0 MISO:18 MOSI:20
+2017-11-03 11:26:00,800 INFO  - DistributedAlarm Id:1 Name:Station1 Address:Test alarm 1 Description:http://192.168.1.100/k2 State:False
+2017-11-03 11:26:00,801 INFO  - GPIOAlarm Id:2 Name:Station2 Address:Test alarm 2 Description:P1Pin28 State:False
+2017-11-03 11:26:00,802 INFO  - GPIOSolenoid Id:1 Name:Station1 Description:Test solenoid 1 Address:P1Pin25 State:False
+2017-11-03 11:26:00,802 INFO  - GPIOSolenoid Id:2 Name:Station2 Description:Test solenoid 2 Address:P1Pin28 State:False
+2017-11-03 11:26:00,803 INFO  - GPIOSolenoid Id:3 Name:Station3 Description:Test solenoid 3 Address:P1Pin26 State:False
+2017-11-03 11:26:00,803 INFO  - DistributedAlarm Id:3 Name:Station3 Address:Test alarm 3 Description:1 State:False
+2017-11-03 11:26:00,803 INFO  - GPIOSolenoid Id:4 Name:Station4 Description:Test solenoid 4 Address:P1Pin21 State:False
+2017-11-03 11:26:00,803 INFO  - GPIOAlarm Id:4 Name:Station4 Address:Test alarm 4 Description:P1Pin21 State:False
+2017-11-03 11:26:00,803 DEBUG - 4 Alarms configured
+2017-11-03 11:26:00,803 DEBUG - 4 Solenoids configured
+2017-11-03 11:26:00,814 INFO  - SPIAnalog Id:1 Name: Description: Address:http://192.168.1.100/k2 Multiplier:0 Units: Value:0
+2017-11-03 11:26:00,814 DEBUG - 1 Analogs configured
+2017-11-03 11:28:30,780 INFO  - LoadConfig
+2017-11-03 11:28:30,780 INFO  - LoadSpis()
+2017-11-03 11:28:30,781 INFO  - LoadSolenoids()
+2017-11-03 11:28:30,781 INFO  - LoadAlarms()
+2017-11-03 11:28:30,782 INFO  - LoadAnalogs()
+2017-11-03 11:28:30,782 INFO  - LoadSchedules() todo
+2017-11-03 11:28:30,797 INFO  - DeviceController.LoadConfig(): Configuration complete.
+2017-11-03 11:28:30,810 DEBUG - LoadSpis(): Id:1 name:Test SPI 1 Clock:0 CS:0 MISO:18 MOSI:20 
+
+2017-11-03 11:28:30,810 INFO  - SpiDevice Id:1 Name:Test SPI 1 Clock:0 CS:0 MISO:18 MOSI:20
+2017-11-03 11:28:30,832 INFO  - SPIAnalog Id:1 Name: Description: Address:http://192.168.1.100/k2 Multiplier:0 Units: Value:0
+2017-11-03 11:28:30,832 DEBUG - 1 Analogs configured
+2017-11-03 11:28:30,834 INFO  - GPIOSolenoid Id:1 Name:Station1 Description:Test solenoid 1 Address:P1Pin25 State:False
+2017-11-03 11:28:30,834 INFO  - GPIOSolenoid Id:2 Name:Station2 Description:Test solenoid 2 Address:P1Pin28 State:False
+2017-11-03 11:28:30,834 INFO  - GPIOSolenoid Id:3 Name:Station3 Description:Test solenoid 3 Address:P1Pin26 State:False
+2017-11-03 11:28:30,834 INFO  - GPIOSolenoid Id:4 Name:Station4 Description:Test solenoid 4 Address:P1Pin21 State:False
+2017-11-03 11:28:30,834 DEBUG - 4 Solenoids configured
+2017-11-03 11:28:30,861 INFO  - DistributedAlarm Id:1 Name:Station1 Address:Test alarm 1 Description:http://192.168.1.100/k2 State:False
+2017-11-03 11:28:30,861 INFO  - GPIOAlarm Id:2 Name:Station2 Address:Test alarm 2 Description:P1Pin28 State:False
+2017-11-03 11:28:30,861 INFO  - DistributedAlarm Id:3 Name:Station3 Address:Test alarm 3 Description:1 State:False
+2017-11-03 11:28:30,861 INFO  - GPIOAlarm Id:4 Name:Station4 Address:Test alarm 4 Description:P1Pin21 State:False
+2017-11-03 11:28:30,861 DEBUG - 4 Alarms configured
+2017-11-03 11:29:50,796 DEBUG - SolenoidsOff()
+2017-11-03 11:31:00,805 INFO  - Switching to Manual mode
+2017-11-03 11:37:56,474 INFO  - =====================================================
+2017-11-03 11:37:56,490 INFO  - DeviceController.Init(): Initializing device...
+2017-11-03 11:37:56,527 DEBUG - Registering device 9CB70D839BC4 with server...
+2017-11-03 11:37:56,991 DEBUG - DeviceController start, registered with deviceId:1
+2017-11-03 11:37:57,008 INFO  - LoadSpis()
+2017-11-03 11:37:57,024 INFO  - LoadSolenoids()
+2017-11-03 11:37:57,029 INFO  - LoadAlarms()
+2017-11-03 11:37:57,051 INFO  - LoadAnalogs()
+2017-11-03 11:37:57,054 INFO  - LoadSchedules() todo
+2017-11-03 11:37:57,055 INFO  - DeviceController.LoadConfig(): Configuration complete.
+2017-11-03 11:37:57,066 DEBUG - LoadSpis(): Id:1 name:Test SPI 1 Clock:0 CS:0 MISO:18 MOSI:20 
+
+2017-11-03 11:37:57,067 INFO  - SpiDevice Id:1 Name:Test SPI 1 Clock:0 CS:0 MISO:18 MOSI:20
+2017-11-03 11:37:57,084 INFO  - DistributedAlarm Id:1 Name:Station1 Address:Test alarm 1 Description:http://192.168.1.100/k2 State:False
+2017-11-03 11:37:57,084 INFO  - GPIOSolenoid Id:1 Name:Station1 Description:Test solenoid 1 Address:P1Pin25 State:False
+2017-11-03 11:37:57,084 INFO  - GPIOSolenoid Id:2 Name:Station2 Description:Test solenoid 2 Address:P1Pin28 State:True
+2017-11-03 11:37:57,084 INFO  - GPIOSolenoid Id:3 Name:Station3 Description:Test solenoid 3 Address:P1Pin26 State:False
+2017-11-03 11:37:57,084 INFO  - GPIOSolenoid Id:4 Name:Station4 Description:Test solenoid 4 Address:P1Pin21 State:False
+2017-11-03 11:37:57,084 DEBUG - 4 Solenoids configured
+2017-11-03 11:37:57,085 INFO  - GPIOAlarm Id:2 Name:Station2 Address:Test alarm 2 Description:P1Pin28 State:False
+2017-11-03 11:37:57,086 INFO  - DistributedAlarm Id:3 Name:Station3 Address:Test alarm 3 Description:1 State:False
+2017-11-03 11:37:57,086 INFO  - GPIOAlarm Id:4 Name:Station4 Address:Test alarm 4 Description:P1Pin21 State:False
+2017-11-03 11:37:57,086 DEBUG - 4 Alarms configured
+2017-11-03 11:37:57,096 INFO  - SPIAnalog Id:1 Name: Description: Address:http://192.168.1.100/k2 Multiplier:0 Units: Value:0
+2017-11-03 11:37:57,096 DEBUG - 1 Analogs configured
+2017-11-03 11:38:17,041 INFO  - Switching to Manual mode
+2017-11-03 11:48:04,423 INFO  - =====================================================
+2017-11-03 11:48:04,438 INFO  - DeviceController.Init(): Initializing device...
+2017-11-03 11:48:04,472 DEBUG - Registering device 9CB70D839BC4 with server...
+2017-11-03 11:48:04,918 DEBUG - DeviceController start, registered with deviceId:1
+2017-11-03 11:48:04,933 INFO  - LoadSpis()
+2017-11-03 11:48:04,940 INFO  - LoadSolenoids()
+2017-11-03 11:48:04,946 INFO  - LoadAlarms()
+2017-11-03 11:48:04,965 INFO  - LoadAnalogs()
+2017-11-03 11:48:04,974 INFO  - LoadSchedules() todo
+2017-11-03 11:48:04,975 INFO  - DeviceController.LoadConfig(): Configuration complete.
+2017-11-03 11:48:05,006 INFO  - DistributedAlarm Id:1 Name:Station1 Address:Test alarm 1 Description:http://192.168.1.100/k2 State:False
+2017-11-03 11:48:05,007 INFO  - GPIOAlarm Id:2 Name:Station2 Address:Test alarm 2 Description:P1Pin28 State:False
+2017-11-03 11:48:05,009 INFO  - DistributedAlarm Id:3 Name:Station3 Address:Test alarm 3 Description:1 State:False
+2017-11-03 11:48:05,009 INFO  - GPIOAlarm Id:4 Name:Station4 Address:Test alarm 4 Description:P1Pin21 State:False
+2017-11-03 11:48:05,009 DEBUG - 4 Alarms configured
+2017-11-03 11:48:05,011 INFO  - GPIOSolenoid Id:1 Name:Station1 Description:Test solenoid 1 Address:P1Pin25 State:False
+2017-11-03 11:48:05,011 INFO  - GPIOSolenoid Id:2 Name:Station2 Description:Test solenoid 2 Address:P1Pin28 State:True
+2017-11-03 11:48:05,011 INFO  - GPIOSolenoid Id:3 Name:Station3 Description:Test solenoid 3 Address:P1Pin26 State:False
+2017-11-03 11:48:05,011 INFO  - GPIOSolenoid Id:4 Name:Station4 Description:Test solenoid 4 Address:P1Pin21 State:False
+2017-11-03 11:48:05,011 DEBUG - 4 Solenoids configured
+2017-11-03 11:48:05,012 INFO  - SPIAnalog Id:1 Name: Description: Address:http://192.168.1.100/k2 Multiplier:0 Units: Value:0
+2017-11-03 11:48:05,012 DEBUG - 1 Analogs configured
+2017-11-03 11:48:05,023 DEBUG - LoadSpis(): Id:1 name:Test SPI 1 Clock:0 CS:0 MISO:18 MOSI:20 
+
+2017-11-03 11:48:05,024 INFO  - SpiDevice Id:1 Name:Test SPI 1 Clock:0 CS:0 MISO:18 MOSI:20
+2017-11-03 11:48:30,000 INFO  - Switching to Manual mode
+2017-11-03 12:16:09,146 INFO  - =====================================================
+2017-11-03 12:16:09,163 INFO  - DeviceController.Init(): Initializing device...
+2017-11-03 12:16:09,193 DEBUG - Registering device 9CB70D839BC4 with server...
+2017-11-03 12:16:09,765 DEBUG - DeviceController start, registered with deviceId:1
+2017-11-03 12:16:09,786 INFO  - LoadSpis()
+2017-11-03 12:16:09,792 INFO  - LoadSolenoids()
+2017-11-03 12:16:09,798 INFO  - LoadAlarms()
+2017-11-03 12:16:09,806 INFO  - LoadAnalogs()
+2017-11-03 12:16:09,811 INFO  - LoadSchedules() todo
+2017-11-03 12:16:09,812 INFO  - DeviceController.LoadConfig(): Configuration complete.
+2017-11-03 12:16:09,888 DEBUG - LoadSpis(): Id:1 name:Test SPI 1 Clock:0 CS:0 MISO:18 MOSI:20 
+
+2017-11-03 12:16:09,889 INFO  - SpiDevice Id:1 Name:Test SPI 1 Clock:0 CS:0 MISO:18 MOSI:20
+2017-11-03 12:16:09,898 INFO  - GPIOSolenoid Id:1 Name:Station1 Description:Test solenoid 1 Address:P1Pin25 State:False
+2017-11-03 12:16:09,898 INFO  - GPIOSolenoid Id:2 Name:Station2 Description:Test solenoid 2 Address:P1Pin28 State:False
+2017-11-03 12:16:09,898 INFO  - GPIOSolenoid Id:3 Name:Station3 Description:Test solenoid 3 Address:P1Pin26 State:True
+2017-11-03 12:16:09,898 INFO  - GPIOSolenoid Id:4 Name:Station4 Description:Test solenoid 4 Address:P1Pin21 State:False
+2017-11-03 12:16:09,898 DEBUG - 4 Solenoids configured
+2017-11-03 12:16:09,907 INFO  - DistributedAlarm Id:1 Name:Station1 Address:Test alarm 1 Description:http://192.168.1.100/k2 State:False
+2017-11-03 12:16:09,908 INFO  - GPIOAlarm Id:2 Name:Station2 Address:Test alarm 2 Description:P1Pin28 State:False
+2017-11-03 12:16:09,910 INFO  - DistributedAlarm Id:3 Name:Station3 Address:Test alarm 3 Description:1 State:False
+2017-11-03 12:16:09,910 INFO  - GPIOAlarm Id:4 Name:Station4 Address:Test alarm 4 Description:P1Pin21 State:False
+2017-11-03 12:16:09,910 DEBUG - 4 Alarms configured
+2017-11-03 12:16:09,924 INFO  - SPIAnalog Id:1 Name: Description: Address:http://192.168.1.100/k2 Multiplier:0 Units: Value:0
+2017-11-03 12:16:09,924 DEBUG - 1 Analogs configured
+2017-11-03 12:16:34,814 INFO  - Switching to Manual mode

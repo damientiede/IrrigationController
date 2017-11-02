@@ -1,4 +1,5 @@
 const Device = require('../models').Device;
+const Utils = require('../utils');
 
 module.exports = {
    create(req, res) {      
@@ -8,9 +9,10 @@ module.exports = {
                 description: req.body.description,
                 mode:'Manual',
                 state:'Standby',
-                manualStart:req.body.manualStart,
-                manualDuration:req.body.manualDuration,
-                manualSolenoid:req.body.manualSolenoid,
+                status:'Created',
+                programStart:req.body.manualStart,
+                programDuration:req.body.manualDuration,
+                programSolenoid:req.body.manualSolenoid,
                 pumpSolenoid:req.body.pumpSolenoid,
                 softwareVersion:req.body.softwareVersion,
                 deviceMAC:req.body
@@ -38,13 +40,15 @@ module.exports = {
             .update({        
                 name: req.body.Name,
                 description: req.body.Description,
-                mode:req.body.Mode,
-                state:req.body.State,
-                manualStart:req.body.ManualStart,
-                manualDuration:req.body.ManualDuration,
-                manualSolenoid:req.body.ManualSolenoid,
+                mode: Utils.parseDeviceMode(req.body.Mode),
+                state: Utils.parseDeviceState(req.body.State),
+                status: req.body.Status,
+                programStart:req.body.ProgramStart,
+                programDuration:req.body.ProgramDuration,
+                programSolenoid:req.body.ProgramSolenoid,
                 pumpSolenoid:req.body.PumpSolenoid,
-                softwareVersion:req.body.SoftwareVersion            
+                softwareVersion:req.body.SoftwareVersion,
+                updatedAt:new Date()            
             }, {
 	            where: { id: req.params.id }
             })
@@ -60,6 +64,7 @@ module.exports = {
                     description:'Device description',
                     mode:'Manual',
                     state:'Standby',
+                    status:'Created',
                     softwareVersion:'0.0.0.1'
                     //deviceMAC: req.params.mac
                 }

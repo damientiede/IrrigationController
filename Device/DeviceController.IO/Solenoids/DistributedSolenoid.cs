@@ -49,13 +49,21 @@ namespace DeviceController.IO.Solenoids
             _solenoid = s;
             dataServer = d;
         }
-        public void On()
+        public async void On()
         {
-            State = true;
+            if (!State)
+            {
+                State = true;
+                await dataServer.PutSolenoid(_solenoid);
+            }
         }
-        public void Off()
+        public async void Off()
         {
-            State = false;
+            if (State)
+            {
+                State = false;
+                await dataServer.PutSolenoid(_solenoid);
+            }
         }
         public string Report()
         {

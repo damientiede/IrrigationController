@@ -4,11 +4,11 @@ module.exports = {
    create(req, res) {      
       return Command
          .create({
-            commandType: parseInt(req.body.CommandType),
+            commandType: req.body.CommandType,
             params: req.body.Params,
 	      issued: new Date(),
             actioned: null,
-            deviceId: parseInt(req.body.deviceId)
+            deviceId: parseInt(req.body.DeviceId)
          })
          .then(command => res.status(201).send(command))
          .catch(error => res.status(400).send(error));

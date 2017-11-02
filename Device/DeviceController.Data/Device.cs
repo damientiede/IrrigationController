@@ -15,13 +15,13 @@ namespace DeviceController.Data
         public string Description;
         public DeviceState State;
         public DeviceMode Mode;
-        public string SoftWareVersion;
-        public DateTime? manualStart;
-        public string deviceMAC;
-
-        public int? manualDuration;
-        public Solenoid manualSolenoid;
-        public Solenoid pumpSolenoid;
+        public string Status;
+        public string SoftwareVersion;
+        public DateTime? ProgramStart;
+        public int? ProgramDuration;
+        public int? ProgramSolenoid;
+        public string DeviceMAC;
+        public int PumpSolenoid;
         public DateTime CreatedAt;
         public DateTime UpdatedAt;       
 

@@ -1,5 +1,6 @@
 const eventsController = require('../controllers').events;
 const commandsController = require('../controllers').commands;
+const commandTypesController = require ('../controllers').commandTypes;
 const statusController = require('../controllers').status;
 const accountsController = require('../controllers').accounts;
 const devicesController = require('../controllers').devices;
@@ -26,6 +27,9 @@ module.exports = (app) => {
    app.get('/api/device/:deviceId/pendingcommands', commandsController.pending);
    app.put('/api/commands/:commandId', commandsController.update);
    app.post('/api/commands', commandsController.create);
+
+   //CommandTypes
+   app.get('/api/commandtypes', commandTypesController.list);
 
    //Devices
    app.get('/api/devices', devicesController.list);
