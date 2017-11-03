@@ -1,13 +1,6 @@
 const Solenoid = require('../models').Solenoid;
 const Utils = require('../utils');
 
-/* function parseHardwareType(hwType)
-{    
-    if (hwType == 0) { return 'GPIO';}
-    if (hwType == 1) { return 'Distributed';}
-    if (hwType == 2) { return 'SPI';}    
-    return 'None';
-} */
 module.exports = {
    create(req, res) {      
         return Solenoid

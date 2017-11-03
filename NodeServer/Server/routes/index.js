@@ -11,6 +11,7 @@ const spisController = require('../controllers').spis;
 const usersController = require('../controllers').users;
 const deviceStatusController = require('../controllers').deviceStatuses;
 const schedulesController = require('../controllers').schedules;
+const irrigationProgramsController = require('../controllers').irrigationPrograms;
 
 module.exports = (app) => {
    app.get('/api',(req, res) => res.status(200).send({
@@ -86,5 +87,12 @@ module.exports = (app) => {
    app.get('/api/schedules', schedulesController.list);
    app.put('/api/schedules/:id', schedulesController.update);
    app.get('/api/device/:deviceId/schedules', schedulesController.listByDevice);
+
+   //IrrigationPrograms
+   app.post('/api/irrigationprograms', irrigationProgramsController.create);
+   app.get('/api/irrigationprograms/:id', irrigationProgramsController.single);
+   app.get('/api/irrigationprograms', irrigationProgramsController.list);
+   app.get('/api/device/:deviceId/irrigationprograms', irrigationProgramsController.listByDevice);
+   
 };
 

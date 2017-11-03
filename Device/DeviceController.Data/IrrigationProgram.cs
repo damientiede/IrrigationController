@@ -8,22 +8,49 @@ namespace DeviceController.Data
 {
     public class IrrigationProgram
     {
-        public int SolenoidId;
+        public int Id;        
+        public string Name;
         public DateTime Start;
         public int Duration;
-        public bool Completed
-        {
-            get
-            {
-                return (Start.AddMinutes(Duration) < DateTime.Now);
-            }
-        }
-        public IrrigationProgram(Command cmd)
-        {
-            string[] parts = cmd.Params.Split(',');
-            SolenoidId = Int32.Parse(parts[0]);
-            Duration = Int32.Parse(parts[1]);
-            Start = DateTime.Now;
-        }
+        public int SolenoidId;
+        public bool RequiresPump;
+        //    public int MinsRemaining
+        //    {
+        //        get
+        //        {
+        //            if (Start != null && Duration != null)
+        //            {
+        //                DateTime dt = (DateTime)Start;
+        //                int d = (Int32)Duration;                    
+        //                return (DateTime.Now - dt.AddMinutes(d)).Minutes;
+        //            }
+        //            return 0;
+        //        }
+        //    }
+        //    public bool Completed
+        //    {
+        //        get
+        //        {
+        //            if (Start != null && Duration != null)
+        //            {
+        //                DateTime dt = (DateTime)Start;
+        //                int d = (Int32)Duration;
+        //                return (dt.AddMinutes(d) < DateTime.Now);
+        //            }
+        //            return false;
+        //        }
+        //    }
+        //    public IrrigationProgram()
+        //    {
+
+        //    }
+        //    public IrrigationProgram(Command cmd)
+        //    {
+        //        string[] parts = cmd.Params.Split(',');
+        //        SolenoidId = Int32.Parse(parts[0]);
+        //        Duration = Int32.Parse(parts[1]);
+        //        Start = DateTime.Now;
+        //        Name = "Manual program";
+        //    }
+        //}
     }
-}

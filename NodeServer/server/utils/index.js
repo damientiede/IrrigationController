@@ -14,8 +14,8 @@ module.exports = {
     },
     parseDeviceMode(m)
     {
-        if(m==0) {return 'Manual';}
-        if(m==1) {return 'Auto';}
+        if(m==0) {return 'Auto';}
+        if(m==1) {return 'Manual';}
         if(m==2) {return 'Diagnostic';}
     }
 };

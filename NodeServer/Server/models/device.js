@@ -17,10 +17,7 @@ module.exports = (sequelize, DataTypes) => {
         values:['Standby','Irrigating','Fault']
     },
     status: DataTypes.STRING,
-    programStart: DataTypes.DATE,
-    programDuration:DataTypes.INTEGER,
-    programSolenoid:DataTypes.INTEGER,
-    pumpSolenoid: DataTypes.INTEGER,
+    pumpSolenoidId: DataTypes.INTEGER,
     softwareVersion: {
       type: DataTypes.STRING,
       allowNull: false

@@ -35,7 +35,8 @@ namespace DeviceController
 
         Solenoid PumpSolenoid;
         //Solenoid ManualSolednoid;
-        IrrigationProgram ManualProgram;
+        IrrigationProgram ActiveProgram;
+        ISolenoid ActiveSolenoid;
 
         Device device;
         Schedule ActiveSchedule;
@@ -239,51 +240,62 @@ namespace DeviceController
 
                         //poll alarm status
 
+                        if (ActiveProgram != null)
+                        {
+                            device.State = DeviceState.Irrigating;
+
+                            //check to see if program is finished
+                            if (ActiveProgram.Completed)
+                            {
+                                //schedule finished
+                                SwitchSolenoid(ActiveProgram.SolenoidId, false);
+                                CreateEvent(EventTypes.IrrigationStop, string.Format("{0} completed", ActiveProgram.Name));
+                                log.DebugFormat("Active program completed");
+                                ActiveSchedule = null;
+                                ActiveProgram = null;
+                                ActiveSolenoid = null;
+
+                                device.ProgramDuration = null;
+                                device.ProgramSolenoid = null;
+                                device.ProgramStart = null;
+                                device.State = DeviceState.Standby;
+                            }
+                        }
+                        else
+                        {
+                            device.State = DeviceState.Standby;
+                        }
+
                         if (device.Mode == DeviceMode.Auto)
                         {
-                            if (ActiveSchedule != null)
+                            if (ActiveProgram == null)
                             {
-                                //check to see if program is finished
-                                if (ActiveSchedule.Start.AddMinutes(ActiveSchedule.Duration) < DateTime.Now)
+                                //check for next active schedule
+                                foreach (Schedule s in Schedules)
                                 {
-                                    //schedule finished
-                                    SwitchSolenoid(ActiveSchedule.SolenoidId, false);
-                                    CreateEvent(EventTypes.IrrigationStop, string.Format("{0} completed", ActiveSchedule.Name));
-                                    ActiveSchedule = null;
-                                    device.State = DeviceState.Standby;
-                                }
-                            }
+                                    if ((s.Start < DateTime.Now) && (s.Enabled))
+                                    {
+                                        //new active schedule
+                                        ActiveSchedule = s;
 
-                            //check for next active schedule
-                            foreach (Schedule s in Schedules)
-                            {
-                                if ((s.Start < DateTime.Now) && (s.Enabled))
-                                {
-                                    //new active schedule
-                                    ActiveSchedule = s;
-                                    SwitchSolenoid(s.SolenoidId, true);
-                                    CreateEvent(EventTypes.IrrigationStart, string.Format("{0} started", ActiveSchedule.Name));
-                                    device.State = DeviceState.Irrigating;
-                                    break;
-                                }
-                            }
-                        }
+                                        ActiveProgram = new IrrigationProgram();
+                                        ActiveProgram.Duration = s.Duration;
+                                        ActiveProgram.SolenoidId = s.SolenoidId;
+                                        ActiveProgram.Start = s.Start;
+                                        ActiveProgram.Name = ActiveSchedule.Name;
 
-                        if (device.Mode == DeviceMode.Manual)
-                        {
-                            if (device.State == DeviceState.Irrigating)
-                            {
-                                //check to see if manual program is finished
-                                if (ManualProgram.Completed)
-                                {
-                                    //schedule finished
-                                    SwitchSolenoid(ManualProgram.SolenoidId, false);
-                                    CreateEvent(EventTypes.IrrigationStop, "Manual program completed");
-                                    ManualProgram = null;
-                                    device.State = DeviceState.Standby;
+                                        device.ProgramDuration = ActiveProgram.Duration;
+                                        device.ProgramSolenoid = ActiveProgram.SolenoidId;
+                                        device.ProgramStart = ActiveProgram.Start;
+
+                                        SwitchSolenoid(ActiveProgram.SolenoidId, true);
+                                        CreateEvent(EventTypes.IrrigationStart, string.Format("{0} started", ActiveProgram.Name));
+                                        device.State = DeviceState.Irrigating;
+                                        break;
+                                    }
                                 }
                             }
-                        }
+                        }                       
 
                         //update the server
                         ReportStatus();                        
@@ -339,24 +351,36 @@ namespace DeviceController
 
                         //Switch to Manual
                         case "Manual":
-                            ManualProgram = new IrrigationProgram(cmd);
-                            log.Info("Switching to Manual mode");
-                            CreateEvent(EventTypes.Application, "Switching to Manual mode");
-                            device.Mode = DeviceMode.Manual;
-                            device.State = DeviceState.Irrigating;
-                            device.ProgramStart = ManualProgram.Start;
-                            device.ProgramDuration = ManualProgram.Duration;
-                            device.ProgramSolenoid = ManualProgram.SolenoidId;
-                            device.Status = string.Format("Irrigating Solenoid {0} for {1} minutes", ManualProgram.SolenoidId, ManualProgram.Duration);
+                            try
+                            {
+                                ActiveProgram = new IrrigationProgram(cmd);
+                                log.Info("Switching to Manual mode");
+                                CreateEvent(EventTypes.Application, "Switching to Manual mode");
 
-                            //switch off all solenoids
-                            //SolenoidsOff();
+                                device.Mode = DeviceMode.Manual;
+                                device.State = DeviceState.Irrigating;
 
-                            //switch on solenoid for manual program
-                            SwitchSolenoid(ManualProgram.SolenoidId, true);
+                                device.ProgramStart = ActiveProgram.Start;
+                                device.ProgramDuration = ActiveProgram.Duration;
+                                device.ProgramSolenoid = ActiveProgram.SolenoidId;
+                                device.Status = string.Format("Irrigating Solenoid {0} for {1} minutes", ActiveProgram.SolenoidId, ActiveProgram.Duration);
 
-                            CreateEvent(EventTypes.IrrigationStart, 
-                                string.Format("Manual irrigation program: {0} for {1} minutes", ManualProgram.SolenoidId, ManualProgram.Duration));
+                                //switch on solenoid for manual program
+                                SwitchSolenoid(ActiveProgram.SolenoidId, true);
+
+                                CreateEvent(EventTypes.IrrigationStart,
+                                    string.Format("Manual irrigation program: {0} for {1} minutes", ActiveProgram.SolenoidId, ActiveProgram.Duration));
+                            }
+                            catch (Exception ex)
+                            {
+                                log.ErrorFormat("Manual command failed, invalid parameters");
+                                CreateEvent(EventTypes.Fault, "Manual command failed, invalid parameters");
+                                device.Mode = DeviceMode.Manual;
+                                device.State = DeviceState.Standby;
+                                device.ProgramStart = null;
+                                device.ProgramSolenoid = null;
+                                device.ProgramDuration = null;
+                            }
                             ActionCommand(cmd);
                             break;
 
@@ -364,13 +388,15 @@ namespace DeviceController
                         case "Off":
                             SolenoidsOff();
                             device.State = DeviceState.Standby;
+                            device.Mode = DeviceMode.Manual;
+
                             CreateEvent(EventTypes.Application, "Switching all solenoids off");
-                            if (ManualProgram != null)
+                            if (ActiveProgram != null)
                             {
-                                if (!ManualProgram.Completed)
+                                if (!ActiveProgram.Completed)
                                 {
                                     log.InfoFormat("Aborting manual irrigation program");
-                                    ManualProgram = null;
+                                    ActiveProgram = null;
                                     CreateEvent(EventTypes.IrrigationStop, "Aborting manual irrigation program");
                                 }
                             }
@@ -401,7 +427,33 @@ namespace DeviceController
 
         }
         public async void ReportStatus()
-        {
+        {                 
+            if (device.Mode == DeviceMode.Auto)
+            {
+                if (ActiveSchedule != null && ActiveProgram != null && ActiveSolenoid != null)
+                {
+                    device.Status = string.Format("Irrigating '{0}' from schedule '{1}'. {2} minutes remaining."
+                        ,ActiveSolenoid.Name, ActiveSchedule.Name, ActiveProgram.MinsRemaining);
+                }
+                else
+                {
+                    device.Status = "Standby. Waiting for next scheduled program to start.";
+                }
+            }
+
+            if (device.Mode == DeviceMode.Manual)
+            {
+                if (ActiveProgram != null && ActiveSolenoid !=null)
+                {
+                    device.Status = string.Format("Irrigating '{0}' from manual program. {1} minutes remaining."
+                        , ActiveSolenoid.Name, ActiveProgram.MinsRemaining);
+                }
+                else
+                {
+                    device.Status = "Standing by in manual mode.";
+                }
+            }
+
             try
             {
                 await dataServer.PutDevice(device);
@@ -420,6 +472,8 @@ namespace DeviceController
                     if (value)
                     {
                         s.On();
+                        ActiveSolenoid = s;
+                        device.ProgramSolenoid = solenoidId;
                     }
                     else
                     {

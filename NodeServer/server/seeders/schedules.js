@@ -9,16 +9,27 @@ module.exports = {
                 Schedule.create({
                     name:'Evening Shelter',
                     description:'Run the shelter belts at night',
-                    start: Date(),
+                    start: new Date(2017,11,3,0),
                     duration:480,	
                     repeat:1,
                     interval:1,
                     enabled:1,
                     deviceId:1,
-                    solenoidId:5	        
+                    solenoidId:1        
+                    });
+                Schedule.create({
+                    name:'Block 1',
+                    description:'Irrigate block 1 for 3 hours',
+                    start: new Date(2017,11,3,8,15),
+                    duration:360,	
+                    repeat:1,
+                    interval:1,
+                    enabled:1,
+                    deviceId:1,
+                    solenoidId:3        
                     });
 
-                console.log('Created 1 schedule record');	   		
+                console.log('Created 2 schedules');	   		
 	        }
 	    })
     }

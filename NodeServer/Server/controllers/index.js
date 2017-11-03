@@ -10,6 +10,7 @@ const commandTypes = require('./commandtypes');
 const deviceStatuses = require('./deviceStatuses');
 const schedules = require('./schedules');
 const users = require('./users');
+const irrigationPrograms = require('./irrigationprograms');
 
 module.exports = {
    accounts,
@@ -23,5 +24,6 @@ module.exports = {
    commandTypes,
    schedules,
    users,
+   irrigationPrograms,
    deviceStatuses
 };

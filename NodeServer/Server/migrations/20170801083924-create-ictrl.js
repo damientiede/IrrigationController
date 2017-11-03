@@ -31,16 +31,7 @@ module.exports = {
             status: {
                 type: Sequelize.STRING
             },
-            programStart: {
-                type: Sequelize.DATE                
-            },
-            programDuration: {
-                type: Sequelize.INTEGER                
-            },
-            programSolenoid: {
-                type: Sequelize.INTEGER
-            }, 
-            pumpSolenoid: {
+            pumpSolenoidId: {
                 type: Sequelize.INTEGER
             }, 
             deviceMAC: {
@@ -165,6 +156,52 @@ module.exports = {
             updatedAt: {
                 allowNull: false,
                 type: Sequelize.DATE
+            }
+        }),
+        //irrigation programs
+        queryInterface.createTable('IrrigationPrograms', {
+            id: {
+                allowNull: false,
+                autoIncrement: true,
+                primaryKey: true,
+                type: Sequelize.INTEGER
+            },
+            name: {
+                type: Sequelize.STRING,
+                allowNull:false
+            },
+            start: {
+                type: Sequelize.DATE,
+                allowNull:false
+            },
+            duration: {
+                type: Sequelize.INTEGER,
+                allowNull:false
+            },
+            solenoidId:{
+                type: Sequelize.INTEGER,
+                allowNull: false
+            },
+            requiresPump:{
+                type: Sequelize.BOOLEAN,
+                allowNull: false
+            },
+            createdAt: {
+                allowNull: false,
+                type: Sequelize.DATE
+            },
+            updatedAt: {
+                allowNull: false,
+                type: Sequelize.DATE
+            },
+            deviceId: {
+                type: Sequelize.INTEGER,
+                onDelete: 'CASCADE',
+                references: {
+                    model: 'Devices',
+                    key: 'id',
+                    as: 'deviceId'
+                },
             }
         }),
         //solenoids
@@ -498,7 +535,9 @@ module.exports = {
         //alarms
         queryInterface.dropTable('Alarms'),
         //schedules
-        queryInterface.dropTable('Schedules'),        
+        queryInterface.dropTable('Schedules'),   
+        //irrigation programs
+        queryInterface.dropTable('IrrigationPrograms'),   
         //spis
         queryInterface.dropTable('Spis'),
         //solenoids
