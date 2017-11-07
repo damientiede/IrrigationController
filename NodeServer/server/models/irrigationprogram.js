@@ -8,6 +8,10 @@ module.exports = (sequelize, DataTypes) => {
         type: DataTypes.DATE,
         allowNull: false
       },
+      finished: {
+        type: DataTypes.DATE,
+        allowNull: true
+      },
       duration:{
         type: DataTypes.INTEGER,
         allowNull: false
@@ -15,7 +19,7 @@ module.exports = (sequelize, DataTypes) => {
       solenoidId:{
         type: DataTypes.INTEGER,
         allowNull: false
-      },
+      },      
       requiresPump:{
         type: DataTypes.BOOLEAN,
         allowNull: false

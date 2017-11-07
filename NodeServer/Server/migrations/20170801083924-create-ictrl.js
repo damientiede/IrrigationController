@@ -174,6 +174,10 @@ module.exports = {
                 type: Sequelize.DATE,
                 allowNull:false
             },
+            finished: {
+                type: Sequelize.DATE,
+                allowNull:true
+            },
             duration: {
                 type: Sequelize.INTEGER,
                 allowNull:false

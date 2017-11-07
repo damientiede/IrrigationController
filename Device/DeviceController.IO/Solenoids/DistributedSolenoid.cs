@@ -39,7 +39,11 @@ namespace DeviceController.IO.Solenoids
                     solenoid.Value = 0;
                 }
             }
-        }        
+        }
+        public bool RequiresPump
+        {
+            get { return solenoid.RequiresPump; }
+        }
         private Solenoid _solenoid;
         private DataServer dataServer;
         public Solenoid solenoid { get { return _solenoid; } }

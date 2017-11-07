@@ -92,6 +92,7 @@ module.exports = (app) => {
    app.post('/api/irrigationprograms', irrigationProgramsController.create);
    app.get('/api/irrigationprograms/:id', irrigationProgramsController.single);
    app.get('/api/irrigationprograms', irrigationProgramsController.list);
+   app.put('/api/irrigationprograms/:id', irrigationProgramsController.update);
    app.get('/api/device/:deviceId/irrigationprograms', irrigationProgramsController.listByDevice);
    
 };

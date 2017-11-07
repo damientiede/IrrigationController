@@ -41,6 +41,10 @@ namespace DeviceController.IO.Solenoids
                 }
             }
         }
+        public bool RequiresPump
+        {
+            get { return solenoid.RequiresPump; }
+        }
         private GpioConnection connection;
         private Solenoid _solenoid;
         private DataServer dataServer;

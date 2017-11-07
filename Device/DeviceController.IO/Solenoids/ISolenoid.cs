@@ -15,6 +15,7 @@ namespace DeviceController.IO.Solenoids
         void On();
         void Off();
         bool State { get; set; }
+        bool RequiresPump { get; }
         string Address { get; }
         string Report();
         Solenoid solenoid { get; }

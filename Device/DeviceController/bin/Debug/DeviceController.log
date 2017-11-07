@@ -7971,3 +7971,250 @@
 2017-11-03 16:08:09,508 DEBUG - ReportStatus()
 2017-11-03 16:08:14,509 DEBUG - ReportStatus()
 2017-11-03 16:08:19,512 DEBUG - ReportStatus()
+2017-11-06 21:56:49,976 INFO  - =====================================================
+2017-11-06 21:56:49,997 INFO  - DeviceController.Init(): Initializing device...
+2017-11-06 21:56:50,039 DEBUG - Registering device 9CB70D839BC4 with server...
+2017-11-06 21:56:50,581 DEBUG - DeviceController start, registered with deviceId:1
+2017-11-06 21:56:50,602 INFO  - LoadSpis()
+2017-11-06 21:56:50,613 INFO  - LoadSolenoids()
+2017-11-06 21:56:50,618 INFO  - LoadAlarms()
+2017-11-06 21:56:50,624 INFO  - LoadAnalogs()
+2017-11-06 21:56:50,628 INFO  - LoadSchedules() todo
+2017-11-06 21:56:50,628 INFO  - DeviceController.LoadConfig(): Configuration complete.
+2017-11-06 21:56:50,697 DEBUG - LoadSpis(): Id:1 name:Test SPI 1 Clock:0 CS:0 MISO:18 MOSI:20 
+
+2017-11-06 21:56:50,698 INFO  - SpiDevice Id:1 Name:Test SPI 1 Clock:0 CS:0 MISO:18 MOSI:20
+2017-11-06 21:56:50,707 INFO  - GPIOSolenoid Id:1 Name:Station1 Description:Test solenoid 1 Address:P1Pin25 State:False
+2017-11-06 21:56:50,707 INFO  - GPIOSolenoid Id:2 Name:Station2 Description:Test solenoid 2 Address:P1Pin28 State:False
+2017-11-06 21:56:50,707 INFO  - GPIOSolenoid Id:3 Name:Station3 Description:Test solenoid 3 Address:P1Pin26 State:False
+2017-11-06 21:56:50,707 INFO  - GPIOSolenoid Id:4 Name:Station4 Description:Test solenoid 4 Address:P1Pin21 State:False
+2017-11-06 21:56:50,707 DEBUG - 4 Solenoids configured
+2017-11-06 21:56:50,711 INFO  - SPIAnalog Id:1 Name: Description: Address:http://192.168.1.100/k2 Multiplier:0 Units: Value:0
+2017-11-06 21:56:50,711 DEBUG - 1 Analogs configured
+2017-11-06 21:56:50,732 INFO  - DistributedAlarm Id:1 Name:Station1 Address:Test alarm 1 Description:http://192.168.1.100/k2 State:False
+2017-11-06 21:56:50,733 INFO  - GPIOAlarm Id:2 Name:Station2 Address:Test alarm 2 Description:P1Pin28 State:False
+2017-11-06 21:56:50,734 INFO  - DistributedAlarm Id:3 Name:Station3 Address:Test alarm 3 Description:1 State:False
+2017-11-06 21:56:50,734 INFO  - GPIOAlarm Id:4 Name:Station4 Address:Test alarm 4 Description:P1Pin21 State:False
+2017-11-06 21:56:50,734 DEBUG - 4 Alarms configured
+2017-11-06 21:58:20,658 INFO  - Switching to Manual mode
+2017-11-06 22:00:20,723 DEBUG - Active program completed
+2017-11-07 21:21:45,756 INFO  - =====================================================
+2017-11-07 21:21:45,781 INFO  - DeviceController.Init(): Initializing device...
+2017-11-07 21:21:45,817 DEBUG - Registering device 9CB70D839BC4 with server...
+2017-11-07 21:21:46,691 DEBUG - DeviceController start, registered with deviceId:1
+2017-11-07 21:21:46,716 INFO  - LoadSpis()
+2017-11-07 21:21:46,723 INFO  - LoadSolenoids()
+2017-11-07 21:21:46,730 INFO  - LoadAlarms()
+2017-11-07 21:21:46,737 INFO  - LoadAnalogs()
+2017-11-07 21:21:46,740 INFO  - LoadSchedules() todo
+2017-11-07 21:21:46,740 INFO  - DeviceController.LoadConfig(): Configuration complete.
+2017-11-07 21:21:46,769 DEBUG - LoadSpis(): Id:1 name:Test SPI 1 Clock:0 CS:0 MISO:18 MOSI:20 
+
+2017-11-07 21:21:46,770 INFO  - SpiDevice Id:1 Name:Test SPI 1 Clock:0 CS:0 MISO:18 MOSI:20
+2017-11-07 21:21:46,844 INFO  - DistributedAlarm Id:1 Name:Station1 Address:Test alarm 1 Description:http://192.168.1.100/k2 State:False
+2017-11-07 21:21:46,845 INFO  - GPIOAlarm Id:2 Name:Station2 Address:Test alarm 2 Description:P1Pin28 State:False
+2017-11-07 21:21:46,846 INFO  - DistributedAlarm Id:3 Name:Station3 Address:Test alarm 3 Description:1 State:False
+2017-11-07 21:21:46,846 INFO  - GPIOAlarm Id:4 Name:Station4 Address:Test alarm 4 Description:P1Pin21 State:False
+2017-11-07 21:21:46,846 DEBUG - 4 Alarms configured
+2017-11-07 21:21:46,849 INFO  - SPIAnalog Id:1 Name: Description: Address:http://192.168.1.100/k2 Multiplier:0 Units: Value:0
+2017-11-07 21:21:46,849 DEBUG - 1 Analogs configured
+2017-11-07 21:21:46,849 INFO  - GPIOSolenoid Id:1 Name:Station1 Description:Test solenoid 1 Address:P1Pin25 State:False
+2017-11-07 21:21:46,849 INFO  - GPIOSolenoid Id:2 Name:Station2 Description:Test solenoid 2 Address:P1Pin28 State:False
+2017-11-07 21:21:46,849 INFO  - GPIOSolenoid Id:3 Name:Station3 Description:Test solenoid 3 Address:P1Pin26 State:False
+2017-11-07 21:21:46,849 INFO  - GPIOSolenoid Id:4 Name:Station4 Description:Test solenoid 4 Address:P1Pin21 State:False
+2017-11-07 21:21:46,849 DEBUG - 4 Solenoids configured
+2017-11-07 21:45:24,177 ERROR - GetCommands(): An error occurred while sending the request.
+2017-11-07 21:45:24,178 ERROR - ReportStatus(): An error occurred while sending the request.
+2017-11-07 21:45:28,630 ERROR - GetCommands(): An error occurred while sending the request.
+2017-11-07 21:45:28,685 ERROR - ReportStatus(): An error occurred while sending the request.
+2017-11-07 21:45:33,630 ERROR - GetCommands(): An error occurred while sending the request.
+2017-11-07 21:45:33,660 ERROR - ReportStatus(): An error occurred while sending the request.
+2017-11-07 21:45:38,646 ERROR - GetCommands(): An error occurred while sending the request.
+2017-11-07 21:45:38,690 ERROR - ReportStatus(): An error occurred while sending the request.
+2017-11-07 21:45:43,644 ERROR - GetCommands(): An error occurred while sending the request.
+2017-11-07 21:45:43,683 ERROR - ReportStatus(): An error occurred while sending the request.
+2017-11-07 21:45:48,653 ERROR - GetCommands(): An error occurred while sending the request.
+2017-11-07 21:45:48,695 ERROR - ReportStatus(): An error occurred while sending the request.
+2017-11-07 21:45:53,646 ERROR - GetCommands(): An error occurred while sending the request.
+2017-11-07 21:45:53,689 ERROR - ReportStatus(): An error occurred while sending the request.
+2017-11-07 21:45:58,650 ERROR - GetCommands(): An error occurred while sending the request.
+2017-11-07 21:45:58,702 ERROR - ReportStatus(): An error occurred while sending the request.
+2017-11-07 21:46:03,640 ERROR - GetCommands(): An error occurred while sending the request.
+2017-11-07 21:46:03,684 ERROR - ReportStatus(): An error occurred while sending the request.
+2017-11-07 21:46:08,646 ERROR - GetCommands(): An error occurred while sending the request.
+2017-11-07 21:46:08,691 ERROR - ReportStatus(): An error occurred while sending the request.
+2017-11-07 21:46:13,634 ERROR - GetCommands(): An error occurred while sending the request.
+2017-11-07 21:46:13,687 ERROR - ReportStatus(): An error occurred while sending the request.
+2017-11-07 21:46:18,680 ERROR - GetCommands(): An error occurred while sending the request.
+2017-11-07 21:46:18,727 ERROR - ReportStatus(): An error occurred while sending the request.
+2017-11-07 21:46:23,655 ERROR - GetCommands(): An error occurred while sending the request.
+2017-11-07 21:46:23,697 ERROR - ReportStatus(): An error occurred while sending the request.
+2017-11-07 21:46:28,650 ERROR - GetCommands(): An error occurred while sending the request.
+2017-11-07 21:46:28,689 ERROR - ReportStatus(): An error occurred while sending the request.
+2017-11-07 21:46:33,650 ERROR - GetCommands(): An error occurred while sending the request.
+2017-11-07 21:46:33,691 ERROR - ReportStatus(): An error occurred while sending the request.
+2017-11-07 21:46:38,670 ERROR - GetCommands(): An error occurred while sending the request.
+2017-11-07 21:46:38,715 ERROR - ReportStatus(): An error occurred while sending the request.
+2017-11-07 21:46:43,689 ERROR - GetCommands(): An error occurred while sending the request.
+2017-11-07 21:46:43,729 ERROR - ReportStatus(): An error occurred while sending the request.
+2017-11-07 21:46:48,757 ERROR - ReportStatus(): An error occurred while sending the request.
+2017-11-07 21:46:48,757 ERROR - GetCommands(): An error occurred while sending the request.
+2017-11-07 21:46:53,649 ERROR - GetCommands(): An error occurred while sending the request.
+2017-11-07 21:46:53,703 ERROR - ReportStatus(): An error occurred while sending the request.
+2017-11-07 21:48:17,643 INFO  - Switching to Manual mode
+2017-11-07 21:48:17,789 ERROR - Manual command failed, invalid parameters
+2017-11-07 21:48:57,693 INFO  - Switching to Manual mode
+2017-11-07 21:48:57,824 ERROR - Manual command failed, invalid parameters
+2017-11-07 21:50:57,791 DEBUG - Active program completed
+2017-11-07 21:52:42,876 INFO  - Switching to Manual mode
+2017-11-07 21:52:43,064 ERROR - Manual command failed, invalid parameters
+2017-11-07 21:56:27,146 INFO  - =====================================================
+2017-11-07 21:56:27,166 INFO  - DeviceController.Init(): Initializing device...
+2017-11-07 21:56:27,193 DEBUG - Registering device 9CB70D839BC4 with server...
+2017-11-07 21:56:27,606 DEBUG - DeviceController start, registered with deviceId:1
+2017-11-07 21:56:27,620 INFO  - LoadSpis()
+2017-11-07 21:56:27,636 INFO  - LoadSolenoids()
+2017-11-07 21:56:27,641 INFO  - LoadAlarms()
+2017-11-07 21:56:27,646 INFO  - LoadAnalogs()
+2017-11-07 21:56:27,649 INFO  - LoadSchedules() todo
+2017-11-07 21:56:27,650 INFO  - DeviceController.LoadConfig(): Configuration complete.
+2017-11-07 21:56:27,682 DEBUG - LoadSpis(): Id:1 name:Test SPI 1 Clock:0 CS:0 MISO:18 MOSI:20 
+
+2017-11-07 21:56:27,683 INFO  - SpiDevice Id:1 Name:Test SPI 1 Clock:0 CS:0 MISO:18 MOSI:20
+2017-11-07 21:56:27,694 INFO  - GPIOSolenoid Id:1 Name:Station1 Description:Test solenoid 1 Address:P1Pin25 State:False
+2017-11-07 21:56:27,694 INFO  - GPIOSolenoid Id:2 Name:Station2 Description:Test solenoid 2 Address:P1Pin28 State:False
+2017-11-07 21:56:27,694 INFO  - GPIOSolenoid Id:3 Name:Station3 Description:Test solenoid 3 Address:P1Pin26 State:False
+2017-11-07 21:56:27,694 INFO  - GPIOSolenoid Id:4 Name:Station4 Description:Test solenoid 4 Address:P1Pin21 State:False
+2017-11-07 21:56:27,695 DEBUG - 4 Solenoids configured
+2017-11-07 21:56:27,709 INFO  - DistributedAlarm Id:1 Name:Station1 Address:Test alarm 1 Description:http://192.168.1.100/k2 State:False
+2017-11-07 21:56:27,709 INFO  - SPIAnalog Id:1 Name: Description: Address:http://192.168.1.100/k2 Multiplier:0 Units: Value:0
+2017-11-07 21:56:27,710 DEBUG - 1 Analogs configured
+2017-11-07 21:56:27,711 INFO  - GPIOAlarm Id:2 Name:Station2 Address:Test alarm 2 Description:P1Pin28 State:False
+2017-11-07 21:56:27,712 INFO  - DistributedAlarm Id:3 Name:Station3 Address:Test alarm 3 Description:1 State:False
+2017-11-07 21:56:27,712 INFO  - GPIOAlarm Id:4 Name:Station4 Address:Test alarm 4 Description:P1Pin21 State:False
+2017-11-07 21:56:27,712 DEBUG - 4 Alarms configured
+2017-11-07 21:56:52,676 INFO  - Switching to Manual mode
+2017-11-07 21:57:38,583 INFO  - Switching to Manual mode
+2017-11-07 21:57:46,005 INFO  - Switching to Manual mode
+2017-11-07 21:57:47,613 INFO  - Switching to Manual mode
+2017-11-07 21:58:09,094 ERROR - Manual command failed, invalid parameters
+2017-11-07 21:58:12,407 ERROR - Manual command failed, invalid parameters
+2017-11-07 21:58:12,407 INFO  - Switching to Manual mode
+2017-11-07 21:58:15,002 ERROR - Manual command failed, invalid parameters
+2017-11-07 21:58:18,696 INFO  - Switching to Manual mode
+2017-11-07 22:05:48,866 INFO  - =====================================================
+2017-11-07 22:05:48,885 INFO  - DeviceController.Init(): Initializing device...
+2017-11-07 22:05:48,929 DEBUG - Registering device 9CB70D839BC4 with server...
+2017-11-07 22:05:49,443 DEBUG - DeviceController start, registered with deviceId:1
+2017-11-07 22:05:49,462 INFO  - LoadSpis()
+2017-11-07 22:05:49,472 INFO  - LoadSolenoids()
+2017-11-07 22:05:49,492 INFO  - LoadAlarms()
+2017-11-07 22:05:49,499 INFO  - LoadAnalogs()
+2017-11-07 22:05:49,504 INFO  - LoadSchedules() todo
+2017-11-07 22:05:49,506 INFO  - DeviceController.LoadConfig(): Configuration complete.
+2017-11-07 22:05:49,521 DEBUG - LoadSpis(): Id:1 name:Test SPI 1 Clock:0 CS:0 MISO:18 MOSI:20 
+
+2017-11-07 22:05:49,522 INFO  - SpiDevice Id:1 Name:Test SPI 1 Clock:0 CS:0 MISO:18 MOSI:20
+2017-11-07 22:05:49,532 INFO  - Switching to Manual mode
+2017-11-07 22:05:49,555 INFO  - Irrigating Solenoid 3 for 3 minutes
+2017-11-07 22:05:49,567 INFO  - GPIOSolenoid Id:1 Name:Station1 Description:Test solenoid 1 Address:P1Pin25 State:False
+2017-11-07 22:05:49,567 INFO  - GPIOSolenoid Id:2 Name:Station2 Description:Test solenoid 2 Address:P1Pin28 State:False
+2017-11-07 22:05:49,567 INFO  - GPIOSolenoid Id:3 Name:Station3 Description:Test solenoid 3 Address:P1Pin26 State:False
+2017-11-07 22:05:49,567 INFO  - GPIOSolenoid Id:4 Name:Station4 Description:Test solenoid 4 Address:P1Pin21 State:False
+2017-11-07 22:05:49,567 DEBUG - 4 Solenoids configured
+2017-11-07 22:05:49,569 INFO  - DistributedAlarm Id:1 Name:Station1 Address:Test alarm 1 Description:http://192.168.1.100/k2 State:False
+2017-11-07 22:05:49,572 INFO  - GPIOAlarm Id:2 Name:Station2 Address:Test alarm 2 Description:P1Pin28 State:False
+2017-11-07 22:05:49,573 INFO  - DistributedAlarm Id:3 Name:Station3 Address:Test alarm 3 Description:1 State:False
+2017-11-07 22:05:49,573 INFO  - GPIOAlarm Id:4 Name:Station4 Address:Test alarm 4 Description:P1Pin21 State:False
+2017-11-07 22:05:49,573 DEBUG - 4 Alarms configured
+2017-11-07 22:05:49,577 INFO  - SPIAnalog Id:1 Name: Description: Address:http://192.168.1.100/k2 Multiplier:0 Units: Value:0
+2017-11-07 22:05:49,577 DEBUG - 1 Analogs configured
+2017-11-07 22:06:34,516 INFO  - Switching to Manual mode
+2017-11-07 22:06:34,517 INFO  - Irrigating Solenoid 3 for 3 minutes
+2017-11-07 22:09:34,615 DEBUG - Active program completed
+2017-11-07 22:21:29,867 INFO  - =====================================================
+2017-11-07 22:21:29,881 INFO  - DeviceController.Init(): Initializing device...
+2017-11-07 22:21:29,922 DEBUG - Registering device 9CB70D839BC4 with server...
+2017-11-07 22:21:30,523 DEBUG - DeviceController start, registered with deviceId:1
+2017-11-07 22:21:30,551 INFO  - LoadSpis()
+2017-11-07 22:21:30,599 INFO  - LoadSolenoids()
+2017-11-07 22:21:30,636 INFO  - LoadAlarms()
+2017-11-07 22:21:30,645 INFO  - LoadAnalogs()
+2017-11-07 22:21:30,662 INFO  - LoadSchedules() todo
+2017-11-07 22:21:30,663 INFO  - DeviceController.LoadConfig(): Configuration complete.
+2017-11-07 22:21:30,685 DEBUG - LoadSpis(): Id:1 name:Test SPI 1 Clock:0 CS:0 MISO:18 MOSI:20 
+
+2017-11-07 22:21:30,686 INFO  - SpiDevice Id:1 Name:Test SPI 1 Clock:0 CS:0 MISO:18 MOSI:20
+2017-11-07 22:21:30,705 INFO  - GPIOSolenoid Id:1 Name:Station1 Description:Test solenoid 1 Address:P1Pin25 State:False
+2017-11-07 22:21:30,705 INFO  - GPIOSolenoid Id:2 Name:Station2 Description:Test solenoid 2 Address:P1Pin28 State:False
+2017-11-07 22:21:30,705 INFO  - GPIOSolenoid Id:3 Name:Station3 Description:Test solenoid 3 Address:P1Pin26 State:False
+2017-11-07 22:21:30,705 INFO  - GPIOSolenoid Id:4 Name:Station4 Description:Test solenoid 4 Address:P1Pin21 State:False
+2017-11-07 22:21:30,705 DEBUG - 4 Solenoids configured
+2017-11-07 22:21:30,740 INFO  - DistributedAlarm Id:1 Name:Station1 Address:Test alarm 1 Description:http://192.168.1.100/k2 State:False
+2017-11-07 22:21:30,741 INFO  - GPIOAlarm Id:2 Name:Station2 Address:Test alarm 2 Description:P1Pin28 State:False
+2017-11-07 22:21:30,743 INFO  - DistributedAlarm Id:3 Name:Station3 Address:Test alarm 3 Description:1 State:False
+2017-11-07 22:21:30,743 INFO  - GPIOAlarm Id:4 Name:Station4 Address:Test alarm 4 Description:P1Pin21 State:False
+2017-11-07 22:21:30,743 DEBUG - 4 Alarms configured
+2017-11-07 22:21:30,751 INFO  - SPIAnalog Id:1 Name: Description: Address:http://192.168.1.100/k2 Multiplier:0 Units: Value:0
+2017-11-07 22:21:30,751 DEBUG - 1 Analogs configured
+2017-11-07 22:21:55,715 INFO  - Switching to Manual mode
+2017-11-07 22:21:55,724 INFO  - Irrigating Solenoid 2 for 3 minutes
+2017-11-07 22:22:54,054 INFO  - =====================================================
+2017-11-07 22:22:54,073 INFO  - DeviceController.Init(): Initializing device...
+2017-11-07 22:22:54,109 DEBUG - Registering device 9CB70D839BC4 with server...
+2017-11-07 22:22:54,544 DEBUG - DeviceController start, registered with deviceId:1
+2017-11-07 22:22:54,570 INFO  - LoadSpis()
+2017-11-07 22:22:54,582 INFO  - LoadSolenoids()
+2017-11-07 22:22:54,593 INFO  - LoadAlarms()
+2017-11-07 22:22:54,604 INFO  - LoadAnalogs()
+2017-11-07 22:22:54,608 INFO  - LoadSchedules() todo
+2017-11-07 22:22:54,609 INFO  - DeviceController.LoadConfig(): Configuration complete.
+2017-11-07 22:22:54,635 INFO  - Switching to Manual mode
+2017-11-07 22:22:54,641 DEBUG - LoadSpis(): Id:1 name:Test SPI 1 Clock:0 CS:0 MISO:18 MOSI:20 
+
+2017-11-07 22:22:54,642 INFO  - SpiDevice Id:1 Name:Test SPI 1 Clock:0 CS:0 MISO:18 MOSI:20
+2017-11-07 22:22:54,686 INFO  - Irrigating Solenoid 2 for 3 minutes
+2017-11-07 22:22:54,698 INFO  - GPIOSolenoid Id:1 Name:Station1 Description:Test solenoid 1 Address:P1Pin25 State:False
+2017-11-07 22:22:54,698 INFO  - GPIOSolenoid Id:2 Name:Station2 Description:Test solenoid 2 Address:P1Pin28 State:True
+2017-11-07 22:22:54,698 INFO  - GPIOSolenoid Id:3 Name:Station3 Description:Test solenoid 3 Address:P1Pin26 State:False
+2017-11-07 22:22:54,698 INFO  - GPIOSolenoid Id:4 Name:Station4 Description:Test solenoid 4 Address:P1Pin21 State:False
+2017-11-07 22:22:54,698 DEBUG - 4 Solenoids configured
+2017-11-07 22:22:54,699 INFO  - DistributedAlarm Id:1 Name:Station1 Address:Test alarm 1 Description:http://192.168.1.100/k2 State:False
+2017-11-07 22:22:54,700 INFO  - GPIOAlarm Id:2 Name:Station2 Address:Test alarm 2 Description:P1Pin28 State:False
+2017-11-07 22:22:54,702 INFO  - DistributedAlarm Id:3 Name:Station3 Address:Test alarm 3 Description:1 State:False
+2017-11-07 22:22:54,702 INFO  - GPIOAlarm Id:4 Name:Station4 Address:Test alarm 4 Description:P1Pin21 State:False
+2017-11-07 22:22:54,702 DEBUG - 4 Alarms configured
+2017-11-07 22:22:54,714 INFO  - SPIAnalog Id:1 Name: Description: Address:http://192.168.1.100/k2 Multiplier:0 Units: Value:0
+2017-11-07 22:22:54,714 DEBUG - 1 Analogs configured
+2017-11-07 22:23:14,622 INFO  - Switching to Manual mode
+2017-11-07 22:23:14,623 INFO  - Irrigating Solenoid 2 for 3 minutes
+2017-11-07 22:26:14,672 DEBUG - Program Manual program completed
+2017-11-07 22:26:14,920 ERROR - UpdateIrrigationProgram(): Response status code does not indicate success: 404 (Not Found).
+2017-11-07 22:27:52,766 INFO  - =====================================================
+2017-11-07 22:27:52,784 INFO  - DeviceController.Init(): Initializing device...
+2017-11-07 22:27:52,814 DEBUG - Registering device 9CB70D839BC4 with server...
+2017-11-07 22:27:53,228 DEBUG - DeviceController start, registered with deviceId:1
+2017-11-07 22:27:53,246 INFO  - LoadSpis()
+2017-11-07 22:27:53,260 INFO  - LoadSolenoids()
+2017-11-07 22:27:53,267 INFO  - LoadAlarms()
+2017-11-07 22:27:53,277 INFO  - LoadAnalogs()
+2017-11-07 22:27:53,287 INFO  - LoadSchedules() todo
+2017-11-07 22:27:53,288 INFO  - DeviceController.LoadConfig(): Configuration complete.
+2017-11-07 22:27:53,302 DEBUG - LoadSpis(): Id:1 name:Test SPI 1 Clock:0 CS:0 MISO:18 MOSI:20 
+
+2017-11-07 22:27:53,303 INFO  - SpiDevice Id:1 Name:Test SPI 1 Clock:0 CS:0 MISO:18 MOSI:20
+2017-11-07 22:27:53,319 INFO  - GPIOSolenoid Id:1 Name:Station1 Description:Test solenoid 1 Address:P1Pin25 State:False
+2017-11-07 22:27:53,320 INFO  - GPIOSolenoid Id:2 Name:Station2 Description:Test solenoid 2 Address:P1Pin28 State:False
+2017-11-07 22:27:53,320 INFO  - GPIOSolenoid Id:3 Name:Station3 Description:Test solenoid 3 Address:P1Pin26 State:False
+2017-11-07 22:27:53,320 INFO  - GPIOSolenoid Id:4 Name:Station4 Description:Test solenoid 4 Address:P1Pin21 State:False
+2017-11-07 22:27:53,320 DEBUG - 4 Solenoids configured
+2017-11-07 22:27:53,367 INFO  - DistributedAlarm Id:1 Name:Station1 Address:Test alarm 1 Description:http://192.168.1.100/k2 State:False
+2017-11-07 22:27:53,369 INFO  - GPIOAlarm Id:2 Name:Station2 Address:Test alarm 2 Description:P1Pin28 State:False
+2017-11-07 22:27:53,370 INFO  - DistributedAlarm Id:3 Name:Station3 Address:Test alarm 3 Description:1 State:False
+2017-11-07 22:27:53,370 INFO  - GPIOAlarm Id:4 Name:Station4 Address:Test alarm 4 Description:P1Pin21 State:False
+2017-11-07 22:27:53,371 DEBUG - 4 Alarms configured
+2017-11-07 22:27:53,384 INFO  - SPIAnalog Id:1 Name: Description: Address:http://192.168.1.100/k2 Multiplier:0 Units: Value:0
+2017-11-07 22:27:53,384 DEBUG - 1 Analogs configured
+2017-11-07 22:28:03,269 INFO  - Switching to Manual mode
+2017-11-07 22:28:03,272 INFO  - Irrigating Solenoid 2 for 1 minutes
+2017-11-07 22:29:03,276 DEBUG - Program Manual program completed

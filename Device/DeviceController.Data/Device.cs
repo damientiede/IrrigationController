@@ -16,10 +16,7 @@ namespace DeviceController.Data
         public DeviceState State;
         public DeviceMode Mode;
         public string Status;
-        public string SoftwareVersion;
-        public DateTime? ProgramStart;
-        public int? ProgramDuration;
-        public int? ProgramSolenoid;
+        public string SoftwareVersion;        
         public string DeviceMAC;
         public int PumpSolenoid;
         public DateTime CreatedAt;
