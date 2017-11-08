@@ -27,12 +27,12 @@ module.exports = {
             .then(irrigationPrograms => res.status(200).send(irrigationPrograms))
             .catch(error => res.status(400).send(error));
    }, 
-   update(req, res) {
+   update(req, res) {       
         return IrrigationProgram
             .update({                    
                 finished: req.body.Finished,                                  
             }, {
-                where: { id: req.body.id }
+                where: { id: req.params.id }
             })
             .then(irrigationProgram => res.status(200).send(irrigationProgram))
             .catch(error => res.status(400).send(error));

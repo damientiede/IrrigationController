@@ -20,12 +20,12 @@ module.exports = (app) => {
 
    //Events
    app.post('/api/events', eventsController.create);
-   app.get('/api/device/:deviceId/events', eventsController.list);
+   app.get('/api/devices/:deviceId/events', eventsController.list);
 
    //Commands
    app.get('/api/commands', commandsController.list);
-   app.get('/api/device/:deviceId/commands', commandsController.listByDevice);
-   app.get('/api/device/:deviceId/pendingcommands', commandsController.pending);
+   app.get('/api/devices/:deviceId/commands', commandsController.listByDevice);
+   app.get('/api/devices/:deviceId/pendingcommands', commandsController.pending);
    app.put('/api/commands/:commandId', commandsController.update);
    app.post('/api/commands', commandsController.create);
 
@@ -34,8 +34,8 @@ module.exports = (app) => {
 
    //Devices
    app.get('/api/devices', devicesController.list);
-   app.get('/api/devicestatus/:deviceId', deviceStatusController.single);
-   app.get('/api/device/:deviceMAC/register', devicesController.register);
+   app.get('/api/devices/:id', deviceStatusController.single);
+   app.get('/api/devices/:deviceMAC/register', devicesController.register);
    app.post('/api/devices', devicesController.create);
    app.get('/api/devices/:id', devicesController.single);   
    app.put('/api/devices/:id', devicesController.update);
@@ -58,42 +58,42 @@ module.exports = (app) => {
    app.get('/api/solenoids/:id', solenoidsController.single);
    app.get('/api/solenoids', solenoidsController.list);
    app.put('/api/solenoids/:id', solenoidsController.update);
-   app.get('/api/device/:deviceId/solenoids', solenoidsController.listByDevice);
+   app.get('/api/devices/:deviceId/solenoids', solenoidsController.listByDevice);
 
    //Alarms
    app.post('/api/alarms', alarmsController.create);
    app.get('/api/alarms/:id', alarmsController.single);
    app.get('/api/alarms', alarmsController.list);
    app.put('/api/alarms/:id', alarmsController.update);
-   app.get('/api/device/:deviceId/alarms', alarmsController.listByDevice);
+   app.get('/api/devices/:deviceId/alarms', alarmsController.listByDevice);
 
    //Analogs   
    app.post('/api/analogs', analogsController.create);
    app.get('/api/analogs/:id', analogsController.single);
-   app.get('/api/analogs/:deviceId', analogsController.list);
+   app.get('/api/analogs', analogsController.list);
    app.put('/api/analogs/:id', analogsController.update);
-   app.get('/api/device/:deviceId/analogs', analogsController.listByDevice);
+   app.get('/api/devices/:deviceId/analogs', analogsController.listByDevice);
 
    //Spis
    app.post('/api/spis', spisController.create);
    app.get('/api/spis/:id', spisController.single);
    app.get('/api/spis', spisController.list);
    app.put('/api/spis/:id', spisController.update);
-   app.get('/api/device/:deviceId/spis', spisController.listByDevice);
+   app.get('/api/devices/:deviceId/spis', spisController.listByDevice);
 
    //Schedules
    app.post('/api/schedules', schedulesController.create);
    app.get('/api/schedules/:id', schedulesController.single);
    app.get('/api/schedules', schedulesController.list);
    app.put('/api/schedules/:id', schedulesController.update);
-   app.get('/api/device/:deviceId/schedules', schedulesController.listByDevice);
+   app.get('/api/devices/:deviceId/schedules', schedulesController.listByDevice);
 
    //IrrigationPrograms
    app.post('/api/irrigationprograms', irrigationProgramsController.create);
    app.get('/api/irrigationprograms/:id', irrigationProgramsController.single);
    app.get('/api/irrigationprograms', irrigationProgramsController.list);
    app.put('/api/irrigationprograms/:id', irrigationProgramsController.update);
-   app.get('/api/device/:deviceId/irrigationprograms', irrigationProgramsController.listByDevice);
+   app.get('/api/devices/:deviceId/irrigationprograms', irrigationProgramsController.listByDevice);
    
 };
 

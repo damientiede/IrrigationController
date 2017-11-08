@@ -26,7 +26,7 @@ namespace DeviceController.Data
         public async Task<List<Event>> GetEvents(int deviceId)
         {
             List<Event> events = new List<Event>();
-            HttpResponseMessage response = await client.GetAsync(string.Format("device/{0}/events", deviceId));
+            HttpResponseMessage response = await client.GetAsync(string.Format("devices/{0}/events", deviceId));
             if (response.IsSuccessStatusCode)
             {
                 events = await response.Content.ReadAsAsync<List<Event>>();
@@ -36,7 +36,7 @@ namespace DeviceController.Data
         public async Task<Device> Register(string macAddress)
         {            
             Device d = null;
-            HttpResponseMessage response = await client.GetAsync(string.Format("device/{0}/register", macAddress));
+            HttpResponseMessage response = await client.GetAsync(string.Format("devices/{0}/register", macAddress));
             if (response.IsSuccessStatusCode)
             {
                 d = await response.Content.ReadAsAsync<Device>();
@@ -100,7 +100,7 @@ namespace DeviceController.Data
         public async Task<List<Command>> GetCommands(int deviceId)
         {                     
             List<Command> commands = null;
-            HttpResponseMessage response = await client.GetAsync(string.Format("device/{0}/pendingcommands", deviceId));
+            HttpResponseMessage response = await client.GetAsync(string.Format("devices/{0}/pendingcommands", deviceId));
             if (response.IsSuccessStatusCode)
             {
                 commands = await response.Content.ReadAsAsync<List<Command>>();
@@ -120,7 +120,7 @@ namespace DeviceController.Data
         public async Task<List<Solenoid>> GetSolenoids(int deviceId)
         {
             List<Solenoid> solenoids = null;
-            HttpResponseMessage response = await client.GetAsync(string.Format("device/{0}/solenoids", deviceId));
+            HttpResponseMessage response = await client.GetAsync(string.Format("devices/{0}/solenoids", deviceId));
             if (response.IsSuccessStatusCode)
             {
                 solenoids = await response.Content.ReadAsAsync<List<Solenoid>>();
@@ -130,7 +130,7 @@ namespace DeviceController.Data
         public async Task<List<Alarm>> GetAlarms(int deviceId)
         {
             List<Alarm> alarms = null;
-            HttpResponseMessage response = await client.GetAsync(string.Format("device/{0}/alarms", deviceId));
+            HttpResponseMessage response = await client.GetAsync(string.Format("devices/{0}/alarms", deviceId));
             if (response.IsSuccessStatusCode)
             {
                 alarms = await response.Content.ReadAsAsync<List<Alarm>>();
@@ -140,7 +140,7 @@ namespace DeviceController.Data
         public async Task<List<Spi>> GetSpis(int deviceId)
         {
             List<Spi> spis = null;
-            HttpResponseMessage response = await client.GetAsync(string.Format("device/{0}/spis", deviceId));
+            HttpResponseMessage response = await client.GetAsync(string.Format("devices/{0}/spis", deviceId));
             if (response.IsSuccessStatusCode)
             {
                 spis = await response.Content.ReadAsAsync<List<Spi>>();
@@ -150,7 +150,7 @@ namespace DeviceController.Data
         public async Task<List<Analog>> GetAnalogs(int deviceId)
         {
             List<Analog> analogs = null;
-            HttpResponseMessage response = await client.GetAsync(string.Format("device/{0}/analogs", deviceId));
+            HttpResponseMessage response = await client.GetAsync(string.Format("devices/{0}/analogs", deviceId));
             if (response.IsSuccessStatusCode)
             {
                 analogs = await response.Content.ReadAsAsync<List<Analog>>();

@@ -3,12 +3,14 @@ const Spi = require('../models').Spi;
 module.exports = {
    create(req, res) {      
         return Spi
-            .create({            
-                name: req.body.name,
-                description: req.body.description,
-                hardwareType: req.body.hardwareType,            
-                address: req.body.address,
-                value:0
+            .create({   
+                name: req.body.Name,                         
+                description: req.body.Description,                
+                Clock: parseInt(req.body.Clock),            
+                CS: parseInt(req.body.CS),            
+                MISO: parseInt(req.body.MISO),            
+                MOSI: parseInt(req.body.MOSI), 
+                deviceId: parseInt(req.body.DeviceId)
             })
             .then(spi => res.status(201).send(spi))
             .catch(error => res.status(400).send(error));
@@ -29,9 +31,8 @@ module.exports = {
    },
    update(req, res) {
         return Spi
-            .update({        
-                deviceId: parseInt(req.body.deviceId),
-                name: req.body.name,
+            .update({                        
+                name: req.body.Name,
                 Clock: parseInt(req.body.Clock),            
                 CS: parseInt(req.body.CS),            
                 MISO: parseInt(req.body.MISO),            

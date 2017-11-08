@@ -5,12 +5,12 @@ module.exports = {
    create(req, res) {      
         return Solenoid
             .create({            
-                name: req.body.name,
-                description: req.body.description,
-                hardwareType: req.body.hardwareType,            
-                address: req.body.address,
+                name: req.body.Name,
+                description: req.body.Description,
+                hardwareType: req.body.HardwareType,            
+                address: req.body.Address,
                 value:0,
-                deviceId: req.body.deviceId
+                deviceId: req.body.DeviceId
             })
             .then(solenoid => res.status(201).send(solenoid))
             .catch(error => res.status(400).send(error));

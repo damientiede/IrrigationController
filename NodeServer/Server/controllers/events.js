@@ -1,8 +1,7 @@
 const Event = require('../models').Event;
 
 module.exports = {
-   create(req, res) { 
-      console.log(req.body);     
+   create(req, res) {           
       return Event
          .create({
             eventType: parseInt(req.body.EventType),

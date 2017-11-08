@@ -5,17 +5,14 @@ module.exports = {
    create(req, res) {      
         return Device
             .create({            
-                name: req.body.firstName,
-                description: req.body.description,
+                name: req.body.FirstName,
+                description: req.body.Description,
                 mode:'Manual',
                 state:'Standby',
-                status:'Created',
-                programStart:req.body.manualStart,
-                programDuration:req.body.manualDuration,
-                programSolenoid:req.body.manualSolenoid,
-                pumpSolenoid:req.body.pumpSolenoid,
-                softwareVersion:req.body.softwareVersion,
-                deviceMAC:req.body
+                status:'Created',               
+                pumpSolenoid:req.body.PumpSolenoid,
+                softwareVersion:req.body.SoftwareVersion,
+                deviceMAC:req.body.DeviceMAC
             })
             .then(device => res.status(201).send(device))
             .catch(error => res.status(400).send(error));

@@ -4,14 +4,14 @@ module.exports = {
    create(req, res) {      
         return Analog
             .create({            
-                name: req.body.name,
-                description: req.body.description,
-                hardwareType: req.body.hardwareType,            
-                address: req.body.address,
-                multiplier: parseFloat(req.body.multiplier),
+                name: req.body.Name,
+                description: req.body.Description,
+                hardwareType: req.body.HardwareType,            
+                address: req.body.Address,
+                multiplier: parseFloat(req.body.Multiplier),
                 rawValue: 0,
-                units: req.body.units,
-                deviceId: parseInt(req.body.deviceId),
+                units: req.body.Units,
+                deviceId: parseInt(req.body.DeviceId),
                 value:0
             })
             .then(analog => res.status(201).send(analog))
@@ -32,15 +32,15 @@ module.exports = {
    update(req, res) {
         return Analog
             .update({        
-                name: req.body.name,
-                description: req.body.description,
-                hardwareType: req.body.hardwaretype,            
-                address: req.body.address,
-                multiplier: parseFloat(req.body.multiplier),
-                rawValue: parseInt(req.body.rawValue),
-                units: req.body.units,
-                deviceId: parseInt(req.body.deviceId),
-                value:parseFloat(req.body.value)
+                name: req.body.Name,
+                description: req.body.Description,
+                hardwareType: req.body.Hardwaretype,            
+                address: req.body.Address,
+                multiplier: parseFloat(req.body.Multiplier),
+                rawValue: parseInt(req.body.RawValue),
+                units: req.body.Units,
+                deviceId: parseInt(req.body.DeviceId),
+                value:parseFloat(req.body.Value)
             }, {
 	            where: { id: req.body.id }
             })

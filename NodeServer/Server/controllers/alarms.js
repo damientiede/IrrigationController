@@ -4,11 +4,11 @@ module.exports = {
    create(req, res) {      
         return Alarm
             .create({            
-                name: req.body.name,
-                description: req.body.description,
-                hardwareType: req.body.hardwareType,            
-                address: req.body.address,
-                deviceId: parseInt(req.body.deviceId),
+                name: req.body.Name,
+                description: req.body.Description,
+                hardwareType: req.body.HardwareType,            
+                address: req.body.Address,
+                deviceId: parseInt(req.body.DeviceId),
                 value:0
             })
             .then(alarm => res.status(201).send(alarm))
@@ -29,11 +29,11 @@ module.exports = {
    update(req, res) {
         return Alarm
             .update({        
-                deviceId: parseInt(req.body.deviceId),
-                name: req.body.name,
-                hardwareType: req.body.hardwareType,            
-                address: req.body.address,
-                value: req.body.value
+                deviceId: parseInt(req.body.DeviceId),
+                name: req.body.Name,
+                hardwareType: req.body.HardwareType,            
+                address: req.body.Address,
+                value: req.body.Value
             }, {
 	            where: { id: req.body.id }
             })

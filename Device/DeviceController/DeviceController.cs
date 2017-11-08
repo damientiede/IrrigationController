@@ -225,7 +225,7 @@ namespace DeviceController
         }
         #endregion
 
-        public void Run()
+        public async void Run()
         {
             while (!bShutdown)
             {
@@ -379,6 +379,20 @@ namespace DeviceController
                                     string[] parts = cmd.Params.Split(',');
                                     int solenoidId = Int32.Parse(parts[0]);
                                     int duration = Int32.Parse(parts[1]);
+
+                                    //abort the active program if it exists
+                                    if (ActiveProgram != null)
+                                    {
+                                        SwitchSolenoid(ActiveProgram.SolenoidId, false);
+                                        CreateEvent(EventTypes.IrrigationStop, string.Format("{0} aborted", ActiveProgram.Name));
+                                        log.DebugFormat("Program {0} aborted", ActiveProgram.Name);
+                                        ActiveProgram.Finished = DateTime.Now;
+                                        UpdateIrrigationProgram(ActiveProgram);
+                                        ActiveProgram = null;
+                                        ActiveSolenoid = null;
+                                    }
+
+                                    //create the new program
                                     ActiveProgram = await CreateIrrigationProgram("Manual program",duration,solenoidId);                                    
                                                                                               
                                     device.State = DeviceState.Irrigating;
