@@ -464,12 +464,12 @@ module.exports = {
             duration: {
                 type: Sequelize.INTEGER
             },
+            days: {
+                type: Sequelize.STRING
+            },
             repeat: {
                 type: Sequelize.BOOLEAN
-            },
-            interval: {
-                type: Sequelize.INTEGER
-            },
+            },            
             enabled: {
                 type: Sequelize.BOOLEAN
             },

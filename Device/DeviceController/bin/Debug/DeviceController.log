@@ -8410,3 +8410,2630 @@
 2017-11-08 22:09:49,175 DEBUG - Program Manual program aborted
 2017-11-08 22:09:49,289 INFO  - Irrigating Solenoid 4 for 1 minutes
 2017-11-08 22:10:49,183 DEBUG - Program Manual program completed
+2017-11-13 20:41:39,571 INFO  - =====================================================
+2017-11-13 20:41:39,604 INFO  - DeviceController.Init(): Initializing device...
+2017-11-13 20:41:39,642 DEBUG - Registering device 9CB70D839BC4 with server...
+2017-11-13 20:42:01,020 ERROR - An error occurred while sending the request.
+2017-11-13 20:42:01,020 DEBUG - Registering device 9CB70D839BC4 with server...
+2017-11-13 20:42:32,188 INFO  - =====================================================
+2017-11-13 20:42:32,202 INFO  - DeviceController.Init(): Initializing device...
+2017-11-13 20:42:32,230 DEBUG - Registering device 9CB70D839BC4 with server...
+2017-11-13 20:42:32,649 DEBUG - DeviceController start, registered with deviceId:1
+2017-11-13 20:42:32,668 INFO  - LoadSpis()
+2017-11-13 20:42:32,676 INFO  - LoadSolenoids()
+2017-11-13 20:42:32,686 INFO  - LoadAlarms()
+2017-11-13 20:42:32,692 INFO  - LoadAnalogs()
+2017-11-13 20:42:32,696 INFO  - LoadSchedules() todo
+2017-11-13 20:42:32,697 INFO  - DeviceController.LoadConfig(): Configuration complete.
+2017-11-13 20:42:32,723 DEBUG - LoadSpis(): Id:1 name:Test SPI 1 Clock:0 CS:0 MISO:18 MOSI:20 
+
+2017-11-13 20:42:32,724 INFO  - SpiDevice Id:1 Name:Test SPI 1 Clock:0 CS:0 MISO:18 MOSI:20
+2017-11-13 20:42:32,790 INFO  - GPIOSolenoid Id:1 Name:Station1 Description:Test solenoid 1 Address:P1Pin25 State:False
+2017-11-13 20:42:32,790 INFO  - GPIOSolenoid Id:2 Name:Station2 Description:Test solenoid 2 Address:P1Pin28 State:False
+2017-11-13 20:42:32,790 INFO  - GPIOSolenoid Id:3 Name:Station3 Description:Test solenoid 3 Address:P1Pin26 State:False
+2017-11-13 20:42:32,790 INFO  - GPIOSolenoid Id:4 Name:Station4 Description:Test solenoid 4 Address:P1Pin21 State:False
+2017-11-13 20:42:32,790 DEBUG - 4 Solenoids configured
+2017-11-13 20:42:32,812 INFO  - DistributedAlarm Id:1 Name:Station1 Address:Test alarm 1 Description:http://192.168.1.100/k2 State:False
+2017-11-13 20:42:32,814 INFO  - GPIOAlarm Id:2 Name:Station2 Address:Test alarm 2 Description:P1Pin28 State:False
+2017-11-13 20:42:32,816 INFO  - DistributedAlarm Id:3 Name:Station3 Address:Test alarm 3 Description:1 State:False
+2017-11-13 20:42:32,816 INFO  - GPIOAlarm Id:4 Name:Station4 Address:Test alarm 4 Description:P1Pin21 State:False
+2017-11-13 20:42:32,816 DEBUG - 4 Alarms configured
+2017-11-13 20:42:32,832 INFO  - SPIAnalog Id:1 Name: Description: Address:http://192.168.1.100/k2 Multiplier:0 Units: Value:0
+2017-11-13 20:42:32,832 DEBUG - 1 Analogs configured
+2017-11-13 20:49:09,025 INFO  - Switching to Auto mode
+2017-11-13 20:54:25,271 INFO  - =====================================================
+2017-11-13 20:54:25,289 INFO  - DeviceController.Init(): Initializing device...
+2017-11-13 20:54:25,317 DEBUG - Registering device 9CB70D839BC4 with server...
+2017-11-13 20:54:25,720 DEBUG - DeviceController start, registered with deviceId:1
+2017-11-13 20:54:25,743 INFO  - LoadSpis()
+2017-11-13 20:54:25,752 INFO  - LoadSolenoids()
+2017-11-13 20:54:25,760 INFO  - LoadAlarms()
+2017-11-13 20:54:25,768 INFO  - LoadAnalogs()
+2017-11-13 20:54:25,772 INFO  - LoadSchedules()
+2017-11-13 20:54:25,776 INFO  - DeviceController.LoadConfig(): Configuration complete.
+2017-11-13 20:54:25,783 DEBUG - LoadSpis(): Id:1 name:Test SPI 1 Clock:0 CS:0 MISO:18 MOSI:20 
+
+2017-11-13 20:54:25,783 INFO  - SpiDevice Id:1 Name:Test SPI 1 Clock:0 CS:0 MISO:18 MOSI:20
+2017-11-13 20:54:25,816 INFO  - DistributedAlarm Id:1 Name:Station1 Address:Test alarm 1 Description:http://192.168.1.100/k2 State:False
+2017-11-13 20:54:25,818 INFO  - GPIOAlarm Id:2 Name:Station2 Address:Test alarm 2 Description:P1Pin28 State:False
+2017-11-13 20:54:25,819 INFO  - DistributedAlarm Id:3 Name:Station3 Address:Test alarm 3 Description:1 State:False
+2017-11-13 20:54:25,820 INFO  - GPIOAlarm Id:4 Name:Station4 Address:Test alarm 4 Description:P1Pin21 State:False
+2017-11-13 20:54:25,820 DEBUG - 4 Alarms configured
+2017-11-13 20:54:25,822 INFO  - GPIOSolenoid Id:1 Name:Station1 Description:Test solenoid 1 Address:P1Pin25 State:False
+2017-11-13 20:54:25,822 INFO  - GPIOSolenoid Id:2 Name:Station2 Description:Test solenoid 2 Address:P1Pin28 State:False
+2017-11-13 20:54:25,822 INFO  - GPIOSolenoid Id:3 Name:Station3 Description:Test solenoid 3 Address:P1Pin26 State:False
+2017-11-13 20:54:25,822 INFO  - GPIOSolenoid Id:4 Name:Station4 Description:Test solenoid 4 Address:P1Pin21 State:False
+2017-11-13 20:54:25,822 DEBUG - 4 Solenoids configured
+2017-11-13 20:54:25,829 DEBUG - 3 Schedules configured
+2017-11-13 20:54:25,841 INFO  - SPIAnalog Id:1 Name: Description: Address:http://192.168.1.100/k2 Multiplier:0 Units: Value:0
+2017-11-13 20:54:25,841 DEBUG - 1 Analogs configured
+2017-11-13 20:57:54,559 INFO  - =====================================================
+2017-11-13 20:57:54,574 INFO  - DeviceController.Init(): Initializing device...
+2017-11-13 20:57:54,608 DEBUG - Registering device 9CB70D839BC4 with server...
+2017-11-13 20:57:55,082 DEBUG - DeviceController start, registered with deviceId:1
+2017-11-13 20:58:04,543 INFO  - LoadSpis()
+2017-11-13 20:58:04,553 INFO  - LoadSolenoids()
+2017-11-13 20:58:47,082 DEBUG - LoadSpis(): Id:1 name:Test SPI 1 Clock:0 CS:0 MISO:18 MOSI:20 
+
+2017-11-13 20:58:47,082 INFO  - LoadAlarms()
+2017-11-13 20:58:47,083 INFO  - SpiDevice Id:1 Name:Test SPI 1 Clock:0 CS:0 MISO:18 MOSI:20
+2017-11-13 20:58:47,114 INFO  - GPIOSolenoid Id:1 Name:Station1 Description:Test solenoid 1 Address:P1Pin25 State:False
+2017-11-13 20:58:47,114 INFO  - GPIOSolenoid Id:2 Name:Station2 Description:Test solenoid 2 Address:P1Pin28 State:False
+2017-11-13 20:58:47,114 INFO  - GPIOSolenoid Id:3 Name:Station3 Description:Test solenoid 3 Address:P1Pin26 State:False
+2017-11-13 20:58:47,114 INFO  - GPIOSolenoid Id:4 Name:Station4 Description:Test solenoid 4 Address:P1Pin21 State:False
+2017-11-13 20:58:47,114 DEBUG - 4 Solenoids configured
+2017-11-13 20:58:47,119 INFO  - LoadAnalogs()
+2017-11-13 20:58:47,123 INFO  - LoadSchedules()
+2017-11-13 20:58:47,126 INFO  - DeviceController.LoadConfig(): Configuration complete.
+2017-11-13 20:58:47,128 INFO  - DistributedAlarm Id:1 Name:Station1 Address:Test alarm 1 Description:http://192.168.1.100/k2 State:False
+2017-11-13 20:58:47,130 INFO  - GPIOAlarm Id:2 Name:Station2 Address:Test alarm 2 Description:P1Pin28 State:False
+2017-11-13 20:58:47,131 INFO  - DistributedAlarm Id:3 Name:Station3 Address:Test alarm 3 Description:1 State:False
+2017-11-13 20:58:47,131 INFO  - GPIOAlarm Id:4 Name:Station4 Address:Test alarm 4 Description:P1Pin21 State:False
+2017-11-13 20:58:47,131 DEBUG - 4 Alarms configured
+2017-11-13 20:58:47,154 DEBUG - 4 Schedules configured
+2017-11-13 20:58:47,157 INFO  - SPIAnalog Id:1 Name: Description: Address:http://192.168.1.100/k2 Multiplier:0 Units: Value:0
+2017-11-13 20:58:47,157 DEBUG - 1 Analogs configured
+2017-11-13 21:01:21,452 INFO  - =====================================================
+2017-11-13 21:01:21,467 INFO  - DeviceController.Init(): Initializing device...
+2017-11-13 21:01:21,495 DEBUG - Registering device 9CB70D839BC4 with server...
+2017-11-13 21:01:21,926 DEBUG - DeviceController start, registered with deviceId:1
+2017-11-13 21:01:21,942 INFO  - LoadSpis()
+2017-11-13 21:01:21,952 INFO  - LoadSolenoids()
+2017-11-13 21:01:21,972 INFO  - LoadAlarms()
+2017-11-13 21:01:21,986 INFO  - LoadAnalogs()
+2017-11-13 21:01:21,993 INFO  - LoadSchedules()
+2017-11-13 21:01:21,996 INFO  - DeviceController.LoadConfig(): Configuration complete.
+2017-11-13 21:01:22,007 DEBUG - LoadSpis(): Id:1 name:Test SPI 1 Clock:0 CS:0 MISO:18 MOSI:20 
+
+2017-11-13 21:01:22,007 INFO  - SpiDevice Id:1 Name:Test SPI 1 Clock:0 CS:0 MISO:18 MOSI:20
+2017-11-13 21:01:22,056 INFO  - GPIOSolenoid Id:1 Name:Station1 Description:Test solenoid 1 Address:P1Pin25 State:False
+2017-11-13 21:01:22,056 INFO  - GPIOSolenoid Id:2 Name:Station2 Description:Test solenoid 2 Address:P1Pin28 State:False
+2017-11-13 21:01:22,056 INFO  - GPIOSolenoid Id:3 Name:Station3 Description:Test solenoid 3 Address:P1Pin26 State:False
+2017-11-13 21:01:22,056 INFO  - GPIOSolenoid Id:4 Name:Station4 Description:Test solenoid 4 Address:P1Pin21 State:False
+2017-11-13 21:01:22,057 DEBUG - 4 Solenoids configured
+2017-11-13 21:01:22,059 INFO  - DistributedAlarm Id:1 Name:Station1 Address:Test alarm 1 Description:http://192.168.1.100/k2 State:False
+2017-11-13 21:01:22,060 INFO  - GPIOAlarm Id:2 Name:Station2 Address:Test alarm 2 Description:P1Pin28 State:False
+2017-11-13 21:01:22,061 INFO  - DistributedAlarm Id:3 Name:Station3 Address:Test alarm 3 Description:1 State:False
+2017-11-13 21:01:22,061 INFO  - GPIOAlarm Id:4 Name:Station4 Address:Test alarm 4 Description:P1Pin21 State:False
+2017-11-13 21:01:22,062 DEBUG - 4 Alarms configured
+2017-11-13 21:01:22,072 DEBUG - 4 Schedules configured
+2017-11-13 21:01:22,099 INFO  - SPIAnalog Id:1 Name: Description: Address:http://192.168.1.100/k2 Multiplier:0 Units: Value:0
+2017-11-13 21:01:22,099 DEBUG - 1 Analogs configured
+2017-11-13 21:01:50,526 INFO  - =====================================================
+2017-11-13 21:01:50,544 INFO  - DeviceController.Init(): Initializing device...
+2017-11-13 21:01:50,573 DEBUG - Registering device 9CB70D839BC4 with server...
+2017-11-13 21:01:50,984 DEBUG - DeviceController start, registered with deviceId:1
+2017-11-13 21:01:50,998 INFO  - LoadSpis()
+2017-11-13 21:01:51,007 INFO  - LoadSolenoids()
+2017-11-13 21:01:51,019 INFO  - LoadAlarms()
+2017-11-13 21:01:51,026 INFO  - LoadAnalogs()
+2017-11-13 21:01:51,033 INFO  - LoadSchedules()
+2017-11-13 21:01:51,037 INFO  - DeviceController.LoadConfig(): Configuration complete.
+2017-11-13 21:01:51,053 DEBUG - LoadSpis(): Id:1 name:Test SPI 1 Clock:0 CS:0 MISO:18 MOSI:20 
+
+2017-11-13 21:01:51,054 INFO  - SpiDevice Id:1 Name:Test SPI 1 Clock:0 CS:0 MISO:18 MOSI:20
+2017-11-13 21:01:51,069 INFO  - GPIOSolenoid Id:1 Name:Station1 Description:Test solenoid 1 Address:P1Pin25 State:False
+2017-11-13 21:01:51,070 INFO  - GPIOSolenoid Id:2 Name:Station2 Description:Test solenoid 2 Address:P1Pin28 State:False
+2017-11-13 21:01:51,070 INFO  - GPIOSolenoid Id:3 Name:Station3 Description:Test solenoid 3 Address:P1Pin26 State:False
+2017-11-13 21:01:51,070 INFO  - GPIOSolenoid Id:4 Name:Station4 Description:Test solenoid 4 Address:P1Pin21 State:False
+2017-11-13 21:01:51,070 DEBUG - 4 Solenoids configured
+2017-11-13 21:01:51,087 INFO  - DistributedAlarm Id:1 Name:Station1 Address:Test alarm 1 Description:http://192.168.1.100/k2 State:False
+2017-11-13 21:01:51,089 INFO  - GPIOAlarm Id:2 Name:Station2 Address:Test alarm 2 Description:P1Pin28 State:False
+2017-11-13 21:01:51,089 INFO  - SPIAnalog Id:1 Name: Description: Address:http://192.168.1.100/k2 Multiplier:0 Units: Value:0
+2017-11-13 21:01:51,089 DEBUG - 1 Analogs configured
+2017-11-13 21:01:51,091 INFO  - DistributedAlarm Id:3 Name:Station3 Address:Test alarm 3 Description:1 State:False
+2017-11-13 21:01:51,091 INFO  - GPIOAlarm Id:4 Name:Station4 Address:Test alarm 4 Description:P1Pin21 State:False
+2017-11-13 21:01:51,091 DEBUG - 4 Alarms configured
+2017-11-13 21:01:51,092 DEBUG - 4 Schedules configured
+2017-11-13 21:02:48,227 INFO  - =====================================================
+2017-11-13 21:02:48,241 INFO  - DeviceController.Init(): Initializing device...
+2017-11-13 21:02:48,270 DEBUG - Registering device 9CB70D839BC4 with server...
+2017-11-13 21:02:48,819 DEBUG - DeviceController start, registered with deviceId:1
+2017-11-13 21:02:48,834 INFO  - LoadSpis()
+2017-11-13 21:02:48,853 INFO  - LoadSolenoids()
+2017-11-13 21:02:48,859 INFO  - LoadAlarms()
+2017-11-13 21:02:48,884 INFO  - LoadAnalogs()
+2017-11-13 21:02:48,890 INFO  - LoadSchedules()
+2017-11-13 21:02:48,916 INFO  - DeviceController.LoadConfig(): Configuration complete.
+2017-11-13 21:02:48,919 INFO  - DistributedAlarm Id:1 Name:Station1 Address:Test alarm 1 Description:http://192.168.1.100/k2 State:False
+2017-11-13 21:02:48,920 DEBUG - LoadSpis(): Id:1 name:Test SPI 1 Clock:0 CS:0 MISO:18 MOSI:20 
+
+2017-11-13 21:02:48,920 INFO  - GPIOAlarm Id:2 Name:Station2 Address:Test alarm 2 Description:P1Pin28 State:False
+2017-11-13 21:02:48,920 INFO  - SpiDevice Id:1 Name:Test SPI 1 Clock:0 CS:0 MISO:18 MOSI:20
+2017-11-13 21:02:48,922 INFO  - DistributedAlarm Id:3 Name:Station3 Address:Test alarm 3 Description:1 State:False
+2017-11-13 21:02:48,922 INFO  - GPIOAlarm Id:4 Name:Station4 Address:Test alarm 4 Description:P1Pin21 State:False
+2017-11-13 21:02:48,922 DEBUG - 4 Alarms configured
+2017-11-13 21:02:48,928 INFO  - GPIOSolenoid Id:1 Name:Station1 Description:Test solenoid 1 Address:P1Pin25 State:False
+2017-11-13 21:02:48,928 INFO  - GPIOSolenoid Id:2 Name:Station2 Description:Test solenoid 2 Address:P1Pin28 State:False
+2017-11-13 21:02:48,928 INFO  - GPIOSolenoid Id:3 Name:Station3 Description:Test solenoid 3 Address:P1Pin26 State:False
+2017-11-13 21:02:48,928 INFO  - GPIOSolenoid Id:4 Name:Station4 Description:Test solenoid 4 Address:P1Pin21 State:False
+2017-11-13 21:02:48,928 DEBUG - 4 Solenoids configured
+2017-11-13 21:02:48,930 INFO  - SPIAnalog Id:1 Name: Description: Address:http://192.168.1.100/k2 Multiplier:0 Units: Value:0
+2017-11-13 21:02:48,930 DEBUG - 1 Analogs configured
+2017-11-13 21:02:48,935 DEBUG - 4 Schedules configured
+2017-11-13 21:05:07,914 INFO  - =====================================================
+2017-11-13 21:05:07,929 INFO  - DeviceController.Init(): Initializing device...
+2017-11-13 21:05:07,957 DEBUG - Registering device 9CB70D839BC4 with server...
+2017-11-13 21:05:08,344 DEBUG - DeviceController start, registered with deviceId:1
+2017-11-13 21:05:08,349 DEBUG - ProcessCommands()
+2017-11-13 21:05:08,358 INFO  - LoadSpis()
+2017-11-13 21:05:08,382 INFO  - LoadSolenoids()
+2017-11-13 21:05:08,394 INFO  - LoadAlarms()
+2017-11-13 21:05:08,418 INFO  - LoadAnalogs()
+2017-11-13 21:05:08,428 INFO  - LoadSchedules()
+2017-11-13 21:05:08,432 INFO  - DeviceController.LoadConfig(): Configuration complete.
+2017-11-13 21:05:08,463 INFO  - DistributedAlarm Id:1 Name:Station1 Address:Test alarm 1 Description:http://192.168.1.100/k2 State:False
+2017-11-13 21:05:08,464 INFO  - SPIAnalog Id:1 Name: Description: Address:http://192.168.1.100/k2 Multiplier:0 Units: Value:0
+2017-11-13 21:05:08,464 DEBUG - 1 Analogs configured
+2017-11-13 21:05:08,467 INFO  - GPIOAlarm Id:2 Name:Station2 Address:Test alarm 2 Description:P1Pin28 State:False
+2017-11-13 21:05:08,467 INFO  - GPIOSolenoid Id:1 Name:Station1 Description:Test solenoid 1 Address:P1Pin25 State:False
+2017-11-13 21:05:08,467 INFO  - GPIOSolenoid Id:2 Name:Station2 Description:Test solenoid 2 Address:P1Pin28 State:False
+2017-11-13 21:05:08,467 INFO  - GPIOSolenoid Id:3 Name:Station3 Description:Test solenoid 3 Address:P1Pin26 State:False
+2017-11-13 21:05:08,467 INFO  - GPIOSolenoid Id:4 Name:Station4 Description:Test solenoid 4 Address:P1Pin21 State:False
+2017-11-13 21:05:08,467 DEBUG - 4 Solenoids configured
+2017-11-13 21:05:08,469 INFO  - DistributedAlarm Id:3 Name:Station3 Address:Test alarm 3 Description:1 State:False
+2017-11-13 21:05:08,469 INFO  - GPIOAlarm Id:4 Name:Station4 Address:Test alarm 4 Description:P1Pin21 State:False
+2017-11-13 21:05:08,469 DEBUG - 4 Alarms configured
+2017-11-13 21:05:08,470 DEBUG - LoadSpis(): Id:1 name:Test SPI 1 Clock:0 CS:0 MISO:18 MOSI:20 
+
+2017-11-13 21:05:08,471 INFO  - SpiDevice Id:1 Name:Test SPI 1 Clock:0 CS:0 MISO:18 MOSI:20
+2017-11-13 21:05:08,475 DEBUG - 4 Schedules configured
+2017-11-13 21:05:13,367 DEBUG - ProcessCommands()
+2017-11-13 21:06:26,687 INFO  - =====================================================
+2017-11-13 21:06:26,705 INFO  - DeviceController.Init(): Initializing device...
+2017-11-13 21:06:26,735 DEBUG - Registering device 9CB70D839BC4 with server...
+2017-11-13 21:06:27,213 DEBUG - DeviceController start, registered with deviceId:1
+2017-11-13 21:06:27,223 DEBUG - ProcessCommands()
+2017-11-13 21:06:27,245 INFO  - LoadSpis()
+2017-11-13 21:06:27,265 INFO  - LoadSolenoids()
+2017-11-13 21:06:27,300 INFO  - LoadAlarms()
+2017-11-13 21:06:27,302 DEBUG - Retrieved 0 commands
+2017-11-13 21:06:27,310 INFO  - LoadAnalogs()
+2017-11-13 21:06:27,342 DEBUG - LoadSpis(): Id:1 name:Test SPI 1 Clock:0 CS:0 MISO:18 MOSI:20 
+
+2017-11-13 21:06:27,343 INFO  - LoadSchedules()
+2017-11-13 21:06:27,343 INFO  - SpiDevice Id:1 Name:Test SPI 1 Clock:0 CS:0 MISO:18 MOSI:20
+2017-11-13 21:06:27,377 INFO  - DeviceController.LoadConfig(): Configuration complete.
+2017-11-13 21:06:27,385 INFO  - DistributedAlarm Id:1 Name:Station1 Address:Test alarm 1 Description:http://192.168.1.100/k2 State:False
+2017-11-13 21:06:27,385 INFO  - GPIOSolenoid Id:1 Name:Station1 Description:Test solenoid 1 Address:P1Pin25 State:False
+2017-11-13 21:06:27,385 INFO  - GPIOSolenoid Id:2 Name:Station2 Description:Test solenoid 2 Address:P1Pin28 State:False
+2017-11-13 21:06:27,385 INFO  - GPIOSolenoid Id:3 Name:Station3 Description:Test solenoid 3 Address:P1Pin26 State:False
+2017-11-13 21:06:27,386 INFO  - GPIOSolenoid Id:4 Name:Station4 Description:Test solenoid 4 Address:P1Pin21 State:False
+2017-11-13 21:06:27,386 DEBUG - 4 Solenoids configured
+2017-11-13 21:06:27,387 INFO  - GPIOAlarm Id:2 Name:Station2 Address:Test alarm 2 Description:P1Pin28 State:False
+2017-11-13 21:06:27,387 DEBUG - 4 Schedules configured
+2017-11-13 21:06:27,388 INFO  - DistributedAlarm Id:3 Name:Station3 Address:Test alarm 3 Description:1 State:False
+2017-11-13 21:06:27,388 INFO  - GPIOAlarm Id:4 Name:Station4 Address:Test alarm 4 Description:P1Pin21 State:False
+2017-11-13 21:06:27,388 DEBUG - 4 Alarms configured
+2017-11-13 21:06:27,411 INFO  - SPIAnalog Id:1 Name: Description: Address:http://192.168.1.100/k2 Multiplier:0 Units: Value:0
+2017-11-13 21:06:27,411 DEBUG - 1 Analogs configured
+2017-11-13 21:06:32,287 DEBUG - ProcessCommands()
+2017-11-13 21:06:32,314 DEBUG - Retrieved 0 commands
+2017-11-13 21:07:32,783 INFO  - =====================================================
+2017-11-13 21:07:32,798 INFO  - DeviceController.Init(): Initializing device...
+2017-11-13 21:07:32,827 DEBUG - Registering device 9CB70D839BC4 with server...
+2017-11-13 21:07:33,198 DEBUG - DeviceController start, registered with deviceId:1
+2017-11-13 21:07:33,204 DEBUG - ProcessCommands()
+2017-11-13 21:07:33,208 DEBUG - bShutdown:False
+2017-11-13 21:07:33,212 INFO  - LoadSpis()
+2017-11-13 21:07:33,222 INFO  - LoadSolenoids()
+2017-11-13 21:07:33,232 INFO  - LoadAlarms()
+2017-11-13 21:07:33,248 INFO  - LoadAnalogs()
+2017-11-13 21:07:33,254 INFO  - LoadSchedules()
+2017-11-13 21:07:33,261 DEBUG - Retrieved 0 commands
+2017-11-13 21:07:33,267 INFO  - DeviceController.LoadConfig(): Configuration complete.
+2017-11-13 21:07:33,294 INFO  - DistributedAlarm Id:1 Name:Station1 Address:Test alarm 1 Description:http://192.168.1.100/k2 State:False
+2017-11-13 21:07:33,295 DEBUG - LoadSpis(): Id:1 name:Test SPI 1 Clock:0 CS:0 MISO:18 MOSI:20 
+
+2017-11-13 21:07:33,296 INFO  - GPIOAlarm Id:2 Name:Station2 Address:Test alarm 2 Description:P1Pin28 State:False
+2017-11-13 21:07:33,296 INFO  - SpiDevice Id:1 Name:Test SPI 1 Clock:0 CS:0 MISO:18 MOSI:20
+2017-11-13 21:07:33,297 INFO  - DistributedAlarm Id:3 Name:Station3 Address:Test alarm 3 Description:1 State:False
+2017-11-13 21:07:33,297 INFO  - GPIOAlarm Id:4 Name:Station4 Address:Test alarm 4 Description:P1Pin21 State:False
+2017-11-13 21:07:33,297 DEBUG - 4 Alarms configured
+2017-11-13 21:07:33,300 INFO  - SPIAnalog Id:1 Name: Description: Address:http://192.168.1.100/k2 Multiplier:0 Units: Value:0
+2017-11-13 21:07:33,300 DEBUG - 1 Analogs configured
+2017-11-13 21:07:33,302 DEBUG - 4 Schedules configured
+2017-11-13 21:07:33,302 INFO  - GPIOSolenoid Id:1 Name:Station1 Description:Test solenoid 1 Address:P1Pin25 State:False
+2017-11-13 21:07:33,302 INFO  - GPIOSolenoid Id:2 Name:Station2 Description:Test solenoid 2 Address:P1Pin28 State:False
+2017-11-13 21:07:33,302 INFO  - GPIOSolenoid Id:3 Name:Station3 Description:Test solenoid 3 Address:P1Pin26 State:False
+2017-11-13 21:07:33,303 INFO  - GPIOSolenoid Id:4 Name:Station4 Description:Test solenoid 4 Address:P1Pin21 State:False
+2017-11-13 21:07:33,303 DEBUG - 4 Solenoids configured
+2017-11-13 21:07:38,223 DEBUG - ProcessCommands()
+2017-11-13 21:07:38,223 DEBUG - bShutdown:False
+2017-11-13 21:07:38,236 DEBUG - Retrieved 0 commands
+2017-11-13 21:08:41,028 INFO  - =====================================================
+2017-11-13 21:08:41,049 INFO  - DeviceController.Init(): Initializing device...
+2017-11-13 21:08:41,078 DEBUG - Registering device 9CB70D839BC4 with server...
+2017-11-13 21:08:41,445 DEBUG - DeviceController start, registered with deviceId:1
+2017-11-13 21:08:41,449 DEBUG - ProcessCommands()
+2017-11-13 21:08:41,451 DEBUG - bShutdown:False
+2017-11-13 21:08:41,461 INFO  - LoadSpis()
+2017-11-13 21:08:41,472 INFO  - LoadSolenoids()
+2017-11-13 21:08:41,484 INFO  - LoadAlarms()
+2017-11-13 21:08:41,502 INFO  - LoadAnalogs()
+2017-11-13 21:08:41,511 INFO  - LoadSchedules()
+2017-11-13 21:08:41,511 DEBUG - Retrieved 0 commands
+2017-11-13 21:08:41,515 INFO  - DeviceController.LoadConfig(): Configuration complete.
+2017-11-13 21:08:41,532 INFO  - DistributedAlarm Id:1 Name:Station1 Address:Test alarm 1 Description:http://192.168.1.100/k2 State:False
+2017-11-13 21:08:41,533 INFO  - GPIOAlarm Id:2 Name:Station2 Address:Test alarm 2 Description:P1Pin28 State:False
+2017-11-13 21:08:41,535 INFO  - DistributedAlarm Id:3 Name:Station3 Address:Test alarm 3 Description:1 State:False
+2017-11-13 21:08:41,535 INFO  - GPIOAlarm Id:4 Name:Station4 Address:Test alarm 4 Description:P1Pin21 State:False
+2017-11-13 21:08:41,535 DEBUG - 4 Alarms configured
+2017-11-13 21:08:41,537 DEBUG - LoadSpis(): Id:1 name:Test SPI 1 Clock:0 CS:0 MISO:18 MOSI:20 
+
+2017-11-13 21:08:41,538 INFO  - SpiDevice Id:1 Name:Test SPI 1 Clock:0 CS:0 MISO:18 MOSI:20
+2017-11-13 21:08:41,539 INFO  - SPIAnalog Id:1 Name: Description: Address:http://192.168.1.100/k2 Multiplier:0 Units: Value:0
+2017-11-13 21:08:41,540 DEBUG - 1 Analogs configured
+2017-11-13 21:08:41,540 INFO  - GPIOSolenoid Id:1 Name:Station1 Description:Test solenoid 1 Address:P1Pin25 State:False
+2017-11-13 21:08:41,540 INFO  - GPIOSolenoid Id:2 Name:Station2 Description:Test solenoid 2 Address:P1Pin28 State:False
+2017-11-13 21:08:41,540 INFO  - GPIOSolenoid Id:3 Name:Station3 Description:Test solenoid 3 Address:P1Pin26 State:False
+2017-11-13 21:08:41,540 INFO  - GPIOSolenoid Id:4 Name:Station4 Description:Test solenoid 4 Address:P1Pin21 State:False
+2017-11-13 21:08:41,540 DEBUG - 4 Solenoids configured
+2017-11-13 21:08:41,540 DEBUG - 4 Schedules configured
+2017-11-13 21:08:46,467 DEBUG - ProcessCommands()
+2017-11-13 21:08:46,467 DEBUG - bShutdown:False
+2017-11-13 21:08:46,476 DEBUG - Retrieved 0 commands
+2017-11-13 21:16:14,792 INFO  - =====================================================
+2017-11-13 21:16:14,808 INFO  - DeviceController.Init(): Initializing device...
+2017-11-13 21:16:14,838 DEBUG - Registering device 9CB70D839BC4 with server...
+2017-11-13 21:16:15,265 DEBUG - DeviceController start, registered with deviceId:1
+2017-11-13 21:16:15,282 INFO  - LoadSpis()
+2017-11-13 21:16:15,313 INFO  - LoadSolenoids()
+2017-11-13 21:16:15,322 INFO  - LoadAlarms()
+2017-11-13 21:16:15,329 INFO  - LoadAnalogs()
+2017-11-13 21:16:15,334 INFO  - LoadSchedules()
+2017-11-13 21:16:15,337 INFO  - DeviceController.LoadConfig(): Configuration complete.
+2017-11-13 21:16:15,354 DEBUG - LoadSpis(): Id:1 name:Test SPI 1 Clock:0 CS:0 MISO:18 MOSI:20 
+
+2017-11-13 21:16:15,355 INFO  - SpiDevice Id:1 Name:Test SPI 1 Clock:0 CS:0 MISO:18 MOSI:20
+2017-11-13 21:16:15,378 INFO  - GPIOSolenoid Id:1 Name:Station1 Description:Test solenoid 1 Address:P1Pin25 State:False
+2017-11-13 21:16:15,378 INFO  - GPIOSolenoid Id:2 Name:Station2 Description:Test solenoid 2 Address:P1Pin28 State:False
+2017-11-13 21:16:15,378 INFO  - GPIOSolenoid Id:3 Name:Station3 Description:Test solenoid 3 Address:P1Pin26 State:False
+2017-11-13 21:16:15,378 INFO  - GPIOSolenoid Id:4 Name:Station4 Description:Test solenoid 4 Address:P1Pin21 State:False
+2017-11-13 21:16:15,378 DEBUG - 4 Solenoids configured
+2017-11-13 21:16:15,391 INFO  - DistributedAlarm Id:1 Name:Station1 Address:Test alarm 1 Description:http://192.168.1.100/k2 State:False
+2017-11-13 21:16:15,392 INFO  - SPIAnalog Id:1 Name: Description: Address:http://192.168.1.100/k2 Multiplier:0 Units: Value:0
+2017-11-13 21:16:15,392 DEBUG - 1 Analogs configured
+2017-11-13 21:16:15,392 DEBUG - 4 Schedules configured
+2017-11-13 21:16:15,393 INFO  - GPIOAlarm Id:2 Name:Station2 Address:Test alarm 2 Description:P1Pin28 State:False
+2017-11-13 21:16:15,394 INFO  - DistributedAlarm Id:3 Name:Station3 Address:Test alarm 3 Description:1 State:False
+2017-11-13 21:16:15,395 INFO  - GPIOAlarm Id:4 Name:Station4 Address:Test alarm 4 Description:P1Pin21 State:False
+2017-11-13 21:16:15,395 DEBUG - 4 Alarms configured
+2017-11-13 21:17:23,915 INFO  - =====================================================
+2017-11-13 21:17:23,931 INFO  - DeviceController.Init(): Initializing device...
+2017-11-13 21:17:23,961 DEBUG - Registering device 9CB70D839BC4 with server...
+2017-11-13 21:17:24,438 DEBUG - DeviceController start, registered with deviceId:1
+2017-11-13 21:17:24,454 INFO  - LoadSpis()
+2017-11-13 21:17:24,460 INFO  - LoadSolenoids()
+2017-11-13 21:17:24,466 INFO  - LoadAlarms()
+2017-11-13 21:17:24,472 INFO  - LoadAnalogs()
+2017-11-13 21:17:24,477 INFO  - LoadSchedules()
+2017-11-13 21:17:24,481 INFO  - DeviceController.LoadConfig(): Configuration complete.
+2017-11-13 21:17:24,519 DEBUG - LoadSpis(): Id:1 name:Test SPI 1 Clock:0 CS:0 MISO:18 MOSI:20 
+
+2017-11-13 21:17:24,520 INFO  - SpiDevice Id:1 Name:Test SPI 1 Clock:0 CS:0 MISO:18 MOSI:20
+2017-11-13 21:17:24,536 INFO  - DistributedAlarm Id:1 Name:Station1 Address:Test alarm 1 Description:http://192.168.1.100/k2 State:False
+2017-11-13 21:17:24,538 INFO  - GPIOAlarm Id:2 Name:Station2 Address:Test alarm 2 Description:P1Pin28 State:False
+2017-11-13 21:17:24,540 INFO  - DistributedAlarm Id:3 Name:Station3 Address:Test alarm 3 Description:1 State:False
+2017-11-13 21:17:24,540 INFO  - GPIOAlarm Id:4 Name:Station4 Address:Test alarm 4 Description:P1Pin21 State:False
+2017-11-13 21:17:24,540 DEBUG - 4 Alarms configured
+2017-11-13 21:17:24,542 INFO  - GPIOSolenoid Id:1 Name:Station1 Description:Test solenoid 1 Address:P1Pin25 State:False
+2017-11-13 21:17:24,542 INFO  - GPIOSolenoid Id:2 Name:Station2 Description:Test solenoid 2 Address:P1Pin28 State:False
+2017-11-13 21:17:24,542 INFO  - GPIOSolenoid Id:3 Name:Station3 Description:Test solenoid 3 Address:P1Pin26 State:False
+2017-11-13 21:17:24,542 INFO  - GPIOSolenoid Id:4 Name:Station4 Description:Test solenoid 4 Address:P1Pin21 State:False
+2017-11-13 21:17:24,542 DEBUG - 4 Solenoids configured
+2017-11-13 21:17:24,551 DEBUG - 4 Schedules configured
+2017-11-13 21:17:24,565 INFO  - SPIAnalog Id:1 Name: Description: Address:http://192.168.1.100/k2 Multiplier:0 Units: Value:0
+2017-11-13 21:17:24,565 DEBUG - 1 Analogs configured
+2017-11-13 21:17:29,454 DEBUG - Waking up
+2017-11-13 21:19:41,641 INFO  - =====================================================
+2017-11-13 21:19:41,657 INFO  - DeviceController.Init(): Initializing device...
+2017-11-13 21:19:41,690 DEBUG - Registering device 9CB70D839BC4 with server...
+2017-11-13 21:19:42,100 DEBUG - DeviceController start, registered with deviceId:1
+2017-11-13 21:19:42,114 INFO  - LoadSpis()
+2017-11-13 21:19:42,122 INFO  - LoadSolenoids()
+2017-11-13 21:19:42,128 INFO  - LoadAlarms()
+2017-11-13 21:19:42,134 INFO  - LoadAnalogs()
+2017-11-13 21:19:42,140 INFO  - LoadSchedules()
+2017-11-13 21:19:42,143 INFO  - DeviceController.LoadConfig(): Configuration complete.
+2017-11-13 21:19:42,175 DEBUG - LoadSpis(): Id:1 name:Test SPI 1 Clock:0 CS:0 MISO:18 MOSI:20 
+
+2017-11-13 21:19:42,175 INFO  - SpiDevice Id:1 Name:Test SPI 1 Clock:0 CS:0 MISO:18 MOSI:20
+2017-11-13 21:19:42,196 INFO  - GPIOSolenoid Id:1 Name:Station1 Description:Test solenoid 1 Address:P1Pin25 State:False
+2017-11-13 21:19:42,196 INFO  - GPIOSolenoid Id:2 Name:Station2 Description:Test solenoid 2 Address:P1Pin28 State:False
+2017-11-13 21:19:42,196 INFO  - GPIOSolenoid Id:3 Name:Station3 Description:Test solenoid 3 Address:P1Pin26 State:False
+2017-11-13 21:19:42,196 INFO  - GPIOSolenoid Id:4 Name:Station4 Description:Test solenoid 4 Address:P1Pin21 State:False
+2017-11-13 21:19:42,196 DEBUG - 4 Solenoids configured
+2017-11-13 21:19:42,198 INFO  - DistributedAlarm Id:1 Name:Station1 Address:Test alarm 1 Description:http://192.168.1.100/k2 State:False
+2017-11-13 21:19:42,199 INFO  - GPIOAlarm Id:2 Name:Station2 Address:Test alarm 2 Description:P1Pin28 State:False
+2017-11-13 21:19:42,200 INFO  - DistributedAlarm Id:3 Name:Station3 Address:Test alarm 3 Description:1 State:False
+2017-11-13 21:19:42,200 INFO  - GPIOAlarm Id:4 Name:Station4 Address:Test alarm 4 Description:P1Pin21 State:False
+2017-11-13 21:19:42,200 DEBUG - 4 Alarms configured
+2017-11-13 21:19:42,216 DEBUG - 4 Schedules configured
+2017-11-13 21:19:42,236 INFO  - SPIAnalog Id:1 Name: Description: Address:http://192.168.1.100/k2 Multiplier:0 Units: Value:0
+2017-11-13 21:19:42,236 DEBUG - 1 Analogs configured
+2017-11-13 21:19:47,116 DEBUG - Waking up
+2017-11-13 21:19:47,116 DEBUG - Schedule Evening Shelter
+2017-11-13 21:19:47,117 DEBUG - Schedule Block 1
+2017-11-13 21:19:47,117 DEBUG - Schedule Shelter test 1
+2017-11-13 21:20:50,944 INFO  - =====================================================
+2017-11-13 21:20:50,960 INFO  - DeviceController.Init(): Initializing device...
+2017-11-13 21:20:50,990 DEBUG - Registering device 9CB70D839BC4 with server...
+2017-11-13 21:20:51,406 DEBUG - DeviceController start, registered with deviceId:1
+2017-11-13 21:20:51,421 INFO  - LoadSpis()
+2017-11-13 21:20:51,435 INFO  - LoadSolenoids()
+2017-11-13 21:20:51,444 INFO  - LoadAlarms()
+2017-11-13 21:20:51,460 INFO  - LoadAnalogs()
+2017-11-13 21:20:51,466 INFO  - LoadSchedules()
+2017-11-13 21:20:51,470 INFO  - DeviceController.LoadConfig(): Configuration complete.
+2017-11-13 21:20:51,498 DEBUG - LoadSpis(): Id:1 name:Test SPI 1 Clock:0 CS:0 MISO:18 MOSI:20 
+
+2017-11-13 21:20:51,499 INFO  - SpiDevice Id:1 Name:Test SPI 1 Clock:0 CS:0 MISO:18 MOSI:20
+2017-11-13 21:20:51,518 INFO  - GPIOSolenoid Id:1 Name:Station1 Description:Test solenoid 1 Address:P1Pin25 State:False
+2017-11-13 21:20:51,518 INFO  - GPIOSolenoid Id:2 Name:Station2 Description:Test solenoid 2 Address:P1Pin28 State:False
+2017-11-13 21:20:51,518 INFO  - GPIOSolenoid Id:3 Name:Station3 Description:Test solenoid 3 Address:P1Pin26 State:False
+2017-11-13 21:20:51,518 INFO  - GPIOSolenoid Id:4 Name:Station4 Description:Test solenoid 4 Address:P1Pin21 State:False
+2017-11-13 21:20:51,518 DEBUG - 4 Solenoids configured
+2017-11-13 21:20:51,524 INFO  - DistributedAlarm Id:1 Name:Station1 Address:Test alarm 1 Description:http://192.168.1.100/k2 State:False
+2017-11-13 21:20:51,526 INFO  - GPIOAlarm Id:2 Name:Station2 Address:Test alarm 2 Description:P1Pin28 State:False
+2017-11-13 21:20:51,528 INFO  - DistributedAlarm Id:3 Name:Station3 Address:Test alarm 3 Description:1 State:False
+2017-11-13 21:20:51,528 INFO  - GPIOAlarm Id:4 Name:Station4 Address:Test alarm 4 Description:P1Pin21 State:False
+2017-11-13 21:20:51,528 DEBUG - 4 Alarms configured
+2017-11-13 21:20:51,530 DEBUG - 5 Schedules configured
+2017-11-13 21:20:51,558 INFO  - SPIAnalog Id:1 Name: Description: Address:http://192.168.1.100/k2 Multiplier:0 Units: Value:0
+2017-11-13 21:20:51,558 DEBUG - 1 Analogs configured
+2017-11-13 21:20:56,431 DEBUG - Waking up
+2017-11-13 21:20:56,432 DEBUG - Schedule Evening Shelter
+2017-11-13 21:20:56,432 DEBUG - Schedule Block 1
+2017-11-13 21:20:56,432 DEBUG - Schedule Shelter test 1
+2017-11-13 21:22:12,967 INFO  - =====================================================
+2017-11-13 21:22:12,982 INFO  - DeviceController.Init(): Initializing device...
+2017-11-13 21:22:13,009 DEBUG - Registering device 9CB70D839BC4 with server...
+2017-11-13 21:22:13,405 DEBUG - DeviceController start, registered with deviceId:1
+2017-11-13 21:22:13,418 INFO  - LoadSpis()
+2017-11-13 21:22:13,428 INFO  - LoadSolenoids()
+2017-11-13 21:22:13,440 INFO  - LoadAlarms()
+2017-11-13 21:22:13,450 INFO  - LoadAnalogs()
+2017-11-13 21:22:13,479 INFO  - LoadSchedules()
+2017-11-13 21:22:13,482 INFO  - DeviceController.LoadConfig(): Configuration complete.
+2017-11-13 21:22:13,539 INFO  - DistributedAlarm Id:1 Name:Station1 Address:Test alarm 1 Description:http://192.168.1.100/k2 State:False
+2017-11-13 21:22:13,540 DEBUG - LoadSpis(): Id:1 name:Test SPI 1 Clock:0 CS:0 MISO:18 MOSI:20 
+
+2017-11-13 21:22:13,540 INFO  - GPIOAlarm Id:2 Name:Station2 Address:Test alarm 2 Description:P1Pin28 State:False
+2017-11-13 21:22:13,540 INFO  - SpiDevice Id:1 Name:Test SPI 1 Clock:0 CS:0 MISO:18 MOSI:20
+2017-11-13 21:22:13,542 INFO  - DistributedAlarm Id:3 Name:Station3 Address:Test alarm 3 Description:1 State:False
+2017-11-13 21:22:13,542 INFO  - GPIOAlarm Id:4 Name:Station4 Address:Test alarm 4 Description:P1Pin21 State:False
+2017-11-13 21:22:13,542 DEBUG - 4 Alarms configured
+2017-11-13 21:22:13,547 INFO  - GPIOSolenoid Id:1 Name:Station1 Description:Test solenoid 1 Address:P1Pin25 State:False
+2017-11-13 21:22:13,547 INFO  - GPIOSolenoid Id:2 Name:Station2 Description:Test solenoid 2 Address:P1Pin28 State:False
+2017-11-13 21:22:13,547 INFO  - GPIOSolenoid Id:3 Name:Station3 Description:Test solenoid 3 Address:P1Pin26 State:False
+2017-11-13 21:22:13,547 INFO  - GPIOSolenoid Id:4 Name:Station4 Description:Test solenoid 4 Address:P1Pin21 State:False
+2017-11-13 21:22:13,547 DEBUG - 4 Solenoids configured
+2017-11-13 21:22:13,590 DEBUG - 5 Schedules configured
+2017-11-13 21:22:13,598 INFO  - SPIAnalog Id:1 Name: Description: Address:http://192.168.1.100/k2 Multiplier:0 Units: Value:0
+2017-11-13 21:22:13,598 DEBUG - 1 Analogs configured
+2017-11-13 21:22:18,419 DEBUG - Waking up
+2017-11-13 21:22:18,420 DEBUG - Schedule Evening Shelter
+2017-11-13 21:22:18,420 DEBUG - Schedule Block 1
+2017-11-13 21:22:18,420 DEBUG - Schedule Shelter test 1
+2017-11-13 21:23:37,294 INFO  - =====================================================
+2017-11-13 21:23:37,308 INFO  - DeviceController.Init(): Initializing device...
+2017-11-13 21:23:37,340 DEBUG - Registering device 9CB70D839BC4 with server...
+2017-11-13 21:23:37,743 DEBUG - DeviceController start, registered with deviceId:1
+2017-11-13 21:23:37,768 INFO  - LoadSpis()
+2017-11-13 21:23:37,779 INFO  - LoadSolenoids()
+2017-11-13 21:23:37,792 INFO  - LoadAlarms()
+2017-11-13 21:23:37,804 INFO  - LoadAnalogs()
+2017-11-13 21:23:37,812 INFO  - LoadSchedules()
+2017-11-13 21:23:37,821 INFO  - DeviceController.LoadConfig(): Configuration complete.
+2017-11-13 21:23:37,840 DEBUG - LoadSpis(): Id:1 name:Test SPI 1 Clock:0 CS:0 MISO:18 MOSI:20 
+
+2017-11-13 21:23:37,840 INFO  - SpiDevice Id:1 Name:Test SPI 1 Clock:0 CS:0 MISO:18 MOSI:20
+2017-11-13 21:23:37,848 INFO  - GPIOSolenoid Id:1 Name:Station1 Description:Test solenoid 1 Address:P1Pin25 State:False
+2017-11-13 21:23:37,848 INFO  - GPIOSolenoid Id:2 Name:Station2 Description:Test solenoid 2 Address:P1Pin28 State:False
+2017-11-13 21:23:37,848 INFO  - GPIOSolenoid Id:3 Name:Station3 Description:Test solenoid 3 Address:P1Pin26 State:False
+2017-11-13 21:23:37,848 INFO  - GPIOSolenoid Id:4 Name:Station4 Description:Test solenoid 4 Address:P1Pin21 State:False
+2017-11-13 21:23:37,848 DEBUG - 4 Solenoids configured
+2017-11-13 21:23:37,869 INFO  - DistributedAlarm Id:1 Name:Station1 Address:Test alarm 1 Description:http://192.168.1.100/k2 State:False
+2017-11-13 21:23:37,870 INFO  - GPIOAlarm Id:2 Name:Station2 Address:Test alarm 2 Description:P1Pin28 State:False
+2017-11-13 21:23:37,871 INFO  - DistributedAlarm Id:3 Name:Station3 Address:Test alarm 3 Description:1 State:False
+2017-11-13 21:23:37,871 INFO  - GPIOAlarm Id:4 Name:Station4 Address:Test alarm 4 Description:P1Pin21 State:False
+2017-11-13 21:23:37,871 DEBUG - 4 Alarms configured
+2017-11-13 21:23:37,873 INFO  - SPIAnalog Id:1 Name: Description: Address:http://192.168.1.100/k2 Multiplier:0 Units: Value:0
+2017-11-13 21:23:37,873 DEBUG - 1 Analogs configured
+2017-11-13 21:23:37,885 DEBUG - 5 Schedules configured
+2017-11-13 21:23:42,769 DEBUG - Waking up
+2017-11-13 21:23:42,770 DEBUG - Schedule Evening Shelter
+2017-11-13 21:23:42,770 DEBUG - Schedule Block 1
+2017-11-13 21:23:42,770 DEBUG - Schedule Shelter test 1
+2017-11-13 21:23:53,970 INFO  - =====================================================
+2017-11-13 21:23:53,985 INFO  - DeviceController.Init(): Initializing device...
+2017-11-13 21:23:54,014 DEBUG - Registering device 9CB70D839BC4 with server...
+2017-11-13 21:23:54,464 DEBUG - DeviceController start, registered with deviceId:1
+2017-11-13 21:23:54,479 INFO  - LoadSpis()
+2017-11-13 21:23:54,486 INFO  - LoadSolenoids()
+2017-11-13 21:23:54,492 INFO  - LoadAlarms()
+2017-11-13 21:23:54,500 INFO  - LoadAnalogs()
+2017-11-13 21:23:54,505 INFO  - LoadSchedules()
+2017-11-13 21:23:54,509 INFO  - DeviceController.LoadConfig(): Configuration complete.
+2017-11-13 21:23:54,547 DEBUG - LoadSpis(): Id:1 name:Test SPI 1 Clock:0 CS:0 MISO:18 MOSI:20 
+
+2017-11-13 21:23:54,548 INFO  - SpiDevice Id:1 Name:Test SPI 1 Clock:0 CS:0 MISO:18 MOSI:20
+2017-11-13 21:23:54,550 INFO  - DistributedAlarm Id:1 Name:Station1 Address:Test alarm 1 Description:http://192.168.1.100/k2 State:False
+2017-11-13 21:23:54,552 INFO  - GPIOAlarm Id:2 Name:Station2 Address:Test alarm 2 Description:P1Pin28 State:False
+2017-11-13 21:23:54,554 INFO  - DistributedAlarm Id:3 Name:Station3 Address:Test alarm 3 Description:1 State:False
+2017-11-13 21:23:54,554 INFO  - GPIOAlarm Id:4 Name:Station4 Address:Test alarm 4 Description:P1Pin21 State:False
+2017-11-13 21:23:54,554 DEBUG - 4 Alarms configured
+2017-11-13 21:23:54,555 INFO  - GPIOSolenoid Id:1 Name:Station1 Description:Test solenoid 1 Address:P1Pin25 State:False
+2017-11-13 21:23:54,555 INFO  - GPIOSolenoid Id:2 Name:Station2 Description:Test solenoid 2 Address:P1Pin28 State:False
+2017-11-13 21:23:54,555 INFO  - GPIOSolenoid Id:3 Name:Station3 Description:Test solenoid 3 Address:P1Pin26 State:False
+2017-11-13 21:23:54,555 INFO  - GPIOSolenoid Id:4 Name:Station4 Description:Test solenoid 4 Address:P1Pin21 State:False
+2017-11-13 21:23:54,555 DEBUG - 4 Solenoids configured
+2017-11-13 21:23:54,561 DEBUG - 5 Schedules configured
+2017-11-13 21:23:54,570 INFO  - SPIAnalog Id:1 Name: Description: Address:http://192.168.1.100/k2 Multiplier:0 Units: Value:0
+2017-11-13 21:23:54,570 DEBUG - 1 Analogs configured
+2017-11-13 21:23:59,480 DEBUG - Waking up
+2017-11-13 21:23:59,480 DEBUG - Schedule Evening Shelter
+2017-11-13 21:23:59,480 DEBUG - Schedule Block 1
+2017-11-13 21:23:59,480 DEBUG - Schedule Shelter test 1
+2017-11-13 21:24:18,744 INFO  - =====================================================
+2017-11-13 21:24:18,762 INFO  - DeviceController.Init(): Initializing device...
+2017-11-13 21:24:18,792 DEBUG - Registering device 9CB70D839BC4 with server...
+2017-11-13 21:24:19,240 DEBUG - DeviceController start, registered with deviceId:1
+2017-11-13 21:24:19,255 INFO  - LoadSpis()
+2017-11-13 21:24:19,264 INFO  - LoadSolenoids()
+2017-11-13 21:24:19,273 INFO  - LoadAlarms()
+2017-11-13 21:24:19,278 INFO  - LoadAnalogs()
+2017-11-13 21:24:19,283 INFO  - LoadSchedules()
+2017-11-13 21:24:19,288 INFO  - DeviceController.LoadConfig(): Configuration complete.
+2017-11-13 21:24:19,339 INFO  - DistributedAlarm Id:1 Name:Station1 Address:Test alarm 1 Description:http://192.168.1.100/k2 State:False
+2017-11-13 21:24:19,340 DEBUG - LoadSpis(): Id:1 name:Test SPI 1 Clock:0 CS:0 MISO:18 MOSI:20 
+
+2017-11-13 21:24:19,340 INFO  - SpiDevice Id:1 Name:Test SPI 1 Clock:0 CS:0 MISO:18 MOSI:20
+2017-11-13 21:24:19,341 INFO  - GPIOAlarm Id:2 Name:Station2 Address:Test alarm 2 Description:P1Pin28 State:False
+2017-11-13 21:24:19,342 INFO  - DistributedAlarm Id:3 Name:Station3 Address:Test alarm 3 Description:1 State:False
+2017-11-13 21:24:19,342 INFO  - GPIOAlarm Id:4 Name:Station4 Address:Test alarm 4 Description:P1Pin21 State:False
+2017-11-13 21:24:19,342 DEBUG - 4 Alarms configured
+2017-11-13 21:24:19,346 INFO  - GPIOSolenoid Id:1 Name:Station1 Description:Test solenoid 1 Address:P1Pin25 State:False
+2017-11-13 21:24:19,346 INFO  - GPIOSolenoid Id:2 Name:Station2 Description:Test solenoid 2 Address:P1Pin28 State:False
+2017-11-13 21:24:19,346 INFO  - GPIOSolenoid Id:3 Name:Station3 Description:Test solenoid 3 Address:P1Pin26 State:False
+2017-11-13 21:24:19,346 INFO  - GPIOSolenoid Id:4 Name:Station4 Description:Test solenoid 4 Address:P1Pin21 State:False
+2017-11-13 21:24:19,346 DEBUG - 4 Solenoids configured
+2017-11-13 21:24:19,348 DEBUG - 5 Schedules configured
+2017-11-13 21:24:19,358 INFO  - SPIAnalog Id:1 Name: Description: Address:http://192.168.1.100/k2 Multiplier:0 Units: Value:0
+2017-11-13 21:24:19,359 DEBUG - 1 Analogs configured
+2017-11-13 21:24:24,254 DEBUG - Waking up
+2017-11-13 21:24:24,254 DEBUG - Schedule Evening Shelter
+2017-11-13 21:24:24,254 DEBUG - Schedule Block 1
+2017-11-13 21:24:24,254 DEBUG - Schedule Shelter test 1
+2017-11-13 21:24:36,088 INFO  - =====================================================
+2017-11-13 21:24:36,102 INFO  - DeviceController.Init(): Initializing device...
+2017-11-13 21:24:36,129 DEBUG - Registering device 9CB70D839BC4 with server...
+2017-11-13 21:24:36,488 DEBUG - DeviceController start, registered with deviceId:1
+2017-11-13 21:24:36,500 INFO  - LoadSpis()
+2017-11-13 21:24:36,508 INFO  - LoadSolenoids()
+2017-11-13 21:24:36,517 INFO  - LoadAlarms()
+2017-11-13 21:24:36,521 INFO  - LoadAnalogs()
+2017-11-13 21:24:36,525 INFO  - LoadSchedules()
+2017-11-13 21:24:36,529 INFO  - DeviceController.LoadConfig(): Configuration complete.
+2017-11-13 21:24:36,558 INFO  - DistributedAlarm Id:1 Name:Station1 Address:Test alarm 1 Description:http://192.168.1.100/k2 State:False
+2017-11-13 21:24:36,559 DEBUG - LoadSpis(): Id:1 name:Test SPI 1 Clock:0 CS:0 MISO:18 MOSI:20 
+
+2017-11-13 21:24:36,559 INFO  - GPIOAlarm Id:2 Name:Station2 Address:Test alarm 2 Description:P1Pin28 State:False
+2017-11-13 21:24:36,560 INFO  - SpiDevice Id:1 Name:Test SPI 1 Clock:0 CS:0 MISO:18 MOSI:20
+2017-11-13 21:24:36,561 INFO  - DistributedAlarm Id:3 Name:Station3 Address:Test alarm 3 Description:1 State:False
+2017-11-13 21:24:36,561 INFO  - GPIOAlarm Id:4 Name:Station4 Address:Test alarm 4 Description:P1Pin21 State:False
+2017-11-13 21:24:36,561 DEBUG - 4 Alarms configured
+2017-11-13 21:24:36,562 DEBUG - 5 Schedules configured
+2017-11-13 21:24:36,564 INFO  - GPIOSolenoid Id:1 Name:Station1 Description:Test solenoid 1 Address:P1Pin25 State:False
+2017-11-13 21:24:36,564 INFO  - GPIOSolenoid Id:2 Name:Station2 Description:Test solenoid 2 Address:P1Pin28 State:False
+2017-11-13 21:24:36,564 INFO  - GPIOSolenoid Id:3 Name:Station3 Description:Test solenoid 3 Address:P1Pin26 State:False
+2017-11-13 21:24:36,564 INFO  - GPIOSolenoid Id:4 Name:Station4 Description:Test solenoid 4 Address:P1Pin21 State:False
+2017-11-13 21:24:36,564 DEBUG - 4 Solenoids configured
+2017-11-13 21:24:36,573 INFO  - SPIAnalog Id:1 Name: Description: Address:http://192.168.1.100/k2 Multiplier:0 Units: Value:0
+2017-11-13 21:24:36,573 DEBUG - 1 Analogs configured
+2017-11-13 21:24:41,502 DEBUG - Waking up
+2017-11-13 21:24:41,503 DEBUG - Schedule Evening Shelter
+2017-11-13 21:24:41,503 DEBUG - Schedule Block 1
+2017-11-13 21:24:41,503 DEBUG - Schedule Shelter test 1
+2017-11-13 21:26:03,677 INFO  - =====================================================
+2017-11-13 21:26:03,693 INFO  - DeviceController.Init(): Initializing device...
+2017-11-13 21:26:03,724 DEBUG - Registering device 9CB70D839BC4 with server...
+2017-11-13 21:26:04,269 DEBUG - DeviceController start, registered with deviceId:1
+2017-11-13 21:26:04,284 INFO  - LoadSpis()
+2017-11-13 21:26:04,292 INFO  - LoadSolenoids()
+2017-11-13 21:26:04,300 INFO  - LoadAlarms()
+2017-11-13 21:26:04,307 INFO  - LoadAnalogs()
+2017-11-13 21:26:04,313 INFO  - LoadSchedules()
+2017-11-13 21:26:04,315 INFO  - DeviceController.LoadConfig(): Configuration complete.
+2017-11-13 21:26:04,351 DEBUG - LoadSpis(): Id:1 name:Test SPI 1 Clock:0 CS:0 MISO:18 MOSI:20 
+
+2017-11-13 21:26:04,352 INFO  - SpiDevice Id:1 Name:Test SPI 1 Clock:0 CS:0 MISO:18 MOSI:20
+2017-11-13 21:26:04,352 INFO  - DistributedAlarm Id:1 Name:Station1 Address:Test alarm 1 Description:http://192.168.1.100/k2 State:False
+2017-11-13 21:26:04,355 INFO  - GPIOAlarm Id:2 Name:Station2 Address:Test alarm 2 Description:P1Pin28 State:False
+2017-11-13 21:26:04,357 INFO  - DistributedAlarm Id:3 Name:Station3 Address:Test alarm 3 Description:1 State:False
+2017-11-13 21:26:04,357 INFO  - GPIOAlarm Id:4 Name:Station4 Address:Test alarm 4 Description:P1Pin21 State:False
+2017-11-13 21:26:04,357 DEBUG - 4 Alarms configured
+2017-11-13 21:26:04,359 DEBUG - 0 Schedules configured
+2017-11-13 21:26:04,363 INFO  - GPIOSolenoid Id:1 Name:Station1 Description:Test solenoid 1 Address:P1Pin25 State:False
+2017-11-13 21:26:04,363 INFO  - GPIOSolenoid Id:2 Name:Station2 Description:Test solenoid 2 Address:P1Pin28 State:False
+2017-11-13 21:26:04,363 INFO  - GPIOSolenoid Id:3 Name:Station3 Description:Test solenoid 3 Address:P1Pin26 State:False
+2017-11-13 21:26:04,363 INFO  - GPIOSolenoid Id:4 Name:Station4 Description:Test solenoid 4 Address:P1Pin21 State:False
+2017-11-13 21:26:04,363 DEBUG - 4 Solenoids configured
+2017-11-13 21:26:04,372 INFO  - SPIAnalog Id:1 Name: Description: Address:http://192.168.1.100/k2 Multiplier:0 Units: Value:0
+2017-11-13 21:26:04,372 DEBUG - 1 Analogs configured
+2017-11-13 21:26:09,282 DEBUG - Waking up
+2017-11-13 21:26:14,284 DEBUG - Waking up
+2017-11-13 21:26:19,286 DEBUG - Waking up
+2017-11-13 21:26:24,287 DEBUG - Waking up
+2017-11-13 21:26:29,288 DEBUG - Waking up
+2017-11-13 21:26:34,289 DEBUG - Waking up
+2017-11-13 21:26:39,291 DEBUG - Waking up
+2017-11-13 21:26:44,293 DEBUG - Waking up
+2017-11-13 21:26:48,615 INFO  - =====================================================
+2017-11-13 21:26:48,633 INFO  - DeviceController.Init(): Initializing device...
+2017-11-13 21:26:48,664 DEBUG - Registering device 9CB70D839BC4 with server...
+2017-11-13 21:26:49,078 DEBUG - DeviceController start, registered with deviceId:1
+2017-11-13 21:26:49,094 INFO  - LoadSpis()
+2017-11-13 21:26:49,099 INFO  - LoadSolenoids()
+2017-11-13 21:26:49,103 INFO  - LoadAlarms()
+2017-11-13 21:26:49,109 INFO  - LoadAnalogs()
+2017-11-13 21:26:49,113 INFO  - LoadSchedules()
+2017-11-13 21:26:49,117 INFO  - DeviceController.LoadConfig(): Configuration complete.
+2017-11-13 21:26:49,162 DEBUG - LoadSpis(): Id:1 name:Test SPI 1 Clock:0 CS:0 MISO:18 MOSI:20 
+
+2017-11-13 21:26:49,163 INFO  - SpiDevice Id:1 Name:Test SPI 1 Clock:0 CS:0 MISO:18 MOSI:20
+2017-11-13 21:26:49,163 INFO  - DistributedAlarm Id:1 Name:Station1 Address:Test alarm 1 Description:http://192.168.1.100/k2 State:False
+2017-11-13 21:26:49,165 INFO  - GPIOAlarm Id:2 Name:Station2 Address:Test alarm 2 Description:P1Pin28 State:False
+2017-11-13 21:26:49,167 INFO  - DistributedAlarm Id:3 Name:Station3 Address:Test alarm 3 Description:1 State:False
+2017-11-13 21:26:49,167 INFO  - GPIOAlarm Id:4 Name:Station4 Address:Test alarm 4 Description:P1Pin21 State:False
+2017-11-13 21:26:49,167 DEBUG - 4 Alarms configured
+2017-11-13 21:26:49,176 INFO  - GPIOSolenoid Id:1 Name:Station1 Description:Test solenoid 1 Address:P1Pin25 State:False
+2017-11-13 21:26:49,176 INFO  - GPIOSolenoid Id:2 Name:Station2 Description:Test solenoid 2 Address:P1Pin28 State:False
+2017-11-13 21:26:49,176 INFO  - GPIOSolenoid Id:3 Name:Station3 Description:Test solenoid 3 Address:P1Pin26 State:False
+2017-11-13 21:26:49,176 INFO  - GPIOSolenoid Id:4 Name:Station4 Description:Test solenoid 4 Address:P1Pin21 State:False
+2017-11-13 21:26:49,176 DEBUG - 4 Solenoids configured
+2017-11-13 21:26:49,186 INFO  - SPIAnalog Id:1 Name: Description: Address:http://192.168.1.100/k2 Multiplier:0 Units: Value:0
+2017-11-13 21:26:49,186 DEBUG - 1 Analogs configured
+2017-11-13 21:26:49,189 DEBUG - 1 Schedules configured
+2017-11-13 21:26:54,093 DEBUG - Waking up
+2017-11-13 21:26:54,093 DEBUG - Schedule Shelter test 2
+2017-11-13 21:27:18,645 INFO  - =====================================================
+2017-11-13 21:27:18,665 INFO  - DeviceController.Init(): Initializing device...
+2017-11-13 21:27:18,713 DEBUG - Registering device 9CB70D839BC4 with server...
+2017-11-13 21:27:19,157 DEBUG - DeviceController start, registered with deviceId:1
+2017-11-13 21:27:19,172 INFO  - LoadSpis()
+2017-11-13 21:27:19,201 INFO  - LoadSolenoids()
+2017-11-13 21:27:19,207 INFO  - LoadAlarms()
+2017-11-13 21:27:19,213 INFO  - LoadAnalogs()
+2017-11-13 21:27:19,217 INFO  - LoadSchedules()
+2017-11-13 21:27:19,220 INFO  - DeviceController.LoadConfig(): Configuration complete.
+2017-11-13 21:27:19,238 DEBUG - LoadSpis(): Id:1 name:Test SPI 1 Clock:0 CS:0 MISO:18 MOSI:20 
+
+2017-11-13 21:27:19,239 INFO  - SpiDevice Id:1 Name:Test SPI 1 Clock:0 CS:0 MISO:18 MOSI:20
+2017-11-13 21:27:19,255 INFO  - GPIOSolenoid Id:1 Name:Station1 Description:Test solenoid 1 Address:P1Pin25 State:False
+2017-11-13 21:27:19,255 INFO  - GPIOSolenoid Id:2 Name:Station2 Description:Test solenoid 2 Address:P1Pin28 State:False
+2017-11-13 21:27:19,255 INFO  - GPIOSolenoid Id:3 Name:Station3 Description:Test solenoid 3 Address:P1Pin26 State:False
+2017-11-13 21:27:19,255 INFO  - GPIOSolenoid Id:4 Name:Station4 Description:Test solenoid 4 Address:P1Pin21 State:False
+2017-11-13 21:27:19,255 DEBUG - 4 Solenoids configured
+2017-11-13 21:27:19,263 INFO  - DistributedAlarm Id:1 Name:Station1 Address:Test alarm 1 Description:http://192.168.1.100/k2 State:False
+2017-11-13 21:27:19,264 DEBUG - 1 Schedules configured
+2017-11-13 21:27:19,265 INFO  - GPIOAlarm Id:2 Name:Station2 Address:Test alarm 2 Description:P1Pin28 State:False
+2017-11-13 21:27:19,266 INFO  - DistributedAlarm Id:3 Name:Station3 Address:Test alarm 3 Description:1 State:False
+2017-11-13 21:27:19,266 INFO  - GPIOAlarm Id:4 Name:Station4 Address:Test alarm 4 Description:P1Pin21 State:False
+2017-11-13 21:27:19,266 INFO  - SPIAnalog Id:1 Name: Description: Address:http://192.168.1.100/k2 Multiplier:0 Units: Value:0
+2017-11-13 21:27:19,266 DEBUG - 4 Alarms configured
+2017-11-13 21:27:19,266 DEBUG - 1 Analogs configured
+2017-11-13 21:27:24,172 DEBUG - Waking up
+2017-11-13 21:27:31,571 DEBUG - Schedule Shelter test 2
+2017-11-13 21:30:29,782 INFO  - =====================================================
+2017-11-13 21:30:29,799 INFO  - DeviceController.Init(): Initializing device...
+2017-11-13 21:30:29,838 DEBUG - Registering device 9CB70D839BC4 with server...
+2017-11-13 21:30:30,327 DEBUG - DeviceController start, registered with deviceId:1
+2017-11-13 21:30:30,354 INFO  - LoadSpis()
+2017-11-13 21:30:30,363 INFO  - LoadSolenoids()
+2017-11-13 21:30:30,374 INFO  - LoadAlarms()
+2017-11-13 21:30:30,389 INFO  - LoadAnalogs()
+2017-11-13 21:30:30,398 INFO  - LoadSchedules()
+2017-11-13 21:30:30,404 INFO  - DeviceController.LoadConfig(): Configuration complete.
+2017-11-13 21:30:30,429 DEBUG - LoadSpis(): Id:1 name:Test SPI 1 Clock:0 CS:0 MISO:18 MOSI:20 
+
+2017-11-13 21:30:30,437 INFO  - SpiDevice Id:1 Name:Test SPI 1 Clock:0 CS:0 MISO:18 MOSI:20
+2017-11-13 21:30:30,441 INFO  - DistributedAlarm Id:1 Name:Station1 Address:Test alarm 1 Description:http://192.168.1.100/k2 State:False
+2017-11-13 21:30:30,452 INFO  - GPIOSolenoid Id:1 Name:Station1 Description:Test solenoid 1 Address:P1Pin25 State:False
+2017-11-13 21:30:30,452 INFO  - GPIOSolenoid Id:2 Name:Station2 Description:Test solenoid 2 Address:P1Pin28 State:False
+2017-11-13 21:30:30,452 INFO  - GPIOSolenoid Id:3 Name:Station3 Description:Test solenoid 3 Address:P1Pin26 State:False
+2017-11-13 21:30:30,452 INFO  - GPIOAlarm Id:2 Name:Station2 Address:Test alarm 2 Description:P1Pin28 State:False
+2017-11-13 21:30:30,452 INFO  - GPIOSolenoid Id:4 Name:Station4 Description:Test solenoid 4 Address:P1Pin21 State:False
+2017-11-13 21:30:30,452 DEBUG - 4 Solenoids configured
+2017-11-13 21:30:30,457 INFO  - DistributedAlarm Id:3 Name:Station3 Address:Test alarm 3 Description:1 State:False
+2017-11-13 21:30:30,457 INFO  - GPIOAlarm Id:4 Name:Station4 Address:Test alarm 4 Description:P1Pin21 State:False
+2017-11-13 21:30:30,457 DEBUG - 4 Alarms configured
+2017-11-13 21:30:30,457 DEBUG - 1 Schedules configured
+2017-11-13 21:30:30,458 INFO  - SPIAnalog Id:1 Name: Description: Address:http://192.168.1.100/k2 Multiplier:0 Units: Value:0
+2017-11-13 21:30:30,458 DEBUG - 1 Analogs configured
+2017-11-13 21:30:35,352 DEBUG - Waking up
+2017-11-13 21:30:35,352 DEBUG - Schedule Shelter test 2
+2017-11-13 21:33:26,714 INFO  - =====================================================
+2017-11-13 21:33:26,731 INFO  - DeviceController.Init(): Initializing device...
+2017-11-13 21:33:26,761 DEBUG - Registering device 9CB70D839BC4 with server...
+2017-11-13 21:33:27,196 DEBUG - DeviceController start, registered with deviceId:1
+2017-11-13 21:33:27,211 INFO  - LoadSpis()
+2017-11-13 21:33:27,220 INFO  - LoadSolenoids()
+2017-11-13 21:33:27,227 INFO  - LoadAlarms()
+2017-11-13 21:33:27,234 INFO  - LoadAnalogs()
+2017-11-13 21:33:27,239 INFO  - LoadSchedules()
+2017-11-13 21:33:27,242 INFO  - DeviceController.LoadConfig(): Configuration complete.
+2017-11-13 21:33:27,277 DEBUG - 0 Schedules configured
+2017-11-13 21:33:27,277 INFO  - DistributedAlarm Id:1 Name:Station1 Address:Test alarm 1 Description:http://192.168.1.100/k2 State:False
+2017-11-13 21:33:27,278 DEBUG - LoadSpis(): Id:1 name:Test SPI 1 Clock:0 CS:0 MISO:18 MOSI:20 
+
+2017-11-13 21:33:27,278 INFO  - GPIOAlarm Id:2 Name:Station2 Address:Test alarm 2 Description:P1Pin28 State:False
+2017-11-13 21:33:27,279 INFO  - SpiDevice Id:1 Name:Test SPI 1 Clock:0 CS:0 MISO:18 MOSI:20
+2017-11-13 21:33:27,282 INFO  - DistributedAlarm Id:3 Name:Station3 Address:Test alarm 3 Description:1 State:False
+2017-11-13 21:33:27,282 INFO  - GPIOAlarm Id:4 Name:Station4 Address:Test alarm 4 Description:P1Pin21 State:False
+2017-11-13 21:33:27,282 DEBUG - 4 Alarms configured
+2017-11-13 21:33:27,288 INFO  - GPIOSolenoid Id:1 Name:Station1 Description:Test solenoid 1 Address:P1Pin25 State:False
+2017-11-13 21:33:27,288 INFO  - GPIOSolenoid Id:2 Name:Station2 Description:Test solenoid 2 Address:P1Pin28 State:False
+2017-11-13 21:33:27,288 INFO  - GPIOSolenoid Id:3 Name:Station3 Description:Test solenoid 3 Address:P1Pin26 State:False
+2017-11-13 21:33:27,289 INFO  - GPIOSolenoid Id:4 Name:Station4 Description:Test solenoid 4 Address:P1Pin21 State:False
+2017-11-13 21:33:27,289 DEBUG - 4 Solenoids configured
+2017-11-13 21:33:27,297 INFO  - SPIAnalog Id:1 Name: Description: Address:http://192.168.1.100/k2 Multiplier:0 Units: Value:0
+2017-11-13 21:33:27,297 DEBUG - 1 Analogs configured
+2017-11-13 21:33:32,210 DEBUG - Waking up
+2017-11-13 21:33:37,213 DEBUG - Waking up
+2017-11-13 21:33:57,642 INFO  - =====================================================
+2017-11-13 21:33:57,658 INFO  - DeviceController.Init(): Initializing device...
+2017-11-13 21:33:57,689 DEBUG - Registering device 9CB70D839BC4 with server...
+2017-11-13 21:33:58,198 DEBUG - DeviceController start, registered with deviceId:1
+2017-11-13 21:33:58,204 DEBUG - ProcessCommands()
+2017-11-13 21:33:58,213 INFO  - LoadSpis()
+2017-11-13 21:33:58,221 INFO  - LoadSolenoids()
+2017-11-13 21:33:58,226 INFO  - LoadAlarms()
+2017-11-13 21:33:58,236 INFO  - LoadAnalogs()
+2017-11-13 21:33:58,247 INFO  - LoadSchedules()
+2017-11-13 21:33:58,250 INFO  - DeviceController.LoadConfig(): Configuration complete.
+2017-11-13 21:33:58,279 DEBUG - Retrieved 1 commands
+2017-11-13 21:33:58,279 DEBUG - Command Manual
+2017-11-13 21:33:58,279 INFO  - Switching to Manual mode
+2017-11-13 21:33:58,280 DEBUG - LoadSpis(): Id:1 name:Test SPI 1 Clock:0 CS:0 MISO:18 MOSI:20 
+
+2017-11-13 21:33:58,280 INFO  - SpiDevice Id:1 Name:Test SPI 1 Clock:0 CS:0 MISO:18 MOSI:20
+2017-11-13 21:33:58,287 INFO  - GPIOSolenoid Id:1 Name:Station1 Description:Test solenoid 1 Address:P1Pin25 State:False
+2017-11-13 21:33:58,287 INFO  - GPIOSolenoid Id:2 Name:Station2 Description:Test solenoid 2 Address:P1Pin28 State:False
+2017-11-13 21:33:58,287 INFO  - GPIOSolenoid Id:3 Name:Station3 Description:Test solenoid 3 Address:P1Pin26 State:False
+2017-11-13 21:33:58,287 INFO  - GPIOSolenoid Id:4 Name:Station4 Description:Test solenoid 4 Address:P1Pin21 State:False
+2017-11-13 21:33:58,287 DEBUG - 4 Solenoids configured
+2017-11-13 21:33:58,289 DEBUG - 0 Schedules configured
+2017-11-13 21:33:58,293 INFO  - SPIAnalog Id:1 Name: Description: Address:http://192.168.1.100/k2 Multiplier:0 Units: Value:0
+2017-11-13 21:33:58,293 DEBUG - 1 Analogs configured
+2017-11-13 21:33:58,295 INFO  - DistributedAlarm Id:1 Name:Station1 Address:Test alarm 1 Description:http://192.168.1.100/k2 State:False
+2017-11-13 21:33:58,298 INFO  - GPIOAlarm Id:2 Name:Station2 Address:Test alarm 2 Description:P1Pin28 State:False
+2017-11-13 21:33:58,299 INFO  - DistributedAlarm Id:3 Name:Station3 Address:Test alarm 3 Description:1 State:False
+2017-11-13 21:33:58,299 INFO  - GPIOAlarm Id:4 Name:Station4 Address:Test alarm 4 Description:P1Pin21 State:False
+2017-11-13 21:33:58,299 DEBUG - 4 Alarms configured
+2017-11-13 21:34:03,221 DEBUG - Waking up
+2017-11-13 21:34:03,221 DEBUG - ProcessCommands()
+2017-11-13 21:34:03,233 DEBUG - Retrieved 0 commands
+2017-11-13 21:34:08,222 DEBUG - Waking up
+2017-11-13 21:34:08,222 DEBUG - ProcessCommands()
+2017-11-13 21:34:08,261 DEBUG - Retrieved 0 commands
+2017-11-13 21:34:13,225 DEBUG - Waking up
+2017-11-13 21:34:13,225 DEBUG - ProcessCommands()
+2017-11-13 21:34:13,242 DEBUG - Retrieved 0 commands
+2017-11-13 21:34:18,228 DEBUG - Waking up
+2017-11-13 21:34:18,228 DEBUG - ProcessCommands()
+2017-11-13 21:34:18,247 DEBUG - Retrieved 0 commands
+2017-11-13 21:34:23,231 DEBUG - Waking up
+2017-11-13 21:34:23,231 DEBUG - ProcessCommands()
+2017-11-13 21:34:23,276 DEBUG - Retrieved 0 commands
+2017-11-13 21:34:28,236 DEBUG - Waking up
+2017-11-13 21:34:28,236 DEBUG - ProcessCommands()
+2017-11-13 21:34:28,251 DEBUG - Retrieved 0 commands
+2017-11-13 21:34:33,238 DEBUG - Waking up
+2017-11-13 21:34:33,238 DEBUG - ProcessCommands()
+2017-11-13 21:34:33,258 DEBUG - Retrieved 0 commands
+2017-11-13 21:34:38,240 DEBUG - Waking up
+2017-11-13 21:34:38,240 DEBUG - ProcessCommands()
+2017-11-13 21:34:38,275 DEBUG - Retrieved 0 commands
+2017-11-13 21:34:43,244 DEBUG - Waking up
+2017-11-13 21:34:43,244 DEBUG - ProcessCommands()
+2017-11-13 21:34:43,276 DEBUG - Retrieved 0 commands
+2017-11-13 21:34:48,250 DEBUG - Waking up
+2017-11-13 21:34:48,250 DEBUG - ProcessCommands()
+2017-11-13 21:34:48,257 DEBUG - Retrieved 0 commands
+2017-11-13 21:34:53,251 DEBUG - Waking up
+2017-11-13 21:34:53,251 DEBUG - ProcessCommands()
+2017-11-13 21:34:53,270 DEBUG - Retrieved 0 commands
+2017-11-13 21:34:58,253 DEBUG - Waking up
+2017-11-13 21:34:58,253 DEBUG - ProcessCommands()
+2017-11-13 21:34:58,288 DEBUG - Retrieved 0 commands
+2017-11-13 21:35:03,268 DEBUG - Waking up
+2017-11-13 21:35:03,268 DEBUG - ProcessCommands()
+2017-11-13 21:35:03,305 DEBUG - Retrieved 0 commands
+2017-11-13 21:35:08,270 DEBUG - Waking up
+2017-11-13 21:35:08,270 DEBUG - ProcessCommands()
+2017-11-13 21:35:08,292 DEBUG - Retrieved 0 commands
+2017-11-13 21:35:13,272 DEBUG - Waking up
+2017-11-13 21:35:13,272 DEBUG - ProcessCommands()
+2017-11-13 21:35:13,316 DEBUG - Retrieved 0 commands
+2017-11-13 21:35:18,276 DEBUG - Waking up
+2017-11-13 21:35:18,276 DEBUG - ProcessCommands()
+2017-11-13 21:35:18,283 DEBUG - Retrieved 0 commands
+2017-11-13 21:35:23,277 DEBUG - Waking up
+2017-11-13 21:35:23,277 DEBUG - ProcessCommands()
+2017-11-13 21:35:23,318 DEBUG - Retrieved 1 commands
+2017-11-13 21:35:23,318 DEBUG - Command Manual
+2017-11-13 21:35:23,318 INFO  - Switching to Manual mode
+2017-11-13 21:35:23,372 INFO  - Irrigating Solenoid 2 for 5 minutes
+2017-11-13 21:35:28,280 DEBUG - Waking up
+2017-11-13 21:35:28,280 DEBUG - ProcessCommands()
+2017-11-13 21:35:28,292 DEBUG - Retrieved 0 commands
+2017-11-13 21:35:33,282 DEBUG - Waking up
+2017-11-13 21:35:33,282 DEBUG - ProcessCommands()
+2017-11-13 21:35:33,305 DEBUG - Retrieved 0 commands
+2017-11-13 21:35:38,286 DEBUG - Waking up
+2017-11-13 21:35:38,286 DEBUG - ProcessCommands()
+2017-11-13 21:35:38,327 DEBUG - Retrieved 0 commands
+2017-11-13 21:35:43,297 DEBUG - Waking up
+2017-11-13 21:35:43,297 DEBUG - ProcessCommands()
+2017-11-13 21:35:43,324 DEBUG - Retrieved 0 commands
+2017-11-13 21:35:48,300 DEBUG - Waking up
+2017-11-13 21:35:48,300 DEBUG - ProcessCommands()
+2017-11-13 21:35:48,334 DEBUG - Retrieved 0 commands
+2017-11-13 21:35:53,303 DEBUG - Waking up
+2017-11-13 21:35:53,303 DEBUG - ProcessCommands()
+2017-11-13 21:35:53,335 DEBUG - Retrieved 0 commands
+2017-11-13 21:35:58,306 DEBUG - Waking up
+2017-11-13 21:35:58,306 DEBUG - ProcessCommands()
+2017-11-13 21:35:58,320 DEBUG - Retrieved 0 commands
+2017-11-13 21:36:03,308 DEBUG - Waking up
+2017-11-13 21:36:03,308 DEBUG - ProcessCommands()
+2017-11-13 21:36:03,320 DEBUG - Retrieved 0 commands
+2017-11-13 21:36:08,309 DEBUG - Waking up
+2017-11-13 21:36:08,309 DEBUG - ProcessCommands()
+2017-11-13 21:36:08,345 DEBUG - Retrieved 0 commands
+2017-11-13 21:36:13,312 DEBUG - Waking up
+2017-11-13 21:36:13,312 DEBUG - ProcessCommands()
+2017-11-13 21:36:13,323 DEBUG - Retrieved 0 commands
+2017-11-13 21:36:18,313 DEBUG - Waking up
+2017-11-13 21:36:18,313 DEBUG - ProcessCommands()
+2017-11-13 21:36:18,322 DEBUG - Retrieved 0 commands
+2017-11-13 21:36:23,315 DEBUG - Waking up
+2017-11-13 21:36:23,315 DEBUG - ProcessCommands()
+2017-11-13 21:36:23,344 DEBUG - Retrieved 0 commands
+2017-11-13 21:36:28,318 DEBUG - Waking up
+2017-11-13 21:36:28,318 DEBUG - ProcessCommands()
+2017-11-13 21:36:28,336 DEBUG - Retrieved 0 commands
+2017-11-13 21:36:33,320 DEBUG - Waking up
+2017-11-13 21:36:33,320 DEBUG - ProcessCommands()
+2017-11-13 21:36:33,346 DEBUG - Retrieved 0 commands
+2017-11-13 21:36:38,322 DEBUG - Waking up
+2017-11-13 21:36:38,322 DEBUG - ProcessCommands()
+2017-11-13 21:36:38,349 DEBUG - Retrieved 0 commands
+2017-11-13 21:36:43,324 DEBUG - Waking up
+2017-11-13 21:36:43,324 DEBUG - ProcessCommands()
+2017-11-13 21:36:43,352 DEBUG - Retrieved 0 commands
+2017-11-13 21:36:48,327 DEBUG - Waking up
+2017-11-13 21:36:48,327 DEBUG - ProcessCommands()
+2017-11-13 21:36:48,360 DEBUG - Retrieved 0 commands
+2017-11-13 21:36:53,331 DEBUG - Waking up
+2017-11-13 21:36:53,331 DEBUG - ProcessCommands()
+2017-11-13 21:36:53,341 DEBUG - Retrieved 0 commands
+2017-11-13 21:36:58,334 DEBUG - Waking up
+2017-11-13 21:36:58,334 DEBUG - ProcessCommands()
+2017-11-13 21:36:58,342 DEBUG - Retrieved 0 commands
+2017-11-13 21:40:00,397 INFO  - =====================================================
+2017-11-13 21:40:00,412 INFO  - DeviceController.Init(): Initializing device...
+2017-11-13 21:40:00,442 DEBUG - Registering device 9CB70D839BC4 with server...
+2017-11-13 21:40:00,877 DEBUG - DeviceController start, registered with deviceId:1
+2017-11-13 21:40:00,880 DEBUG - ProcessCommands()
+2017-11-13 21:40:00,901 INFO  - LoadSpis()
+2017-11-13 21:40:00,906 INFO  - LoadSolenoids()
+2017-11-13 21:40:00,915 INFO  - LoadAlarms()
+2017-11-13 21:40:00,923 INFO  - LoadAnalogs()
+2017-11-13 21:40:00,929 DEBUG - Retrieved 0 commands
+2017-11-13 21:40:00,930 INFO  - LoadSchedules()
+2017-11-13 21:40:00,933 INFO  - DeviceController.LoadConfig(): Configuration complete.
+2017-11-13 21:40:00,947 DEBUG - LoadSpis(): Id:1 name:Test SPI 1 Clock:0 CS:0 MISO:18 MOSI:20 
+
+2017-11-13 21:40:00,948 INFO  - SpiDevice Id:1 Name:Test SPI 1 Clock:0 CS:0 MISO:18 MOSI:20
+2017-11-13 21:40:00,964 DEBUG - 0 Schedules configured
+2017-11-13 21:40:00,966 INFO  - DistributedAlarm Id:1 Name:Station1 Address:Test alarm 1 Description:http://192.168.1.100/k2 State:False
+2017-11-13 21:40:00,967 INFO  - GPIOAlarm Id:2 Name:Station2 Address:Test alarm 2 Description:P1Pin28 State:False
+2017-11-13 21:40:00,972 INFO  - GPIOSolenoid Id:1 Name:Station1 Description:Test solenoid 1 Address:P1Pin25 State:False
+2017-11-13 21:40:00,972 INFO  - GPIOSolenoid Id:2 Name:Station2 Description:Test solenoid 2 Address:P1Pin28 State:True
+2017-11-13 21:40:00,973 INFO  - GPIOSolenoid Id:3 Name:Station3 Description:Test solenoid 3 Address:P1Pin26 State:False
+2017-11-13 21:40:00,973 INFO  - GPIOSolenoid Id:4 Name:Station4 Description:Test solenoid 4 Address:P1Pin21 State:False
+2017-11-13 21:40:00,973 DEBUG - 4 Solenoids configured
+2017-11-13 21:40:00,973 INFO  - DistributedAlarm Id:3 Name:Station3 Address:Test alarm 3 Description:1 State:False
+2017-11-13 21:40:00,973 INFO  - GPIOAlarm Id:4 Name:Station4 Address:Test alarm 4 Description:P1Pin21 State:False
+2017-11-13 21:40:00,973 DEBUG - 4 Alarms configured
+2017-11-13 21:40:00,986 INFO  - SPIAnalog Id:1 Name: Description: Address:http://192.168.1.100/k2 Multiplier:0 Units: Value:0
+2017-11-13 21:40:00,986 DEBUG - 1 Analogs configured
+2017-11-13 21:40:05,901 DEBUG - Waking up
+2017-11-13 21:40:05,901 DEBUG - ProcessCommands()
+2017-11-13 21:40:05,924 DEBUG - Retrieved 0 commands
+2017-11-13 21:40:10,902 DEBUG - Waking up
+2017-11-13 21:40:10,902 DEBUG - ProcessCommands()
+2017-11-13 21:40:10,913 DEBUG - Retrieved 0 commands
+2017-11-13 21:40:15,903 DEBUG - Waking up
+2017-11-13 21:40:15,903 DEBUG - ProcessCommands()
+2017-11-13 21:40:15,910 DEBUG - Retrieved 0 commands
+2017-11-13 21:40:20,904 DEBUG - Waking up
+2017-11-13 21:40:20,904 DEBUG - ProcessCommands()
+2017-11-13 21:40:20,915 DEBUG - Retrieved 0 commands
+2017-11-13 21:40:25,905 DEBUG - Waking up
+2017-11-13 21:40:25,905 DEBUG - ProcessCommands()
+2017-11-13 21:40:25,917 DEBUG - Retrieved 0 commands
+2017-11-13 21:40:30,906 DEBUG - Waking up
+2017-11-13 21:40:30,906 DEBUG - ProcessCommands()
+2017-11-13 21:40:30,919 DEBUG - Retrieved 0 commands
+2017-11-13 21:40:35,908 DEBUG - Waking up
+2017-11-13 21:40:35,908 DEBUG - ProcessCommands()
+2017-11-13 21:40:35,939 DEBUG - Retrieved 0 commands
+2017-11-13 21:40:40,913 DEBUG - Waking up
+2017-11-13 21:40:40,913 DEBUG - ProcessCommands()
+2017-11-13 21:40:40,944 DEBUG - Retrieved 0 commands
+2017-11-13 21:40:45,920 DEBUG - Waking up
+2017-11-13 21:40:45,920 DEBUG - ProcessCommands()
+2017-11-13 21:40:45,938 DEBUG - Retrieved 0 commands
+2017-11-13 21:40:50,922 DEBUG - Waking up
+2017-11-13 21:40:50,922 DEBUG - ProcessCommands()
+2017-11-13 21:40:50,980 DEBUG - Retrieved 1 commands
+2017-11-13 21:40:50,980 DEBUG - Command Auto
+2017-11-13 21:40:50,980 INFO  - Switching to Auto mode
+2017-11-13 21:40:55,925 DEBUG - Waking up
+2017-11-13 21:40:55,925 DEBUG - ProcessCommands()
+2017-11-13 21:40:55,955 DEBUG - Retrieved 0 commands
+2017-11-13 21:41:00,937 DEBUG - Waking up
+2017-11-13 21:41:00,937 DEBUG - ProcessCommands()
+2017-11-13 21:41:00,967 DEBUG - Retrieved 0 commands
+2017-11-13 21:41:05,940 DEBUG - Waking up
+2017-11-13 21:41:05,940 DEBUG - ProcessCommands()
+2017-11-13 21:41:05,983 DEBUG - Retrieved 0 commands
+2017-11-13 21:41:10,945 DEBUG - Waking up
+2017-11-13 21:41:10,945 DEBUG - ProcessCommands()
+2017-11-13 21:41:10,975 DEBUG - Retrieved 0 commands
+2017-11-13 21:41:15,973 DEBUG - Waking up
+2017-11-13 21:41:15,973 DEBUG - ProcessCommands()
+2017-11-13 21:41:15,987 DEBUG - Retrieved 0 commands
+2017-11-13 21:41:20,975 DEBUG - Waking up
+2017-11-13 21:41:20,975 DEBUG - ProcessCommands()
+2017-11-13 21:41:21,033 DEBUG - Retrieved 0 commands
+2017-11-13 21:41:25,976 DEBUG - Waking up
+2017-11-13 21:41:25,976 DEBUG - ProcessCommands()
+2017-11-13 21:41:26,002 DEBUG - Retrieved 0 commands
+2017-11-13 21:41:30,978 DEBUG - Waking up
+2017-11-13 21:41:30,978 DEBUG - ProcessCommands()
+2017-11-13 21:41:30,987 DEBUG - Retrieved 0 commands
+2017-11-13 21:41:35,979 DEBUG - Waking up
+2017-11-13 21:41:35,979 DEBUG - ProcessCommands()
+2017-11-13 21:41:36,019 DEBUG - Retrieved 0 commands
+2017-11-13 21:41:40,982 DEBUG - Waking up
+2017-11-13 21:41:40,982 DEBUG - ProcessCommands()
+2017-11-13 21:41:40,994 DEBUG - Retrieved 0 commands
+2017-11-13 21:41:45,983 DEBUG - Waking up
+2017-11-13 21:41:45,983 DEBUG - ProcessCommands()
+2017-11-13 21:41:45,996 DEBUG - Retrieved 0 commands
+2017-11-13 21:41:50,985 DEBUG - Waking up
+2017-11-13 21:41:50,985 DEBUG - ProcessCommands()
+2017-11-13 21:41:51,017 DEBUG - Retrieved 0 commands
+2017-11-13 21:41:55,987 DEBUG - Waking up
+2017-11-13 21:41:55,987 DEBUG - ProcessCommands()
+2017-11-13 21:41:56,000 DEBUG - Retrieved 0 commands
+2017-11-13 21:42:00,989 DEBUG - Waking up
+2017-11-13 21:42:00,989 DEBUG - ProcessCommands()
+2017-11-13 21:42:00,998 DEBUG - Retrieved 0 commands
+2017-11-13 21:42:05,990 DEBUG - Waking up
+2017-11-13 21:42:05,990 DEBUG - ProcessCommands()
+2017-11-13 21:42:05,998 DEBUG - Retrieved 0 commands
+2017-11-13 21:42:10,992 DEBUG - Waking up
+2017-11-13 21:42:10,992 DEBUG - ProcessCommands()
+2017-11-13 21:42:11,033 DEBUG - Retrieved 0 commands
+2017-11-13 21:42:15,995 DEBUG - Waking up
+2017-11-13 21:42:15,995 DEBUG - ProcessCommands()
+2017-11-13 21:42:16,025 DEBUG - Retrieved 0 commands
+2017-11-13 21:42:20,999 DEBUG - Waking up
+2017-11-13 21:42:20,999 DEBUG - ProcessCommands()
+2017-11-13 21:42:21,009 DEBUG - Retrieved 0 commands
+2017-11-13 21:42:26,000 DEBUG - Waking up
+2017-11-13 21:42:26,000 DEBUG - ProcessCommands()
+2017-11-13 21:42:26,011 DEBUG - Retrieved 0 commands
+2017-11-13 21:42:31,001 DEBUG - Waking up
+2017-11-13 21:42:31,001 DEBUG - ProcessCommands()
+2017-11-13 21:42:31,011 DEBUG - Retrieved 0 commands
+2017-11-13 21:42:36,003 DEBUG - Waking up
+2017-11-13 21:42:36,003 DEBUG - ProcessCommands()
+2017-11-13 21:42:36,015 DEBUG - Retrieved 0 commands
+2017-11-13 21:42:39,491 INFO  - =====================================================
+2017-11-13 21:42:39,513 INFO  - DeviceController.Init(): Initializing device...
+2017-11-13 21:42:39,563 DEBUG - Registering device 9CB70D839BC4 with server...
+2017-11-13 21:42:40,040 DEBUG - DeviceController start, registered with deviceId:1
+2017-11-13 21:42:40,046 DEBUG - ProcessCommands()
+2017-11-13 21:42:40,059 INFO  - LoadSpis()
+2017-11-13 21:42:40,075 INFO  - LoadSolenoids()
+2017-11-13 21:42:40,091 INFO  - LoadAlarms()
+2017-11-13 21:42:40,096 DEBUG - Retrieved 0 commands
+2017-11-13 21:42:40,142 DEBUG - LoadSpis(): Id:1 name:Test SPI 1 Clock:0 CS:0 MISO:18 MOSI:20 
+
+2017-11-13 21:42:40,145 INFO  - LoadAnalogs()
+2017-11-13 21:42:40,145 INFO  - SpiDevice Id:1 Name:Test SPI 1 Clock:0 CS:0 MISO:18 MOSI:20
+2017-11-13 21:42:40,159 INFO  - LoadSchedules()
+2017-11-13 21:42:40,160 INFO  - DistributedAlarm Id:1 Name:Station1 Address:Test alarm 1 Description:http://192.168.1.100/k2 State:False
+2017-11-13 21:42:40,161 INFO  - GPIOSolenoid Id:1 Name:Station1 Description:Test solenoid 1 Address:P1Pin25 State:False
+2017-11-13 21:42:40,161 INFO  - GPIOSolenoid Id:2 Name:Station2 Description:Test solenoid 2 Address:P1Pin28 State:True
+2017-11-13 21:42:40,161 INFO  - GPIOSolenoid Id:3 Name:Station3 Description:Test solenoid 3 Address:P1Pin26 State:False
+2017-11-13 21:42:40,161 INFO  - GPIOSolenoid Id:4 Name:Station4 Description:Test solenoid 4 Address:P1Pin21 State:False
+2017-11-13 21:42:40,161 DEBUG - 4 Solenoids configured
+2017-11-13 21:42:40,161 INFO  - GPIOAlarm Id:2 Name:Station2 Address:Test alarm 2 Description:P1Pin28 State:False
+2017-11-13 21:42:40,163 INFO  - DeviceController.LoadConfig(): Configuration complete.
+2017-11-13 21:42:40,163 INFO  - DistributedAlarm Id:3 Name:Station3 Address:Test alarm 3 Description:1 State:False
+2017-11-13 21:42:40,163 INFO  - GPIOAlarm Id:4 Name:Station4 Address:Test alarm 4 Description:P1Pin21 State:False
+2017-11-13 21:42:40,163 DEBUG - 4 Alarms configured
+2017-11-13 21:42:40,184 INFO  - SPIAnalog Id:1 Name: Description: Address:http://192.168.1.100/k2 Multiplier:0 Units: Value:0
+2017-11-13 21:42:40,184 DEBUG - 1 Analogs configured
+2017-11-13 21:42:40,188 DEBUG - 1 Schedules configured
+2017-11-13 21:42:45,060 DEBUG - Waking up
+2017-11-13 21:42:45,060 DEBUG - ProcessCommands()
+2017-11-13 21:42:45,061 DEBUG - Schedule Shelter test 2
+2017-11-13 21:42:45,070 DEBUG - Retrieved 0 commands
+2017-11-13 21:42:45,073 INFO  - Schedule 'Shelter test 2' started
+2017-11-13 21:42:50,074 DEBUG - Waking up
+2017-11-13 21:42:50,074 DEBUG - ProcessCommands()
+2017-11-13 21:42:50,085 DEBUG - Retrieved 0 commands
+2017-11-13 21:42:55,076 DEBUG - Waking up
+2017-11-13 21:42:55,076 DEBUG - ProcessCommands()
+2017-11-13 21:42:55,110 DEBUG - Retrieved 0 commands
+2017-11-13 21:43:00,080 DEBUG - Waking up
+2017-11-13 21:43:00,080 DEBUG - ProcessCommands()
+2017-11-13 21:43:00,114 DEBUG - Retrieved 0 commands
+2017-11-13 21:43:05,081 DEBUG - Waking up
+2017-11-13 21:43:05,081 DEBUG - ProcessCommands()
+2017-11-13 21:43:05,095 DEBUG - Retrieved 0 commands
+2017-11-13 21:43:10,083 DEBUG - Waking up
+2017-11-13 21:43:10,083 DEBUG - ProcessCommands()
+2017-11-13 21:43:10,091 DEBUG - Retrieved 0 commands
+2017-11-13 21:43:15,084 DEBUG - Waking up
+2017-11-13 21:43:15,084 DEBUG - ProcessCommands()
+2017-11-13 21:43:15,099 DEBUG - Retrieved 0 commands
+2017-11-13 21:43:20,087 DEBUG - Waking up
+2017-11-13 21:43:20,087 DEBUG - ProcessCommands()
+2017-11-13 21:43:20,139 DEBUG - Retrieved 0 commands
+2017-11-13 21:43:25,089 DEBUG - Waking up
+2017-11-13 21:43:25,089 DEBUG - ProcessCommands()
+2017-11-13 21:43:25,105 DEBUG - Retrieved 0 commands
+2017-11-13 21:43:30,091 DEBUG - Waking up
+2017-11-13 21:43:30,091 DEBUG - ProcessCommands()
+2017-11-13 21:43:30,114 DEBUG - Retrieved 0 commands
+2017-11-13 21:43:35,093 DEBUG - Waking up
+2017-11-13 21:43:35,093 DEBUG - ProcessCommands()
+2017-11-13 21:43:35,102 DEBUG - Retrieved 0 commands
+2017-11-13 21:43:40,095 DEBUG - Waking up
+2017-11-13 21:43:40,095 DEBUG - ProcessCommands()
+2017-11-13 21:43:40,103 DEBUG - Retrieved 0 commands
+2017-11-13 21:43:45,096 DEBUG - Waking up
+2017-11-13 21:43:45,096 DEBUG - ProcessCommands()
+2017-11-13 21:43:45,122 DEBUG - Retrieved 0 commands
+2017-11-13 21:43:50,099 DEBUG - Waking up
+2017-11-13 21:43:50,099 DEBUG - ProcessCommands()
+2017-11-13 21:43:50,107 DEBUG - Retrieved 0 commands
+2017-11-13 21:43:55,100 DEBUG - Waking up
+2017-11-13 21:43:55,100 DEBUG - ProcessCommands()
+2017-11-13 21:43:55,127 DEBUG - Retrieved 0 commands
+2017-11-13 21:44:00,102 DEBUG - Waking up
+2017-11-13 21:44:00,102 DEBUG - ProcessCommands()
+2017-11-13 21:44:00,114 DEBUG - Retrieved 0 commands
+2017-11-13 21:44:05,103 DEBUG - Waking up
+2017-11-13 21:44:05,103 DEBUG - ProcessCommands()
+2017-11-13 21:44:05,110 DEBUG - Retrieved 0 commands
+2017-11-13 21:44:10,105 DEBUG - Waking up
+2017-11-13 21:44:10,105 DEBUG - ProcessCommands()
+2017-11-13 21:44:10,121 DEBUG - Retrieved 0 commands
+2017-11-13 21:44:15,107 DEBUG - Waking up
+2017-11-13 21:44:15,107 DEBUG - ProcessCommands()
+2017-11-13 21:44:15,118 DEBUG - Retrieved 0 commands
+2017-11-13 21:44:20,108 DEBUG - Waking up
+2017-11-13 21:44:20,108 DEBUG - ProcessCommands()
+2017-11-13 21:44:20,123 DEBUG - Retrieved 0 commands
+2017-11-13 21:44:25,109 DEBUG - Waking up
+2017-11-13 21:44:25,109 DEBUG - ProcessCommands()
+2017-11-13 21:44:25,127 DEBUG - Retrieved 0 commands
+2017-11-13 21:44:30,111 DEBUG - Waking up
+2017-11-13 21:44:30,111 DEBUG - ProcessCommands()
+2017-11-13 21:44:30,126 DEBUG - Retrieved 0 commands
+2017-11-13 21:44:35,114 DEBUG - Waking up
+2017-11-13 21:44:35,114 DEBUG - ProcessCommands()
+2017-11-13 21:44:35,124 DEBUG - Retrieved 0 commands
+2017-11-13 21:44:40,115 DEBUG - Waking up
+2017-11-13 21:44:40,115 DEBUG - ProcessCommands()
+2017-11-13 21:44:40,135 DEBUG - Retrieved 0 commands
+2017-11-13 21:44:45,117 DEBUG - Waking up
+2017-11-13 21:44:45,117 DEBUG - ProcessCommands()
+2017-11-13 21:44:45,132 DEBUG - Retrieved 0 commands
+2017-11-13 21:44:50,119 DEBUG - Waking up
+2017-11-13 21:44:50,119 DEBUG - ProcessCommands()
+2017-11-13 21:44:50,154 DEBUG - Retrieved 0 commands
+2017-11-13 21:44:55,122 DEBUG - Waking up
+2017-11-13 21:44:55,122 DEBUG - ProcessCommands()
+2017-11-13 21:44:55,179 DEBUG - Retrieved 0 commands
+2017-11-13 21:45:00,130 DEBUG - Waking up
+2017-11-13 21:45:00,130 DEBUG - ProcessCommands()
+2017-11-13 21:45:00,138 DEBUG - Retrieved 0 commands
+2017-11-13 21:45:05,131 DEBUG - Waking up
+2017-11-13 21:45:05,131 DEBUG - ProcessCommands()
+2017-11-13 21:45:05,162 DEBUG - Retrieved 0 commands
+2017-11-13 21:45:10,132 DEBUG - Waking up
+2017-11-13 21:45:10,133 DEBUG - ProcessCommands()
+2017-11-13 21:45:10,171 DEBUG - Retrieved 0 commands
+2017-11-13 21:45:15,135 DEBUG - Waking up
+2017-11-13 21:45:15,135 DEBUG - ProcessCommands()
+2017-11-13 21:45:15,148 DEBUG - Retrieved 0 commands
+2017-11-13 21:45:20,138 DEBUG - Waking up
+2017-11-13 21:45:20,138 DEBUG - ProcessCommands()
+2017-11-13 21:45:20,147 DEBUG - Retrieved 0 commands
+2017-11-13 21:45:25,139 DEBUG - Waking up
+2017-11-13 21:45:25,139 DEBUG - ProcessCommands()
+2017-11-13 21:45:25,179 DEBUG - Retrieved 0 commands
+2017-11-13 21:45:30,142 DEBUG - Waking up
+2017-11-13 21:45:30,142 DEBUG - ProcessCommands()
+2017-11-13 21:45:30,180 DEBUG - Retrieved 0 commands
+2017-11-13 21:45:35,143 DEBUG - Waking up
+2017-11-13 21:45:35,143 DEBUG - ProcessCommands()
+2017-11-13 21:45:35,159 DEBUG - Retrieved 0 commands
+2017-11-13 21:45:40,144 DEBUG - Waking up
+2017-11-13 21:45:40,144 DEBUG - ProcessCommands()
+2017-11-13 21:45:40,155 DEBUG - Retrieved 0 commands
+2017-11-13 21:45:45,145 DEBUG - Waking up
+2017-11-13 21:45:45,145 DEBUG - ProcessCommands()
+2017-11-13 21:45:45,186 DEBUG - Retrieved 0 commands
+2017-11-13 21:45:50,146 DEBUG - Waking up
+2017-11-13 21:45:50,146 DEBUG - ProcessCommands()
+2017-11-13 21:45:50,185 DEBUG - Retrieved 0 commands
+2017-11-13 21:45:55,149 DEBUG - Waking up
+2017-11-13 21:45:55,149 DEBUG - ProcessCommands()
+2017-11-13 21:45:55,174 DEBUG - Retrieved 0 commands
+2017-11-13 21:46:00,151 DEBUG - Waking up
+2017-11-13 21:46:00,151 DEBUG - ProcessCommands()
+2017-11-13 21:46:00,203 DEBUG - Retrieved 0 commands
+2017-11-13 21:46:05,152 DEBUG - Waking up
+2017-11-13 21:46:05,152 DEBUG - ProcessCommands()
+2017-11-13 21:46:05,171 DEBUG - Retrieved 0 commands
+2017-11-13 21:46:10,154 DEBUG - Waking up
+2017-11-13 21:46:10,154 DEBUG - ProcessCommands()
+2017-11-13 21:46:10,187 DEBUG - Retrieved 0 commands
+2017-11-13 21:46:15,156 DEBUG - Waking up
+2017-11-13 21:46:15,156 DEBUG - ProcessCommands()
+2017-11-13 21:46:15,168 DEBUG - Retrieved 0 commands
+2017-11-13 21:46:20,157 DEBUG - Waking up
+2017-11-13 21:46:20,157 DEBUG - ProcessCommands()
+2017-11-13 21:46:20,165 DEBUG - Retrieved 0 commands
+2017-11-13 21:46:25,159 DEBUG - Waking up
+2017-11-13 21:46:25,159 DEBUG - ProcessCommands()
+2017-11-13 21:46:25,168 DEBUG - Retrieved 0 commands
+2017-11-13 21:46:30,160 DEBUG - Waking up
+2017-11-13 21:46:30,160 DEBUG - ProcessCommands()
+2017-11-13 21:46:30,179 DEBUG - Retrieved 0 commands
+2017-11-13 21:46:35,163 DEBUG - Waking up
+2017-11-13 21:46:35,163 DEBUG - ProcessCommands()
+2017-11-13 21:46:35,170 DEBUG - Retrieved 0 commands
+2017-11-13 21:46:40,164 DEBUG - Waking up
+2017-11-13 21:46:40,164 DEBUG - ProcessCommands()
+2017-11-13 21:46:40,204 DEBUG - Retrieved 0 commands
+2017-11-13 21:46:45,167 DEBUG - Waking up
+2017-11-13 21:46:45,167 DEBUG - ProcessCommands()
+2017-11-13 21:46:45,186 DEBUG - Retrieved 0 commands
+2017-11-13 21:46:50,168 DEBUG - Waking up
+2017-11-13 21:46:50,168 DEBUG - ProcessCommands()
+2017-11-13 21:46:50,216 DEBUG - Retrieved 0 commands
+2017-11-13 21:46:55,169 DEBUG - Waking up
+2017-11-13 21:46:55,169 DEBUG - ProcessCommands()
+2017-11-13 21:46:55,180 DEBUG - Retrieved 0 commands
+2017-11-13 21:47:00,171 DEBUG - Waking up
+2017-11-13 21:47:00,171 DEBUG - ProcessCommands()
+2017-11-13 21:47:00,181 DEBUG - Retrieved 0 commands
+2017-11-13 21:47:05,173 DEBUG - Waking up
+2017-11-13 21:47:05,173 DEBUG - ProcessCommands()
+2017-11-13 21:47:05,186 DEBUG - Retrieved 0 commands
+2017-11-13 21:47:10,177 DEBUG - Waking up
+2017-11-13 21:47:10,177 DEBUG - ProcessCommands()
+2017-11-13 21:47:10,195 DEBUG - Retrieved 0 commands
+2017-11-13 21:47:15,179 DEBUG - Waking up
+2017-11-13 21:47:15,179 DEBUG - ProcessCommands()
+2017-11-13 21:47:15,189 DEBUG - Retrieved 0 commands
+2017-11-13 21:47:20,181 DEBUG - Waking up
+2017-11-13 21:47:20,181 DEBUG - ProcessCommands()
+2017-11-13 21:47:20,209 DEBUG - Retrieved 0 commands
+2017-11-13 21:47:25,182 DEBUG - Waking up
+2017-11-13 21:47:25,182 DEBUG - ProcessCommands()
+2017-11-13 21:47:25,214 DEBUG - Retrieved 0 commands
+2017-11-13 21:47:30,185 DEBUG - Waking up
+2017-11-13 21:47:30,185 DEBUG - ProcessCommands()
+2017-11-13 21:47:30,196 DEBUG - Retrieved 0 commands
+2017-11-13 21:47:35,186 DEBUG - Waking up
+2017-11-13 21:47:35,186 DEBUG - ProcessCommands()
+2017-11-13 21:47:35,218 DEBUG - Retrieved 0 commands
+2017-11-13 21:47:40,189 DEBUG - Waking up
+2017-11-13 21:47:40,189 DEBUG - ProcessCommands()
+2017-11-13 21:47:40,221 DEBUG - Retrieved 0 commands
+2017-11-13 21:47:45,192 DEBUG - Waking up
+2017-11-13 21:47:45,192 DEBUG - ProcessCommands()
+2017-11-13 21:47:45,229 DEBUG - Retrieved 0 commands
+2017-11-13 21:47:50,194 DEBUG - Waking up
+2017-11-13 21:47:50,194 DEBUG - ProcessCommands()
+2017-11-13 21:47:50,220 DEBUG - Retrieved 0 commands
+2017-11-13 21:47:55,196 DEBUG - Waking up
+2017-11-13 21:47:55,196 DEBUG - ProcessCommands()
+2017-11-13 21:47:55,211 DEBUG - Retrieved 0 commands
+2017-11-13 21:48:00,198 DEBUG - Waking up
+2017-11-13 21:48:00,198 DEBUG - ProcessCommands()
+2017-11-13 21:48:00,219 DEBUG - Retrieved 0 commands
+2017-11-13 21:48:05,200 DEBUG - Waking up
+2017-11-13 21:48:05,200 DEBUG - ProcessCommands()
+2017-11-13 21:48:05,247 DEBUG - Retrieved 0 commands
+2017-11-13 21:48:10,202 DEBUG - Waking up
+2017-11-13 21:48:10,202 DEBUG - ProcessCommands()
+2017-11-13 21:48:10,221 DEBUG - Retrieved 0 commands
+2017-11-13 21:48:15,202 DEBUG - Waking up
+2017-11-13 21:48:15,202 DEBUG - ProcessCommands()
+2017-11-13 21:48:15,233 DEBUG - Retrieved 0 commands
+2017-11-13 21:48:20,205 DEBUG - Waking up
+2017-11-13 21:48:20,205 DEBUG - ProcessCommands()
+2017-11-13 21:48:20,224 DEBUG - Retrieved 0 commands
+2017-11-13 21:48:25,207 DEBUG - Waking up
+2017-11-13 21:48:25,207 DEBUG - ProcessCommands()
+2017-11-13 21:48:25,218 DEBUG - Retrieved 0 commands
+2017-11-13 21:48:30,208 DEBUG - Waking up
+2017-11-13 21:48:30,208 DEBUG - ProcessCommands()
+2017-11-13 21:48:30,216 DEBUG - Retrieved 0 commands
+2017-11-13 21:48:35,209 DEBUG - Waking up
+2017-11-13 21:48:35,209 DEBUG - ProcessCommands()
+2017-11-13 21:48:35,237 DEBUG - Retrieved 0 commands
+2017-11-13 21:48:40,215 DEBUG - Waking up
+2017-11-13 21:48:40,215 DEBUG - ProcessCommands()
+2017-11-13 21:48:40,226 DEBUG - Retrieved 0 commands
+2017-11-13 21:48:45,217 DEBUG - Waking up
+2017-11-13 21:48:45,217 DEBUG - ProcessCommands()
+2017-11-13 21:48:45,245 DEBUG - Retrieved 0 commands
+2017-11-13 21:48:50,219 DEBUG - Waking up
+2017-11-13 21:48:50,219 DEBUG - ProcessCommands()
+2017-11-13 21:48:50,229 DEBUG - Retrieved 0 commands
+2017-11-13 21:48:55,220 DEBUG - Waking up
+2017-11-13 21:48:55,220 DEBUG - ProcessCommands()
+2017-11-13 21:48:55,244 DEBUG - Retrieved 0 commands
+2017-11-13 21:49:00,221 DEBUG - Waking up
+2017-11-13 21:49:00,221 DEBUG - ProcessCommands()
+2017-11-13 21:49:00,270 DEBUG - Retrieved 0 commands
+2017-11-13 21:49:05,224 DEBUG - Waking up
+2017-11-13 21:49:05,224 DEBUG - ProcessCommands()
+2017-11-13 21:49:05,254 DEBUG - Retrieved 0 commands
+2017-11-13 21:49:10,227 DEBUG - Waking up
+2017-11-13 21:49:10,227 DEBUG - ProcessCommands()
+2017-11-13 21:49:10,254 DEBUG - Retrieved 0 commands
+2017-11-13 21:49:15,229 DEBUG - Waking up
+2017-11-13 21:49:15,230 DEBUG - ProcessCommands()
+2017-11-13 21:49:15,249 DEBUG - Retrieved 0 commands
+2017-11-13 21:49:20,233 DEBUG - Waking up
+2017-11-13 21:49:20,233 DEBUG - ProcessCommands()
+2017-11-13 21:49:20,287 DEBUG - Retrieved 0 commands
+2017-11-13 21:49:25,235 DEBUG - Waking up
+2017-11-13 21:49:25,235 DEBUG - ProcessCommands()
+2017-11-13 21:49:25,250 DEBUG - Retrieved 0 commands
+2017-11-13 21:49:30,237 DEBUG - Waking up
+2017-11-13 21:49:30,237 DEBUG - ProcessCommands()
+2017-11-13 21:49:30,252 DEBUG - Retrieved 0 commands
+2017-11-13 21:49:35,238 DEBUG - Waking up
+2017-11-13 21:49:35,238 DEBUG - ProcessCommands()
+2017-11-13 21:49:35,253 DEBUG - Retrieved 0 commands
+2017-11-13 21:49:40,240 DEBUG - Waking up
+2017-11-13 21:49:40,240 DEBUG - ProcessCommands()
+2017-11-13 21:49:40,259 DEBUG - Retrieved 0 commands
+2017-11-13 21:49:45,242 DEBUG - Waking up
+2017-11-13 21:49:45,242 DEBUG - ProcessCommands()
+2017-11-13 21:49:45,251 DEBUG - Retrieved 0 commands
+2017-11-13 21:49:50,243 DEBUG - Waking up
+2017-11-13 21:49:50,243 DEBUG - ProcessCommands()
+2017-11-13 21:49:50,254 DEBUG - Retrieved 0 commands
+2017-11-13 21:49:55,244 DEBUG - Waking up
+2017-11-13 21:49:55,244 DEBUG - ProcessCommands()
+2017-11-13 21:49:55,259 DEBUG - Retrieved 0 commands
+2017-11-13 21:50:00,246 DEBUG - Waking up
+2017-11-13 21:50:00,247 DEBUG - ProcessCommands()
+2017-11-13 21:50:00,258 DEBUG - Retrieved 0 commands
+2017-11-13 21:50:05,248 DEBUG - Waking up
+2017-11-13 21:50:05,248 DEBUG - ProcessCommands()
+2017-11-13 21:50:05,258 DEBUG - Retrieved 0 commands
+2017-11-13 21:50:10,249 DEBUG - Waking up
+2017-11-13 21:50:10,249 DEBUG - ProcessCommands()
+2017-11-13 21:50:10,256 DEBUG - Retrieved 0 commands
+2017-11-13 21:50:15,250 DEBUG - Waking up
+2017-11-13 21:50:15,250 DEBUG - ProcessCommands()
+2017-11-13 21:50:15,266 DEBUG - Retrieved 0 commands
+2017-11-13 21:50:20,254 DEBUG - Waking up
+2017-11-13 21:50:20,254 DEBUG - ProcessCommands()
+2017-11-13 21:50:20,271 DEBUG - Retrieved 0 commands
+2017-11-13 21:50:25,256 DEBUG - Waking up
+2017-11-13 21:50:25,256 DEBUG - ProcessCommands()
+2017-11-13 21:50:25,263 DEBUG - Retrieved 0 commands
+2017-11-13 21:50:30,257 DEBUG - Waking up
+2017-11-13 21:50:30,257 DEBUG - ProcessCommands()
+2017-11-13 21:50:30,272 DEBUG - Retrieved 0 commands
+2017-11-13 21:50:35,259 DEBUG - Waking up
+2017-11-13 21:50:35,259 DEBUG - ProcessCommands()
+2017-11-13 21:50:35,278 DEBUG - Retrieved 0 commands
+2017-11-13 21:50:40,260 DEBUG - Waking up
+2017-11-13 21:50:40,260 DEBUG - ProcessCommands()
+2017-11-13 21:50:40,280 DEBUG - Retrieved 0 commands
+2017-11-13 21:50:45,262 DEBUG - Waking up
+2017-11-13 21:50:45,262 DEBUG - ProcessCommands()
+2017-11-13 21:50:45,337 DEBUG - Retrieved 0 commands
+2017-11-13 21:50:50,265 DEBUG - Waking up
+2017-11-13 21:50:50,265 DEBUG - ProcessCommands()
+2017-11-13 21:50:50,278 DEBUG - Retrieved 0 commands
+2017-11-13 21:50:55,266 DEBUG - Waking up
+2017-11-13 21:50:55,266 DEBUG - ProcessCommands()
+2017-11-13 21:50:55,281 DEBUG - Retrieved 0 commands
+2017-11-13 21:51:00,267 DEBUG - Waking up
+2017-11-13 21:51:00,267 DEBUG - ProcessCommands()
+2017-11-13 21:51:00,276 DEBUG - Retrieved 0 commands
+2017-11-13 21:51:05,269 DEBUG - Waking up
+2017-11-13 21:51:05,269 DEBUG - ProcessCommands()
+2017-11-13 21:51:05,284 DEBUG - Retrieved 0 commands
+2017-11-13 21:51:10,270 DEBUG - Waking up
+2017-11-13 21:51:10,270 DEBUG - ProcessCommands()
+2017-11-13 21:51:10,280 DEBUG - Retrieved 0 commands
+2017-11-13 21:51:15,272 DEBUG - Waking up
+2017-11-13 21:51:15,272 DEBUG - ProcessCommands()
+2017-11-13 21:51:15,283 DEBUG - Retrieved 0 commands
+2017-11-13 21:51:20,274 DEBUG - Waking up
+2017-11-13 21:51:20,274 DEBUG - ProcessCommands()
+2017-11-13 21:51:20,282 DEBUG - Retrieved 0 commands
+2017-11-13 21:51:25,276 DEBUG - Waking up
+2017-11-13 21:51:25,276 DEBUG - ProcessCommands()
+2017-11-13 21:51:25,286 DEBUG - Retrieved 0 commands
+2017-11-13 21:51:30,283 DEBUG - Waking up
+2017-11-13 21:51:30,283 DEBUG - ProcessCommands()
+2017-11-13 21:51:30,291 DEBUG - Retrieved 0 commands
+2017-11-13 21:51:35,284 DEBUG - Waking up
+2017-11-13 21:51:35,284 DEBUG - ProcessCommands()
+2017-11-13 21:51:35,313 DEBUG - Retrieved 0 commands
+2017-11-13 21:51:40,295 DEBUG - Waking up
+2017-11-13 21:51:40,295 DEBUG - ProcessCommands()
+2017-11-13 21:51:40,322 DEBUG - Retrieved 0 commands
+2017-11-13 21:51:45,298 DEBUG - Waking up
+2017-11-13 21:51:45,298 DEBUG - ProcessCommands()
+2017-11-13 21:51:45,316 DEBUG - Retrieved 0 commands
+2017-11-13 21:51:50,299 DEBUG - Waking up
+2017-11-13 21:51:50,299 DEBUG - ProcessCommands()
+2017-11-13 21:51:50,309 DEBUG - Retrieved 0 commands
+2017-11-13 21:51:55,301 DEBUG - Waking up
+2017-11-13 21:51:55,301 DEBUG - ProcessCommands()
+2017-11-13 21:51:55,308 DEBUG - Retrieved 0 commands
+2017-11-13 21:52:00,302 DEBUG - Waking up
+2017-11-13 21:52:00,302 DEBUG - ProcessCommands()
+2017-11-13 21:52:00,310 DEBUG - Retrieved 0 commands
+2017-11-13 21:52:05,303 DEBUG - Waking up
+2017-11-13 21:52:05,303 DEBUG - ProcessCommands()
+2017-11-13 21:52:05,319 DEBUG - Retrieved 0 commands
+2017-11-13 21:52:10,305 DEBUG - Waking up
+2017-11-13 21:52:10,305 DEBUG - ProcessCommands()
+2017-11-13 21:52:10,326 DEBUG - Retrieved 0 commands
+2017-11-13 21:52:15,306 DEBUG - Waking up
+2017-11-13 21:52:15,306 DEBUG - ProcessCommands()
+2017-11-13 21:52:15,321 DEBUG - Retrieved 0 commands
+2017-11-13 21:52:20,308 DEBUG - Waking up
+2017-11-13 21:52:20,308 DEBUG - ProcessCommands()
+2017-11-13 21:52:20,334 DEBUG - Retrieved 0 commands
+2017-11-13 21:52:25,310 DEBUG - Waking up
+2017-11-13 21:52:25,311 DEBUG - ProcessCommands()
+2017-11-13 21:52:25,344 DEBUG - Retrieved 0 commands
+2017-11-13 21:52:30,314 DEBUG - Waking up
+2017-11-13 21:52:30,314 DEBUG - ProcessCommands()
+2017-11-13 21:52:30,325 DEBUG - Retrieved 0 commands
+2017-11-13 21:52:35,315 DEBUG - Waking up
+2017-11-13 21:52:35,315 DEBUG - ProcessCommands()
+2017-11-13 21:52:35,326 DEBUG - Retrieved 0 commands
+2017-11-13 21:52:40,316 DEBUG - Waking up
+2017-11-13 21:52:40,316 DEBUG - ProcessCommands()
+2017-11-13 21:52:40,328 DEBUG - Retrieved 0 commands
+2017-11-13 21:52:45,317 DEBUG - Waking up
+2017-11-13 21:52:45,317 DEBUG - ProcessCommands()
+2017-11-13 21:52:45,317 DEBUG - Program Shelter test 2 completed
+2017-11-13 21:52:45,322 DEBUG - Schedule Shelter test 2
+2017-11-13 21:52:45,334 DEBUG - Retrieved 0 commands
+2017-11-13 21:52:45,338 INFO  - Schedule 'Shelter test 2' started
+2017-11-13 21:52:50,339 DEBUG - Waking up
+2017-11-13 21:52:50,339 DEBUG - ProcessCommands()
+2017-11-13 21:52:50,367 DEBUG - Retrieved 0 commands
+2017-11-13 21:52:55,341 DEBUG - Waking up
+2017-11-13 21:52:55,341 DEBUG - ProcessCommands()
+2017-11-13 21:52:55,368 DEBUG - Retrieved 0 commands
+2017-11-13 21:53:00,343 DEBUG - Waking up
+2017-11-13 21:53:00,343 DEBUG - ProcessCommands()
+2017-11-13 21:53:00,360 DEBUG - Retrieved 0 commands
+2017-11-13 21:53:05,345 DEBUG - Waking up
+2017-11-13 21:53:05,345 DEBUG - ProcessCommands()
+2017-11-13 21:53:05,438 DEBUG - Retrieved 0 commands
+2017-11-13 21:53:10,347 DEBUG - Waking up
+2017-11-13 21:53:10,347 DEBUG - ProcessCommands()
+2017-11-13 21:53:10,398 DEBUG - Retrieved 0 commands
+2017-11-13 21:53:15,348 DEBUG - Waking up
+2017-11-13 21:53:15,348 DEBUG - ProcessCommands()
+2017-11-13 21:53:15,445 DEBUG - Retrieved 0 commands
+2017-11-13 21:53:20,352 DEBUG - Waking up
+2017-11-13 21:53:20,352 DEBUG - ProcessCommands()
+2017-11-13 21:53:20,436 DEBUG - Retrieved 0 commands
+2017-11-13 21:53:25,355 DEBUG - Waking up
+2017-11-13 21:53:25,355 DEBUG - ProcessCommands()
+2017-11-13 21:53:25,384 DEBUG - Retrieved 0 commands
+2017-11-13 21:53:30,356 DEBUG - Waking up
+2017-11-13 21:53:30,356 DEBUG - ProcessCommands()
+2017-11-13 21:53:30,386 DEBUG - Retrieved 0 commands
+2017-11-13 21:53:35,358 DEBUG - Waking up
+2017-11-13 21:53:35,358 DEBUG - ProcessCommands()
+2017-11-13 21:53:35,389 DEBUG - Retrieved 0 commands
+2017-11-13 21:53:40,359 DEBUG - Waking up
+2017-11-13 21:53:40,359 DEBUG - ProcessCommands()
+2017-11-13 21:53:40,419 DEBUG - Retrieved 0 commands
+2017-11-13 21:53:45,360 DEBUG - Waking up
+2017-11-13 21:53:45,360 DEBUG - ProcessCommands()
+2017-11-13 21:53:45,374 DEBUG - Retrieved 0 commands
+2017-11-13 21:53:50,361 DEBUG - Waking up
+2017-11-13 21:53:50,361 DEBUG - ProcessCommands()
+2017-11-13 21:53:50,430 DEBUG - Retrieved 0 commands
+2017-11-13 21:53:55,362 DEBUG - Waking up
+2017-11-13 21:53:55,362 DEBUG - ProcessCommands()
+2017-11-13 21:53:55,383 DEBUG - Retrieved 0 commands
+2017-11-13 21:54:00,367 DEBUG - Waking up
+2017-11-13 21:54:00,367 DEBUG - ProcessCommands()
+2017-11-13 21:54:00,429 DEBUG - Retrieved 0 commands
+2017-11-13 21:54:05,369 DEBUG - Waking up
+2017-11-13 21:54:05,369 DEBUG - ProcessCommands()
+2017-11-13 21:54:05,397 DEBUG - Retrieved 0 commands
+2017-11-13 21:54:10,370 DEBUG - Waking up
+2017-11-13 21:54:10,370 DEBUG - ProcessCommands()
+2017-11-13 21:54:10,394 DEBUG - Retrieved 0 commands
+2017-11-13 21:54:15,371 DEBUG - Waking up
+2017-11-13 21:54:15,371 DEBUG - ProcessCommands()
+2017-11-13 21:54:15,426 DEBUG - Retrieved 0 commands
+2017-11-13 21:54:20,373 DEBUG - Waking up
+2017-11-13 21:54:20,373 DEBUG - ProcessCommands()
+2017-11-13 21:54:20,424 DEBUG - Retrieved 0 commands
+2017-11-13 21:54:25,378 DEBUG - Waking up
+2017-11-13 21:54:25,378 DEBUG - ProcessCommands()
+2017-11-13 21:54:25,439 DEBUG - Retrieved 0 commands
+2017-11-13 21:54:30,380 DEBUG - Waking up
+2017-11-13 21:54:30,380 DEBUG - ProcessCommands()
+2017-11-13 21:54:30,413 DEBUG - Retrieved 0 commands
+2017-11-13 21:54:35,382 DEBUG - Waking up
+2017-11-13 21:54:35,382 DEBUG - ProcessCommands()
+2017-11-13 21:54:35,414 DEBUG - Retrieved 0 commands
+2017-11-13 21:54:40,386 DEBUG - Waking up
+2017-11-13 21:54:40,386 DEBUG - ProcessCommands()
+2017-11-13 21:54:40,421 DEBUG - Retrieved 0 commands
+2017-11-13 22:18:07,290 INFO  - =====================================================
+2017-11-13 22:18:07,305 INFO  - DeviceController.Init(): Initializing device...
+2017-11-13 22:18:07,338 DEBUG - Registering device 9CB70D839BC4 with server...
+2017-11-13 22:18:07,853 DEBUG - DeviceController start, registered with deviceId:1
+2017-11-13 22:18:07,857 DEBUG - ProcessCommands()
+2017-11-13 22:18:07,869 INFO  - LoadSpis()
+2017-11-13 22:18:07,877 INFO  - LoadSolenoids()
+2017-11-13 22:18:07,883 INFO  - LoadAlarms()
+2017-11-13 22:18:07,889 INFO  - LoadAnalogs()
+2017-11-13 22:18:07,895 INFO  - LoadSchedules()
+2017-11-13 22:18:07,899 INFO  - DeviceController.LoadConfig(): Configuration complete.
+2017-11-13 22:18:07,912 DEBUG - Retrieved 0 commands
+2017-11-13 22:18:07,939 DEBUG - LoadSpis(): Id:1 name:Test SPI 1 Clock:0 CS:0 MISO:18 MOSI:20 
+
+2017-11-13 22:18:07,941 INFO  - SpiDevice Id:1 Name:Test SPI 1 Clock:0 CS:0 MISO:18 MOSI:20
+2017-11-13 22:18:07,953 INFO  - GPIOSolenoid Id:1 Name:Station1 Description:Test solenoid 1 Address:P1Pin25 State:False
+2017-11-13 22:18:07,953 INFO  - GPIOSolenoid Id:2 Name:Station2 Description:Test solenoid 2 Address:P1Pin28 State:False
+2017-11-13 22:18:07,953 INFO  - GPIOSolenoid Id:3 Name:Station3 Description:Test solenoid 3 Address:P1Pin26 State:False
+2017-11-13 22:18:07,953 INFO  - GPIOSolenoid Id:4 Name:Station4 Description:Test solenoid 4 Address:P1Pin21 State:False
+2017-11-13 22:18:07,953 DEBUG - 4 Solenoids configured
+2017-11-13 22:18:08,026 INFO  - SPIAnalog Id:1 Name: Description: Address:http://192.168.1.100/k2 Multiplier:0 Units: Value:0
+2017-11-13 22:18:08,026 DEBUG - 1 Analogs configured
+2017-11-13 22:18:08,056 INFO  - DistributedAlarm Id:1 Name:Station1 Address:Test alarm 1 Description:http://192.168.1.100/k2 State:False
+2017-11-13 22:18:08,057 INFO  - GPIOAlarm Id:2 Name:Station2 Address:Test alarm 2 Description:P1Pin28 State:False
+2017-11-13 22:18:08,058 INFO  - DistributedAlarm Id:3 Name:Station3 Address:Test alarm 3 Description:1 State:False
+2017-11-13 22:18:08,058 INFO  - GPIOAlarm Id:4 Name:Station4 Address:Test alarm 4 Description:P1Pin21 State:False
+2017-11-13 22:18:08,058 DEBUG - 4 Alarms configured
+2017-11-13 22:18:08,095 DEBUG - 4 Schedules configured
+2017-11-13 22:18:12,870 DEBUG - Waking up
+2017-11-13 22:18:12,870 DEBUG - ProcessCommands()
+2017-11-13 22:18:12,873 DEBUG - Schedule Shelter test 2
+2017-11-13 22:18:12,903 INFO  - Schedule 'Shelter test 2' started
+2017-11-13 22:18:12,917 DEBUG - Retrieved 0 commands
+2017-11-13 22:18:17,905 DEBUG - Waking up
+2017-11-13 22:18:17,905 DEBUG - ProcessCommands()
+2017-11-13 22:18:17,950 DEBUG - Retrieved 0 commands
+2017-11-13 22:18:22,907 DEBUG - Waking up
+2017-11-13 22:18:22,907 DEBUG - ProcessCommands()
+2017-11-13 22:18:22,946 DEBUG - Retrieved 0 commands
+2017-11-13 22:18:27,909 DEBUG - Waking up
+2017-11-13 22:18:27,909 DEBUG - ProcessCommands()
+2017-11-13 22:18:27,960 DEBUG - Retrieved 0 commands
+2017-11-13 22:18:32,913 DEBUG - Waking up
+2017-11-13 22:18:32,913 DEBUG - ProcessCommands()
+2017-11-13 22:18:32,934 DEBUG - Retrieved 0 commands
+2017-11-13 22:18:37,915 DEBUG - Waking up
+2017-11-13 22:18:37,915 DEBUG - ProcessCommands()
+2017-11-13 22:18:37,931 DEBUG - Retrieved 0 commands
+2017-11-13 22:18:42,916 DEBUG - Waking up
+2017-11-13 22:18:42,916 DEBUG - ProcessCommands()
+2017-11-13 22:18:42,928 DEBUG - Retrieved 0 commands
+2017-11-13 22:18:47,917 DEBUG - Waking up
+2017-11-13 22:18:47,917 DEBUG - ProcessCommands()
+2017-11-13 22:18:47,942 DEBUG - Retrieved 0 commands
+2017-11-13 22:18:52,921 DEBUG - Waking up
+2017-11-13 22:18:52,921 DEBUG - ProcessCommands()
+2017-11-13 22:18:52,951 DEBUG - Retrieved 0 commands
+2017-11-13 22:18:57,925 DEBUG - Waking up
+2017-11-13 22:18:57,925 DEBUG - ProcessCommands()
+2017-11-13 22:18:57,954 DEBUG - Retrieved 0 commands
+2017-11-13 22:19:02,932 DEBUG - Waking up
+2017-11-13 22:19:02,932 DEBUG - ProcessCommands()
+2017-11-13 22:19:02,945 DEBUG - Retrieved 0 commands
+2017-11-13 22:19:07,933 DEBUG - Waking up
+2017-11-13 22:19:07,933 DEBUG - ProcessCommands()
+2017-11-13 22:19:07,970 DEBUG - Retrieved 0 commands
+2017-11-13 22:19:12,935 DEBUG - Waking up
+2017-11-13 22:19:12,935 DEBUG - ProcessCommands()
+2017-11-13 22:19:12,956 DEBUG - Retrieved 0 commands
+2017-11-13 22:19:17,937 DEBUG - Waking up
+2017-11-13 22:19:17,937 DEBUG - ProcessCommands()
+2017-11-13 22:19:18,002 DEBUG - Retrieved 0 commands
+2017-11-13 22:19:22,974 DEBUG - Waking up
+2017-11-13 22:19:22,974 DEBUG - ProcessCommands()
+2017-11-13 22:19:22,987 DEBUG - Retrieved 0 commands
+2017-11-13 22:19:27,975 DEBUG - Waking up
+2017-11-13 22:19:27,975 DEBUG - ProcessCommands()
+2017-11-13 22:19:28,029 DEBUG - Retrieved 0 commands
+2017-11-13 22:19:32,978 DEBUG - Waking up
+2017-11-13 22:19:32,978 DEBUG - ProcessCommands()
+2017-11-13 22:19:32,997 DEBUG - Retrieved 0 commands
+2017-11-13 22:19:37,979 DEBUG - Waking up
+2017-11-13 22:19:37,979 DEBUG - ProcessCommands()
+2017-11-13 22:19:37,998 DEBUG - Retrieved 0 commands
+2017-11-13 22:19:42,980 DEBUG - Waking up
+2017-11-13 22:19:42,980 DEBUG - ProcessCommands()
+2017-11-13 22:19:42,999 DEBUG - Retrieved 0 commands
+2017-11-13 22:19:47,985 DEBUG - Waking up
+2017-11-13 22:19:47,985 DEBUG - ProcessCommands()
+2017-11-13 22:19:48,000 DEBUG - Retrieved 0 commands
+2017-11-13 22:19:52,985 DEBUG - Waking up
+2017-11-13 22:19:52,985 DEBUG - ProcessCommands()
+2017-11-13 22:19:52,996 DEBUG - Retrieved 0 commands
+2017-11-13 22:19:57,987 DEBUG - Waking up
+2017-11-13 22:19:57,987 DEBUG - ProcessCommands()
+2017-11-13 22:19:58,008 DEBUG - Retrieved 0 commands
+2017-11-13 22:20:02,989 DEBUG - Waking up
+2017-11-13 22:20:02,989 DEBUG - ProcessCommands()
+2017-11-13 22:20:03,010 DEBUG - Retrieved 0 commands
+2017-11-13 22:20:07,991 DEBUG - Waking up
+2017-11-13 22:20:07,991 DEBUG - ProcessCommands()
+2017-11-13 22:20:08,017 DEBUG - Retrieved 0 commands
+2017-11-13 22:20:12,992 DEBUG - Waking up
+2017-11-13 22:20:12,992 DEBUG - ProcessCommands()
+2017-11-13 22:20:13,014 DEBUG - Retrieved 0 commands
+2017-11-13 22:20:17,993 DEBUG - Waking up
+2017-11-13 22:20:17,993 DEBUG - ProcessCommands()
+2017-11-13 22:20:18,006 DEBUG - Retrieved 0 commands
+2017-11-13 22:20:22,995 DEBUG - Waking up
+2017-11-13 22:20:22,995 DEBUG - ProcessCommands()
+2017-11-13 22:20:23,006 DEBUG - Retrieved 0 commands
+2017-11-13 22:20:27,996 DEBUG - Waking up
+2017-11-13 22:20:27,996 DEBUG - ProcessCommands()
+2017-11-13 22:20:28,012 DEBUG - Retrieved 0 commands
+2017-11-13 22:20:32,997 DEBUG - Waking up
+2017-11-13 22:20:32,997 DEBUG - ProcessCommands()
+2017-11-13 22:20:33,009 DEBUG - Retrieved 0 commands
+2017-11-13 22:20:37,999 DEBUG - Waking up
+2017-11-13 22:20:37,999 DEBUG - ProcessCommands()
+2017-11-13 22:20:38,016 DEBUG - Retrieved 0 commands
+2017-11-13 22:20:43,000 DEBUG - Waking up
+2017-11-13 22:20:43,000 DEBUG - ProcessCommands()
+2017-11-13 22:20:43,011 DEBUG - Retrieved 0 commands
+2017-11-13 22:20:48,002 DEBUG - Waking up
+2017-11-13 22:20:48,002 DEBUG - ProcessCommands()
+2017-11-13 22:20:48,025 DEBUG - Retrieved 0 commands
+2017-11-13 22:20:53,004 DEBUG - Waking up
+2017-11-13 22:20:53,004 DEBUG - ProcessCommands()
+2017-11-13 22:20:53,027 DEBUG - Retrieved 0 commands
+2017-11-13 22:20:58,006 DEBUG - Waking up
+2017-11-13 22:20:58,006 DEBUG - ProcessCommands()
+2017-11-13 22:20:58,013 DEBUG - Retrieved 0 commands
+2017-11-13 22:21:03,007 DEBUG - Waking up
+2017-11-13 22:21:03,007 DEBUG - ProcessCommands()
+2017-11-13 22:21:03,036 DEBUG - Retrieved 0 commands
+2017-11-13 22:21:08,009 DEBUG - Waking up
+2017-11-13 22:21:08,009 DEBUG - ProcessCommands()
+2017-11-13 22:21:09,097 DEBUG - Retrieved 0 commands
+2017-11-13 22:21:13,010 DEBUG - Waking up
+2017-11-13 22:21:13,010 DEBUG - ProcessCommands()
+2017-11-13 22:21:13,050 DEBUG - Retrieved 0 commands
+2017-11-13 22:21:18,012 DEBUG - Waking up
+2017-11-13 22:21:18,012 DEBUG - ProcessCommands()
+2017-11-13 22:21:18,031 DEBUG - Retrieved 0 commands
+2017-11-13 22:21:23,013 DEBUG - Waking up
+2017-11-13 22:21:23,013 DEBUG - ProcessCommands()
+2017-11-13 22:21:23,058 DEBUG - Retrieved 0 commands
+2017-11-13 22:21:28,022 DEBUG - Waking up
+2017-11-13 22:21:28,022 DEBUG - ProcessCommands()
+2017-11-13 22:21:28,045 DEBUG - Retrieved 0 commands
+2017-11-13 22:21:33,025 DEBUG - Waking up
+2017-11-13 22:21:33,025 DEBUG - ProcessCommands()
+2017-11-13 22:21:33,086 DEBUG - Retrieved 0 commands
+2017-11-13 22:21:38,027 DEBUG - Waking up
+2017-11-13 22:21:38,027 DEBUG - ProcessCommands()
+2017-11-13 22:21:38,047 DEBUG - Retrieved 0 commands
+2017-11-13 22:21:43,028 DEBUG - Waking up
+2017-11-13 22:21:43,028 DEBUG - ProcessCommands()
+2017-11-13 22:21:43,072 DEBUG - Retrieved 0 commands
+2017-11-13 22:21:48,029 DEBUG - Waking up
+2017-11-13 22:21:48,029 DEBUG - ProcessCommands()
+2017-11-13 22:21:48,074 DEBUG - Retrieved 0 commands
+2017-11-13 22:21:53,031 DEBUG - Waking up
+2017-11-13 22:21:53,031 DEBUG - ProcessCommands()
+2017-11-13 22:21:53,120 DEBUG - Retrieved 0 commands
+2017-11-13 22:21:58,034 DEBUG - Waking up
+2017-11-13 22:21:58,034 DEBUG - ProcessCommands()
+2017-11-13 22:21:58,049 DEBUG - Retrieved 0 commands
+2017-11-13 22:22:03,035 DEBUG - Waking up
+2017-11-13 22:22:03,035 DEBUG - ProcessCommands()
+2017-11-13 22:22:03,053 DEBUG - Retrieved 0 commands
+2017-11-13 22:22:08,036 DEBUG - Waking up
+2017-11-13 22:22:08,036 DEBUG - ProcessCommands()
+2017-11-13 22:22:08,057 DEBUG - Retrieved 0 commands
+2017-11-13 22:22:13,037 DEBUG - Waking up
+2017-11-13 22:22:13,037 DEBUG - ProcessCommands()
+2017-11-13 22:22:13,086 DEBUG - Retrieved 0 commands
+2017-11-13 22:22:18,044 DEBUG - Waking up
+2017-11-13 22:22:18,044 DEBUG - ProcessCommands()
+2017-11-13 22:22:18,081 DEBUG - Retrieved 0 commands
+2017-11-13 22:22:23,045 DEBUG - Waking up
+2017-11-13 22:22:23,045 DEBUG - ProcessCommands()
+2017-11-13 22:22:23,061 DEBUG - Retrieved 0 commands
+2017-11-13 22:22:28,046 DEBUG - Waking up
+2017-11-13 22:22:28,046 DEBUG - ProcessCommands()
+2017-11-13 22:22:28,084 DEBUG - Retrieved 0 commands
+2017-11-13 22:22:33,049 DEBUG - Waking up
+2017-11-13 22:22:33,049 DEBUG - ProcessCommands()
+2017-11-13 22:22:33,082 DEBUG - Retrieved 0 commands
+2017-11-13 22:22:38,053 DEBUG - Waking up
+2017-11-13 22:22:38,053 DEBUG - ProcessCommands()
+2017-11-13 22:22:38,062 DEBUG - Retrieved 0 commands
+2017-11-13 22:22:43,054 DEBUG - Waking up
+2017-11-13 22:22:43,054 DEBUG - ProcessCommands()
+2017-11-13 22:22:43,082 DEBUG - Retrieved 0 commands
+2017-11-13 22:22:48,058 DEBUG - Waking up
+2017-11-13 22:22:48,058 DEBUG - ProcessCommands()
+2017-11-13 22:22:48,074 DEBUG - Retrieved 0 commands
+2017-11-13 22:22:53,060 DEBUG - Waking up
+2017-11-13 22:22:53,060 DEBUG - ProcessCommands()
+2017-11-13 22:22:53,090 DEBUG - Retrieved 0 commands
+2017-11-13 22:22:58,063 DEBUG - Waking up
+2017-11-13 22:22:58,064 DEBUG - ProcessCommands()
+2017-11-13 22:23:00,170 ERROR - GetCommands(): An error occurred while sending the request.
+2017-11-13 22:23:00,472 ERROR - ReportStatus(): An error occurred while sending the request.
+2017-11-13 22:23:03,073 DEBUG - Waking up
+2017-11-13 22:23:03,073 DEBUG - ProcessCommands()
+2017-11-13 22:23:04,179 ERROR - GetCommands(): An error occurred while sending the request.
+2017-11-13 22:23:04,220 ERROR - ReportStatus(): An error occurred while sending the request.
+2017-11-13 22:23:08,075 DEBUG - Waking up
+2017-11-13 22:23:08,075 DEBUG - ProcessCommands()
+2017-11-14 20:06:37,911 INFO  - =====================================================
+2017-11-14 20:06:37,983 INFO  - DeviceController.Init(): Initializing device...
+2017-11-14 20:06:38,220 DEBUG - Registering device 9CB70D839BC4 with server...
+2017-11-14 20:07:00,394 ERROR - An error occurred while sending the request.
+2017-11-14 20:07:00,394 DEBUG - Registering device 9CB70D839BC4 with server...
+2017-11-14 20:07:21,480 ERROR - An error occurred while sending the request.
+2017-11-14 20:07:21,481 DEBUG - Registering device 9CB70D839BC4 with server...
+2017-11-14 20:07:22,553 ERROR - An error occurred while sending the request.
+2017-11-14 20:07:22,553 DEBUG - Registering device 9CB70D839BC4 with server...
+2017-11-14 20:07:23,628 ERROR - An error occurred while sending the request.
+2017-11-14 20:07:23,628 DEBUG - Registering device 9CB70D839BC4 with server...
+2017-11-14 20:07:24,694 ERROR - An error occurred while sending the request.
+2017-11-14 20:07:24,694 DEBUG - Registering device 9CB70D839BC4 with server...
+2017-11-14 20:07:25,761 ERROR - An error occurred while sending the request.
+2017-11-14 20:07:25,761 DEBUG - Registering device 9CB70D839BC4 with server...
+2017-11-14 20:07:26,823 ERROR - An error occurred while sending the request.
+2017-11-14 20:07:26,823 DEBUG - Registering device 9CB70D839BC4 with server...
+2017-11-14 20:07:27,892 ERROR - An error occurred while sending the request.
+2017-11-14 20:07:27,892 DEBUG - Registering device 9CB70D839BC4 with server...
+2017-11-14 20:07:28,952 ERROR - An error occurred while sending the request.
+2017-11-14 20:07:28,952 DEBUG - Registering device 9CB70D839BC4 with server...
+2017-11-14 20:07:30,022 ERROR - An error occurred while sending the request.
+2017-11-14 20:07:30,022 DEBUG - Registering device 9CB70D839BC4 with server...
+2017-11-14 20:07:31,092 ERROR - An error occurred while sending the request.
+2017-11-14 20:07:31,092 DEBUG - Registering device 9CB70D839BC4 with server...
+2017-11-14 20:07:32,151 ERROR - An error occurred while sending the request.
+2017-11-14 20:07:32,151 DEBUG - Registering device 9CB70D839BC4 with server...
+2017-11-14 20:07:33,216 ERROR - An error occurred while sending the request.
+2017-11-14 20:07:33,216 DEBUG - Registering device 9CB70D839BC4 with server...
+2017-11-14 20:07:34,285 ERROR - An error occurred while sending the request.
+2017-11-14 20:07:34,285 DEBUG - Registering device 9CB70D839BC4 with server...
+2017-11-14 20:07:35,355 ERROR - An error occurred while sending the request.
+2017-11-14 20:07:35,355 DEBUG - Registering device 9CB70D839BC4 with server...
+2017-11-14 20:07:36,417 ERROR - An error occurred while sending the request.
+2017-11-14 20:07:36,417 DEBUG - Registering device 9CB70D839BC4 with server...
+2017-11-14 20:07:37,478 ERROR - An error occurred while sending the request.
+2017-11-14 20:07:37,478 DEBUG - Registering device 9CB70D839BC4 with server...
+2017-11-14 20:07:38,540 ERROR - An error occurred while sending the request.
+2017-11-14 20:07:38,541 DEBUG - Registering device 9CB70D839BC4 with server...
+2017-11-14 20:07:39,611 ERROR - An error occurred while sending the request.
+2017-11-14 20:07:39,611 DEBUG - Registering device 9CB70D839BC4 with server...
+2017-11-14 20:07:40,671 ERROR - An error occurred while sending the request.
+2017-11-14 20:07:40,672 DEBUG - Registering device 9CB70D839BC4 with server...
+2017-11-14 20:07:41,733 ERROR - An error occurred while sending the request.
+2017-11-14 20:07:41,733 DEBUG - Registering device 9CB70D839BC4 with server...
+2017-11-14 20:07:42,800 ERROR - An error occurred while sending the request.
+2017-11-14 20:07:42,800 DEBUG - Registering device 9CB70D839BC4 with server...
+2017-11-14 20:07:43,876 ERROR - An error occurred while sending the request.
+2017-11-14 20:07:43,876 DEBUG - Registering device 9CB70D839BC4 with server...
+2017-11-14 20:07:44,940 ERROR - An error occurred while sending the request.
+2017-11-14 20:07:44,940 DEBUG - Registering device 9CB70D839BC4 with server...
+2017-11-14 20:07:45,997 ERROR - An error occurred while sending the request.
+2017-11-14 20:07:45,997 DEBUG - Registering device 9CB70D839BC4 with server...
+2017-11-14 20:07:47,064 ERROR - An error occurred while sending the request.
+2017-11-14 20:07:47,064 DEBUG - Registering device 9CB70D839BC4 with server...
+2017-11-14 20:07:48,130 ERROR - An error occurred while sending the request.
+2017-11-14 20:07:48,130 DEBUG - Registering device 9CB70D839BC4 with server...
+2017-11-14 20:07:49,192 ERROR - An error occurred while sending the request.
+2017-11-14 20:07:49,192 DEBUG - Registering device 9CB70D839BC4 with server...
+2017-11-14 20:07:50,252 ERROR - An error occurred while sending the request.
+2017-11-14 20:07:50,252 DEBUG - Registering device 9CB70D839BC4 with server...
+2017-11-14 20:07:51,316 ERROR - An error occurred while sending the request.
+2017-11-14 20:07:51,316 DEBUG - Registering device 9CB70D839BC4 with server...
+2017-11-14 20:07:52,390 ERROR - An error occurred while sending the request.
+2017-11-14 20:07:52,390 DEBUG - Registering device 9CB70D839BC4 with server...
+2017-11-14 20:07:53,457 ERROR - An error occurred while sending the request.
+2017-11-14 20:07:53,457 DEBUG - Registering device 9CB70D839BC4 with server...
+2017-11-14 20:07:54,523 ERROR - An error occurred while sending the request.
+2017-11-14 20:07:54,523 DEBUG - Registering device 9CB70D839BC4 with server...
+2017-11-14 20:07:55,581 ERROR - An error occurred while sending the request.
+2017-11-14 20:07:55,581 DEBUG - Registering device 9CB70D839BC4 with server...
+2017-11-14 20:07:56,641 ERROR - An error occurred while sending the request.
+2017-11-14 20:07:56,641 DEBUG - Registering device 9CB70D839BC4 with server...
+2017-11-14 20:07:57,711 ERROR - An error occurred while sending the request.
+2017-11-14 20:07:57,711 DEBUG - Registering device 9CB70D839BC4 with server...
+2017-11-14 20:07:58,780 ERROR - An error occurred while sending the request.
+2017-11-14 20:07:58,780 DEBUG - Registering device 9CB70D839BC4 with server...
+2017-11-14 20:07:59,841 ERROR - An error occurred while sending the request.
+2017-11-14 20:07:59,841 DEBUG - Registering device 9CB70D839BC4 with server...
+2017-11-14 20:08:00,904 ERROR - An error occurred while sending the request.
+2017-11-14 20:08:00,904 DEBUG - Registering device 9CB70D839BC4 with server...
+2017-11-14 20:08:01,969 ERROR - An error occurred while sending the request.
+2017-11-14 20:08:01,969 DEBUG - Registering device 9CB70D839BC4 with server...
+2017-11-14 20:08:03,051 ERROR - An error occurred while sending the request.
+2017-11-14 20:08:03,051 DEBUG - Registering device 9CB70D839BC4 with server...
+2017-11-14 20:08:04,115 ERROR - An error occurred while sending the request.
+2017-11-14 20:08:04,115 DEBUG - Registering device 9CB70D839BC4 with server...
+2017-11-14 20:08:05,179 ERROR - An error occurred while sending the request.
+2017-11-14 20:08:05,179 DEBUG - Registering device 9CB70D839BC4 with server...
+2017-11-14 20:08:06,248 ERROR - An error occurred while sending the request.
+2017-11-14 20:08:06,249 DEBUG - Registering device 9CB70D839BC4 with server...
+2017-11-14 20:08:07,309 ERROR - An error occurred while sending the request.
+2017-11-14 20:08:07,309 DEBUG - Registering device 9CB70D839BC4 with server...
+2017-11-14 20:08:08,401 ERROR - An error occurred while sending the request.
+2017-11-14 20:08:08,401 DEBUG - Registering device 9CB70D839BC4 with server...
+2017-11-14 20:08:09,462 ERROR - An error occurred while sending the request.
+2017-11-14 20:08:09,462 DEBUG - Registering device 9CB70D839BC4 with server...
+2017-11-14 20:08:10,518 ERROR - An error occurred while sending the request.
+2017-11-14 20:08:10,518 DEBUG - Registering device 9CB70D839BC4 with server...
+2017-11-14 20:08:11,587 ERROR - An error occurred while sending the request.
+2017-11-14 20:08:11,587 DEBUG - Registering device 9CB70D839BC4 with server...
+2017-11-14 20:08:12,649 ERROR - An error occurred while sending the request.
+2017-11-14 20:08:12,649 DEBUG - Registering device 9CB70D839BC4 with server...
+2017-11-14 20:08:13,732 ERROR - An error occurred while sending the request.
+2017-11-14 20:08:13,732 DEBUG - Registering device 9CB70D839BC4 with server...
+2017-11-14 20:08:14,803 ERROR - An error occurred while sending the request.
+2017-11-14 20:08:14,803 DEBUG - Registering device 9CB70D839BC4 with server...
+2017-11-14 20:08:15,873 ERROR - An error occurred while sending the request.
+2017-11-14 20:08:15,873 DEBUG - Registering device 9CB70D839BC4 with server...
+2017-11-14 20:08:16,934 ERROR - An error occurred while sending the request.
+2017-11-14 20:08:16,934 DEBUG - Registering device 9CB70D839BC4 with server...
+2017-11-14 20:08:17,996 ERROR - An error occurred while sending the request.
+2017-11-14 20:08:17,996 DEBUG - Registering device 9CB70D839BC4 with server...
+2017-11-14 20:08:19,082 ERROR - An error occurred while sending the request.
+2017-11-14 20:08:19,082 DEBUG - Registering device 9CB70D839BC4 with server...
+2017-11-14 20:08:20,143 ERROR - An error occurred while sending the request.
+2017-11-14 20:08:20,143 DEBUG - Registering device 9CB70D839BC4 with server...
+2017-11-14 20:08:21,207 ERROR - An error occurred while sending the request.
+2017-11-14 20:08:21,207 DEBUG - Registering device 9CB70D839BC4 with server...
+2017-11-14 20:08:22,271 ERROR - An error occurred while sending the request.
+2017-11-14 20:08:22,271 DEBUG - Registering device 9CB70D839BC4 with server...
+2017-11-14 20:08:23,351 ERROR - An error occurred while sending the request.
+2017-11-14 20:08:23,351 DEBUG - Registering device 9CB70D839BC4 with server...
+2017-11-14 20:08:24,437 ERROR - An error occurred while sending the request.
+2017-11-14 20:08:24,437 DEBUG - Registering device 9CB70D839BC4 with server...
+2017-11-14 20:08:25,501 ERROR - An error occurred while sending the request.
+2017-11-14 20:08:25,501 DEBUG - Registering device 9CB70D839BC4 with server...
+2017-11-14 20:08:26,564 ERROR - An error occurred while sending the request.
+2017-11-14 20:08:26,564 DEBUG - Registering device 9CB70D839BC4 with server...
+2017-11-14 20:08:27,628 ERROR - An error occurred while sending the request.
+2017-11-14 20:08:27,628 DEBUG - Registering device 9CB70D839BC4 with server...
+2017-11-14 20:08:28,693 ERROR - An error occurred while sending the request.
+2017-11-14 20:08:28,693 DEBUG - Registering device 9CB70D839BC4 with server...
+2017-11-14 20:08:29,760 ERROR - An error occurred while sending the request.
+2017-11-14 20:08:29,760 DEBUG - Registering device 9CB70D839BC4 with server...
+2017-11-14 20:08:30,824 ERROR - An error occurred while sending the request.
+2017-11-14 20:08:30,824 DEBUG - Registering device 9CB70D839BC4 with server...
+2017-11-14 20:08:31,890 ERROR - An error occurred while sending the request.
+2017-11-14 20:08:31,890 DEBUG - Registering device 9CB70D839BC4 with server...
+2017-11-14 20:08:32,948 ERROR - An error occurred while sending the request.
+2017-11-14 20:08:32,948 DEBUG - Registering device 9CB70D839BC4 with server...
+2017-11-14 20:08:34,009 ERROR - An error occurred while sending the request.
+2017-11-14 20:08:34,009 DEBUG - Registering device 9CB70D839BC4 with server...
+2017-11-14 20:08:35,089 ERROR - An error occurred while sending the request.
+2017-11-14 20:08:35,089 DEBUG - Registering device 9CB70D839BC4 with server...
+2017-11-14 20:08:36,160 ERROR - An error occurred while sending the request.
+2017-11-14 20:08:36,160 DEBUG - Registering device 9CB70D839BC4 with server...
+2017-11-14 20:08:37,231 ERROR - An error occurred while sending the request.
+2017-11-14 20:08:37,231 DEBUG - Registering device 9CB70D839BC4 with server...
+2017-11-14 20:08:38,312 ERROR - An error occurred while sending the request.
+2017-11-14 20:08:38,312 DEBUG - Registering device 9CB70D839BC4 with server...
+2017-11-14 20:08:39,378 ERROR - An error occurred while sending the request.
+2017-11-14 20:08:39,378 DEBUG - Registering device 9CB70D839BC4 with server...
+2017-11-14 20:08:40,454 ERROR - An error occurred while sending the request.
+2017-11-14 20:08:40,455 DEBUG - Registering device 9CB70D839BC4 with server...
+2017-11-14 20:08:41,515 ERROR - An error occurred while sending the request.
+2017-11-14 20:08:41,515 DEBUG - Registering device 9CB70D839BC4 with server...
+2017-11-14 20:08:42,581 ERROR - An error occurred while sending the request.
+2017-11-14 20:08:42,581 DEBUG - Registering device 9CB70D839BC4 with server...
+2017-11-14 20:08:43,647 ERROR - An error occurred while sending the request.
+2017-11-14 20:08:43,647 DEBUG - Registering device 9CB70D839BC4 with server...
+2017-11-14 20:08:44,712 ERROR - An error occurred while sending the request.
+2017-11-14 20:08:44,712 DEBUG - Registering device 9CB70D839BC4 with server...
+2017-11-14 20:08:45,795 ERROR - An error occurred while sending the request.
+2017-11-14 20:08:45,795 DEBUG - Registering device 9CB70D839BC4 with server...
+2017-11-14 20:08:46,854 ERROR - An error occurred while sending the request.
+2017-11-14 20:08:46,854 DEBUG - Registering device 9CB70D839BC4 with server...
+2017-11-14 20:08:47,919 ERROR - An error occurred while sending the request.
+2017-11-14 20:08:47,919 DEBUG - Registering device 9CB70D839BC4 with server...
+2017-11-14 20:08:48,980 ERROR - An error occurred while sending the request.
+2017-11-14 20:08:48,980 DEBUG - Registering device 9CB70D839BC4 with server...
+2017-11-14 20:08:50,052 ERROR - An error occurred while sending the request.
+2017-11-14 20:08:50,052 DEBUG - Registering device 9CB70D839BC4 with server...
+2017-11-14 20:08:51,119 ERROR - An error occurred while sending the request.
+2017-11-14 20:08:51,119 DEBUG - Registering device 9CB70D839BC4 with server...
+2017-11-14 20:08:52,175 ERROR - An error occurred while sending the request.
+2017-11-14 20:08:52,175 DEBUG - Registering device 9CB70D839BC4 with server...
+2017-11-14 20:08:53,235 ERROR - An error occurred while sending the request.
+2017-11-14 20:08:53,235 DEBUG - Registering device 9CB70D839BC4 with server...
+2017-11-14 20:08:54,291 ERROR - An error occurred while sending the request.
+2017-11-14 20:08:54,292 DEBUG - Registering device 9CB70D839BC4 with server...
+2017-11-14 20:08:55,350 ERROR - An error occurred while sending the request.
+2017-11-14 20:08:55,350 DEBUG - Registering device 9CB70D839BC4 with server...
+2017-11-14 20:08:56,425 ERROR - An error occurred while sending the request.
+2017-11-14 20:08:56,425 DEBUG - Registering device 9CB70D839BC4 with server...
+2017-11-14 20:08:57,491 ERROR - An error occurred while sending the request.
+2017-11-14 20:08:57,491 DEBUG - Registering device 9CB70D839BC4 with server...
+2017-11-14 20:08:58,550 ERROR - An error occurred while sending the request.
+2017-11-14 20:08:58,550 DEBUG - Registering device 9CB70D839BC4 with server...
+2017-11-14 20:08:59,613 ERROR - An error occurred while sending the request.
+2017-11-14 20:08:59,613 DEBUG - Registering device 9CB70D839BC4 with server...
+2017-11-14 20:09:00,674 ERROR - An error occurred while sending the request.
+2017-11-14 20:09:00,674 DEBUG - Registering device 9CB70D839BC4 with server...
+2017-11-14 20:09:01,744 ERROR - An error occurred while sending the request.
+2017-11-14 20:09:01,744 DEBUG - Registering device 9CB70D839BC4 with server...
+2017-11-14 20:09:02,808 ERROR - An error occurred while sending the request.
+2017-11-14 20:09:02,808 DEBUG - Registering device 9CB70D839BC4 with server...
+2017-11-14 20:09:03,873 ERROR - An error occurred while sending the request.
+2017-11-14 20:09:03,873 DEBUG - Registering device 9CB70D839BC4 with server...
+2017-11-14 20:09:04,936 ERROR - An error occurred while sending the request.
+2017-11-14 20:09:04,936 DEBUG - Registering device 9CB70D839BC4 with server...
+2017-11-14 20:09:06,002 ERROR - An error occurred while sending the request.
+2017-11-14 20:09:06,002 DEBUG - Registering device 9CB70D839BC4 with server...
+2017-11-14 20:09:07,111 ERROR - An error occurred while sending the request.
+2017-11-14 20:09:07,111 DEBUG - Registering device 9CB70D839BC4 with server...
+2017-11-14 20:09:08,183 ERROR - An error occurred while sending the request.
+2017-11-14 20:09:08,183 DEBUG - Registering device 9CB70D839BC4 with server...
+2017-11-14 20:09:09,243 ERROR - An error occurred while sending the request.
+2017-11-14 20:09:09,244 DEBUG - Registering device 9CB70D839BC4 with server...
+2017-11-14 20:09:10,305 ERROR - An error occurred while sending the request.
+2017-11-14 20:09:10,305 DEBUG - Registering device 9CB70D839BC4 with server...
+2017-11-14 20:09:11,374 ERROR - An error occurred while sending the request.
+2017-11-14 20:09:11,374 DEBUG - Registering device 9CB70D839BC4 with server...
+2017-11-14 20:09:12,447 ERROR - An error occurred while sending the request.
+2017-11-14 20:09:12,447 DEBUG - Registering device 9CB70D839BC4 with server...
+2017-11-14 20:09:13,521 ERROR - An error occurred while sending the request.
+2017-11-14 20:09:13,521 DEBUG - Registering device 9CB70D839BC4 with server...
+2017-11-14 20:09:14,582 ERROR - An error occurred while sending the request.
+2017-11-14 20:09:14,582 DEBUG - Registering device 9CB70D839BC4 with server...
+2017-11-14 20:09:15,643 ERROR - An error occurred while sending the request.
+2017-11-14 20:09:15,643 DEBUG - Registering device 9CB70D839BC4 with server...
+2017-11-14 20:09:16,705 ERROR - An error occurred while sending the request.
+2017-11-14 20:09:16,705 DEBUG - Registering device 9CB70D839BC4 with server...
+2017-11-14 20:09:17,784 ERROR - An error occurred while sending the request.
+2017-11-14 20:09:17,784 DEBUG - Registering device 9CB70D839BC4 with server...
+2017-11-14 20:09:18,848 ERROR - An error occurred while sending the request.
+2017-11-14 20:09:18,848 DEBUG - Registering device 9CB70D839BC4 with server...
+2017-11-14 20:09:19,914 ERROR - An error occurred while sending the request.
+2017-11-14 20:09:19,915 DEBUG - Registering device 9CB70D839BC4 with server...
+2017-11-14 20:09:20,980 ERROR - An error occurred while sending the request.
+2017-11-14 20:09:20,980 DEBUG - Registering device 9CB70D839BC4 with server...
+2017-11-14 20:09:22,047 ERROR - An error occurred while sending the request.
+2017-11-14 20:09:22,047 DEBUG - Registering device 9CB70D839BC4 with server...
+2017-11-14 20:09:23,128 ERROR - An error occurred while sending the request.
+2017-11-14 20:09:23,128 DEBUG - Registering device 9CB70D839BC4 with server...
+2017-11-14 20:09:24,199 ERROR - An error occurred while sending the request.
+2017-11-14 20:09:24,199 DEBUG - Registering device 9CB70D839BC4 with server...
+2017-11-14 20:09:25,268 ERROR - An error occurred while sending the request.
+2017-11-14 20:09:25,268 DEBUG - Registering device 9CB70D839BC4 with server...
+2017-11-14 20:09:26,327 ERROR - An error occurred while sending the request.
+2017-11-14 20:09:26,327 DEBUG - Registering device 9CB70D839BC4 with server...
+2017-11-14 20:09:27,395 ERROR - An error occurred while sending the request.
+2017-11-14 20:09:27,395 DEBUG - Registering device 9CB70D839BC4 with server...
+2017-11-14 20:09:28,468 ERROR - An error occurred while sending the request.
+2017-11-14 20:09:28,468 DEBUG - Registering device 9CB70D839BC4 with server...
+2017-11-14 20:09:29,532 ERROR - An error occurred while sending the request.
+2017-11-14 20:09:29,532 DEBUG - Registering device 9CB70D839BC4 with server...
+2017-11-14 20:09:30,594 ERROR - An error occurred while sending the request.
+2017-11-14 20:09:30,594 DEBUG - Registering device 9CB70D839BC4 with server...
+2017-11-14 20:09:31,654 ERROR - An error occurred while sending the request.
+2017-11-14 20:09:31,654 DEBUG - Registering device 9CB70D839BC4 with server...
+2017-11-14 20:09:32,714 ERROR - An error occurred while sending the request.
+2017-11-14 20:09:32,715 DEBUG - Registering device 9CB70D839BC4 with server...
+2017-11-14 20:09:33,785 ERROR - An error occurred while sending the request.
+2017-11-14 20:09:33,785 DEBUG - Registering device 9CB70D839BC4 with server...
+2017-11-14 20:09:34,843 ERROR - An error occurred while sending the request.
+2017-11-14 20:09:34,843 DEBUG - Registering device 9CB70D839BC4 with server...
+2017-11-14 20:09:35,913 ERROR - An error occurred while sending the request.
+2017-11-14 20:09:35,913 DEBUG - Registering device 9CB70D839BC4 with server...
+2017-11-14 20:09:36,976 ERROR - An error occurred while sending the request.
+2017-11-14 20:09:36,977 DEBUG - Registering device 9CB70D839BC4 with server...
+2017-11-14 20:09:38,036 ERROR - An error occurred while sending the request.
+2017-11-14 20:09:38,037 DEBUG - Registering device 9CB70D839BC4 with server...
+2017-11-14 20:09:39,105 ERROR - An error occurred while sending the request.
+2017-11-14 20:09:39,105 DEBUG - Registering device 9CB70D839BC4 with server...
+2017-11-14 20:09:40,165 ERROR - An error occurred while sending the request.
+2017-11-14 20:09:40,165 DEBUG - Registering device 9CB70D839BC4 with server...
+2017-11-14 20:09:41,224 ERROR - An error occurred while sending the request.
+2017-11-14 20:09:41,224 DEBUG - Registering device 9CB70D839BC4 with server...
+2017-11-14 20:09:42,282 ERROR - An error occurred while sending the request.
+2017-11-14 20:09:42,283 DEBUG - Registering device 9CB70D839BC4 with server...
+2017-11-14 20:09:43,339 ERROR - An error occurred while sending the request.
+2017-11-14 20:09:43,339 DEBUG - Registering device 9CB70D839BC4 with server...
+2017-11-14 20:09:44,418 ERROR - An error occurred while sending the request.
+2017-11-14 20:09:44,418 DEBUG - Registering device 9CB70D839BC4 with server...
+2017-11-14 20:09:45,481 ERROR - An error occurred while sending the request.
+2017-11-14 20:09:45,481 DEBUG - Registering device 9CB70D839BC4 with server...
+2017-11-14 20:09:46,540 ERROR - An error occurred while sending the request.
+2017-11-14 20:09:46,540 DEBUG - Registering device 9CB70D839BC4 with server...
+2017-11-14 20:09:47,614 ERROR - An error occurred while sending the request.
+2017-11-14 20:09:47,614 DEBUG - Registering device 9CB70D839BC4 with server...
+2017-11-14 20:09:48,708 ERROR - An error occurred while sending the request.
+2017-11-14 20:09:48,708 DEBUG - Registering device 9CB70D839BC4 with server...
+2017-11-14 20:09:49,786 ERROR - An error occurred while sending the request.
+2017-11-14 20:09:49,786 DEBUG - Registering device 9CB70D839BC4 with server...
+2017-11-14 20:09:50,852 ERROR - An error occurred while sending the request.
+2017-11-14 20:09:50,852 DEBUG - Registering device 9CB70D839BC4 with server...
+2017-11-14 20:09:51,919 ERROR - An error occurred while sending the request.
+2017-11-14 20:09:51,919 DEBUG - Registering device 9CB70D839BC4 with server...
+2017-11-14 20:09:53,782 DEBUG - DeviceController start, registered with deviceId:1
+2017-11-14 20:09:53,807 DEBUG - ProcessCommands()
+2017-11-14 20:09:53,822 INFO  - LoadSpis()
+2017-11-14 20:09:53,860 INFO  - LoadSolenoids()
+2017-11-14 20:09:53,888 DEBUG - Retrieved 0 commands
+2017-11-14 20:09:53,909 INFO  - LoadAlarms()
+2017-11-14 20:09:53,915 INFO  - LoadAnalogs()
+2017-11-14 20:09:53,916 DEBUG - LoadSpis(): Id:1 name:Test SPI 1 Clock:0 CS:0 MISO:18 MOSI:20 
+
+2017-11-14 20:09:53,916 INFO  - SpiDevice Id:1 Name:Test SPI 1 Clock:0 CS:0 MISO:18 MOSI:20
+2017-11-14 20:09:53,920 INFO  - LoadSchedules()
+2017-11-14 20:09:53,923 INFO  - DeviceController.LoadConfig(): Configuration complete.
+2017-11-14 20:09:53,971 INFO  - DistributedAlarm Id:1 Name:Station1 Address:Test alarm 1 Description:http://192.168.1.100/k2 State:False
+2017-11-14 20:09:53,972 INFO  - GPIOAlarm Id:2 Name:Station2 Address:Test alarm 2 Description:P1Pin28 State:False
+2017-11-14 20:09:53,973 INFO  - DistributedAlarm Id:3 Name:Station3 Address:Test alarm 3 Description:1 State:False
+2017-11-14 20:09:53,973 INFO  - GPIOAlarm Id:4 Name:Station4 Address:Test alarm 4 Description:P1Pin21 State:False
+2017-11-14 20:09:53,973 INFO  - GPIOSolenoid Id:1 Name:Station1 Description:Test solenoid 1 Address:P1Pin25 State:False
+2017-11-14 20:09:53,973 INFO  - GPIOSolenoid Id:2 Name:Station2 Description:Test solenoid 2 Address:P1Pin28 State:False
+2017-11-14 20:09:53,973 INFO  - GPIOSolenoid Id:3 Name:Station3 Description:Test solenoid 3 Address:P1Pin26 State:True
+2017-11-14 20:09:53,973 INFO  - GPIOSolenoid Id:4 Name:Station4 Description:Test solenoid 4 Address:P1Pin21 State:False
+2017-11-14 20:09:53,973 DEBUG - 4 Solenoids configured
+2017-11-14 20:09:53,973 DEBUG - 4 Alarms configured
+2017-11-14 20:09:53,989 DEBUG - 4 Schedules configured
+2017-11-14 20:09:54,015 INFO  - SPIAnalog Id:1 Name: Description: Address:http://192.168.1.100/k2 Multiplier:0 Units: Value:0
+2017-11-14 20:09:54,015 DEBUG - 1 Analogs configured
+2017-11-14 20:09:58,906 DEBUG - Waking up
+2017-11-14 20:09:58,906 DEBUG - ProcessCommands()
+2017-11-14 20:09:58,907 DEBUG - Schedule Shelter test 2
+2017-11-14 20:09:58,926 INFO  - Schedule 'Shelter test 2' started
+2017-11-14 20:09:58,931 DEBUG - Retrieved 0 commands
+2017-11-14 20:10:03,928 DEBUG - Waking up
+2017-11-14 20:10:03,928 DEBUG - ProcessCommands()
+2017-11-14 20:10:03,938 DEBUG - Retrieved 0 commands
+2017-11-14 20:10:08,929 DEBUG - Waking up
+2017-11-14 20:10:08,929 DEBUG - ProcessCommands()
+2017-11-14 20:10:08,980 DEBUG - Retrieved 0 commands
+2017-11-14 20:10:13,931 DEBUG - Waking up
+2017-11-14 20:10:13,931 DEBUG - ProcessCommands()
+2017-11-14 20:10:13,950 DEBUG - Retrieved 0 commands
+2017-11-14 20:10:18,932 DEBUG - Waking up
+2017-11-14 20:10:18,932 DEBUG - ProcessCommands()
+2017-11-14 20:10:18,961 DEBUG - Retrieved 0 commands
+2017-11-14 20:10:23,934 DEBUG - Waking up
+2017-11-14 20:10:23,934 DEBUG - ProcessCommands()
+2017-11-14 20:10:23,950 DEBUG - Retrieved 0 commands
+2017-11-14 20:10:28,936 DEBUG - Waking up
+2017-11-14 20:10:28,936 DEBUG - ProcessCommands()
+2017-11-14 20:10:28,956 DEBUG - Retrieved 0 commands
+2017-11-14 20:10:33,938 DEBUG - Waking up
+2017-11-14 20:10:33,938 DEBUG - ProcessCommands()
+2017-11-14 20:10:33,960 DEBUG - Retrieved 0 commands
+2017-11-14 20:10:38,940 DEBUG - Waking up
+2017-11-14 20:10:38,940 DEBUG - ProcessCommands()
+2017-11-14 20:10:38,961 DEBUG - Retrieved 0 commands
+2017-11-14 20:10:43,941 DEBUG - Waking up
+2017-11-14 20:10:43,941 DEBUG - ProcessCommands()
+2017-11-14 20:10:43,952 DEBUG - Retrieved 0 commands
+2017-11-14 20:10:48,942 DEBUG - Waking up
+2017-11-14 20:10:48,942 DEBUG - ProcessCommands()
+2017-11-14 20:10:48,981 DEBUG - Retrieved 0 commands
+2017-11-14 20:10:53,981 DEBUG - Waking up
+2017-11-14 20:10:53,981 DEBUG - ProcessCommands()
+2017-11-14 20:10:53,998 DEBUG - Retrieved 0 commands
+2017-11-14 20:10:58,983 DEBUG - Waking up
+2017-11-14 20:10:58,983 DEBUG - ProcessCommands()
+2017-11-14 20:10:59,011 DEBUG - Retrieved 0 commands
+2017-11-14 20:11:03,991 DEBUG - Waking up
+2017-11-14 20:11:03,991 DEBUG - ProcessCommands()
+2017-11-14 20:11:04,031 DEBUG - Retrieved 0 commands
+2017-11-14 20:11:08,993 DEBUG - Waking up
+2017-11-14 20:11:08,993 DEBUG - ProcessCommands()
+2017-11-14 20:11:09,008 DEBUG - Retrieved 0 commands
+2017-11-14 20:11:13,995 DEBUG - Waking up
+2017-11-14 20:11:13,995 DEBUG - ProcessCommands()
+2017-11-14 20:11:14,011 DEBUG - Retrieved 0 commands
+2017-11-14 20:11:18,997 DEBUG - Waking up
+2017-11-14 20:11:18,997 DEBUG - ProcessCommands()
+2017-11-14 20:11:19,007 DEBUG - Retrieved 0 commands
+2017-11-14 20:11:23,998 DEBUG - Waking up
+2017-11-14 20:11:23,998 DEBUG - ProcessCommands()
+2017-11-14 20:11:24,039 DEBUG - Retrieved 0 commands
+2017-11-14 20:11:29,003 DEBUG - Waking up
+2017-11-14 20:11:29,003 DEBUG - ProcessCommands()
+2017-11-14 20:11:29,031 DEBUG - Retrieved 0 commands
+2017-11-14 20:11:34,006 DEBUG - Waking up
+2017-11-14 20:11:34,006 DEBUG - ProcessCommands()
+2017-11-14 20:11:34,035 DEBUG - Retrieved 0 commands
+2017-11-14 20:11:39,008 DEBUG - Waking up
+2017-11-14 20:11:39,008 DEBUG - ProcessCommands()
+2017-11-14 20:11:39,019 DEBUG - Retrieved 0 commands
+2017-11-14 20:11:44,009 DEBUG - Waking up
+2017-11-14 20:11:44,009 DEBUG - ProcessCommands()
+2017-11-14 20:11:44,037 DEBUG - Retrieved 0 commands
+2017-11-14 20:11:49,013 DEBUG - Waking up
+2017-11-14 20:11:49,013 DEBUG - ProcessCommands()
+2017-11-14 20:11:49,025 DEBUG - Retrieved 0 commands
+2017-11-14 20:11:54,015 DEBUG - Waking up
+2017-11-14 20:11:54,015 DEBUG - ProcessCommands()
+2017-11-14 20:11:54,027 DEBUG - Retrieved 0 commands
+2017-11-14 20:11:59,016 DEBUG - Waking up
+2017-11-14 20:11:59,016 DEBUG - ProcessCommands()
+2017-11-14 20:11:59,047 DEBUG - Retrieved 0 commands
+2017-11-14 20:12:04,018 DEBUG - Waking up
+2017-11-14 20:12:04,018 DEBUG - ProcessCommands()
+2017-11-14 20:12:04,051 DEBUG - Retrieved 0 commands
+2017-11-14 20:12:09,022 DEBUG - Waking up
+2017-11-14 20:12:09,022 DEBUG - ProcessCommands()
+2017-11-14 20:12:09,028 DEBUG - Retrieved 0 commands
+2017-11-14 20:12:14,023 DEBUG - Waking up
+2017-11-14 20:12:14,023 DEBUG - ProcessCommands()
+2017-11-14 20:12:14,035 DEBUG - Retrieved 0 commands
+2017-11-14 20:12:19,026 DEBUG - Waking up
+2017-11-14 20:12:19,026 DEBUG - ProcessCommands()
+2017-11-14 20:12:19,078 DEBUG - Retrieved 0 commands
+2017-11-14 20:12:24,042 DEBUG - Waking up
+2017-11-14 20:12:24,042 DEBUG - ProcessCommands()
+2017-11-14 20:12:24,072 DEBUG - Retrieved 0 commands
+2017-11-14 20:12:29,045 DEBUG - Waking up
+2017-11-14 20:12:29,045 DEBUG - ProcessCommands()
+2017-11-14 20:12:29,091 DEBUG - Retrieved 0 commands
+2017-11-14 20:12:34,049 DEBUG - Waking up
+2017-11-14 20:12:34,049 DEBUG - ProcessCommands()
+2017-11-14 20:12:34,069 DEBUG - Retrieved 0 commands
+2017-11-14 20:12:39,052 DEBUG - Waking up
+2017-11-14 20:12:39,052 DEBUG - ProcessCommands()
+2017-11-14 20:12:39,075 DEBUG - Retrieved 0 commands
+2017-11-14 20:12:44,066 DEBUG - Waking up
+2017-11-14 20:12:44,066 DEBUG - ProcessCommands()
+2017-11-14 20:12:44,087 DEBUG - Retrieved 0 commands
+2017-11-14 20:12:49,069 DEBUG - Waking up
+2017-11-14 20:12:49,069 DEBUG - ProcessCommands()
+2017-11-14 20:12:49,079 DEBUG - Retrieved 0 commands
+2017-11-14 20:12:54,071 DEBUG - Waking up
+2017-11-14 20:12:54,071 DEBUG - ProcessCommands()
+2017-11-14 20:12:54,108 DEBUG - Retrieved 0 commands
+2017-11-14 20:12:59,075 DEBUG - Waking up
+2017-11-14 20:12:59,075 DEBUG - ProcessCommands()
+2017-11-14 20:12:59,103 DEBUG - Retrieved 0 commands
+2017-11-14 20:13:04,078 DEBUG - Waking up
+2017-11-14 20:13:04,078 DEBUG - ProcessCommands()
+2017-11-14 20:13:04,098 DEBUG - Retrieved 0 commands
+2017-11-14 20:13:09,082 DEBUG - Waking up
+2017-11-14 20:13:09,082 DEBUG - ProcessCommands()
+2017-11-14 20:13:09,114 DEBUG - Retrieved 0 commands
+2017-11-14 20:13:14,085 DEBUG - Waking up
+2017-11-14 20:13:14,085 DEBUG - ProcessCommands()
+2017-11-14 20:13:14,112 DEBUG - Retrieved 0 commands
+2017-11-14 20:13:19,087 DEBUG - Waking up
+2017-11-14 20:13:19,087 DEBUG - ProcessCommands()
+2017-11-14 20:13:19,122 DEBUG - Retrieved 0 commands
+2017-11-14 20:13:24,089 DEBUG - Waking up
+2017-11-14 20:13:24,089 DEBUG - ProcessCommands()
+2017-11-14 20:13:24,101 DEBUG - Retrieved 0 commands
+2017-11-14 20:13:29,091 DEBUG - Waking up
+2017-11-14 20:13:29,091 DEBUG - ProcessCommands()
+2017-11-14 20:13:29,098 DEBUG - Retrieved 0 commands
+2017-11-14 20:13:34,092 DEBUG - Waking up
+2017-11-14 20:13:34,092 DEBUG - ProcessCommands()
+2017-11-14 20:13:34,111 DEBUG - Retrieved 0 commands
+2017-11-14 20:13:39,105 DEBUG - Waking up
+2017-11-14 20:13:39,105 DEBUG - ProcessCommands()
+2017-11-14 20:13:39,135 DEBUG - Retrieved 0 commands
+2017-11-14 20:13:44,109 DEBUG - Waking up
+2017-11-14 20:13:44,109 DEBUG - ProcessCommands()
+2017-11-14 20:13:44,125 DEBUG - Retrieved 0 commands
+2017-11-14 20:13:49,110 DEBUG - Waking up
+2017-11-14 20:13:49,110 DEBUG - ProcessCommands()
+2017-11-14 20:13:49,125 DEBUG - Retrieved 0 commands
+2017-11-14 20:13:54,114 DEBUG - Waking up
+2017-11-14 20:13:54,114 DEBUG - ProcessCommands()
+2017-11-14 20:13:54,121 DEBUG - Retrieved 0 commands
+2017-11-14 20:13:59,116 DEBUG - Waking up
+2017-11-14 20:13:59,116 DEBUG - ProcessCommands()
+2017-11-14 20:13:59,129 DEBUG - Retrieved 0 commands
+2017-11-14 20:14:04,118 DEBUG - Waking up
+2017-11-14 20:14:04,118 DEBUG - ProcessCommands()
+2017-11-14 20:14:04,128 DEBUG - Retrieved 0 commands
+2017-11-14 20:14:09,126 DEBUG - Waking up
+2017-11-14 20:14:09,126 DEBUG - ProcessCommands()
+2017-11-14 20:14:09,142 DEBUG - Retrieved 0 commands
+2017-11-14 20:14:14,129 DEBUG - Waking up
+2017-11-14 20:14:14,129 DEBUG - ProcessCommands()
+2017-11-14 20:14:14,173 DEBUG - Retrieved 0 commands
+2017-11-14 20:14:19,132 DEBUG - Waking up
+2017-11-14 20:14:19,132 DEBUG - ProcessCommands()
+2017-11-14 20:14:19,151 DEBUG - Retrieved 0 commands
+2017-11-14 20:14:24,133 DEBUG - Waking up
+2017-11-14 20:14:24,133 DEBUG - ProcessCommands()
+2017-11-14 20:14:24,154 DEBUG - Retrieved 0 commands
+2017-11-14 20:14:29,136 DEBUG - Waking up
+2017-11-14 20:14:29,136 DEBUG - ProcessCommands()
+2017-11-14 20:14:29,147 DEBUG - Retrieved 0 commands
+2017-11-14 20:14:34,143 DEBUG - Waking up
+2017-11-14 20:14:34,143 DEBUG - ProcessCommands()
+2017-11-14 20:14:34,152 DEBUG - Retrieved 0 commands
+2017-11-14 20:14:39,144 DEBUG - Waking up
+2017-11-14 20:14:39,144 DEBUG - ProcessCommands()
+2017-11-14 20:14:39,159 DEBUG - Retrieved 0 commands
+2017-11-14 20:14:44,146 DEBUG - Waking up
+2017-11-14 20:14:44,146 DEBUG - ProcessCommands()
+2017-11-14 20:14:44,188 DEBUG - Retrieved 0 commands
+2017-11-14 20:14:49,149 DEBUG - Waking up
+2017-11-14 20:14:49,149 DEBUG - ProcessCommands()
+2017-11-14 20:14:49,168 DEBUG - Retrieved 0 commands
+2017-11-14 20:14:54,151 DEBUG - Waking up
+2017-11-14 20:14:54,151 DEBUG - ProcessCommands()
+2017-11-14 20:14:54,164 DEBUG - Retrieved 0 commands
+2017-11-14 20:14:59,153 DEBUG - Waking up
+2017-11-14 20:14:59,153 DEBUG - ProcessCommands()
+2017-11-14 20:14:59,180 DEBUG - Retrieved 0 commands
+2017-11-14 20:15:04,176 DEBUG - Waking up
+2017-11-14 20:15:04,176 DEBUG - ProcessCommands()
+2017-11-14 20:15:04,210 DEBUG - Retrieved 0 commands
+2017-11-14 20:15:09,179 DEBUG - Waking up
+2017-11-14 20:15:09,179 DEBUG - ProcessCommands()
+2017-11-14 20:15:09,187 DEBUG - Retrieved 0 commands
+2017-11-14 20:15:14,180 DEBUG - Waking up
+2017-11-14 20:15:14,180 DEBUG - ProcessCommands()
+2017-11-14 20:15:14,202 DEBUG - Retrieved 0 commands
+2017-11-14 20:15:19,183 DEBUG - Waking up
+2017-11-14 20:15:19,183 DEBUG - ProcessCommands()
+2017-11-14 20:15:19,258 DEBUG - Retrieved 0 commands
+2017-11-14 20:15:24,195 DEBUG - Waking up
+2017-11-14 20:15:24,195 DEBUG - ProcessCommands()
+2017-11-14 20:15:24,236 DEBUG - Retrieved 0 commands
+2017-11-14 20:15:29,199 DEBUG - Waking up
+2017-11-14 20:15:29,199 DEBUG - ProcessCommands()
+2017-11-14 20:15:29,210 DEBUG - Retrieved 0 commands
+2017-11-14 20:15:34,200 DEBUG - Waking up
+2017-11-14 20:15:34,200 DEBUG - ProcessCommands()
+2017-11-14 20:15:34,226 DEBUG - Retrieved 0 commands
+2017-11-14 20:15:39,203 DEBUG - Waking up
+2017-11-14 20:15:39,203 DEBUG - ProcessCommands()
+2017-11-14 20:15:39,221 DEBUG - Retrieved 0 commands
+2017-11-14 20:15:44,205 DEBUG - Waking up
+2017-11-14 20:15:44,205 DEBUG - ProcessCommands()
+2017-11-14 20:15:44,217 DEBUG - Retrieved 0 commands
+2017-11-14 20:15:49,207 DEBUG - Waking up
+2017-11-14 20:15:49,207 DEBUG - ProcessCommands()
+2017-11-14 20:15:49,216 DEBUG - Retrieved 0 commands
+2017-11-14 20:15:54,208 DEBUG - Waking up
+2017-11-14 20:15:54,208 DEBUG - ProcessCommands()
+2017-11-14 20:15:54,234 DEBUG - Retrieved 0 commands
+2017-11-14 20:15:59,214 DEBUG - Waking up
+2017-11-14 20:15:59,214 DEBUG - ProcessCommands()
+2017-11-14 20:15:59,225 DEBUG - Retrieved 0 commands
+2017-11-14 20:16:04,216 DEBUG - Waking up
+2017-11-14 20:16:04,216 DEBUG - ProcessCommands()
+2017-11-14 20:16:04,233 DEBUG - Retrieved 0 commands
+2017-11-14 20:16:09,218 DEBUG - Waking up
+2017-11-14 20:16:09,218 DEBUG - ProcessCommands()
+2017-11-14 20:16:09,227 DEBUG - Retrieved 0 commands
+2017-11-14 20:16:14,219 DEBUG - Waking up
+2017-11-14 20:16:14,219 DEBUG - ProcessCommands()
+2017-11-14 20:16:14,237 DEBUG - Retrieved 0 commands
+2017-11-14 20:16:19,220 DEBUG - Waking up
+2017-11-14 20:16:19,220 DEBUG - ProcessCommands()
+2017-11-14 20:16:19,232 DEBUG - Retrieved 0 commands
+2017-11-14 20:16:24,222 DEBUG - Waking up
+2017-11-14 20:16:24,222 DEBUG - ProcessCommands()
+2017-11-14 20:16:24,240 DEBUG - Retrieved 0 commands
+2017-11-14 20:16:29,224 DEBUG - Waking up
+2017-11-14 20:16:29,224 DEBUG - ProcessCommands()
+2017-11-14 20:16:29,258 DEBUG - Retrieved 0 commands
+2017-11-14 20:16:34,226 DEBUG - Waking up
+2017-11-14 20:16:34,226 DEBUG - ProcessCommands()
+2017-11-14 20:16:34,252 DEBUG - Retrieved 0 commands
+2017-11-14 20:16:39,235 DEBUG - Waking up
+2017-11-14 20:16:39,235 DEBUG - ProcessCommands()
+2017-11-14 20:16:39,246 DEBUG - Retrieved 0 commands
+2017-11-14 20:16:44,238 DEBUG - Waking up
+2017-11-14 20:16:44,238 DEBUG - ProcessCommands()
+2017-11-14 20:16:44,297 DEBUG - Retrieved 0 commands
+2017-11-14 20:16:49,242 DEBUG - Waking up
+2017-11-14 20:16:49,242 DEBUG - ProcessCommands()
+2017-11-14 20:16:49,273 DEBUG - Retrieved 0 commands
+2017-11-14 20:16:54,244 DEBUG - Waking up
+2017-11-14 20:16:54,244 DEBUG - ProcessCommands()
+2017-11-14 20:16:54,253 DEBUG - Retrieved 0 commands
+2017-11-14 20:16:59,245 DEBUG - Waking up
+2017-11-14 20:16:59,245 DEBUG - ProcessCommands()
+2017-11-14 20:16:59,265 DEBUG - Retrieved 0 commands
+2017-11-14 20:17:04,247 DEBUG - Waking up
+2017-11-14 20:17:04,247 DEBUG - ProcessCommands()
+2017-11-14 20:17:04,277 DEBUG - Retrieved 0 commands
+2017-11-14 20:17:09,251 DEBUG - Waking up
+2017-11-14 20:17:09,251 DEBUG - ProcessCommands()
+2017-11-14 20:17:09,270 DEBUG - Retrieved 0 commands
+2017-11-14 20:17:14,253 DEBUG - Waking up
+2017-11-14 20:17:14,253 DEBUG - ProcessCommands()
+2017-11-14 20:17:14,262 DEBUG - Retrieved 0 commands
+2017-11-14 20:17:19,254 DEBUG - Waking up
+2017-11-14 20:17:19,254 DEBUG - ProcessCommands()
+2017-11-14 20:17:19,276 DEBUG - Retrieved 0 commands
+2017-11-14 20:17:24,258 DEBUG - Waking up
+2017-11-14 20:17:24,258 DEBUG - ProcessCommands()
+2017-11-14 20:17:24,288 DEBUG - Retrieved 0 commands
+2017-11-14 20:17:29,262 DEBUG - Waking up
+2017-11-14 20:17:29,262 DEBUG - ProcessCommands()
+2017-11-14 20:17:29,278 DEBUG - Retrieved 0 commands
+2017-11-14 20:17:34,263 DEBUG - Waking up
+2017-11-14 20:17:34,263 DEBUG - ProcessCommands()
+2017-11-14 20:17:34,275 DEBUG - Retrieved 0 commands
+2017-11-14 20:17:39,267 DEBUG - Waking up
+2017-11-14 20:17:39,267 DEBUG - ProcessCommands()
+2017-11-14 20:17:39,291 DEBUG - Retrieved 0 commands
+2017-11-14 20:17:44,269 DEBUG - Waking up
+2017-11-14 20:17:44,269 DEBUG - ProcessCommands()
+2017-11-14 20:17:44,304 DEBUG - Retrieved 0 commands
+2017-11-14 20:17:49,282 DEBUG - Waking up
+2017-11-14 20:17:49,282 DEBUG - ProcessCommands()
+2017-11-14 20:17:49,294 DEBUG - Retrieved 0 commands
+2017-11-14 20:17:54,283 DEBUG - Waking up
+2017-11-14 20:17:54,283 DEBUG - ProcessCommands()
+2017-11-14 20:17:54,292 DEBUG - Retrieved 0 commands
+2017-11-14 20:17:59,285 DEBUG - Waking up
+2017-11-14 20:17:59,285 DEBUG - ProcessCommands()
+2017-11-14 20:17:59,298 DEBUG - Retrieved 0 commands
+2017-11-14 20:18:04,289 DEBUG - Waking up
+2017-11-14 20:18:04,289 DEBUG - ProcessCommands()
+2017-11-14 20:18:04,321 DEBUG - Retrieved 0 commands
+2017-11-14 20:18:09,291 DEBUG - Waking up
+2017-11-14 20:18:09,291 DEBUG - ProcessCommands()
+2017-11-14 20:18:09,299 DEBUG - Retrieved 0 commands
+2017-11-14 20:18:14,292 DEBUG - Waking up
+2017-11-14 20:18:14,292 DEBUG - ProcessCommands()
+2017-11-14 20:18:14,305 DEBUG - Retrieved 0 commands
+2017-11-14 20:18:19,293 DEBUG - Waking up
+2017-11-14 20:18:19,293 DEBUG - ProcessCommands()
+2017-11-14 20:18:19,301 DEBUG - Retrieved 0 commands
+2017-11-14 20:18:24,294 DEBUG - Waking up
+2017-11-14 20:18:24,294 DEBUG - ProcessCommands()
+2017-11-14 20:18:24,305 DEBUG - Retrieved 0 commands
+2017-11-14 20:18:29,295 DEBUG - Waking up
+2017-11-14 20:18:29,295 DEBUG - ProcessCommands()
+2017-11-14 20:18:29,305 DEBUG - Retrieved 0 commands
+2017-11-14 20:18:34,296 DEBUG - Waking up
+2017-11-14 20:18:34,296 DEBUG - ProcessCommands()
+2017-11-14 20:18:34,306 DEBUG - Retrieved 0 commands
+2017-11-14 20:18:39,297 DEBUG - Waking up
+2017-11-14 20:18:39,297 DEBUG - ProcessCommands()
+2017-11-14 20:18:39,313 DEBUG - Retrieved 0 commands
+2017-11-14 20:18:44,299 DEBUG - Waking up
+2017-11-14 20:18:44,299 DEBUG - ProcessCommands()
+2017-11-14 20:18:44,321 DEBUG - Retrieved 0 commands
+2017-11-14 20:18:49,301 DEBUG - Waking up
+2017-11-14 20:18:49,301 DEBUG - ProcessCommands()
+2017-11-14 20:18:49,309 DEBUG - Retrieved 0 commands
+2017-11-14 20:18:54,318 DEBUG - Waking up
+2017-11-14 20:18:54,318 DEBUG - ProcessCommands()
+2017-11-14 20:18:54,350 DEBUG - Retrieved 0 commands
+2017-11-14 20:18:59,347 DEBUG - Waking up
+2017-11-14 20:18:59,347 DEBUG - ProcessCommands()
+2017-11-14 20:18:59,359 DEBUG - Retrieved 0 commands
+2017-11-14 20:19:04,349 DEBUG - Waking up
+2017-11-14 20:19:04,349 DEBUG - ProcessCommands()
+2017-11-14 20:19:04,356 DEBUG - Retrieved 0 commands
+2017-11-14 20:19:09,350 DEBUG - Waking up
+2017-11-14 20:19:09,350 DEBUG - ProcessCommands()
+2017-11-14 20:19:09,369 DEBUG - Retrieved 0 commands
+2017-11-14 20:19:14,352 DEBUG - Waking up
+2017-11-14 20:19:14,352 DEBUG - ProcessCommands()
+2017-11-14 20:19:14,367 DEBUG - Retrieved 0 commands
+2017-11-14 20:19:19,354 DEBUG - Waking up
+2017-11-14 20:19:19,354 DEBUG - ProcessCommands()
+2017-11-14 20:19:19,369 DEBUG - Retrieved 0 commands
+2017-11-14 20:19:24,356 DEBUG - Waking up
+2017-11-14 20:19:24,356 DEBUG - ProcessCommands()
+2017-11-14 20:19:24,364 DEBUG - Retrieved 0 commands
+2017-11-14 20:19:29,357 DEBUG - Waking up
+2017-11-14 20:19:29,357 DEBUG - ProcessCommands()
+2017-11-14 20:19:29,383 DEBUG - Retrieved 0 commands
+2017-11-14 20:19:34,362 DEBUG - Waking up
+2017-11-14 20:19:34,362 DEBUG - ProcessCommands()
+2017-11-14 20:19:34,371 DEBUG - Retrieved 0 commands
+2017-11-14 20:19:39,363 DEBUG - Waking up
+2017-11-14 20:19:39,363 DEBUG - ProcessCommands()
+2017-11-14 20:19:39,371 DEBUG - Retrieved 0 commands
+2017-11-14 20:19:44,364 DEBUG - Waking up
+2017-11-14 20:19:44,364 DEBUG - ProcessCommands()
+2017-11-14 20:19:44,372 DEBUG - Retrieved 0 commands
+2017-11-14 20:19:49,365 DEBUG - Waking up
+2017-11-14 20:19:49,365 DEBUG - ProcessCommands()
+2017-11-14 20:19:49,373 DEBUG - Retrieved 0 commands
+2017-11-14 20:19:54,366 DEBUG - Waking up
+2017-11-14 20:19:54,366 DEBUG - ProcessCommands()
+2017-11-14 20:19:54,374 DEBUG - Retrieved 0 commands
+2017-11-14 20:19:59,368 DEBUG - Waking up
+2017-11-14 20:19:59,368 DEBUG - ProcessCommands()
+2017-11-14 20:19:59,373 DEBUG - Program Shelter test 2 completed
+2017-11-14 20:19:59,386 DEBUG - Schedule Shelter test 2
+2017-11-14 20:19:59,388 DEBUG - Retrieved 0 commands
+2017-11-14 20:19:59,397 INFO  - Schedule 'Shelter test 2' started
+2017-11-14 20:20:04,402 DEBUG - Waking up
+2017-11-14 20:20:04,402 DEBUG - ProcessCommands()
+2017-11-14 20:20:04,424 DEBUG - Retrieved 0 commands
+2017-11-14 20:20:09,405 DEBUG - Waking up
+2017-11-14 20:20:09,405 DEBUG - ProcessCommands()
+2017-11-14 20:20:09,415 DEBUG - Retrieved 0 commands
+2017-11-14 20:20:14,406 DEBUG - Waking up
+2017-11-14 20:20:14,406 DEBUG - ProcessCommands()
+2017-11-14 20:20:14,440 DEBUG - Retrieved 0 commands
+2017-11-14 20:20:19,415 DEBUG - Waking up
+2017-11-14 20:20:19,415 DEBUG - ProcessCommands()
+2017-11-14 20:20:19,422 DEBUG - Retrieved 0 commands
+2017-11-14 20:20:24,417 DEBUG - Waking up
+2017-11-14 20:20:24,417 DEBUG - ProcessCommands()
+2017-11-14 20:20:24,424 DEBUG - Retrieved 0 commands
+2017-11-14 20:20:29,418 DEBUG - Waking up
+2017-11-14 20:20:29,418 DEBUG - ProcessCommands()
+2017-11-14 20:20:29,441 DEBUG - Retrieved 0 commands
+2017-11-14 20:20:34,420 DEBUG - Waking up
+2017-11-14 20:20:34,420 DEBUG - ProcessCommands()
+2017-11-14 20:20:34,437 DEBUG - Retrieved 0 commands
+2017-11-14 20:20:39,421 DEBUG - Waking up
+2017-11-14 20:20:39,421 DEBUG - ProcessCommands()
+2017-11-14 20:20:39,433 DEBUG - Retrieved 0 commands
+2017-11-14 20:20:44,423 DEBUG - Waking up
+2017-11-14 20:20:44,423 DEBUG - ProcessCommands()
+2017-11-14 20:20:44,436 DEBUG - Retrieved 0 commands
+2017-11-14 20:20:49,424 DEBUG - Waking up
+2017-11-14 20:20:49,424 DEBUG - ProcessCommands()
+2017-11-14 20:20:49,462 DEBUG - Retrieved 0 commands
+2017-11-14 20:20:54,429 DEBUG - Waking up
+2017-11-14 20:20:54,429 DEBUG - ProcessCommands()
+2017-11-14 20:20:54,439 DEBUG - Retrieved 0 commands
+2017-11-14 20:20:59,431 DEBUG - Waking up
+2017-11-14 20:20:59,431 DEBUG - ProcessCommands()
+2017-11-14 20:20:59,455 DEBUG - Retrieved 0 commands
+2017-11-14 20:21:04,434 DEBUG - Waking up
+2017-11-14 20:21:04,434 DEBUG - ProcessCommands()
+2017-11-14 20:21:04,447 DEBUG - Retrieved 0 commands
+2017-11-14 20:21:09,436 DEBUG - Waking up
+2017-11-14 20:21:09,436 DEBUG - ProcessCommands()
+2017-11-14 20:21:09,461 DEBUG - Retrieved 0 commands
+2017-11-14 20:21:14,438 DEBUG - Waking up
+2017-11-14 20:21:14,438 DEBUG - ProcessCommands()
+2017-11-14 20:21:14,481 DEBUG - Retrieved 0 commands
+2017-11-14 20:21:19,448 DEBUG - Waking up
+2017-11-14 20:21:19,448 DEBUG - ProcessCommands()
+2017-11-14 20:21:19,483 DEBUG - Retrieved 0 commands
+2017-11-14 20:21:24,452 DEBUG - Waking up
+2017-11-14 20:21:24,452 DEBUG - ProcessCommands()
+2017-11-14 20:21:24,477 DEBUG - Retrieved 0 commands
+2017-11-14 20:21:29,455 DEBUG - Waking up
+2017-11-14 20:21:29,455 DEBUG - ProcessCommands()
+2017-11-14 20:21:29,468 DEBUG - Retrieved 0 commands
+2017-11-14 20:21:34,457 DEBUG - Waking up
+2017-11-14 20:21:34,457 DEBUG - ProcessCommands()
+2017-11-14 20:21:34,468 DEBUG - Retrieved 0 commands
+2017-11-14 20:21:39,458 DEBUG - Waking up
+2017-11-14 20:21:39,458 DEBUG - ProcessCommands()
+2017-11-14 20:21:39,471 DEBUG - Retrieved 0 commands
+2017-11-14 20:21:44,460 DEBUG - Waking up
+2017-11-14 20:21:44,460 DEBUG - ProcessCommands()
+2017-11-14 20:21:44,470 DEBUG - Retrieved 0 commands
+2017-11-14 20:21:49,461 DEBUG - Waking up
+2017-11-14 20:21:49,461 DEBUG - ProcessCommands()
+2017-11-14 20:21:49,548 DEBUG - Retrieved 0 commands
+2017-11-14 20:21:54,537 DEBUG - Waking up
+2017-11-14 20:21:54,537 DEBUG - ProcessCommands()
+2017-11-14 20:21:54,549 DEBUG - Retrieved 0 commands
+2017-11-14 20:21:59,539 DEBUG - Waking up
+2017-11-14 20:21:59,554 DEBUG - ProcessCommands()
+2017-11-14 20:21:59,567 DEBUG - Retrieved 0 commands
+2017-11-14 20:22:04,556 DEBUG - Waking up
+2017-11-14 20:22:04,556 DEBUG - ProcessCommands()
+2017-11-14 20:22:04,565 DEBUG - Retrieved 0 commands
+2017-11-14 20:22:09,558 DEBUG - Waking up
+2017-11-14 20:22:09,558 DEBUG - ProcessCommands()
+2017-11-14 20:22:09,570 DEBUG - Retrieved 0 commands
+2017-11-14 20:22:14,559 DEBUG - Waking up
+2017-11-14 20:22:14,559 DEBUG - ProcessCommands()
+2017-11-14 20:22:14,568 DEBUG - Retrieved 0 commands
+2017-11-14 20:22:19,560 DEBUG - Waking up
+2017-11-14 20:22:19,560 DEBUG - ProcessCommands()
+2017-11-14 20:22:19,569 DEBUG - Retrieved 0 commands
+2017-11-14 20:22:24,561 DEBUG - Waking up
+2017-11-14 20:22:24,561 DEBUG - ProcessCommands()
+2017-11-14 20:22:24,570 DEBUG - Retrieved 0 commands
+2017-11-14 20:22:29,562 DEBUG - Waking up
+2017-11-14 20:22:29,562 DEBUG - ProcessCommands()
+2017-11-14 20:22:29,578 DEBUG - Retrieved 0 commands
+2017-11-14 20:22:34,564 DEBUG - Waking up
+2017-11-14 20:22:34,564 DEBUG - ProcessCommands()
+2017-11-14 20:22:34,575 DEBUG - Retrieved 0 commands
+2017-11-14 20:22:39,565 DEBUG - Waking up
+2017-11-14 20:22:39,565 DEBUG - ProcessCommands()
+2017-11-14 20:22:39,575 DEBUG - Retrieved 0 commands
+2017-11-14 20:22:44,566 DEBUG - Waking up
+2017-11-14 20:22:44,566 DEBUG - ProcessCommands()
+2017-11-14 20:22:44,576 DEBUG - Retrieved 0 commands
+2017-11-14 20:22:49,567 DEBUG - Waking up
+2017-11-14 20:22:49,567 DEBUG - ProcessCommands()
+2017-11-14 20:22:49,600 DEBUG - Retrieved 0 commands
+2017-11-14 20:22:54,570 DEBUG - Waking up
+2017-11-14 20:22:54,570 DEBUG - ProcessCommands()
+2017-11-14 20:22:54,606 DEBUG - Retrieved 0 commands
+2017-11-14 20:22:59,573 DEBUG - Waking up
+2017-11-14 20:22:59,573 DEBUG - ProcessCommands()
+2017-11-14 20:22:59,595 DEBUG - Retrieved 0 commands
+2017-11-14 20:23:04,575 DEBUG - Waking up
+2017-11-14 20:23:04,575 DEBUG - ProcessCommands()
+2017-11-14 20:23:04,606 DEBUG - Retrieved 0 commands
+2017-11-14 20:23:09,580 DEBUG - Waking up
+2017-11-14 20:23:09,580 DEBUG - ProcessCommands()
+2017-11-14 20:23:09,588 DEBUG - Retrieved 0 commands
+2017-11-14 20:23:14,581 DEBUG - Waking up
+2017-11-14 20:23:14,581 DEBUG - ProcessCommands()
+2017-11-14 20:23:14,595 DEBUG - Retrieved 0 commands
+2017-11-14 20:23:19,583 DEBUG - Waking up
+2017-11-14 20:23:19,583 DEBUG - ProcessCommands()
+2017-11-14 20:23:19,600 DEBUG - Retrieved 0 commands
+2017-11-14 20:23:24,584 DEBUG - Waking up
+2017-11-14 20:23:24,584 DEBUG - ProcessCommands()
+2017-11-14 20:23:24,614 DEBUG - Retrieved 0 commands
+2017-11-14 20:23:29,587 DEBUG - Waking up
+2017-11-14 20:23:29,587 DEBUG - ProcessCommands()
+2017-11-14 20:23:29,619 DEBUG - Retrieved 0 commands
+2017-11-14 20:23:34,590 DEBUG - Waking up
+2017-11-14 20:23:34,590 DEBUG - ProcessCommands()
+2017-11-14 20:23:34,636 DEBUG - Retrieved 0 commands
+2017-11-14 20:23:39,593 DEBUG - Waking up
+2017-11-14 20:23:39,593 DEBUG - ProcessCommands()
+2017-11-14 20:23:39,639 DEBUG - Retrieved 0 commands
+2017-11-14 20:23:44,596 DEBUG - Waking up
+2017-11-14 20:23:44,596 DEBUG - ProcessCommands()
+2017-11-14 20:23:44,623 DEBUG - Retrieved 0 commands
+2017-11-14 20:23:49,599 DEBUG - Waking up
+2017-11-14 20:23:49,599 DEBUG - ProcessCommands()
+2017-11-14 20:23:49,618 DEBUG - Retrieved 0 commands
+2017-11-14 20:23:54,602 DEBUG - Waking up
+2017-11-14 20:23:54,602 DEBUG - ProcessCommands()
+2017-11-14 20:23:54,631 DEBUG - Retrieved 0 commands
+2017-11-14 20:23:59,605 DEBUG - Waking up
+2017-11-14 20:23:59,605 DEBUG - ProcessCommands()
+2017-11-14 20:23:59,626 DEBUG - Retrieved 0 commands
+2017-11-14 20:24:04,608 DEBUG - Waking up
+2017-11-14 20:24:04,608 DEBUG - ProcessCommands()
+2017-11-14 20:24:04,623 DEBUG - Retrieved 0 commands
+2017-11-14 20:24:09,609 DEBUG - Waking up
+2017-11-14 20:24:09,609 DEBUG - ProcessCommands()
+2017-11-14 20:24:09,634 DEBUG - Retrieved 0 commands
+2017-11-14 20:24:14,612 DEBUG - Waking up
+2017-11-14 20:24:14,612 DEBUG - ProcessCommands()
+2017-11-14 20:24:14,655 DEBUG - Retrieved 0 commands
+2017-11-14 20:24:19,614 DEBUG - Waking up
+2017-11-14 20:24:19,614 DEBUG - ProcessCommands()
+2017-11-14 20:24:19,672 DEBUG - Retrieved 0 commands
+2017-11-14 20:24:24,617 DEBUG - Waking up
+2017-11-14 20:24:24,617 DEBUG - ProcessCommands()
+2017-11-14 20:24:24,639 DEBUG - Retrieved 0 commands
+2017-11-14 20:24:29,619 DEBUG - Waking up
+2017-11-14 20:24:29,619 DEBUG - ProcessCommands()
+2017-11-14 20:24:29,664 DEBUG - Retrieved 0 commands
+2017-11-14 20:24:34,620 DEBUG - Waking up
+2017-11-14 20:24:34,620 DEBUG - ProcessCommands()
+2017-11-14 20:24:34,663 DEBUG - Retrieved 0 commands
+2017-11-14 20:24:39,622 DEBUG - Waking up
+2017-11-14 20:24:39,622 DEBUG - ProcessCommands()
+2017-11-14 20:24:39,681 DEBUG - Retrieved 0 commands
+2017-11-14 20:24:44,637 DEBUG - Waking up
+2017-11-14 20:24:44,637 DEBUG - ProcessCommands()
+2017-11-14 20:24:44,681 DEBUG - Retrieved 0 commands
+2017-11-14 20:24:49,639 DEBUG - Waking up
+2017-11-14 20:24:49,639 DEBUG - ProcessCommands()
+2017-11-14 20:24:49,657 DEBUG - Retrieved 0 commands
+2017-11-14 20:24:54,641 DEBUG - Waking up
+2017-11-14 20:24:54,641 DEBUG - ProcessCommands()
+2017-11-14 20:24:54,698 DEBUG - Retrieved 0 commands
+2017-11-14 20:24:59,645 DEBUG - Waking up
+2017-11-14 20:24:59,645 DEBUG - ProcessCommands()
+2017-11-14 20:24:59,670 DEBUG - Retrieved 0 commands
+2017-11-14 20:25:04,647 DEBUG - Waking up
+2017-11-14 20:25:04,647 DEBUG - ProcessCommands()
+2017-11-14 20:25:04,679 DEBUG - Retrieved 0 commands
+2017-11-14 20:25:09,650 DEBUG - Waking up
+2017-11-14 20:25:09,650 DEBUG - ProcessCommands()
+2017-11-14 20:25:09,671 DEBUG - Retrieved 0 commands
+2017-11-14 20:25:14,652 DEBUG - Waking up
+2017-11-14 20:25:14,652 DEBUG - ProcessCommands()
+2017-11-14 20:25:14,672 DEBUG - Retrieved 0 commands
+2017-11-14 20:25:19,653 DEBUG - Waking up
+2017-11-14 20:25:19,653 DEBUG - ProcessCommands()
+2017-11-14 20:25:19,678 DEBUG - Retrieved 0 commands
+2017-11-14 20:25:24,658 DEBUG - Waking up
+2017-11-14 20:25:24,658 DEBUG - ProcessCommands()
+2017-11-14 20:25:24,708 DEBUG - Retrieved 0 commands
+2017-11-14 20:25:29,660 DEBUG - Waking up
+2017-11-14 20:25:29,660 DEBUG - ProcessCommands()
+2017-11-14 20:25:29,691 DEBUG - Retrieved 0 commands
+2017-11-14 20:25:34,663 DEBUG - Waking up
+2017-11-14 20:25:34,663 DEBUG - ProcessCommands()
+2017-11-14 20:25:34,692 DEBUG - Retrieved 0 commands
+2017-11-14 20:25:39,666 DEBUG - Waking up
+2017-11-14 20:25:39,666 DEBUG - ProcessCommands()
+2017-11-14 20:25:39,694 DEBUG - Retrieved 0 commands
+2017-11-14 20:25:44,680 DEBUG - Waking up
+2017-11-14 20:25:44,680 DEBUG - ProcessCommands()
+2017-11-14 20:25:44,698 DEBUG - Retrieved 0 commands
+2017-11-14 20:25:49,681 DEBUG - Waking up
+2017-11-14 20:25:49,681 DEBUG - ProcessCommands()
+2017-11-14 20:25:49,700 DEBUG - Retrieved 0 commands
+2017-11-14 20:25:54,683 DEBUG - Waking up
+2017-11-14 20:25:54,683 DEBUG - ProcessCommands()
+2017-11-14 20:25:54,702 DEBUG - Retrieved 0 commands
+2017-11-14 20:25:59,684 DEBUG - Waking up
+2017-11-14 20:25:59,684 DEBUG - ProcessCommands()
+2017-11-14 20:25:59,740 DEBUG - Retrieved 0 commands
+2017-11-14 20:26:04,687 DEBUG - Waking up
+2017-11-14 20:26:04,687 DEBUG - ProcessCommands()
+2017-11-14 20:26:04,700 DEBUG - Retrieved 0 commands
+2017-11-14 20:26:09,689 DEBUG - Waking up
+2017-11-14 20:26:09,689 DEBUG - ProcessCommands()
+2017-11-14 20:26:09,708 DEBUG - Retrieved 0 commands
+2017-11-14 20:26:14,692 DEBUG - Waking up
+2017-11-14 20:26:14,692 DEBUG - ProcessCommands()
+2017-11-14 20:26:14,708 DEBUG - Retrieved 0 commands
+2017-11-14 20:26:19,693 DEBUG - Waking up
+2017-11-14 20:26:19,693 DEBUG - ProcessCommands()
+2017-11-14 20:26:19,720 DEBUG - Retrieved 0 commands
+2017-11-14 20:26:24,697 DEBUG - Waking up
+2017-11-14 20:26:24,697 DEBUG - ProcessCommands()
+2017-11-14 20:26:24,729 DEBUG - Retrieved 0 commands
+2017-11-14 20:26:29,699 DEBUG - Waking up
+2017-11-14 20:26:29,699 DEBUG - ProcessCommands()
+2017-11-14 20:26:29,725 DEBUG - Retrieved 0 commands
+2017-11-14 20:26:34,706 DEBUG - Waking up
+2017-11-14 20:26:34,706 DEBUG - ProcessCommands()
+2017-11-14 20:26:34,727 DEBUG - Retrieved 0 commands
+2017-11-14 20:26:39,712 DEBUG - Waking up
+2017-11-14 20:26:39,712 DEBUG - ProcessCommands()
+2017-11-14 20:26:39,737 DEBUG - Retrieved 0 commands
+2017-11-14 20:26:44,715 DEBUG - Waking up
+2017-11-14 20:26:44,715 DEBUG - ProcessCommands()
+2017-11-14 20:26:44,731 DEBUG - Retrieved 0 commands
+2017-11-14 20:26:49,716 DEBUG - Waking up
+2017-11-14 20:26:49,716 DEBUG - ProcessCommands()
+2017-11-14 20:26:49,749 DEBUG - Retrieved 0 commands
+2017-11-14 20:26:54,718 DEBUG - Waking up
+2017-11-14 20:26:54,718 DEBUG - ProcessCommands()
+2017-11-14 20:26:54,750 DEBUG - Retrieved 0 commands
+2017-11-14 20:26:59,720 DEBUG - Waking up
+2017-11-14 20:26:59,720 DEBUG - ProcessCommands()
+2017-11-14 20:26:59,754 DEBUG - Retrieved 0 commands
+2017-11-14 20:58:16,838 INFO  - =====================================================
+2017-11-14 20:58:16,853 INFO  - DeviceController.Init(): Initializing device...
+2017-11-14 20:58:16,883 DEBUG - Registering device 9CB70D839BC4 with server...
+2017-11-14 20:58:17,269 DEBUG - DeviceController start, registered with deviceId:1
+2017-11-14 20:58:17,284 INFO  - LoadSpis()
+2017-11-14 20:58:17,294 INFO  - LoadSolenoids()
+2017-11-14 20:58:17,310 INFO  - LoadAlarms()
+2017-11-14 20:58:17,319 INFO  - LoadAnalogs()
+2017-11-14 20:58:17,325 INFO  - LoadSchedules()
+2017-11-14 20:58:17,330 INFO  - DeviceController.LoadConfig(): Configuration complete.
+2017-11-14 20:58:17,352 DEBUG - LoadSpis(): Id:1 name:Test SPI 1 Clock:0 CS:0 MISO:18 MOSI:20 
+
+2017-11-14 20:58:17,353 INFO  - SpiDevice Id:1 Name:Test SPI 1 Clock:0 CS:0 MISO:18 MOSI:20
+2017-11-14 20:58:17,381 INFO  - DistributedAlarm Id:1 Name:Station1 Address:Test alarm 1 Description:http://192.168.1.100/k2 State:False
+2017-11-14 20:58:17,382 INFO  - GPIOAlarm Id:2 Name:Station2 Address:Test alarm 2 Description:P1Pin28 State:False
+2017-11-14 20:58:17,384 INFO  - DistributedAlarm Id:3 Name:Station3 Address:Test alarm 3 Description:1 State:False
+2017-11-14 20:58:17,384 INFO  - GPIOAlarm Id:4 Name:Station4 Address:Test alarm 4 Description:P1Pin21 State:False
+2017-11-14 20:58:17,384 DEBUG - 4 Alarms configured
+2017-11-14 20:58:17,385 INFO  - GPIOSolenoid Id:1 Name:Station1 Description:Test solenoid 1 Address:P1Pin25 State:False
+2017-11-14 20:58:17,385 INFO  - GPIOSolenoid Id:2 Name:Station2 Description:Test solenoid 2 Address:P1Pin28 State:False
+2017-11-14 20:58:17,385 INFO  - GPIOSolenoid Id:3 Name:Station3 Description:Test solenoid 3 Address:P1Pin26 State:True
+2017-11-14 20:58:17,385 INFO  - GPIOSolenoid Id:4 Name:Station4 Description:Test solenoid 4 Address:P1Pin21 State:False
+2017-11-14 20:58:17,385 DEBUG - 4 Solenoids configured
+2017-11-14 20:58:17,396 DEBUG - 4 Schedules configured
+2017-11-14 20:58:17,415 INFO  - SPIAnalog Id:1 Name: Description: Address:http://192.168.1.100/k2 Multiplier:0 Units: Value:0
+2017-11-14 20:58:17,415 DEBUG - 1 Analogs configured
+2017-11-14 20:58:22,291 DEBUG - Schedule Shelter test 2
+2017-11-14 20:58:22,331 INFO  - Schedule 'Shelter test 2' started
+2017-11-14 21:11:46,862 INFO  - =====================================================
+2017-11-14 21:11:46,877 INFO  - DeviceController.Init(): Initializing device...
+2017-11-14 21:11:46,906 DEBUG - Registering device 9CB70D839BC4 with server...
+2017-11-14 21:11:47,370 DEBUG - DeviceController start, registered with deviceId:1
+2017-11-14 21:11:47,386 INFO  - LoadSpis()
+2017-11-14 21:11:47,401 INFO  - LoadSolenoids()
+2017-11-14 21:11:47,422 INFO  - LoadAlarms()
+2017-11-14 21:11:47,429 INFO  - LoadAnalogs()
+2017-11-14 21:11:47,455 INFO  - LoadSchedules()
+2017-11-14 21:11:47,456 DEBUG - LoadSpis(): Id:1 name:Test SPI 1 Clock:0 CS:0 MISO:18 MOSI:20 
+
+2017-11-14 21:11:47,457 INFO  - SpiDevice Id:1 Name:Test SPI 1 Clock:0 CS:0 MISO:18 MOSI:20
+2017-11-14 21:11:47,473 INFO  - GPIOSolenoid Id:1 Name:Station1 Description:Test solenoid 1 Address:P1Pin25 State:False
+2017-11-14 21:11:47,474 INFO  - GPIOSolenoid Id:2 Name:Station2 Description:Test solenoid 2 Address:P1Pin28 State:False
+2017-11-14 21:11:47,474 INFO  - GPIOSolenoid Id:3 Name:Station3 Description:Test solenoid 3 Address:P1Pin26 State:True
+2017-11-14 21:11:47,474 INFO  - GPIOSolenoid Id:4 Name:Station4 Description:Test solenoid 4 Address:P1Pin21 State:False
+2017-11-14 21:11:47,474 DEBUG - 4 Solenoids configured
+2017-11-14 21:11:47,474 INFO  - DistributedAlarm Id:1 Name:Station1 Address:Test alarm 1 Description:http://192.168.1.100/k2 State:False
+2017-11-14 21:11:47,476 INFO  - GPIOAlarm Id:2 Name:Station2 Address:Test alarm 2 Description:P1Pin28 State:False
+2017-11-14 21:11:47,478 INFO  - DeviceController.LoadConfig(): Configuration complete.
+2017-11-14 21:11:47,478 INFO  - DistributedAlarm Id:3 Name:Station3 Address:Test alarm 3 Description:1 State:False
+2017-11-14 21:11:47,478 INFO  - GPIOAlarm Id:4 Name:Station4 Address:Test alarm 4 Description:P1Pin21 State:False
+2017-11-14 21:11:47,478 DEBUG - 4 Alarms configured
+2017-11-14 21:11:47,482 INFO  - SPIAnalog Id:1 Name: Description: Address:http://192.168.1.100/k2 Multiplier:0 Units: Value:0
+2017-11-14 21:11:47,482 DEBUG - 1 Analogs configured
+2017-11-14 21:11:47,485 DEBUG - 4 Schedules configured
+2017-11-14 21:11:52,392 DEBUG - Schedule Shelter test 2
+2017-11-14 21:11:52,408 INFO  - Schedule 'Shelter test 2' started
+2017-11-14 21:21:52,887 DEBUG - Program Shelter test 2 completed
+2017-11-14 21:21:52,900 DEBUG - Schedule Shelter test 2
+2017-11-14 21:21:52,904 INFO  - Schedule 'Shelter test 2' started
+2017-11-14 21:24:28,094 DEBUG - Command Manual
+2017-11-14 21:24:28,094 INFO  - Switching to Manual mode

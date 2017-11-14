@@ -8,12 +8,14 @@ namespace DeviceController.Data
 {
     public class Schedule
     {
+        public int Id;
         public string Name;
         public int SolenoidId;
         public DateTime Start;
         public int Duration;
-        public int Interval;
+        public string Days;        
         public bool Repeat;
         public bool Enabled;
+        public int DeviceId;
     }
 }

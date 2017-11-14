@@ -6,10 +6,10 @@ module.exports = {
             .create({            
                 name: req.body.Name,
                 start: req.body.Start,
-                duration: parseInt(req.body.Duration),            
-                repeat: req.body.Repeat,
-                interval: parseInt(req.body.Interval),
-                enabled:req.body.Enabled,
+                duration: parseInt(req.body.Duration),  
+                days: req.body.Days,          
+                repeat: req.body.Repeat,                
+                enabled: req.body.Enabled,
                 solenoidId: parseInt(req.body.SolenoidId),
                 deviceId: parseInt(req.body.DeviceId)
             })

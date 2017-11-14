@@ -33,6 +33,16 @@ namespace DeviceController.Data
             }
             return events;
         }
+        public async Task<List<Schedule>> GetSchedules(int deviceId)
+        {
+            List<Schedule> schedules = new List<Schedule>();
+            HttpResponseMessage response = await client.GetAsync(string.Format("devices/{0}/schedules", deviceId));
+            if (response.IsSuccessStatusCode)
+            {
+                schedules = await response.Content.ReadAsAsync<List<Schedule>>();
+            }
+            return schedules;
+        }
         public async Task<Device> Register(string macAddress)
         {            
             Device d = null;
@@ -156,6 +166,16 @@ namespace DeviceController.Data
                 analogs = await response.Content.ReadAsAsync<List<Analog>>();
             }
             return analogs;
+        }
+        public async Task<Device> GetDevice(int deviceId)
+        {
+            Device d = null;
+            HttpResponseMessage response = await client.GetAsync(string.Format("devices/{0}", deviceId));
+            if (response.IsSuccessStatusCode)
+            {
+                d = await response.Content.ReadAsAsync<Device>();
+            }
+            return d;
         }
     }
 }

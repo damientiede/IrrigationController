@@ -191,9 +191,12 @@ namespace DeviceController
             }
             log.DebugFormat("{0} Analogs configured", Analogs.Count());
         }
-        protected void LoadSchedules()
+        protected async void LoadSchedules()
         {
-            log.InfoFormat("LoadSchedules() todo");
+            log.InfoFormat("LoadSchedules()");
+            Schedules.Clear();
+            Schedules = await dataServer.GetSchedules(device.Id);
+            log.DebugFormat("{0} Schedules configured", Schedules.Count());
         }
         protected string ReportConfig()
         {
@@ -225,7 +228,7 @@ namespace DeviceController
         }
         #endregion
 
-        public async void Run()
+        public void Run()
         {
             while (!bShutdown)
             {
@@ -235,7 +238,7 @@ namespace DeviceController
                     {
                         //get commands
                         ProcessCommands();
-
+                        //log.DebugFormat("bShutdown:{0}", bShutdown.ToString());
                         //poll alarm status
 
                         if (ActiveProgram != null)
@@ -272,12 +275,14 @@ namespace DeviceController
 
                                 //check for next active schedule
                                 foreach (Schedule s in Schedules)
-                                {
-                                    if ((s.Start < DateTime.Now) && (s.Enabled))
+                                {                                    
+                                    log.DebugFormat("Schedule {0}", s.Name);
+                                    
+                                    if ((s.Start.AddMinutes(s.Duration) < DateTime.Now) && (s.Enabled))
                                     {
                                         //new active schedule
                                         ActiveSchedule = s;
-                                        ActiveProgram = await CreateIrrigationProgram(s.Name, s.Duration, s.SolenoidId);
+                                        CreateIrrigationProgram(s.Name, s.Duration, s.SolenoidId);
 
                                         SwitchSolenoid(ActiveProgram.SolenoidId, true);
                                         CreateEvent(EventTypes.IrrigationStart, string.Format("{0} started", ActiveProgram.Name));
@@ -293,6 +298,7 @@ namespace DeviceController
                         ReportStatus();                        
 
                         Thread.Sleep(5000);
+                        //log.Debug("Waking up");
                         //bShutdown = true;
                     }
                     catch (Exception ex)
@@ -301,6 +307,7 @@ namespace DeviceController
                     }
                 }
             }
+            log.InfoFormat("Device controller shutdown.");
         }
         public async void CreateEvent(EventTypes eventType, string desc)
         {            
@@ -314,18 +321,17 @@ namespace DeviceController
                 log.ErrorFormat("CreateEvent(): {0}", ex.Message);
             }
         }
-        public async Task<ActiveIrrigationProgram> CreateIrrigationProgram(string name, int duration, int solenoidId)
+        public async void CreateIrrigationProgram(string name, int duration, int solenoidId)
         {
-            ActiveIrrigationProgram program = new ActiveIrrigationProgram(name,duration,solenoidId,device.Id);
+            ActiveProgram = new ActiveIrrigationProgram(name,duration,solenoidId,device.Id);
             try
             {
-                program.Id = await dataServer.PostIrrigationProgram(program);                
+                ActiveProgram.Id = await dataServer.PostIrrigationProgram(ActiveProgram);                
             }
             catch (Exception ex)
             {
                 log.ErrorFormat("CreateIrrigationProgram(): {0}", ex.Message);
-            }
-            return program;
+            }            
         }
         public async void UpdateIrrigationProgram(IrrigationProgram p)
         {
@@ -340,12 +346,15 @@ namespace DeviceController
         }
         public async void ProcessCommands()
         {
+            //log.Debug("ProcessCommands()");
             //get commands
             try
             {
                 List<Command> commands = await dataServer.GetCommands(device.Id);
+                //log.DebugFormat("Retrieved {0} commands", commands.Count());
                 foreach (Command cmd in commands)
                 {
+                    log.DebugFormat("Command {0}", cmd.CommandType);
                     switch (cmd.CommandType)
                     {
                         //shutdown
@@ -393,7 +402,7 @@ namespace DeviceController
                                     }
 
                                     //create the new program
-                                    ActiveProgram = await CreateIrrigationProgram("Manual program",duration,solenoidId);                                    
+                                    CreateIrrigationProgram("Manual program",duration,solenoidId);                                    
                                                                                               
                                     device.State = DeviceState.Irrigating;
                                     device.Status = string.Format("Irrigating Solenoid {0} for {1} minutes", ActiveProgram.SolenoidId, ActiveProgram.Duration);
@@ -462,10 +471,10 @@ namespace DeviceController
         {                 
             if (device.Mode == DeviceMode.Auto)
             {
-                if (ActiveSchedule != null && ActiveProgram != null && ActiveSolenoid != null)
+                if (ActiveProgram != null && ActiveSolenoid != null)
                 {
                     device.Status = string.Format("Irrigating '{0}' from schedule '{1}'. {2} minutes remaining."
-                        ,ActiveSolenoid.Name, ActiveSchedule.Name, ActiveProgram.MinsRemaining);
+                        , ActiveSolenoid.Name, ActiveProgram.Name, ActiveProgram.MinsRemaining);
                 }
                 else
                 {

@@ -12,15 +12,18 @@ module.exports = (sequelize, DataTypes) => {
       type:DataTypes.INTEGER,
       allowNull:false
     },
-    repeat: DataTypes.BOOLEAN,
-    interval: DataTypes.INTEGER,
+    days: {
+      type:DataTypes.STRING,
+      allowNull:false
+    },
+    repeat: DataTypes.BOOLEAN,    
     enabled: DataTypes.BOOLEAN  
   });
 
   Schedule.associate = (models) => {
-    Schedule.hasOne(models.Solenoid, {
-      foreignKey: 'id',
-      as: 'solenoid'      
+    Schedule.belongsTo(models.Solenoid, {
+      foreignKey: 'solenoidId',
+      onDelete: 'CASCADE'      
     });
     Schedule.belongsTo(models.Device, {
         foreignKey: 'deviceId',

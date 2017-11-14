@@ -45,69 +45,69 @@ namespace TestHarness
 
         private async void button2_Click(object sender, EventArgs e)
         {
-            List<ISolenoid> solenoids = new List<ISolenoid>();  
-            List<Solenoid> sols = await data.GetSolenoids(1);
-            if (sols.Count() > 0)
-            {
-                textBox1.Text += string.Format("GetSolenoids() {0} solenoids retrieved \r\n", sols.Count());
-                //log.DebugFormat("GetCommands() {0} commands retrieved", commands.Count());
-            }
-            foreach (Solenoid solenoid in sols)
-            {
-                //textBox1.Text += string.Format("SolenoidId:{0} name:{1} Description:{2} HardwareType:{3} Address:{4} Value:{5} RequiresPump:{6} DeviceId:{7} \r\n", solenoid.Id, solenoid.Name, solenoid.Description, solenoid.HardwareType, solenoid.Address, solenoid.Value,solenoid.RequiresPump, solenoid.DeviceId);
-                if (solenoid.HardwareType == HardwareTypes.GPIO)
-                {
-                    GPIOSolenoid s = new GPIOSolenoid(solenoid.Id, solenoid.Address);
-                    solenoids.Add(s);
-                }
-                if (solenoid.HardwareType == HardwareTypes.Distributed)
-                {
-                    DistributedSolenoid s = new DistributedSolenoid(solenoid.Id, solenoid.Address);
-                    solenoids.Add(s);
-                }
-            }
-            foreach (ISolenoid s in solenoids)
-            {
-                textBox1.Text += string.Format("Solenoid:{0} Address:{1} State:{2}", s.Id, s.Address, s.State);
-            }
+            //List<ISolenoid> solenoids = new List<ISolenoid>();  
+            //List<Solenoid> sols = await data.GetSolenoids(1);
+            //if (sols.Count() > 0)
+            //{
+            //    textBox1.Text += string.Format("GetSolenoids() {0} solenoids retrieved \r\n", sols.Count());
+            //    //log.DebugFormat("GetCommands() {0} commands retrieved", commands.Count());
+            //}
+            //foreach (Solenoid solenoid in sols)
+            //{
+            //    //textBox1.Text += string.Format("SolenoidId:{0} name:{1} Description:{2} HardwareType:{3} Address:{4} Value:{5} RequiresPump:{6} DeviceId:{7} \r\n", solenoid.Id, solenoid.Name, solenoid.Description, solenoid.HardwareType, solenoid.Address, solenoid.Value,solenoid.RequiresPump, solenoid.DeviceId);
+            //    if (solenoid.HardwareType == HardwareTypes.GPIO)
+            //    {
+            //        GPIOSolenoid s = new GPIOSolenoid(solenoid.Id, solenoid.Address);
+            //        solenoids.Add(s);
+            //    }
+            //    if (solenoid.HardwareType == HardwareTypes.Distributed)
+            //    {
+            //        DistributedSolenoid s = new DistributedSolenoid(solenoid.Id, solenoid.Address);
+            //        solenoids.Add(s);
+            //    }
+            //}
+            //foreach (ISolenoid s in solenoids)
+            //{
+            //    textBox1.Text += string.Format("Solenoid:{0} Address:{1} State:{2}", s.Id, s.Address, s.State);
+            //}
         }
 
         private async void button3_Click(object sender, EventArgs e)
         {
-            List<IAlarm> alarms = new List<IAlarm>();     
-            List<Alarm> al = await data.GetAlarms(1);
-            if (al.Count() > 0)
-            {
-                textBox1.Text += string.Format("GetAlarms() {0} alarms retrieved \r\n", al.Count());                
-            }
-            foreach (Alarm alarm in al)
-            {
-                if (alarm.HardwareType == HardwareTypes.GPIO)
-                {
-                    GPIOAlarm a = new GPIOAlarm(alarm.Id, alarm.Address);
-                    a.Name = alarm.Name;
-                    a.Description = alarm.Description;
-                    alarms.Add(a);
-                }
-                if (alarm.HardwareType == HardwareTypes.Distributed)
-                {
-                    DistributedAlarm a = new DistributedAlarm(alarm.Id, alarm.Address);
-                    a.Name = alarm.Name;
-                    a.Description = alarm.Description;
-                    alarms.Add(a);
-                }
-                if (alarm.HardwareType == HardwareTypes.SPI)
-                {
-                    SPIAlarm a = new SPIAlarm(alarm.Id, alarm.Address);
-                    a.Name = alarm.Name;
-                    a.Description = alarm.Description;
-                    alarms.Add(a);
-                }
-            }
-            foreach (IAlarm alarm in alarms)
-            {
-                textBox1.Text += string.Format("AlarmId:{0} name:{1} description:{2} Address:{3} Value:{4} \r\n", alarm.Id, alarm.Name, alarm.Description, alarm.Address, alarm.State);
-            }
+            //List<IAlarm> alarms = new List<IAlarm>();     
+            //List<Alarm> al = await data.GetAlarms(1);
+            //if (al.Count() > 0)
+            //{
+            //    textBox1.Text += string.Format("GetAlarms() {0} alarms retrieved \r\n", al.Count());                
+            //}
+            //foreach (Alarm alarm in al)
+            //{
+            //    if (alarm.HardwareType == HardwareTypes.GPIO)
+            //    {
+            //        GPIOAlarm a = new GPIOAlarm(alarm.Id, alarm.Address);
+            //        a.Name = alarm.Name;
+            //        a.Description = alarm.Description;
+            //        alarms.Add(a);
+            //    }
+            //    if (alarm.HardwareType == HardwareTypes.Distributed)
+            //    {
+            //        DistributedAlarm a = new DistributedAlarm(alarm.Id, alarm.Address);
+            //        a.Name = alarm.Name;
+            //        a.Description = alarm.Description;
+            //        alarms.Add(a);
+            //    }
+            //    if (alarm.HardwareType == HardwareTypes.SPI)
+            //    {
+            //        SPIAlarm a = new SPIAlarm(alarm.Id, alarm.Address);
+            //        a.Name = alarm.Name;
+            //        a.Description = alarm.Description;
+            //        alarms.Add(a);
+            //    }
+            //}
+            //foreach (IAlarm alarm in alarms)
+            //{
+            //    textBox1.Text += string.Format("AlarmId:{0} name:{1} description:{2} Address:{3} Value:{4} \r\n", alarm.Id, alarm.Name, alarm.Description, alarm.Address, alarm.State);
+            //}
         }
 
         private async void button5_Click(object sender, EventArgs e)
@@ -181,5 +181,11 @@ namespace TestHarness
                 textBox1.Text += string.Format("Id:{0} name:{1} description:{2} Address:{3} Value:{4} Multiplier:{5} Units;{6} \r\n", a.Id, a.Name, a.Description, a.Address, a.Value, a.Multiplier, a.Units);
             }
         }
+
+        private async void timer1_Tick(object sender, EventArgs e)
+        {
+            Device d = await data.GetDevice(1);
+            lblStatus.Text = d.Status;
+        }        
     }
 }
