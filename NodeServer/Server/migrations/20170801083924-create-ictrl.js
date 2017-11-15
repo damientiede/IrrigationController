@@ -458,8 +458,14 @@ module.exports = {
             name: {
                 type: Sequelize.STRING
             },            
-            start: {
+            startDate: {
                 type: Sequelize.DATE
+            },
+            startHours: {
+                type: Sequelize.INTEGER
+            },
+            startMins: {
+                type: Sequelize.INTEGER
             },
             duration: {
                 type: Sequelize.INTEGER

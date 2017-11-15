@@ -275,21 +275,44 @@ namespace DeviceController
 
                                 //check for next active schedule
                                 foreach (Schedule s in Schedules)
-                                {                                    
-                                    log.DebugFormat("Schedule {0}", s.Name);
-                                    
-                                    if ((s.Start.AddMinutes(s.Duration) < DateTime.Now) && (s.Enabled))
+                                {
+                                    if (s.Enabled)
                                     {
-                                        //new active schedule
-                                        ActiveSchedule = s;
-                                        CreateIrrigationProgram(s.Name, s.Duration, s.SolenoidId);
+                                        log.DebugFormat("Schedule {0}", s.Name);
+                                        if (!s.Repeat)
+                                        {
+                                            //its a one off schedule - delete when finished
 
-                                        SwitchSolenoid(ActiveProgram.SolenoidId, true);
-                                        CreateEvent(EventTypes.IrrigationStart, string.Format("{0} started", ActiveProgram.Name));
-                                        log.InfoFormat("Schedule '{0}' started", ActiveProgram.Name);
-                                        device.State = DeviceState.Irrigating;
-                                        break;
-                                    }
+                                        }
+                                        else
+                                        {
+                                            //see if schedule has come into active window
+                                            int dayOfWeek = (int)DateTime.Now.DayOfWeek;
+                                            if (s.Days.Contains(dayOfWeek.ToString()))
+                                            {
+                                                DateTime start = new DateTime(
+                                                    DateTime.Now.Year,
+                                                    DateTime.Now.Month,
+                                                    DateTime.Now.Day,
+                                                    s.StartHours,
+                                                    s.StartMins,
+                                                    0);
+
+                                                if ((DateTime.Now > start) && (DateTime.Now <= start.AddMinutes(s.Duration)))
+                                                {
+                                                    //new active schedule
+                                                    ActiveSchedule = s;
+                                                    CreateIrrigationProgram(s.Name, s.Duration, s.SolenoidId);
+
+                                                    SwitchSolenoid(ActiveProgram.SolenoidId, true);
+                                                    CreateEvent(EventTypes.IrrigationStart, string.Format("Repeating schedule '{0}' started", ActiveProgram.Name));
+                                                    log.InfoFormat("Repeating schedule '{0}' started", ActiveProgram.Name);
+                                                    device.State = DeviceState.Irrigating;
+                                                    break;
+                                                }
+                                            }
+                                        }
+                                    }                                    
                                 }
                             }
                         }                       
@@ -448,6 +471,7 @@ namespace DeviceController
                         //Get schedules
                         case "GetSchedules":
                             log.Info("GetSchedules");
+                            LoadSchedules();
                             ActionCommand(cmd);
                             break;
 

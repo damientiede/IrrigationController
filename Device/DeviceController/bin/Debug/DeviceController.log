@@ -11037,3 +11037,257 @@
 2017-11-14 21:21:52,904 INFO  - Schedule 'Shelter test 2' started
 2017-11-14 21:24:28,094 DEBUG - Command Manual
 2017-11-14 21:24:28,094 INFO  - Switching to Manual mode
+2017-11-15 22:08:28,916 INFO  - =====================================================
+2017-11-15 22:08:28,944 INFO  - DeviceController.Init(): Initializing device...
+2017-11-15 22:08:29,080 DEBUG - Registering device 9CB70D839BC4 with server...
+2017-11-15 22:08:30,061 DEBUG - DeviceController start, registered with deviceId:1
+2017-11-15 22:08:30,101 INFO  - LoadSpis()
+2017-11-15 22:08:30,114 INFO  - LoadSolenoids()
+2017-11-15 22:08:30,120 INFO  - LoadAlarms()
+2017-11-15 22:08:30,124 INFO  - LoadAnalogs()
+2017-11-15 22:08:30,129 INFO  - LoadSchedules()
+2017-11-15 22:08:30,133 INFO  - DeviceController.LoadConfig(): Configuration complete.
+2017-11-15 22:08:30,147 DEBUG - LoadSpis(): Id:1 name:Test SPI 1 Clock:0 CS:0 MISO:18 MOSI:20 
+
+2017-11-15 22:08:30,147 INFO  - SpiDevice Id:1 Name:Test SPI 1 Clock:0 CS:0 MISO:18 MOSI:20
+2017-11-15 22:08:30,248 INFO  - SPIAnalog Id:1 Name: Description: Address:http://192.168.1.100/k2 Multiplier:0 Units: Value:0
+2017-11-15 22:08:30,248 DEBUG - 1 Analogs configured
+2017-11-15 22:08:30,248 INFO  - DistributedAlarm Id:1 Name:Station1 Address:Test alarm 1 Description:http://192.168.1.100/k2 State:False
+2017-11-15 22:08:30,249 INFO  - GPIOAlarm Id:2 Name:Station2 Address:Test alarm 2 Description:P1Pin28 State:False
+2017-11-15 22:08:30,251 INFO  - DistributedAlarm Id:3 Name:Station3 Address:Test alarm 3 Description:1 State:False
+2017-11-15 22:08:30,251 INFO  - GPIOAlarm Id:4 Name:Station4 Address:Test alarm 4 Description:P1Pin21 State:False
+2017-11-15 22:08:30,251 DEBUG - 2 Schedules configured
+2017-11-15 22:08:30,251 DEBUG - 4 Alarms configured
+2017-11-15 22:08:30,254 INFO  - GPIOSolenoid Id:1 Name:Station1 Description:Test solenoid 1 Address:P1Pin25 State:False
+2017-11-15 22:08:30,254 INFO  - GPIOSolenoid Id:2 Name:Station2 Description:Test solenoid 2 Address:P1Pin28 State:False
+2017-11-15 22:08:30,254 INFO  - GPIOSolenoid Id:3 Name:Station3 Description:Test solenoid 3 Address:P1Pin26 State:False
+2017-11-15 22:08:30,254 INFO  - GPIOSolenoid Id:4 Name:Station4 Description:Test solenoid 4 Address:P1Pin21 State:False
+2017-11-15 22:08:30,254 DEBUG - 4 Solenoids configured
+2017-11-15 22:10:37,498 INFO  - =====================================================
+2017-11-15 22:10:37,515 INFO  - DeviceController.Init(): Initializing device...
+2017-11-15 22:10:37,543 DEBUG - Registering device 9CB70D839BC4 with server...
+2017-11-15 22:10:37,956 DEBUG - DeviceController start, registered with deviceId:1
+2017-11-15 22:10:37,980 INFO  - LoadSpis()
+2017-11-15 22:10:37,994 INFO  - LoadSolenoids()
+2017-11-15 22:10:38,016 INFO  - LoadAlarms()
+2017-11-15 22:10:38,029 INFO  - LoadAnalogs()
+2017-11-15 22:10:38,037 INFO  - LoadSchedules()
+2017-11-15 22:10:38,039 DEBUG - LoadSpis(): Id:1 name:Test SPI 1 Clock:0 CS:0 MISO:18 MOSI:20 
+
+2017-11-15 22:10:38,041 INFO  - SpiDevice Id:1 Name:Test SPI 1 Clock:0 CS:0 MISO:18 MOSI:20
+2017-11-15 22:10:38,044 INFO  - DeviceController.LoadConfig(): Configuration complete.
+2017-11-15 22:10:38,125 INFO  - GPIOSolenoid Id:1 Name:Station1 Description:Test solenoid 1 Address:P1Pin25 State:False
+2017-11-15 22:10:38,125 INFO  - GPIOSolenoid Id:2 Name:Station2 Description:Test solenoid 2 Address:P1Pin28 State:False
+2017-11-15 22:10:38,125 INFO  - GPIOSolenoid Id:3 Name:Station3 Description:Test solenoid 3 Address:P1Pin26 State:False
+2017-11-15 22:10:38,125 INFO  - GPIOSolenoid Id:4 Name:Station4 Description:Test solenoid 4 Address:P1Pin21 State:False
+2017-11-15 22:10:38,125 DEBUG - 4 Solenoids configured
+2017-11-15 22:10:38,136 INFO  - DistributedAlarm Id:1 Name:Station1 Address:Test alarm 1 Description:http://192.168.1.100/k2 State:False
+2017-11-15 22:10:38,138 INFO  - SPIAnalog Id:1 Name: Description: Address:http://192.168.1.100/k2 Multiplier:0 Units: Value:0
+2017-11-15 22:10:38,138 DEBUG - 1 Analogs configured
+2017-11-15 22:10:38,138 INFO  - GPIOAlarm Id:2 Name:Station2 Address:Test alarm 2 Description:P1Pin28 State:False
+2017-11-15 22:10:38,139 DEBUG - 2 Schedules configured
+2017-11-15 22:10:38,139 INFO  - DistributedAlarm Id:3 Name:Station3 Address:Test alarm 3 Description:1 State:False
+2017-11-15 22:10:38,139 INFO  - GPIOAlarm Id:4 Name:Station4 Address:Test alarm 4 Description:P1Pin21 State:False
+2017-11-15 22:10:38,139 DEBUG - 4 Alarms configured
+2017-11-15 22:11:28,042 DEBUG - Command GetSchedules
+2017-11-15 22:11:28,042 INFO  - GetSchedules
+2017-11-15 22:11:28,042 INFO  - LoadSchedules()
+2017-11-15 22:11:28,087 DEBUG - 2 Schedules configured
+2017-11-15 22:12:03,046 DEBUG - Command GetSchedules
+2017-11-15 22:12:03,046 INFO  - GetSchedules
+2017-11-15 22:12:03,046 INFO  - LoadSchedules()
+2017-11-15 22:12:03,074 DEBUG - 2 Schedules configured
+2017-11-15 22:12:33,078 DEBUG - Command Shutdown
+2017-11-15 22:12:33,079 INFO  - DeviceController application shutdown
+2017-11-15 22:12:38,061 INFO  - Device controller shutdown.
+2017-11-15 22:12:46,429 INFO  - =====================================================
+2017-11-15 22:12:46,450 INFO  - DeviceController.Init(): Initializing device...
+2017-11-15 22:12:46,496 DEBUG - Registering device 9CB70D839BC4 with server...
+2017-11-15 22:12:46,970 DEBUG - DeviceController start, registered with deviceId:1
+2017-11-15 22:12:46,989 INFO  - LoadSpis()
+2017-11-15 22:12:47,019 INFO  - LoadSolenoids()
+2017-11-15 22:12:47,025 INFO  - LoadAlarms()
+2017-11-15 22:12:47,032 INFO  - LoadAnalogs()
+2017-11-15 22:12:47,037 INFO  - LoadSchedules()
+2017-11-15 22:12:47,044 INFO  - DeviceController.LoadConfig(): Configuration complete.
+2017-11-15 22:12:47,064 DEBUG - LoadSpis(): Id:1 name:Test SPI 1 Clock:0 CS:0 MISO:18 MOSI:20 
+
+2017-11-15 22:12:47,065 INFO  - SpiDevice Id:1 Name:Test SPI 1 Clock:0 CS:0 MISO:18 MOSI:20
+2017-11-15 22:12:47,107 INFO  - GPIOSolenoid Id:1 Name:Station1 Description:Test solenoid 1 Address:P1Pin25 State:False
+2017-11-15 22:12:47,107 INFO  - GPIOSolenoid Id:2 Name:Station2 Description:Test solenoid 2 Address:P1Pin28 State:False
+2017-11-15 22:12:47,107 INFO  - GPIOSolenoid Id:3 Name:Station3 Description:Test solenoid 3 Address:P1Pin26 State:False
+2017-11-15 22:12:47,107 INFO  - GPIOSolenoid Id:4 Name:Station4 Description:Test solenoid 4 Address:P1Pin21 State:False
+2017-11-15 22:12:47,107 DEBUG - 4 Solenoids configured
+2017-11-15 22:12:47,118 DEBUG - 2 Schedules configured
+2017-11-15 22:12:47,119 INFO  - DistributedAlarm Id:1 Name:Station1 Address:Test alarm 1 Description:http://192.168.1.100/k2 State:False
+2017-11-15 22:12:47,120 INFO  - GPIOAlarm Id:2 Name:Station2 Address:Test alarm 2 Description:P1Pin28 State:False
+2017-11-15 22:12:47,122 INFO  - DistributedAlarm Id:3 Name:Station3 Address:Test alarm 3 Description:1 State:False
+2017-11-15 22:12:47,122 INFO  - GPIOAlarm Id:4 Name:Station4 Address:Test alarm 4 Description:P1Pin21 State:False
+2017-11-15 22:12:47,122 DEBUG - 4 Alarms configured
+2017-11-15 22:12:47,133 INFO  - SPIAnalog Id:1 Name: Description: Address:http://192.168.1.100/k2 Multiplier:0 Units: Value:0
+2017-11-15 22:12:47,133 DEBUG - 1 Analogs configured
+2017-11-15 22:16:18,634 DEBUG - Command Auto
+2017-11-15 22:16:18,634 INFO  - Switching to Auto mode
+2017-11-15 22:16:23,620 DEBUG - Schedule Evening Shelter
+2017-11-15 22:16:23,647 INFO  - Repeating schedule 'Evening Shelter' started
+2017-11-15 22:17:48,689 DEBUG - Command Off
+2017-11-15 22:17:48,690 DEBUG - SolenoidsOff()
+2017-11-15 22:17:48,691 INFO  - Aborting manual irrigation program
+2017-11-15 22:18:03,717 DEBUG - Command Shutdown
+2017-11-15 22:18:03,718 INFO  - DeviceController application shutdown
+2017-11-15 22:18:08,681 INFO  - Device controller shutdown.
+2017-11-15 22:27:35,657 INFO  - =====================================================
+2017-11-15 22:27:35,672 INFO  - DeviceController.Init(): Initializing device...
+2017-11-15 22:27:35,702 DEBUG - Registering device 9CB70D839BC4 with server...
+2017-11-15 22:27:36,100 DEBUG - DeviceController start, registered with deviceId:1
+2017-11-15 22:27:36,118 INFO  - LoadSpis()
+2017-11-15 22:27:36,128 INFO  - LoadSolenoids()
+2017-11-15 22:27:36,136 INFO  - LoadAlarms()
+2017-11-15 22:27:36,142 INFO  - LoadAnalogs()
+2017-11-15 22:27:36,149 INFO  - LoadSchedules()
+2017-11-15 22:27:36,154 INFO  - DeviceController.LoadConfig(): Configuration complete.
+2017-11-15 22:27:36,162 DEBUG - LoadSpis(): Id:1 name:Test SPI 1 Clock:0 CS:0 MISO:18 MOSI:20 
+
+2017-11-15 22:27:36,163 INFO  - SpiDevice Id:1 Name:Test SPI 1 Clock:0 CS:0 MISO:18 MOSI:20
+2017-11-15 22:27:36,239 INFO  - DistributedAlarm Id:1 Name:Station1 Address:Test alarm 1 Description:http://192.168.1.100/k2 State:False
+2017-11-15 22:27:36,240 INFO  - GPIOAlarm Id:2 Name:Station2 Address:Test alarm 2 Description:P1Pin28 State:False
+2017-11-15 22:27:36,242 INFO  - DistributedAlarm Id:3 Name:Station3 Address:Test alarm 3 Description:1 State:False
+2017-11-15 22:27:36,242 INFO  - GPIOAlarm Id:4 Name:Station4 Address:Test alarm 4 Description:P1Pin21 State:False
+2017-11-15 22:27:36,242 DEBUG - 4 Alarms configured
+2017-11-15 22:27:36,242 DEBUG - 2 Schedules configured
+2017-11-15 22:27:36,245 INFO  - GPIOSolenoid Id:1 Name:Station1 Description:Test solenoid 1 Address:P1Pin25 State:False
+2017-11-15 22:27:36,245 INFO  - GPIOSolenoid Id:2 Name:Station2 Description:Test solenoid 2 Address:P1Pin28 State:False
+2017-11-15 22:27:36,245 INFO  - GPIOSolenoid Id:3 Name:Station3 Description:Test solenoid 3 Address:P1Pin26 State:False
+2017-11-15 22:27:36,245 INFO  - GPIOSolenoid Id:4 Name:Station4 Description:Test solenoid 4 Address:P1Pin21 State:False
+2017-11-15 22:27:36,245 DEBUG - 4 Solenoids configured
+2017-11-15 22:27:36,245 INFO  - SPIAnalog Id:1 Name: Description: Address:http://192.168.1.100/k2 Multiplier:0 Units: Value:0
+2017-11-15 22:27:36,245 DEBUG - 1 Analogs configured
+2017-11-15 22:27:46,172 DEBUG - Command Auto
+2017-11-15 22:27:46,172 INFO  - Switching to Auto mode
+2017-11-15 22:27:51,123 DEBUG - Schedule Evening Shelter
+2017-11-15 22:27:51,123 DEBUG - Schedule Block 1
+2017-11-15 22:27:56,124 DEBUG - Schedule Evening Shelter
+2017-11-15 22:27:56,124 DEBUG - Schedule Block 1
+2017-11-15 22:28:01,126 DEBUG - Schedule Evening Shelter
+2017-11-15 22:28:01,126 DEBUG - Schedule Block 1
+2017-11-15 22:28:06,127 DEBUG - Schedule Evening Shelter
+2017-11-15 22:28:06,127 DEBUG - Schedule Block 1
+2017-11-15 22:28:11,128 DEBUG - Schedule Evening Shelter
+2017-11-15 22:28:11,128 DEBUG - Schedule Block 1
+2017-11-15 22:28:16,130 DEBUG - Schedule Evening Shelter
+2017-11-15 22:28:16,130 DEBUG - Schedule Block 1
+2017-11-15 22:28:21,133 DEBUG - Schedule Evening Shelter
+2017-11-15 22:28:21,133 DEBUG - Schedule Block 1
+2017-11-15 22:28:26,135 DEBUG - Schedule Evening Shelter
+2017-11-15 22:28:26,135 DEBUG - Schedule Block 1
+2017-11-15 22:28:31,136 DEBUG - Schedule Evening Shelter
+2017-11-15 22:28:31,136 DEBUG - Schedule Block 1
+2017-11-15 22:28:36,138 DEBUG - Schedule Evening Shelter
+2017-11-15 22:28:36,138 DEBUG - Schedule Block 1
+2017-11-15 22:28:41,139 DEBUG - Schedule Evening Shelter
+2017-11-15 22:28:41,139 DEBUG - Schedule Block 1
+2017-11-15 22:28:46,141 DEBUG - Schedule Evening Shelter
+2017-11-15 22:28:46,141 DEBUG - Schedule Block 1
+2017-11-15 22:28:51,141 DEBUG - Schedule Evening Shelter
+2017-11-15 22:28:51,142 DEBUG - Schedule Block 1
+2017-11-15 22:28:56,143 DEBUG - Schedule Evening Shelter
+2017-11-15 22:28:56,143 DEBUG - Schedule Block 1
+2017-11-15 22:29:01,145 DEBUG - Schedule Evening Shelter
+2017-11-15 22:29:01,145 DEBUG - Schedule Block 1
+2017-11-15 22:29:06,146 DEBUG - Schedule Evening Shelter
+2017-11-15 22:29:06,146 DEBUG - Schedule Block 1
+2017-11-15 22:29:11,147 DEBUG - Schedule Evening Shelter
+2017-11-15 22:29:11,147 DEBUG - Schedule Block 1
+2017-11-15 22:29:11,164 DEBUG - Command GetSchedules
+2017-11-15 22:29:11,164 INFO  - GetSchedules
+2017-11-15 22:29:11,164 INFO  - LoadSchedules()
+2017-11-15 22:29:11,288 DEBUG - 2 Schedules configured
+2017-11-15 22:29:16,150 DEBUG - Schedule Evening Shelter
+2017-11-15 22:29:16,151 DEBUG - Schedule Block 1
+2017-11-15 22:29:21,153 DEBUG - Schedule Evening Shelter
+2017-11-15 22:29:21,153 DEBUG - Schedule Block 1
+2017-11-15 22:29:26,154 DEBUG - Schedule Evening Shelter
+2017-11-15 22:29:26,155 DEBUG - Schedule Block 1
+2017-11-15 22:29:31,156 DEBUG - Schedule Evening Shelter
+2017-11-15 22:29:31,156 DEBUG - Schedule Block 1
+2017-11-15 22:29:36,157 DEBUG - Schedule Evening Shelter
+2017-11-15 22:29:36,157 DEBUG - Schedule Block 1
+2017-11-15 22:29:41,159 DEBUG - Schedule Evening Shelter
+2017-11-15 22:29:41,160 DEBUG - Schedule Block 1
+2017-11-15 22:29:46,161 DEBUG - Schedule Evening Shelter
+2017-11-15 22:29:46,161 DEBUG - Schedule Block 1
+2017-11-15 22:29:51,162 DEBUG - Schedule Evening Shelter
+2017-11-15 22:29:51,162 DEBUG - Schedule Block 1
+2017-11-15 22:29:56,163 DEBUG - Schedule Evening Shelter
+2017-11-15 22:29:56,164 DEBUG - Schedule Block 1
+2017-11-15 22:30:01,166 DEBUG - Schedule Evening Shelter
+2017-11-15 22:30:01,166 DEBUG - Schedule Block 1
+2017-11-15 22:30:06,168 DEBUG - Schedule Evening Shelter
+2017-11-15 22:30:06,168 DEBUG - Schedule Block 1
+2017-11-15 22:30:11,176 DEBUG - Schedule Evening Shelter
+2017-11-15 22:30:11,176 DEBUG - Schedule Block 1
+2017-11-15 22:30:16,177 DEBUG - Schedule Evening Shelter
+2017-11-15 22:30:16,178 DEBUG - Schedule Block 1
+2017-11-15 22:30:21,179 DEBUG - Schedule Evening Shelter
+2017-11-15 22:30:21,179 DEBUG - Schedule Block 1
+2017-11-15 22:30:45,642 DEBUG - Schedule Evening Shelter
+2017-11-15 22:32:12,350 INFO  - =====================================================
+2017-11-15 22:32:12,366 INFO  - DeviceController.Init(): Initializing device...
+2017-11-15 22:32:12,400 DEBUG - Registering device 9CB70D839BC4 with server...
+2017-11-15 22:32:12,843 DEBUG - DeviceController start, registered with deviceId:1
+2017-11-15 22:32:12,857 INFO  - LoadSpis()
+2017-11-15 22:32:12,867 INFO  - LoadSolenoids()
+2017-11-15 22:32:12,873 INFO  - LoadAlarms()
+2017-11-15 22:32:12,878 INFO  - LoadAnalogs()
+2017-11-15 22:32:12,882 INFO  - LoadSchedules()
+2017-11-15 22:32:12,886 INFO  - DeviceController.LoadConfig(): Configuration complete.
+2017-11-15 22:32:12,921 DEBUG - LoadSpis(): Id:1 name:Test SPI 1 Clock:0 CS:0 MISO:18 MOSI:20 
+
+2017-11-15 22:32:12,922 INFO  - SpiDevice Id:1 Name:Test SPI 1 Clock:0 CS:0 MISO:18 MOSI:20
+2017-11-15 22:32:12,971 DEBUG - 2 Schedules configured
+2017-11-15 22:32:12,973 INFO  - GPIOSolenoid Id:1 Name:Station1 Description:Test solenoid 1 Address:P1Pin25 State:False
+2017-11-15 22:32:12,973 INFO  - GPIOSolenoid Id:2 Name:Station2 Description:Test solenoid 2 Address:P1Pin28 State:False
+2017-11-15 22:32:12,973 INFO  - GPIOSolenoid Id:3 Name:Station3 Description:Test solenoid 3 Address:P1Pin26 State:False
+2017-11-15 22:32:12,973 INFO  - GPIOSolenoid Id:4 Name:Station4 Description:Test solenoid 4 Address:P1Pin21 State:False
+2017-11-15 22:32:12,973 DEBUG - 4 Solenoids configured
+2017-11-15 22:32:12,984 INFO  - DistributedAlarm Id:1 Name:Station1 Address:Test alarm 1 Description:http://192.168.1.100/k2 State:False
+2017-11-15 22:32:12,985 INFO  - GPIOAlarm Id:2 Name:Station2 Address:Test alarm 2 Description:P1Pin28 State:False
+2017-11-15 22:32:12,987 INFO  - DistributedAlarm Id:3 Name:Station3 Address:Test alarm 3 Description:1 State:False
+2017-11-15 22:32:12,987 INFO  - GPIOAlarm Id:4 Name:Station4 Address:Test alarm 4 Description:P1Pin21 State:False
+2017-11-15 22:32:12,987 DEBUG - 4 Alarms configured
+2017-11-15 22:32:12,993 INFO  - SPIAnalog Id:1 Name: Description: Address:http://192.168.1.100/k2 Multiplier:0 Units: Value:0
+2017-11-15 22:32:12,993 DEBUG - 1 Analogs configured
+2017-11-15 22:32:24,480 DEBUG - Schedule Evening Shelter
+2017-11-15 22:32:24,495 INFO  - Repeating schedule 'Evening Shelter' started
+2017-11-15 22:37:24,642 DEBUG - Program Evening Shelter completed
+2017-11-15 22:37:24,648 DEBUG - Schedule Evening Shelter
+2017-11-15 22:37:24,648 DEBUG - Schedule Block 1
+2017-11-15 22:37:29,649 DEBUG - Schedule Evening Shelter
+2017-11-15 22:37:29,649 DEBUG - Schedule Block 1
+2017-11-15 22:37:34,651 DEBUG - Schedule Evening Shelter
+2017-11-15 22:37:34,651 DEBUG - Schedule Block 1
+2017-11-15 22:37:39,653 DEBUG - Schedule Evening Shelter
+2017-11-15 22:37:39,653 DEBUG - Schedule Block 1
+2017-11-15 22:37:44,655 DEBUG - Schedule Evening Shelter
+2017-11-15 22:37:44,655 DEBUG - Schedule Block 1
+2017-11-15 22:37:49,657 DEBUG - Schedule Evening Shelter
+2017-11-15 22:37:49,657 DEBUG - Schedule Block 1
+2017-11-15 22:37:54,660 DEBUG - Schedule Evening Shelter
+2017-11-15 22:37:54,660 DEBUG - Schedule Block 1
+2017-11-15 22:37:59,661 DEBUG - Schedule Evening Shelter
+2017-11-15 22:37:59,661 DEBUG - Schedule Block 1
+2017-11-15 22:38:04,665 DEBUG - Schedule Evening Shelter
+2017-11-15 22:38:04,665 DEBUG - Schedule Block 1
+2017-11-15 22:38:09,667 DEBUG - Schedule Evening Shelter
+2017-11-15 22:38:09,667 DEBUG - Schedule Block 1
+2017-11-15 22:38:14,669 DEBUG - Schedule Evening Shelter
+2017-11-15 22:38:14,669 DEBUG - Schedule Block 1
+2017-11-15 22:38:19,670 DEBUG - Schedule Evening Shelter
+2017-11-15 22:38:19,670 DEBUG - Schedule Block 1
+2017-11-15 22:38:24,671 DEBUG - Schedule Evening Shelter
+2017-11-15 22:38:24,671 DEBUG - Schedule Block 1
+2017-11-15 22:38:29,672 DEBUG - Schedule Evening Shelter
+2017-11-15 22:38:29,672 DEBUG - Schedule Block 1
+2017-11-15 22:38:29,703 DEBUG - Command Shutdown
+2017-11-15 22:38:29,704 INFO  - DeviceController application shutdown
+2017-11-15 22:38:34,672 INFO  - Device controller shutdown.

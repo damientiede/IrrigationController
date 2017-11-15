@@ -4,17 +4,25 @@ module.exports = (sequelize, DataTypes) => {
       type:DataTypes.STRING,
       allowNull:false
     },   
-    start: { 
+    startDate: { 
       type:DataTypes.DATE,
-      allowNull:false
+      allowNull:true
     },
+    startHours: {
+      type:DataTypes.INTEGER,
+      allowNull:true
+    },
+    startMins: {
+      type:DataTypes.INTEGER,
+      allowNull:true
+    },    
     duration: {
       type:DataTypes.INTEGER,
       allowNull:false
     },
     days: {
       type:DataTypes.STRING,
-      allowNull:false
+      allowNull:true
     },
     repeat: DataTypes.BOOLEAN,    
     enabled: DataTypes.BOOLEAN  

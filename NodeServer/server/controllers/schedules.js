@@ -5,7 +5,9 @@ module.exports = {
         return Schedule
             .create({            
                 name: req.body.Name,
-                start: req.body.Start,
+                startDate: req.body.StartDate,
+                startHours: req.body.StartHours,
+                startMins: req.body.StartMins,
                 duration: parseInt(req.body.Duration),  
                 days: req.body.Days,          
                 repeat: req.body.Repeat,                
@@ -32,7 +34,9 @@ module.exports = {
         return Schedule
             .update({        
                 name: req.body.Name,
-                start: req.body.Start,
+                startDate: req.body.StartDate,
+                startHours: parseInt(req.body.StartHours),
+                startMins: parseInt(req.body.StartMins),
                 duration: parseInt(req.body.Duration),            
                 repeat: req.body.Repeat,
                 interval: parseInt(req.body.Interval),
@@ -40,7 +44,7 @@ module.exports = {
                 solenoidId: parseInt(req.body.SolenoidId),
                 deviceId: parseInt(req.body.DeviceId)
             }, {
-	            where: { id: req.body.Id }
+	            where: { id: parseInt(req.body.Id) }
             })
             .then(schedule => res.status(200).send(schedule))
             .catch(error => res.status(400).send(error));
