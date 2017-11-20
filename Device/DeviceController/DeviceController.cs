@@ -278,7 +278,7 @@ namespace DeviceController
                                 {
                                     if (s.Enabled)
                                     {
-                                        log.DebugFormat("Schedule {0}", s.Name);
+                                        //log.DebugFormat("Schedule {0}", s.Name);
                                         if (!s.Repeat)
                                         {
                                             //its a one off schedule - delete when finished

@@ -1,0 +1,39 @@
+<div class="header">
+  <div class="container">
+      <div class="row">
+          <div class="col-md-2"></div>
+          <div class="col-md-8 centre-text">
+              <h1>{{title}}</h1>                    
+          </div>
+          <div class="col-md-2"></div>
+      </div>
+  </div>
+</div>
+<div class="container">
+    <div class="row">
+        <div class="col-md-3"></div>
+        <div class="col-md-6">
+          <nav>
+            <a routerLink="/status">Status</a>
+            <a routerLink="/history">History</a>
+            <a routerLink="/schedules">Schedules</a>
+          </nav>
+            <!--ul class="nav nav-pills">
+              <li role="presentation" class="active"><a href="#">Home</a></li>
+              <li role="presentation"><a href="history">History</a></li>
+              <li role="presentation"><a href="schedules">Schedules</a></li>
+            </ul-->
+        </div>
+        <div class="col-md-3"></div>
+    </div>
+    <router-outlet></router-outlet>
+</div>
+<div class="footer">
+  <div class="row">
+      <div class="col-md-3"></div>
+      <div class="col-md-6 centre-text">
+          <!--<a href="home">Home</a> | <a href="credits">Credits</a> | <a href="leaderboard">Leaderboard</a> | <a href="visitors">Visitors</a> | <a href="comments">Comments</a>-->
+      </div>
+      <div class="col-md-3"></div>
+  </div>
+</div>
