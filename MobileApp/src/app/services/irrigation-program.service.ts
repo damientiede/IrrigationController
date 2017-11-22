@@ -27,7 +27,7 @@ export class IrrigationProgramService {
   getIrrigationPrograms (): Observable<IrrigationProgram[]> {
     return this.http.get<IrrigationProgram[]>(this.irrigationProgramUrl)
       .pipe(
-        tap(heroes => this.log(`fetched irrigationPrograms`)),
+        tap(heroes => console.log(`fetched irrigationPrograms`)),
         catchError(this.handleError('getIrrigationPrograms', []))
       );
   }
@@ -40,7 +40,7 @@ export class IrrigationProgramService {
         map(irrigationPrograms => irrigationPrograms[0]), // returns a {0|1} element array
         tap(h => {
           const outcome = h ? `fetched` : `did not find`;
-          this.log(`${outcome} irrigationProgram id=${id}`);
+          console.log(`${outcome} irrigationProgram id=${id}`);
         }),
         catchError(this.handleError<IrrigationProgram>(`getIrrigationProgram id=${id}`))
       );
@@ -50,7 +50,7 @@ export class IrrigationProgramService {
   getIrrigationProgram(id: number): Observable<IrrigationProgram> {
     const url = `${this.irrigationProgramUrl}/${id}`;
     return this.http.get<IrrigationProgram>(url).pipe(
-      tap(_ => this.log(`fetched irrigationProgram id=${id}`)),
+      tap(_ => console.log(`fetched irrigationProgram id=${id}`)),
       catchError(this.handleError<IrrigationProgram>(`getIrrigationProgram id=${id}`))
     );
   }
@@ -62,7 +62,7 @@ export class IrrigationProgramService {
       return of([]);
     }
     return this.http.get<IrrigationProgram[]>(`api/heroes/?name=${term}`).pipe(
-      tap(_ => this.log(`found irrigationPrograms matching "${term}"`)),
+      tap(_ => console.log(`found irrigationPrograms matching "${term}"`)),
       catchError(this.handleError<IrrigationProgram[]>('searchIrrigationPrograms', []))
     );
   }
@@ -72,7 +72,7 @@ export class IrrigationProgramService {
   /** POST: add a new irrigationProgram to the server */
   addIrrigationProgram (irrigationProgram: IrrigationProgram): Observable<IrrigationProgram> {
     return this.http.post<IrrigationProgram>(this.irrigationProgramUrl, irrigationProgram, httpOptions).pipe(
-      tap((irrigationProgram: IrrigationProgram) => this.log(`added irrigationProgram w/ id=${irrigationProgram.id}`)),
+      tap((irrigationProgram: IrrigationProgram) => console.log(`added irrigationProgram w/ id=${irrigationProgram.id}`)),
       catchError(this.handleError<IrrigationProgram>('addIrrigationProgram'))
     );
   }
@@ -83,7 +83,7 @@ export class IrrigationProgramService {
     const url = `${this.irrigationProgramUrl}/${id}`;
 
     return this.http.delete<IrrigationProgram>(url, httpOptions).pipe(
-      tap(_ => this.log(`deleted irrigationProgram id=${id}`)),
+      tap(_ => console.log(`deleted irrigationProgram id=${id}`)),
       catchError(this.handleError<IrrigationProgram>('deleteIrrigationProgram'))
     );
   }
@@ -91,7 +91,7 @@ export class IrrigationProgramService {
   /** PUT: update the irrigationProgram on the server */
   updateIrrigationProgram (irrigationProgram: IrrigationProgram): Observable<any> {
     return this.http.put(this.irrigationProgramUrl, irrigationProgram, httpOptions).pipe(
-      tap(_ => this.log(`updated irrigationProgram id=${irrigationProgram.id}`)),
+      tap(_ => console.log(`updated irrigationProgram id=${irrigationProgram.id}`)),
       catchError(this.handleError<any>('updateIrrigationProgram'))
     );
   }
@@ -109,7 +109,7 @@ export class IrrigationProgramService {
       console.error(error); // log to console instead
 
       // TODO: better job of transforming error for user consumption
-      this.log(`${operation} failed: ${error.message}`);
+      console.log(`${operation} failed: ${error.message}`);
 
       // Let the app keep running by returning an empty result.
       return of(result as T);
@@ -117,8 +117,8 @@ export class IrrigationProgramService {
   }
 
   /** Log a HeroService message with the MessageService */
-  private log(message: string) {
+  /* private log(message: string) {
     this.messageService.add('IrrigationProgramService: ' + message);
-  }
+  } */
 }
 

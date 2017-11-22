@@ -7,7 +7,7 @@ import { catchError, map, tap } from 'rxjs/operators';
 
 import { Device } from '../models/device';
 import { Command } from '../models/command';
-import { IrrigationProgram } from './models/irrigation-program';
+import { IrrigationProgram } from '../models/irrigation-program';
 // import { Hero } from './hero';
 // import { MessageService } from './message.service';
 
@@ -29,7 +29,7 @@ export class DeviceService {
   getDevices (): Observable<Device[]> {
     return this.http.get<Device[]>(this.devicesUrl)
       .pipe(
-        tap(heroes => this.log(`fetched devices`)),
+        tap(devices => console.log(`fetched devices`)),
         catchError(this.handleError('getDevices', []))
       );
   }
@@ -42,7 +42,7 @@ export class DeviceService {
         map(devices => devices[0]), // returns a {0|1} element array
         tap(h => {
           const outcome = h ? `fetched` : `did not find`;
-          this.log(`${outcome} device id=${id}`);
+          console.log(`${outcome} device id=${id}`);
         }),
         catchError(this.handleError<Device>(`getDevice id=${id}`))
       );
@@ -52,7 +52,7 @@ export class DeviceService {
   getDevice(id: number): Observable<Device> {
     const url = `${this.devicesUrl}/${id}`;
     return this.http.get<Device>(url).pipe(
-      tap(_ => this.log(`fetched device id=${id}`)),
+      tap(_ => console.log(`fetched device id=${id}`)),
       catchError(this.handleError<Device>(`getDevice id=${id}`))
     );
   }
@@ -64,7 +64,7 @@ export class DeviceService {
       return of([]);
     }
     return this.http.get<Device[]>(`api/heroes/?name=${term}`).pipe(
-      tap(_ => this.log(`found devices matching "${term}"`)),
+      tap(_ => console.log(`found devices matching "${term}"`)),
       catchError(this.handleError<Device[]>('searchDevices', []))
     );
   }
@@ -74,7 +74,7 @@ export class DeviceService {
   /** POST: add a new device to the server */
   addDevice (device: Device): Observable<Device> {
     return this.http.post<Device>(this.devicesUrl, device, httpOptions).pipe(
-      tap((device: Device) => this.log(`added device w/ id=${device.id}`)),
+      tap((device: Device) => console.log(`added device w/ id=${device.id}`)),
       catchError(this.handleError<Device>('addDevice'))
     );
   }
@@ -85,7 +85,7 @@ export class DeviceService {
     const url = `${this.devicesUrl}/${id}`;
 
     return this.http.delete<Device>(url, httpOptions).pipe(
-      tap(_ => this.log(`deleted device id=${id}`)),
+      tap(_ => console.log(`deleted device id=${id}`)),
       catchError(this.handleError<Device>('deleteDevice'))
     );
   }
@@ -93,7 +93,7 @@ export class DeviceService {
   /** PUT: update the device on the server */
   updateHero (device: Device): Observable<any> {
     return this.http.put(this.devicesUrl, device, httpOptions).pipe(
-      tap(_ => this.log(`updated device id=${device.id}`)),
+      tap(_ => console.log(`updated device id=${device.id}`)),
       catchError(this.handleError<any>('updateDevice'))
     );
   }
@@ -111,7 +111,7 @@ export class DeviceService {
       console.error(error); // log to console instead
 
       // TODO: better job of transforming error for user consumption
-      this.log(`${operation} failed: ${error.message}`);
+      console.log(`${operation} failed: ${error.message}`);
 
       // Let the app keep running by returning an empty result.
       return of(result as T);
@@ -119,8 +119,8 @@ export class DeviceService {
   }
 
   /** Log a HeroService message with the MessageService */
-  private log(message: string) {
+ /*  private log(message: string) {
     this.messageService.add('DeviceService: ' + message);
-  }
+  } */
 }
 
