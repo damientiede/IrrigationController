@@ -11,6 +11,7 @@ import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
 import { StatusComponent } from './status.component/status.component';
 import { NavComponent } from './nav.component/nav.component';
 import { HistoryComponent} from './history.component/history.component';
+import { DiagnosticComponent } from './diagnostic.component/diagnostic.component';
 import { IrrigationControllerService} from './services/IrrigationController.service';
 import { routes } from './app.routes';
 
@@ -19,7 +20,8 @@ import { routes } from './app.routes';
     AppComponent,
     StatusComponent,
     NavComponent,
-    HistoryComponent
+    HistoryComponent,
+    DiagnosticComponent
   ],
   imports: [
     BrowserModule,

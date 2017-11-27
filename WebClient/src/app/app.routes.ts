@@ -2,6 +2,7 @@
 import { Routes } from '@angular/router';
 import { StatusComponent } from './status.component/status.component';
 import { HistoryComponent } from './history.component/history.component';
+import { DiagnosticComponent } from './diagnostic.component/diagnostic.component';
 
 //import { Login } from './login';
 //import { Signup } from './signup';
@@ -14,5 +15,6 @@ export const routes: Routes = [
   //{ path: 'signup', component: Signup },
   { path: 'status',   component: StatusComponent, canActivate: [AuthGuard] },
   { path: 'history',   component: HistoryComponent, canActivate: [AuthGuard] },
+  { path: 'diagnostic',   component: DiagnosticComponent, canActivate: [AuthGuard] },
   { path: '**',     component: StatusComponent },
 ];

@@ -4,7 +4,7 @@
         <div [ngClass]="getStatusClass()">
             <div class="panel-heading">
                 <div class="panel-title">
-                    {{getState()}}
+                    {{device.status}}
                 </div>
                 <div class="panel-content" *ngIf="getDuration() > 0">
                     <div class="row" >

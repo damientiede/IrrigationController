@@ -6,6 +6,7 @@ import { ToastsManager } from 'ng2-toastr/ng2-toastr';
 //import { SlimLoadingBarService } from 'ng2-slim-loading-bar';
 import { IrrigationControllerService} from '../services/IrrigationController.service';
 import { IStatus} from '../model/status';
+import { IDevice } from '../model/device';
 import { IEvent } from '../model/event';
 import { ICommand } from '../model/command';
 
@@ -15,11 +16,12 @@ import { ICommand } from '../model/command';
 })
 
 export class StatusComponent implements OnInit {  
-  status : IStatus;
-  manualStation:number = 1;
-  manualDuration:number = 5;
-  elapsed:number = 0;
-  loaded:boolean = false;
+  status: IStatus;
+  device: IDevice;
+  manualStation: number = 1;
+  manualDuration: number = 5;
+  elapsed: number = 0;
+  loaded: boolean = false;
   constructor (private dataService:IrrigationControllerService,
                public toastr: ToastsManager, 
                vcr: ViewContainerRef,      
@@ -29,7 +31,27 @@ export class StatusComponent implements OnInit {
   }
 
   ngOnInit() {
-    this.getStatus();    
+    this.getDevice(1);
+  }
+
+  getDevice(id: number) {
+    console.log('getDevice()');
+    this.dataService
+      .getDevice(id)
+      .subscribe((d: IDevice) => {
+            console.log(d);
+            this.device = d;
+            this.loaded = true;
+          },
+          error => () => {
+              console.log('Something went wrong...');
+              //this._toasterService.pop('error', 'Damn', 'Something went wrong...');
+          },
+          () => {
+              console.log('Success');
+              //this._toasterService.pop('success', 'Complete', 'Getting all values complete');
+              //this._slimLoadingBarService.complete();
+          });
   }
 
   getStatus() {
@@ -64,9 +86,9 @@ export class StatusComponent implements OnInit {
     return 0;
   }
   getStatusClass(){
-    if (this.status == null) return;
+    /* if (this.status == null) return;
     if(this.status.state.indexOf("Irrigating") > -1) { return "panel panel-success"; }
-    if(this.status.state.indexOf("Fault") > -1) { return "panel panel-danger"; }
+    if(this.status.state.indexOf("Fault") > -1) { return "panel panel-danger"; } */
     return "panel panel-default";
   }
   formatDateShort(date) {
