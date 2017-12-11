@@ -44,5 +44,20 @@ module.exports = {
             })
             .then(irrigationPrograms => res.status(200).send(irrigationPrograms))
             .catch(error => res.status(400).send(error));  
+   },
+   activeByDevice(req, res) {
+       return IrrigationProgram
+            .findAll({
+                where: {
+                    deviceId: req.params.deviceId,
+                    finished: null
+                },
+                order: [
+                    ['createdAt','DESC']
+                ],
+                limit: 1                 
+            })
+            .then(irrigationPrograms => res.status(200).send(irrigationPrograms))
+            .catch(error => res.status(400).send(error));
    }
 };

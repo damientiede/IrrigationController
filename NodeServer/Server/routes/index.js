@@ -93,6 +93,6 @@ module.exports = (app) => {
    app.get('/api/irrigationprograms', irrigationProgramsController.list);
    app.put('/api/irrigationprograms/:id', irrigationProgramsController.update);
    app.get('/api/devices/:deviceId/irrigationprograms', irrigationProgramsController.listByDevice);
-   
+   app.get('/api/devices/:deviceId/activeprogram',irrigationProgramsController.activeByDevice);
 };
 

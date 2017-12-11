@@ -8,8 +8,7 @@ import { IEvent } from '../model/event';
 
 @Component({
   selector: 'history-component',
-  templateUrl: './history.component.html',
-  //styleUrls: ['./app.component.css']
+  templateUrl: './history.component.html'
 })
 
 export class HistoryComponent implements OnInit { 

@@ -1,11 +1,12 @@
 export class ICommand {
     constructor(
-        public id:number,
-        public commandtype:number,
-        public params:string,
-        public issued:Date,
-        public actioned:Date,               
-        public createdAt:Date,
-        public updatedAt:Date
+        public Id:number,
+        public CommandType:string,
+        public Params:string,
+        public Issued:Date,
+        public Actioned:Date, 
+        public DeviceId: number,              
+        public CreatedAt:Date,
+        public UpdatedAt:Date
     ){}
 }

@@ -14,7 +14,9 @@ module.exports = {
    list(req, res) {
       return Event
          .findAll({ 
-            where: { deviceId: parseInt(req.params.deviceId) }
+            where: { deviceId: parseInt(req.params.deviceId) },
+            order: [['createdAt','DESC']],
+            limit: 250
          })
          .then(events => res.status(200).send(events))
          .catch(error => res.status(400).send(error));

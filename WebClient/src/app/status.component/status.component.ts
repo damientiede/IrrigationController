@@ -1,5 +1,6 @@
 import { Component, OnInit, ViewContainerRef  } from '@angular/core';
 import {Router} from "@angular/router";
+import {Observable} from 'rxjs/Rx';
 import * as moment from 'moment';
 //import { ToasterService } from 'angular2-toaster/angular2-toaster';
 import { ToastsManager } from 'ng2-toastr/ng2-toastr';
@@ -7,6 +8,7 @@ import { ToastsManager } from 'ng2-toastr/ng2-toastr';
 import { IrrigationControllerService} from '../services/IrrigationController.service';
 import { IStatus} from '../model/status';
 import { IDevice } from '../model/device';
+import { ISolenoid } from '../model/solenoid';
 import { IEvent } from '../model/event';
 import { ICommand } from '../model/command';
 
@@ -16,22 +18,33 @@ import { ICommand } from '../model/command';
 })
 
 export class StatusComponent implements OnInit {  
+  ticks = 0;
   status: IStatus;
   device: IDevice;
+  solenoids: ISolenoid[];
   manualStation: number = 1;
   manualDuration: number = 5;
   elapsed: number = 0;
   loaded: boolean = false;
-  constructor (private dataService:IrrigationControllerService,
-               public toastr: ToastsManager, 
-               vcr: ViewContainerRef,      
-               private router:Router
-              ) { 
+  dateFormat='YYYY-MM-DD HH:mm:ss';
+  constructor (private dataService: IrrigationControllerService,
+               public toastr: ToastsManager,
+               vcr: ViewContainerRef,
+               private router: Router
+              ) {
     this.toastr.setRootViewContainerRef(vcr);
   }
 
   ngOnInit() {
+    this.getSolenoids(1);
+    let timer = Observable.timer(0,5000);
+    timer.subscribe(t => {
+      this.onTick(t);
+    });
+  }
+  onTick(t) {
     this.getDevice(1);
+    this.ticks = t;
   }
 
   getDevice(id: number) {
@@ -53,7 +66,24 @@ export class StatusComponent implements OnInit {
               //this._slimLoadingBarService.complete();
           });
   }
-
+  getSolenoids(id: number) {
+    console.log('getSolenoids()');
+    this.dataService
+      .getSolenoids(id)
+      .subscribe((s: ISolenoid[]) => {
+            this.solenoids = s;
+            //this.loaded = true;
+          },
+          error => () => {
+              console.log('Something went wrong...');
+              //this._toasterService.pop('error', 'Damn', 'Something went wrong...');
+          },
+          () => {
+              console.log('Success');
+              //this._toasterService.pop('success', 'Complete', 'Getting all values complete');
+              //this._slimLoadingBarService.complete();
+          });
+  }
   getStatus() {
     console.log('getStatus()');
     this.dataService
@@ -119,18 +149,19 @@ export class StatusComponent implements OnInit {
     return '';
   }
   getLastUpdated() {
-    if (this.status != null) {
-      return moment(this.status.updatedAt).format("Do MMM YYYY h:mm:ss a");
+    if (this.device != null) {
+      return moment(this.device.updatedAt).format("Do MMM YYYY h:mm:ss a");
     }
     return '';    
   }
   manualStop() {
     let cmd = new ICommand(
       0,  //id
-      4,  //commandtype
+      'Stop',  //commandtype
       '', //params
       new Date, //issued
       null, //actioned
+      1, //deviceId
       new Date, //createdAt
       null  //updatedAt
     );
@@ -140,17 +171,18 @@ export class StatusComponent implements OnInit {
     if (this.manualStation != null && this.manualDuration != null) {
       let cmd = new ICommand(
         0,  //id
-        3,  //commandtype
+        'Manual',  //commandType
         `${this.manualStation}, ${this.manualDuration}`,
         new Date, //issued
         null, //actioned
+        1, //deviceId
         new Date, //createdAt
         null  //updatedAt
       );
       this.sendCommand(cmd);
     }
   }
-  sendCommand(cmd:ICommand) {
+  sendCommand(cmd: ICommand) {
     this.dataService.sendCommand(cmd)
     .subscribe(() => {},
       error => () => {

@@ -449,6 +449,7 @@ namespace DeviceController
                             break;
 
                         //Off - turn off all solenoids
+                        case "Stop":
                         case "Off":
                             SolenoidsOff();
                             device.State = DeviceState.Standby;

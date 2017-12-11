@@ -11291,3 +11291,247 @@
 2017-11-15 22:38:29,703 DEBUG - Command Shutdown
 2017-11-15 22:38:29,704 INFO  - DeviceController application shutdown
 2017-11-15 22:38:34,672 INFO  - Device controller shutdown.
+2017-12-11 20:45:19,886 INFO  - =====================================================
+2017-12-11 20:45:19,903 INFO  - DeviceController.Init(): Initializing device...
+2017-12-11 20:45:19,961 DEBUG - Registering device 9CB70D839BC4 with server...
+2017-12-11 20:45:20,758 DEBUG - DeviceController start, registered with deviceId:1
+2017-12-11 20:45:20,915 INFO  - LoadSpis()
+2017-12-11 20:45:20,925 INFO  - LoadSolenoids()
+2017-12-11 20:45:20,933 INFO  - LoadAlarms()
+2017-12-11 20:45:20,939 INFO  - LoadAnalogs()
+2017-12-11 20:45:20,942 INFO  - LoadSchedules()
+2017-12-11 20:45:20,945 INFO  - DeviceController.LoadConfig(): Configuration complete.
+2017-12-11 20:45:21,079 DEBUG - LoadSpis(): Id:1 name:Test SPI 1 Clock:0 CS:0 MISO:18 MOSI:20 
+
+2017-12-11 20:45:21,080 INFO  - SpiDevice Id:1 Name:Test SPI 1 Clock:0 CS:0 MISO:18 MOSI:20
+2017-12-11 20:45:21,081 DEBUG - Command Manual
+2017-12-11 20:45:21,081 INFO  - Switching to Manual mode
+2017-12-11 20:45:21,083 INFO  - DistributedAlarm Id:1 Name:Station1 Address:Test alarm 1 Description:http://192.168.1.100/k2 State:False
+2017-12-11 20:45:21,085 INFO  - SPIAnalog Id:1 Name: Description: Address:http://192.168.1.100/k2 Multiplier:0 Units: Value:0
+2017-12-11 20:45:21,085 DEBUG - 1 Analogs configured
+2017-12-11 20:45:21,086 INFO  - GPIOAlarm Id:2 Name:Station2 Address:Test alarm 2 Description:P1Pin28 State:False
+2017-12-11 20:45:21,088 INFO  - GPIOSolenoid Id:1 Name:Station1 Description:Test solenoid 1 Address:P1Pin25 State:False
+2017-12-11 20:45:21,088 INFO  - GPIOSolenoid Id:2 Name:Station2 Description:Test solenoid 2 Address:P1Pin28 State:False
+2017-12-11 20:45:21,088 INFO  - GPIOSolenoid Id:3 Name:Station3 Description:Test solenoid 3 Address:P1Pin26 State:False
+2017-12-11 20:45:21,088 INFO  - GPIOSolenoid Id:4 Name:Station4 Description:Test solenoid 4 Address:P1Pin21 State:False
+2017-12-11 20:45:21,088 DEBUG - 4 Solenoids configured
+2017-12-11 20:45:21,090 INFO  - DistributedAlarm Id:3 Name:Station3 Address:Test alarm 3 Description:1 State:False
+2017-12-11 20:45:21,090 INFO  - GPIOAlarm Id:4 Name:Station4 Address:Test alarm 4 Description:P1Pin21 State:False
+2017-12-11 20:45:21,090 DEBUG - 4 Alarms configured
+2017-12-11 20:45:21,092 INFO  - Irrigating Solenoid 1 for 5 minutes
+2017-12-11 20:45:21,092 DEBUG - 2 Schedules configured
+2017-12-11 20:50:16,149 DEBUG - Command Manual
+2017-12-11 20:50:16,149 INFO  - Switching to Manual mode
+2017-12-11 20:50:16,153 DEBUG - Program Manual program aborted
+2017-12-11 20:50:16,158 INFO  - Irrigating Solenoid 3 for 30 minutes
+2017-12-11 21:17:58,734 ERROR - GetCommands(): An error occurred while sending the request.
+2017-12-11 21:17:58,734 ERROR - ReportStatus(): An error occurred while sending the request.
+2017-12-11 21:18:03,243 ERROR - GetCommands(): An error occurred while sending the request.
+2017-12-11 21:18:03,283 ERROR - ReportStatus(): An error occurred while sending the request.
+2017-12-11 21:18:08,245 ERROR - GetCommands(): An error occurred while sending the request.
+2017-12-11 21:18:08,286 ERROR - ReportStatus(): An error occurred while sending the request.
+2017-12-11 21:18:13,271 ERROR - GetCommands(): An error occurred while sending the request.
+2017-12-11 21:18:13,320 ERROR - ReportStatus(): An error occurred while sending the request.
+2017-12-11 21:18:18,239 ERROR - GetCommands(): An error occurred while sending the request.
+2017-12-11 21:18:18,298 ERROR - ReportStatus(): An error occurred while sending the request.
+2017-12-11 21:18:23,301 ERROR - GetCommands(): An error occurred while sending the request.
+2017-12-11 21:18:23,342 ERROR - ReportStatus(): An error occurred while sending the request.
+2017-12-11 21:18:28,289 ERROR - GetCommands(): An error occurred while sending the request.
+2017-12-11 21:18:28,343 ERROR - ReportStatus(): An error occurred while sending the request.
+2017-12-11 21:18:33,287 ERROR - GetCommands(): An error occurred while sending the request.
+2017-12-11 21:18:33,330 ERROR - ReportStatus(): An error occurred while sending the request.
+2017-12-11 21:18:38,315 ERROR - GetCommands(): An error occurred while sending the request.
+2017-12-11 21:18:38,349 ERROR - ReportStatus(): An error occurred while sending the request.
+2017-12-11 21:18:43,284 ERROR - GetCommands(): An error occurred while sending the request.
+2017-12-11 21:18:43,323 ERROR - ReportStatus(): An error occurred while sending the request.
+2017-12-11 21:18:48,304 ERROR - GetCommands(): An error occurred while sending the request.
+2017-12-11 21:18:48,348 ERROR - ReportStatus(): An error occurred while sending the request.
+2017-12-11 21:18:53,280 ERROR - GetCommands(): An error occurred while sending the request.
+2017-12-11 21:18:53,323 ERROR - ReportStatus(): An error occurred while sending the request.
+2017-12-11 21:18:58,267 ERROR - GetCommands(): An error occurred while sending the request.
+2017-12-11 21:18:58,307 ERROR - ReportStatus(): An error occurred while sending the request.
+2017-12-11 21:19:03,303 ERROR - GetCommands(): An error occurred while sending the request.
+2017-12-11 21:19:03,360 ERROR - ReportStatus(): An error occurred while sending the request.
+2017-12-11 21:19:08,272 ERROR - GetCommands(): An error occurred while sending the request.
+2017-12-11 21:19:08,314 ERROR - ReportStatus(): An error occurred while sending the request.
+2017-12-11 21:19:13,278 ERROR - GetCommands(): An error occurred while sending the request.
+2017-12-11 21:19:13,320 ERROR - ReportStatus(): An error occurred while sending the request.
+2017-12-11 21:20:17,226 DEBUG - Program Manual program completed
+2017-12-11 21:20:27,307 DEBUG - Command Manual
+2017-12-11 21:20:27,307 INFO  - Switching to Manual mode
+2017-12-11 21:20:27,308 INFO  - Irrigating Solenoid 2 for 45 minutes
+2017-12-11 21:31:02,687 DEBUG - Command Stop
+2017-12-11 21:31:07,661 DEBUG - Command Stop
+2017-12-11 21:31:12,668 DEBUG - Command Stop
+2017-12-11 21:31:17,671 DEBUG - Command Stop
+2017-12-11 21:31:22,652 DEBUG - Command Stop
+2017-12-11 21:31:27,654 DEBUG - Command Stop
+2017-12-11 21:31:32,681 DEBUG - Command Stop
+2017-12-11 21:31:37,671 DEBUG - Command Stop
+2017-12-11 21:31:42,662 DEBUG - Command Stop
+2017-12-11 21:31:47,661 DEBUG - Command Stop
+2017-12-11 21:31:52,670 DEBUG - Command Stop
+2017-12-11 21:31:57,665 DEBUG - Command Stop
+2017-12-11 21:32:02,710 DEBUG - Command Stop
+2017-12-11 21:32:07,699 DEBUG - Command Stop
+2017-12-11 21:32:12,710 DEBUG - Command Stop
+2017-12-11 21:32:17,682 DEBUG - Command Stop
+2017-12-11 21:32:22,692 DEBUG - Command Stop
+2017-12-11 21:32:27,695 DEBUG - Command Stop
+2017-12-11 21:32:32,710 DEBUG - Command Stop
+2017-12-11 21:33:03,155 INFO  - =====================================================
+2017-12-11 21:33:03,171 INFO  - DeviceController.Init(): Initializing device...
+2017-12-11 21:33:03,204 DEBUG - Registering device 9CB70D839BC4 with server...
+2017-12-11 21:33:03,632 DEBUG - DeviceController start, registered with deviceId:1
+2017-12-11 21:33:03,649 INFO  - LoadSpis()
+2017-12-11 21:33:03,658 INFO  - LoadSolenoids()
+2017-12-11 21:33:03,667 INFO  - LoadAlarms()
+2017-12-11 21:33:03,673 INFO  - LoadAnalogs()
+2017-12-11 21:33:03,678 INFO  - LoadSchedules()
+2017-12-11 21:33:03,681 INFO  - DeviceController.LoadConfig(): Configuration complete.
+2017-12-11 21:33:03,701 DEBUG - LoadSpis(): Id:1 name:Test SPI 1 Clock:0 CS:0 MISO:18 MOSI:20 
+
+2017-12-11 21:33:03,703 INFO  - SpiDevice Id:1 Name:Test SPI 1 Clock:0 CS:0 MISO:18 MOSI:20
+2017-12-11 21:33:03,708 DEBUG - Command Stop
+2017-12-11 21:33:03,709 DEBUG - SolenoidsOff()
+2017-12-11 21:33:03,748 INFO  - DistributedAlarm Id:1 Name:Station1 Address:Test alarm 1 Description:http://192.168.1.100/k2 State:False
+2017-12-11 21:33:03,750 INFO  - GPIOAlarm Id:2 Name:Station2 Address:Test alarm 2 Description:P1Pin28 State:False
+2017-12-11 21:33:03,752 INFO  - DistributedAlarm Id:3 Name:Station3 Address:Test alarm 3 Description:1 State:False
+2017-12-11 21:33:03,752 INFO  - GPIOAlarm Id:4 Name:Station4 Address:Test alarm 4 Description:P1Pin21 State:False
+2017-12-11 21:33:03,752 DEBUG - 4 Alarms configured
+2017-12-11 21:33:03,753 INFO  - GPIOSolenoid Id:1 Name:Station1 Description:Test solenoid 1 Address:P1Pin25 State:False
+2017-12-11 21:33:03,754 INFO  - GPIOSolenoid Id:2 Name:Station2 Description:Test solenoid 2 Address:P1Pin28 State:True
+2017-12-11 21:33:03,754 INFO  - GPIOSolenoid Id:3 Name:Station3 Description:Test solenoid 3 Address:P1Pin26 State:False
+2017-12-11 21:33:03,754 INFO  - GPIOSolenoid Id:4 Name:Station4 Description:Test solenoid 4 Address:P1Pin21 State:False
+2017-12-11 21:33:03,754 DEBUG - 4 Solenoids configured
+2017-12-11 21:33:03,779 DEBUG - 2 Schedules configured
+2017-12-11 21:33:03,782 INFO  - SPIAnalog Id:1 Name: Description: Address:http://192.168.1.100/k2 Multiplier:0 Units: Value:0
+2017-12-11 21:33:03,782 DEBUG - 1 Analogs configured
+2017-12-11 21:33:33,702 DEBUG - Command Manual
+2017-12-11 21:33:33,702 INFO  - Switching to Manual mode
+2017-12-11 21:33:33,709 INFO  - Irrigating Solenoid 5 for 5 minutes
+2017-12-11 21:35:18,806 DEBUG - Command Stop
+2017-12-11 21:35:18,806 DEBUG - SolenoidsOff()
+2017-12-11 21:35:18,807 INFO  - Aborting manual irrigation program
+2017-12-11 21:35:33,795 DEBUG - Command Manual
+2017-12-11 21:35:33,795 INFO  - Switching to Manual mode
+2017-12-11 21:35:33,806 INFO  - Irrigating Solenoid 6 for 5 minutes
+2017-12-11 21:40:33,926 DEBUG - Program Manual program completed
+2017-12-11 21:41:25,121 ERROR - GetCommands(): An error occurred while sending the request.
+2017-12-11 21:41:25,152 ERROR - ReportStatus(): An error occurred while sending the request.
+2017-12-11 21:41:30,022 ERROR - GetCommands(): An error occurred while sending the request.
+2017-12-11 21:41:30,080 ERROR - ReportStatus(): An error occurred while sending the request.
+2017-12-11 21:41:35,063 ERROR - GetCommands(): An error occurred while sending the request.
+2017-12-11 21:41:35,107 ERROR - ReportStatus(): An error occurred while sending the request.
+2017-12-11 21:41:40,070 ERROR - GetCommands(): An error occurred while sending the request.
+2017-12-11 21:41:40,112 ERROR - ReportStatus(): An error occurred while sending the request.
+2017-12-11 21:41:45,041 ERROR - GetCommands(): An error occurred while sending the request.
+2017-12-11 21:41:45,100 ERROR - ReportStatus(): An error occurred while sending the request.
+2017-12-11 21:41:50,061 ERROR - GetCommands(): An error occurred while sending the request.
+2017-12-11 21:41:50,104 ERROR - ReportStatus(): An error occurred while sending the request.
+2017-12-11 21:41:55,037 ERROR - GetCommands(): An error occurred while sending the request.
+2017-12-11 21:41:55,116 ERROR - ReportStatus(): An error occurred while sending the request.
+2017-12-11 21:42:00,055 ERROR - GetCommands(): An error occurred while sending the request.
+2017-12-11 21:42:00,101 ERROR - ReportStatus(): An error occurred while sending the request.
+2017-12-11 21:42:05,059 ERROR - GetCommands(): An error occurred while sending the request.
+2017-12-11 21:42:05,121 ERROR - ReportStatus(): An error occurred while sending the request.
+2017-12-11 21:42:10,066 ERROR - GetCommands(): An error occurred while sending the request.
+2017-12-11 21:42:10,108 ERROR - ReportStatus(): An error occurred while sending the request.
+2017-12-11 21:42:15,054 ERROR - GetCommands(): An error occurred while sending the request.
+2017-12-11 21:42:15,098 ERROR - ReportStatus(): An error occurred while sending the request.
+2017-12-11 21:42:20,092 ERROR - GetCommands(): An error occurred while sending the request.
+2017-12-11 21:42:20,107 ERROR - ReportStatus(): An error occurred while sending the request.
+2017-12-11 21:42:25,059 ERROR - GetCommands(): An error occurred while sending the request.
+2017-12-11 21:42:25,103 ERROR - ReportStatus(): An error occurred while sending the request.
+2017-12-11 21:42:30,064 ERROR - GetCommands(): An error occurred while sending the request.
+2017-12-11 21:42:30,105 ERROR - ReportStatus(): An error occurred while sending the request.
+2017-12-11 21:42:35,088 ERROR - GetCommands(): An error occurred while sending the request.
+2017-12-11 21:42:35,130 ERROR - ReportStatus(): An error occurred while sending the request.
+2017-12-11 21:42:40,075 ERROR - GetCommands(): An error occurred while sending the request.
+2017-12-11 21:42:40,120 ERROR - ReportStatus(): An error occurred while sending the request.
+2017-12-11 21:42:45,059 ERROR - GetCommands(): An error occurred while sending the request.
+2017-12-11 21:42:45,101 ERROR - ReportStatus(): An error occurred while sending the request.
+2017-12-11 21:42:50,075 ERROR - GetCommands(): An error occurred while sending the request.
+2017-12-11 21:42:50,118 ERROR - ReportStatus(): An error occurred while sending the request.
+2017-12-11 21:42:55,076 ERROR - GetCommands(): An error occurred while sending the request.
+2017-12-11 21:42:55,120 ERROR - ReportStatus(): An error occurred while sending the request.
+2017-12-11 21:43:00,090 ERROR - GetCommands(): An error occurred while sending the request.
+2017-12-11 21:43:00,121 ERROR - ReportStatus(): An error occurred while sending the request.
+2017-12-11 21:43:05,084 ERROR - GetCommands(): An error occurred while sending the request.
+2017-12-11 21:43:05,127 ERROR - ReportStatus(): An error occurred while sending the request.
+2017-12-11 21:43:10,093 ERROR - GetCommands(): An error occurred while sending the request.
+2017-12-11 21:43:10,135 ERROR - ReportStatus(): An error occurred while sending the request.
+2017-12-11 21:43:15,064 ERROR - GetCommands(): An error occurred while sending the request.
+2017-12-11 21:43:15,106 ERROR - ReportStatus(): An error occurred while sending the request.
+2017-12-11 21:43:20,075 ERROR - GetCommands(): An error occurred while sending the request.
+2017-12-11 21:43:20,144 ERROR - ReportStatus(): An error occurred while sending the request.
+2017-12-11 21:43:25,111 ERROR - GetCommands(): An error occurred while sending the request.
+2017-12-11 21:43:25,142 ERROR - ReportStatus(): An error occurred while sending the request.
+2017-12-11 21:43:30,086 ERROR - GetCommands(): An error occurred while sending the request.
+2017-12-11 21:43:30,141 ERROR - ReportStatus(): An error occurred while sending the request.
+2017-12-11 21:43:35,077 ERROR - GetCommands(): An error occurred while sending the request.
+2017-12-11 21:43:35,123 ERROR - ReportStatus(): An error occurred while sending the request.
+2017-12-11 21:43:40,080 ERROR - GetCommands(): An error occurred while sending the request.
+2017-12-11 21:43:40,121 ERROR - ReportStatus(): An error occurred while sending the request.
+2017-12-11 21:43:45,103 ERROR - GetCommands(): An error occurred while sending the request.
+2017-12-11 21:43:45,140 ERROR - ReportStatus(): An error occurred while sending the request.
+2017-12-11 21:43:50,076 ERROR - GetCommands(): An error occurred while sending the request.
+2017-12-11 21:43:50,122 ERROR - ReportStatus(): An error occurred while sending the request.
+2017-12-11 21:43:55,110 ERROR - GetCommands(): An error occurred while sending the request.
+2017-12-11 21:43:55,154 ERROR - ReportStatus(): An error occurred while sending the request.
+2017-12-11 21:44:00,084 ERROR - GetCommands(): An error occurred while sending the request.
+2017-12-11 21:44:00,130 ERROR - ReportStatus(): An error occurred while sending the request.
+2017-12-11 21:44:05,071 ERROR - GetCommands(): An error occurred while sending the request.
+2017-12-11 21:44:05,130 ERROR - ReportStatus(): An error occurred while sending the request.
+2017-12-11 21:54:09,375 DEBUG - Command Manual
+2017-12-11 21:54:09,376 INFO  - Switching to Manual mode
+2017-12-11 21:54:09,377 INFO  - Irrigating Solenoid 7 for 5 minutes
+2017-12-11 21:59:09,492 DEBUG - Program Manual program completed
+2017-12-11 22:19:54,023 INFO  - =====================================================
+2017-12-11 22:19:54,039 INFO  - DeviceController.Init(): Initializing device...
+2017-12-11 22:19:54,068 DEBUG - Registering device 9CB70D839BC4 with server...
+2017-12-11 22:19:54,579 DEBUG - DeviceController start, registered with deviceId:1
+2017-12-11 22:19:54,601 INFO  - LoadSpis()
+2017-12-11 22:19:54,624 INFO  - LoadSolenoids()
+2017-12-11 22:19:54,641 INFO  - LoadAlarms()
+2017-12-11 22:19:54,673 INFO  - LoadAnalogs()
+2017-12-11 22:19:54,678 INFO  - LoadSchedules()
+2017-12-11 22:19:54,682 INFO  - DeviceController.LoadConfig(): Configuration complete.
+2017-12-11 22:19:54,687 DEBUG - LoadSpis(): Id:1 name:Test SPI 1 Clock:0 CS:0 MISO:18 MOSI:20 
+
+2017-12-11 22:19:54,687 INFO  - SpiDevice Id:1 Name:Test SPI 1 Clock:0 CS:0 MISO:18 MOSI:20
+2017-12-11 22:19:54,715 INFO  - GPIOSolenoid Id:1 Name:Station1 Description:Test solenoid 1 Address:P1Pin25 State:False
+2017-12-11 22:19:54,715 INFO  - GPIOSolenoid Id:2 Name:Station2 Description:Test solenoid 2 Address:P1Pin28 State:False
+2017-12-11 22:19:54,715 INFO  - GPIOSolenoid Id:3 Name:Station3 Description:Test solenoid 3 Address:P1Pin26 State:False
+2017-12-11 22:19:54,715 INFO  - GPIOSolenoid Id:4 Name:Station4 Description:Test solenoid 4 Address:P1Pin21 State:False
+2017-12-11 22:19:54,715 DEBUG - 4 Solenoids configured
+2017-12-11 22:19:54,721 INFO  - DistributedAlarm Id:1 Name:Station1 Address:Test alarm 1 Description:http://192.168.1.100/k2 State:False
+2017-12-11 22:19:54,723 INFO  - GPIOAlarm Id:2 Name:Station2 Address:Test alarm 2 Description:P1Pin28 State:False
+2017-12-11 22:19:54,725 INFO  - DistributedAlarm Id:3 Name:Station3 Address:Test alarm 3 Description:1 State:False
+2017-12-11 22:19:54,725 INFO  - GPIOAlarm Id:4 Name:Station4 Address:Test alarm 4 Description:P1Pin21 State:False
+2017-12-11 22:19:54,725 DEBUG - 4 Alarms configured
+2017-12-11 22:19:54,726 INFO  - SPIAnalog Id:1 Name: Description: Address:http://192.168.1.100/k2 Multiplier:0 Units: Value:0
+2017-12-11 22:19:54,726 DEBUG - 1 Analogs configured
+2017-12-11 22:19:54,742 DEBUG - 2 Schedules configured
+2017-12-11 22:20:04,624 DEBUG - Command Manual
+2017-12-11 22:20:04,625 INFO  - Switching to Manual mode
+2017-12-11 22:20:04,634 INFO  - Irrigating Solenoid 3 for 60 minutes
+2017-12-11 22:21:34,695 DEBUG - Command Stop
+2017-12-11 22:21:34,695 DEBUG - SolenoidsOff()
+2017-12-11 22:21:34,697 INFO  - Aborting manual irrigation program
+2017-12-11 22:22:59,723 DEBUG - Command Manual
+2017-12-11 22:22:59,723 INFO  - Switching to Manual mode
+2017-12-11 22:22:59,724 INFO  - Irrigating Solenoid 4 for 5 minutes
+2017-12-11 22:26:09,821 DEBUG - Command Manual
+2017-12-11 22:26:09,821 INFO  - Switching to Manual mode
+2017-12-11 22:26:09,826 DEBUG - Program Manual program aborted
+2017-12-11 22:26:09,832 INFO  - Irrigating Solenoid 2 for 5 minutes
+2017-12-11 22:26:44,828 DEBUG - Command Stop
+2017-12-11 22:26:44,828 DEBUG - SolenoidsOff()
+2017-12-11 22:26:44,829 INFO  - Aborting manual irrigation program
+2017-12-11 22:31:09,952 DEBUG - Command Stop
+2017-12-11 22:31:09,952 DEBUG - SolenoidsOff()
+2017-12-11 22:31:19,977 DEBUG - Command Manual
+2017-12-11 22:31:19,977 INFO  - Switching to Manual mode
+2017-12-11 22:31:19,978 INFO  - Irrigating Solenoid 2 for 5 minutes
+2017-12-11 22:36:20,069 DEBUG - Program Manual program completed
