@@ -53,7 +53,14 @@ export class IrrigationControllerService {
             // ...errors if any
             .catch((error: any) => Observable.throw(error.json().error || 'Server error'));
     }
-
+    getActiveProgram(id: number): Observable <IIrrigationProgram> {
+        const url = `${this.restUrl}/devices/${id}/activeprogram`;
+        return this.http.get(url)
+            // ...and calling .json() on the response to return data
+            .map((res: Response) => res.json())
+            // ...errors if any
+            .catch((error: any) => Observable.throw(error.json().error || 'Server error'));
+    }
     getEvents(): Observable <IEvent[]> {
         const url = `${this.restUrl}/events`;
         console.log('IrrigationControllerService.getEvents() '+this.restUrl);

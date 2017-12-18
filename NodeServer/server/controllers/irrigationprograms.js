@@ -1,5 +1,7 @@
 const IrrigationProgram = require('../models').IrrigationProgram;
 const Utils = require('../utils');
+const moment = require('moment');
+const sequelize = require('sequelize');
 
 module.exports = {
    create(req, res) {      
@@ -46,16 +48,17 @@ module.exports = {
             .catch(error => res.status(400).send(error));  
    },
    activeByDevice(req, res) {
+       console.log(moment());
        return IrrigationProgram
             .findAll({
                 where: {
-                    deviceId: req.params.deviceId,
-                    finished: null
+                    deviceId: req.params.deviceId,                                    
+                    finished: null,
                 },
                 order: [
                     ['createdAt','DESC']
                 ],
-                limit: 1                 
+                limit: 1               
             })
             .then(irrigationPrograms => res.status(200).send(irrigationPrograms))
             .catch(error => res.status(400).send(error));

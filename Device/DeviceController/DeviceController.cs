@@ -413,16 +413,7 @@ namespace DeviceController
                                     int duration = Int32.Parse(parts[1]);
 
                                     //abort the active program if it exists
-                                    if (ActiveProgram != null)
-                                    {
-                                        SwitchSolenoid(ActiveProgram.SolenoidId, false);
-                                        CreateEvent(EventTypes.IrrigationStop, string.Format("{0} aborted", ActiveProgram.Name));
-                                        log.DebugFormat("Program {0} aborted", ActiveProgram.Name);
-                                        ActiveProgram.Finished = DateTime.Now;
-                                        UpdateIrrigationProgram(ActiveProgram);
-                                        ActiveProgram = null;
-                                        ActiveSolenoid = null;
-                                    }
+                                    AbortProgram();
 
                                     //create the new program
                                     CreateIrrigationProgram("Manual program",duration,solenoidId);                                    
@@ -456,15 +447,7 @@ namespace DeviceController
                             device.Mode = DeviceMode.Manual;
 
                             CreateEvent(EventTypes.Application, "Switching all solenoids off");
-                            if (ActiveProgram != null)
-                            {
-                                if (!ActiveProgram.Completed)
-                                {
-                                    log.InfoFormat("Aborting manual irrigation program");
-                                    ActiveProgram = null;
-                                    CreateEvent(EventTypes.IrrigationStop, "Aborting manual irrigation program");
-                                }
-                            }
+                            AbortProgram();
 
                             ActionCommand(cmd);
                             break;
@@ -491,6 +474,20 @@ namespace DeviceController
                 log.ErrorFormat("GetCommands(): {0}", ex.Message);
             }
 
+        }
+        public void AbortProgram()
+        {
+            //abort the active program if it exists
+            if (ActiveProgram != null)
+            {
+                SwitchSolenoid(ActiveProgram.SolenoidId, false);
+                CreateEvent(EventTypes.IrrigationStop, string.Format("{0} aborted", ActiveProgram.Name));
+                log.DebugFormat("Program {0} aborted", ActiveProgram.Name);
+                ActiveProgram.Finished = DateTime.Now;
+                UpdateIrrigationProgram(ActiveProgram);
+                ActiveProgram = null;
+                ActiveSolenoid = null;
+            }
         }
         public async void ReportStatus()
         {                 

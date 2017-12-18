@@ -11,6 +11,7 @@ import { IDevice } from '../model/device';
 import { ISolenoid } from '../model/solenoid';
 import { IEvent } from '../model/event';
 import { ICommand } from '../model/command';
+import { IIrrigationProgram } from '../model/irrigationprogram';
 
 @Component({
   selector: 'status-component',
@@ -22,6 +23,7 @@ export class StatusComponent implements OnInit {
   status: IStatus;
   device: IDevice;
   solenoids: ISolenoid[];
+  activeProgram: IIrrigationProgram;
   manualStation: number = 1;
   manualDuration: number = 5;
   elapsed: number = 0;
@@ -37,6 +39,7 @@ export class StatusComponent implements OnInit {
 
   ngOnInit() {
     this.getSolenoids(1);
+    this.getActiveProgram(1);
     let timer = Observable.timer(0,5000);
     timer.subscribe(t => {
       this.onTick(t);
@@ -84,6 +87,29 @@ export class StatusComponent implements OnInit {
               //this._slimLoadingBarService.complete();
           });
   }
+  getActiveProgram(id: number) {
+    console.log('getActiveProgram()');
+    this.dataService
+      .getActiveProgram(id)
+      .subscribe((p: IIrrigationProgram) => {
+            
+           /*  if (moment(p.start).add(p.duration, 'minutes') > moment()){
+              this.activeProgram = p;
+              const e = moment().subtract()
+              this.elapsed = ()
+            } */
+            //this.loaded = true;
+          },
+          error => () => {
+              console.log('Something went wrong...');
+              //this._toasterService.pop('error', 'Damn', 'Something went wrong...');
+          },
+          () => {
+              console.log('Success');
+              //this._toasterService.pop('success', 'Complete', 'Getting all values complete');
+              //this._slimLoadingBarService.complete();
+          });
+  }
   getStatus() {
     console.log('getStatus()');
     this.dataService
@@ -93,7 +119,7 @@ export class StatusComponent implements OnInit {
             if (data.length > 0) {
               this.status = data[0];
               this.loaded = true;
-            }            
+            }
           },
           error => () => {
               console.log('Something went wrong...');
@@ -110,8 +136,8 @@ export class StatusComponent implements OnInit {
     return this.loaded;
   }
   getDuration() {
-    if (this.status != null) {
-      return this.status.duration;
+    if (this.activeProgram != null) {
+      return this.activeProgram.duration;
     }
     return 0;
   }
