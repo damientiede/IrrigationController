@@ -17,3 +17,4 @@ C:\Users\Dad\Source\Repos\IrrigationController\Device\DeviceController.IO\bin\De
 C:\Users\Dad\Source\Repos\IrrigationController\Device\DeviceController.IO\bin\Debug\System.Net.Http.Formatting.dll
 C:\Users\Dad\Source\Repos\IrrigationController\Device\DeviceController.IO\bin\Debug\DeviceController.Data.pdb
 C:\Users\Dad\Source\Repos\IrrigationController\Device\DeviceController.IO\bin\Debug\System.Net.Http.Formatting.xml
+C:\Users\Dad\Source\Repos\IrrigationController\Device\DeviceController.IO\bin\Debug\DeviceController.IO.dll.config

@@ -50,10 +50,9 @@ module.exports = {
    activeByDevice(req, res) {
        console.log(moment());
        return IrrigationProgram
-            .findAll({
+            .findOne({
                 where: {
-                    deviceId: req.params.deviceId,                                    
-                    finished: null,
+                    deviceId: req.params.deviceId
                 },
                 order: [
                     ['createdAt','DESC']

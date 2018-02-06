@@ -11817,3 +11817,114 @@
 2017-12-18 22:45:44,474 DEBUG - Command Stop
 2017-12-18 22:45:44,475 DEBUG - SolenoidsOff()
 2017-12-18 22:45:44,475 DEBUG - Program Manual program aborted
+2017-12-19 20:32:39,501 INFO  - =====================================================
+2017-12-19 20:32:39,519 INFO  - DeviceController.Init(): Initializing device...
+2017-12-19 20:32:39,557 DEBUG - Registering device 9CB70D839BC4 with server...
+2017-12-19 20:32:40,005 DEBUG - DeviceController start, registered with deviceId:1
+2017-12-19 20:32:40,019 INFO  - LoadSpis()
+2017-12-19 20:32:40,026 INFO  - LoadSolenoids()
+2017-12-19 20:32:40,033 INFO  - LoadAlarms()
+2017-12-19 20:32:40,040 INFO  - LoadAnalogs()
+2017-12-19 20:32:40,045 INFO  - LoadSchedules()
+2017-12-19 20:32:40,048 INFO  - DeviceController.LoadConfig(): Configuration complete.
+2017-12-19 20:32:40,082 DEBUG - LoadSpis(): Id:1 name:Test SPI 1 Clock:0 CS:0 MISO:18 MOSI:20 
+
+2017-12-19 20:32:40,083 INFO  - SpiDevice Id:1 Name:Test SPI 1 Clock:0 CS:0 MISO:18 MOSI:20
+2017-12-19 20:32:40,091 INFO  - GPIOSolenoid Id:1 Name:Station1 Description:Test solenoid 1 Address:P1Pin25 State:False
+2017-12-19 20:32:40,091 INFO  - GPIOSolenoid Id:2 Name:Station2 Description:Test solenoid 2 Address:P1Pin28 State:False
+2017-12-19 20:32:40,091 INFO  - GPIOSolenoid Id:3 Name:Station3 Description:Test solenoid 3 Address:P1Pin26 State:False
+2017-12-19 20:32:40,091 INFO  - GPIOSolenoid Id:4 Name:Station4 Description:Test solenoid 4 Address:P1Pin21 State:False
+2017-12-19 20:32:40,092 DEBUG - 4 Solenoids configured
+2017-12-19 20:32:40,159 INFO  - DistributedAlarm Id:1 Name:Station1 Address:Test alarm 1 Description:http://192.168.1.100/k2 State:False
+2017-12-19 20:32:40,160 INFO  - GPIOAlarm Id:2 Name:Station2 Address:Test alarm 2 Description:P1Pin28 State:False
+2017-12-19 20:32:40,160 INFO  - SPIAnalog Id:1 Name: Description: Address:http://192.168.1.100/k2 Multiplier:0 Units: Value:0
+2017-12-19 20:32:40,160 DEBUG - 1 Analogs configured
+2017-12-19 20:32:40,161 INFO  - DistributedAlarm Id:3 Name:Station3 Address:Test alarm 3 Description:1 State:False
+2017-12-19 20:32:40,161 INFO  - GPIOAlarm Id:4 Name:Station4 Address:Test alarm 4 Description:P1Pin21 State:False
+2017-12-19 20:32:40,161 DEBUG - 4 Alarms configured
+2017-12-19 20:32:40,192 DEBUG - 2 Schedules configured
+2017-12-19 20:33:15,057 DEBUG - Command Manual
+2017-12-19 20:33:15,071 INFO  - Switching to Manual mode
+2017-12-19 20:33:15,121 INFO  - Irrigating Solenoid 1 for 5 minutes
+2017-12-19 20:38:15,195 DEBUG - Program Manual program completed
+2017-12-19 20:42:05,263 DEBUG - Command Manual
+2017-12-19 20:42:05,263 INFO  - Switching to Manual mode
+2017-12-19 20:42:05,264 INFO  - Irrigating Solenoid 2 for 5 minutes
+2017-12-19 20:47:05,276 DEBUG - Program Manual program completed
+2017-12-19 20:55:20,439 DEBUG - Command Manual
+2017-12-19 20:55:20,439 INFO  - Switching to Manual mode
+2017-12-19 20:55:20,439 INFO  - Irrigating Solenoid 3 for 5 minutes
+2017-12-19 21:00:20,467 DEBUG - Program Manual program completed
+2017-12-19 21:04:45,556 DEBUG - Command Manual
+2017-12-19 21:04:45,556 INFO  - Switching to Manual mode
+2017-12-19 21:04:45,556 INFO  - Irrigating Solenoid 1 for 5 minutes
+2017-12-19 21:09:45,573 DEBUG - Program Manual program completed
+2017-12-19 21:14:10,703 DEBUG - Command Manual
+2017-12-19 21:14:10,703 INFO  - Switching to Manual mode
+2017-12-19 21:14:10,703 INFO  - Irrigating Solenoid 1 for 5 minutes
+2017-12-19 21:19:10,724 DEBUG - Program Manual program completed
+2017-12-19 21:41:11,162 DEBUG - Command Manual
+2017-12-19 21:41:11,162 INFO  - Switching to Manual mode
+2017-12-19 21:41:11,162 INFO  - Irrigating Solenoid 2 for 30 minutes
+2017-12-19 21:44:12,583 ERROR - ReportStatus(): An error occurred while sending the request.
+2017-12-19 21:47:36,243 DEBUG - Command Stop
+2017-12-19 21:47:36,243 DEBUG - SolenoidsOff()
+2017-12-19 21:47:36,244 DEBUG - Program Manual program aborted
+2017-12-19 21:47:52,233 ERROR - ReportStatus(): An error occurred while sending the request.
+2017-12-19 21:47:52,242 ERROR - GetCommands(): An error occurred while sending the request.
+2017-12-19 21:47:57,226 ERROR - GetCommands(): An error occurred while sending the request.
+2017-12-19 21:47:57,236 ERROR - ReportStatus(): An error occurred while sending the request.
+2017-12-19 21:48:02,225 ERROR - GetCommands(): An error occurred while sending the request.
+2017-12-19 21:48:02,231 ERROR - ReportStatus(): An error occurred while sending the request.
+2017-12-19 21:48:07,227 ERROR - GetCommands(): An error occurred while sending the request.
+2017-12-19 21:48:07,259 ERROR - ReportStatus(): An error occurred while sending the request.
+2017-12-19 21:48:12,230 ERROR - GetCommands(): An error occurred while sending the request.
+2017-12-19 21:48:12,237 ERROR - ReportStatus(): An error occurred while sending the request.
+2017-12-19 21:48:17,228 ERROR - GetCommands(): An error occurred while sending the request.
+2017-12-19 21:48:17,233 ERROR - ReportStatus(): An error occurred while sending the request.
+2018-01-08 21:49:24,247 INFO  - =====================================================
+2018-01-08 21:49:24,260 INFO  - DeviceController.Init(): Initializing device...
+2018-01-08 21:49:24,323 DEBUG - Registering device 9CB70D839BC4 with server...
+2018-01-08 21:49:25,197 DEBUG - DeviceController start, registered with deviceId:1
+2018-01-08 21:49:25,214 INFO  - LoadSpis()
+2018-01-08 21:49:25,232 INFO  - LoadSolenoids()
+2018-01-08 21:49:25,240 INFO  - LoadAlarms()
+2018-01-08 21:49:25,245 INFO  - LoadAnalogs()
+2018-01-08 21:49:25,249 INFO  - LoadSchedules()
+2018-01-08 21:49:25,252 INFO  - DeviceController.LoadConfig(): Configuration complete.
+2018-01-08 21:49:25,303 DEBUG - LoadSpis(): Id:1 name:Test SPI 1 Clock:0 CS:0 MISO:18 MOSI:20 
+
+2018-01-08 21:49:25,304 INFO  - SpiDevice Id:1 Name:Test SPI 1 Clock:0 CS:0 MISO:18 MOSI:20
+2018-01-08 21:49:25,430 INFO  - DistributedAlarm Id:1 Name:Station1 Address:Test alarm 1 Description:http://192.168.1.100/k2 State:False
+2018-01-08 21:49:25,431 INFO  - GPIOAlarm Id:2 Name:Station2 Address:Test alarm 2 Description:P1Pin28 State:False
+2018-01-08 21:49:25,432 INFO  - DistributedAlarm Id:3 Name:Station3 Address:Test alarm 3 Description:1 State:False
+2018-01-08 21:49:25,433 INFO  - GPIOAlarm Id:4 Name:Station4 Address:Test alarm 4 Description:P1Pin21 State:False
+2018-01-08 21:49:25,433 DEBUG - 4 Alarms configured
+2018-01-08 21:49:25,437 INFO  - GPIOSolenoid Id:1 Name:Station1 Description:Test solenoid 1 Address:P1Pin25 State:False
+2018-01-08 21:49:25,437 INFO  - GPIOSolenoid Id:2 Name:Station2 Description:Test solenoid 2 Address:P1Pin28 State:False
+2018-01-08 21:49:25,437 INFO  - GPIOSolenoid Id:3 Name:Station3 Description:Test solenoid 3 Address:P1Pin26 State:False
+2018-01-08 21:49:25,437 INFO  - GPIOSolenoid Id:4 Name:Station4 Description:Test solenoid 4 Address:P1Pin21 State:False
+2018-01-08 21:49:25,437 DEBUG - 4 Solenoids configured
+2018-01-08 21:49:25,470 DEBUG - 2 Schedules configured
+2018-01-08 21:49:25,591 INFO  - SPIAnalog Id:1 Name: Description: Address:http://192.168.1.100/k2 Multiplier:0 Units: Value:0
+2018-01-08 21:49:25,591 DEBUG - 1 Analogs configured
+2018-01-08 22:31:01,857 DEBUG - Command Manual
+2018-01-08 22:31:01,858 INFO  - Switching to Manual mode
+2018-01-08 22:31:01,867 INFO  - Irrigating Solenoid 2 for 30 minutes
+2018-01-08 22:40:39,206 ERROR - ReportStatus(): An error occurred while sending the request.
+2018-01-08 22:40:59,754 ERROR - GetCommands(): An error occurred while sending the request.
+2018-01-08 22:40:59,780 ERROR - ReportStatus(): An error occurred while sending the request.
+2018-01-08 22:41:20,651 ERROR - ReportStatus(): An error occurred while sending the request.
+2018-01-08 22:41:20,709 ERROR - GetCommands(): An error occurred while sending the request.
+2018-01-08 22:41:41,656 ERROR - ReportStatus(): An error occurred while sending the request.
+2018-01-08 22:41:41,714 ERROR - GetCommands(): An error occurred while sending the request.
+2018-02-05 10:18:34,796 INFO  - =====================================================
+2018-02-05 10:18:35,021 INFO  - DeviceController.Init(): Initializing device...
+2018-02-05 10:18:35,064 DEBUG - Registering device 9CB70D839BC4 with server...
+2018-02-05 10:18:35,742 DEBUG - DeviceController start, registered with deviceId:1
+2018-02-05 10:18:35,744 DEBUG - Debug1
+2018-02-05 10:18:35,745 DEBUG - Debug2
+2018-02-05 10:18:36,128 ERROR - GetCommands(): This instance has already started one or more requests. Properties can only be modified before sending the first request.
+2018-02-05 10:18:36,128 ERROR - CreateEvent(): This instance has already started one or more requests. Properties can only be modified before sending the first request.
+2018-02-05 10:18:36,131 INFO  - LoadSpis()
+2018-02-05 10:18:36,161 ERROR - ReportStatus(): This instance has already started one or more requests. Properties can only be modified before sending the first request.

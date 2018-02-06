@@ -69,7 +69,7 @@
             this.textBox2.Name = "textBox2";
             this.textBox2.Size = new System.Drawing.Size(256, 20);
             this.textBox2.TabIndex = 2;
-            this.textBox2.Text = "http://192.168.1.108:8000/api/";
+            this.textBox2.Text = "http://192.168.1.51:8000/api/";
             // 
             // button2
             // 

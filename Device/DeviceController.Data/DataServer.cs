@@ -6,19 +6,20 @@ using System.Net.Http;
 using System.Net.Http.Headers;
 using System.Web.Script.Serialization;
 using System.Threading.Tasks;
+using ModernHttpClient;
 using log4net;
 
 namespace DeviceController.Data
-{
+{     
     public class DataServer
     {
         public string Uri;
         public int DeviceId;
-        HttpClient client;
+        static HttpClient client;
         public DataServer(string uri)
         {
             Uri = uri;
-            client = new HttpClient();
+            client = new HttpClient();                        
             client.BaseAddress = new Uri(uri);
             client.DefaultRequestHeaders.Accept.Clear();
             client.DefaultRequestHeaders.Accept.Add(new MediaTypeWithQualityHeaderValue("application/json"));
@@ -54,7 +55,7 @@ namespace DeviceController.Data
             return d;
         }
         public async Task<Uri> PostEvent(Event e)
-        {            
+        {             
             HttpResponseMessage response = await client.PostAsJsonAsync("events", e);
             response.EnsureSuccessStatusCode();
 

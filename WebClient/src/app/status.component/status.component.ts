@@ -28,6 +28,8 @@ export class StatusComponent implements OnInit {
   manualDuration: number = 5;
   elapsed: number = 0;
   loaded: boolean = false;
+  irrigating: boolean = false;
+
   dateFormat='YYYY-MM-DD HH:mm:ss';
   constructor (private dataService: IrrigationControllerService,
                public toastr: ToastsManager,
@@ -39,17 +41,20 @@ export class StatusComponent implements OnInit {
 
   ngOnInit() {
     this.getSolenoids(1);
-    this.getActiveProgram(1);
     let timer = Observable.timer(0,5000);
     timer.subscribe(t => {
       this.onTick(t);
     });
   }
   onTick(t) {
-    this.getDevice(1);
+    this.getData(1);
     this.ticks = t;
   }
 
+  getData(id: number) {
+    this.getDevice(id);
+    this.getActiveProgram(id);
+  }
   getDevice(id: number) {
     console.log('getDevice()');
     this.dataService
@@ -92,7 +97,15 @@ export class StatusComponent implements OnInit {
     this.dataService
       .getActiveProgram(id)
       .subscribe((p: IIrrigationProgram) => {
-            
+            console.log(p);
+            const now = moment();
+            const start = moment(p.start);
+            const fin = start.add(p.duration,'minutes');
+            this.elapsed = now.diff(start) / (p.duration * 1000);
+            if (moment().isBefore(fin)) {
+              this.activeProgram = p;
+              this.irrigating = true;
+            }
            /*  if (moment(p.start).add(p.duration, 'minutes') > moment()){
               this.activeProgram = p;
               const e = moment().subtract()
@@ -129,7 +142,7 @@ export class StatusComponent implements OnInit {
               console.log('Success');
               //this._toasterService.pop('success', 'Complete', 'Getting all values complete');
               //this._slimLoadingBarService.complete();
-          }); 
+          });
   }
 
   isLoaded() {
@@ -149,7 +162,7 @@ export class StatusComponent implements OnInit {
   }
   formatDateShort(date) {
     return moment(date).format("dd/MM/yyyy");
-  }  
+  }
   getState() {
     if (this.status != null) {
       return this.status.state;
@@ -157,14 +170,14 @@ export class StatusComponent implements OnInit {
     return '';
   }
   getStartTime() {
-    if (this.status != null) {
-      return moment(this.status.start).format("HH:mm");
+    if (this.activeProgram != null) {
+      return moment(this.activeProgram.start).format("HH:mm");
     }
     return '';
   }
   getEnd() {
-    if (this.status != null) {
-      return moment(this.status.start).add(this.status.duration,'minutes').format("HH:mm");
+    if (this.activeProgram != null) {
+      return moment(this.activeProgram.start).add(this.activeProgram.duration,'minutes').format("HH:mm");
     }
     return '';
   }

@@ -10,6 +10,8 @@ using DeviceController.IO.Analogs;
 using DeviceController.IO.Alarms;
 using DeviceController.Data;
 using System.Threading;
+using System.Net.Http;
+using System.Net.Http.Headers;
 using log4net;
 
 
@@ -20,7 +22,8 @@ namespace DeviceController
         ILog log;
         bool bShutdown = false;
         private string dataServerUrl;
-        private DataServer dataServer;
+        private DataServerWebClient dataServer;
+        
         //private int deviceId = -1;
         private string macAddress = String.Empty;
         private IOFactory ioFactory;
@@ -43,9 +46,9 @@ namespace DeviceController
         public DeviceController(string url)
         {
             log4net.Config.XmlConfigurator.Configure();            
-            log = LogManager.GetLogger("Device");            
-
-            dataServer = new DataServer(url);
+            log = LogManager.GetLogger("Device");
+            dataServerUrl = url;
+            dataServer = new DataServerWebClient(url);
             ioFactory = new IOFactory(dataServer);
 
             Spis = new List<SpiDevice>();
@@ -80,7 +83,9 @@ namespace DeviceController
                 try
                 {
                     log.DebugFormat("Registering device {0} with server...",macAddress);
+                    //await Register();
                     device = await dataServer.Register(macAddress);
+                    //device = new Device();
                     if (device == null)
                     {
                         Thread.Sleep(5000);
@@ -92,23 +97,44 @@ namespace DeviceController
                 }                
             }
 
-            dataServer.DeviceId = device.Id;
+            //dataServer.DeviceId = device.Id;
             log.DebugFormat("DeviceController start, registered with deviceId:{0}", device.Id);
             CreateEvent(EventTypes.Application, string.Format("DeviceController start, registered with deviceId:{0}",device.Id));
 
             LoadConfig();
         }
-        protected async void Register()
-        {
-            try
-            {                
-                device = await dataServer.Register(macAddress);                
-            }
-            catch (Exception ex)
-            {
-                log.Error(ex.Message);
-            }
-        }
+        //protected async Task Register()
+        //{
+        //    using (HttpClient client = new HttpClient(null))
+        //    {
+        //        client.BaseAddress = new Uri(dataServerUrl);
+        //        client.DefaultRequestHeaders.Accept.Clear();
+        //        client.DefaultRequestHeaders.Accept.Add(new MediaTypeWithQualityHeaderValue("application/json"));
+
+        //        HttpResponseMessage response = await client.GetAsync(string.Format("devices/{0}/register", macAddress));
+        //        if (response.IsSuccessStatusCode)
+        //        {
+        //            device = await response.Content.ReadAsAsync<Device>();
+        //            log.DebugFormat("Got device: {0}", device.Id);
+        //        } else
+        //        {
+        //            log.ErrorFormat("Device is null");
+        //        }
+
+                
+        //    }
+
+
+
+        //        //try
+        //        //{
+        //        //    device = await dataServer.Register(macAddress);
+        //        //}
+        //        //catch (Exception ex)
+        //        //{
+        //        //    log.Error(ex.Message);
+        //        //}
+        //}
         protected void LoadConfig()
         {
             //get device config            
@@ -336,8 +362,11 @@ namespace DeviceController
         {            
             try
             {
+                log.Debug("Debug1");
                 Event e = new Event { EventType = (int)eventType, CreatedAt = DateTime.Now, EventValue = desc, DeviceId=device.Id };
+                log.Debug("Debug2");
                 await dataServer.PostEvent(e);
+                log.Debug("Debug10");
             }
             catch (Exception ex)
             {

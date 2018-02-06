@@ -26,12 +26,15 @@ namespace TestHarness
             InitializeComponent();
             log = LogManager.GetLogger("Device");
             data = new DataServer(textBox2.Text);
-            //log.Info("Testharness started");
+            textBox1.Text += "TestHarness started";
+            log.Info("Testharness started");
         }
 
         private async void button1_Click(object sender, EventArgs e)
-        {            
+        {
+            log.Debug("Getting commands...");
             List<Command> commands = await data.GetCommands(1);
+            log.Debug("Got commands");
             if (commands.Count() > 0)
             {
                 textBox1.Text += string.Format("GetCommands() {0} commands retrieved \r\n", commands.Count());
