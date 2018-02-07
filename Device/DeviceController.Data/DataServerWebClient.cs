@@ -25,7 +25,7 @@ namespace DeviceController.Data
             string response = String.Empty;
             using (WebClient client = new WebClient())
             {
-                response = client.DownloadString(Uri);
+                response = client.DownloadString(string.Format("{0}/{1}",baseAddress,Uri));
             }
             return response;
         }
@@ -35,7 +35,7 @@ namespace DeviceController.Data
             using (WebClient client = new WebClient())
             {
                 client.Headers[HttpRequestHeader.ContentType] = "application/json";
-                response = client.UploadString(Uri, "POST", json);
+                response = client.UploadString(string.Format("{0}/{1}", baseAddress, Uri), "POST", json);
             }
             return response;
         }
@@ -45,7 +45,7 @@ namespace DeviceController.Data
             using (WebClient client = new WebClient())
             {
                 client.Headers[HttpRequestHeader.ContentType] = "application/json";
-                response = client.UploadString(Uri, "PUT", json);
+                response = client.UploadString(string.Format("{0}/{1}", baseAddress, Uri), "PUT", json);
             }
             return response;
         }

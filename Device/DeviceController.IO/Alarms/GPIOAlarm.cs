@@ -15,7 +15,7 @@ namespace DeviceController.IO.Alarms
         public string Address { get { return alarm.Address; } }
         public Alarm alarm { get { return _alarm; } }        
         private Alarm _alarm;
-        private DataServer dataServer;
+        private DataServerWebClient dataServer;
 
         public bool State {
             get { return (alarm.Value == 1); }
@@ -34,7 +34,7 @@ namespace DeviceController.IO.Alarms
                 }
             }
         }
-        public GPIOAlarm(Alarm a, DataServer d)
+        public GPIOAlarm(Alarm a, DataServerWebClient d)
         {
             _alarm = a;
             dataServer = d;

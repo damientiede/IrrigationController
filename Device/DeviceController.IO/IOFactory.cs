@@ -12,8 +12,8 @@ namespace DeviceController.IO
 {
     public class IOFactory
     {
-        private DataServer dataServer;
-        public IOFactory(DataServer d)
+        private DataServerWebClient dataServer;
+        public IOFactory(DataServerWebClient d)
         {
             dataServer = d;
         }

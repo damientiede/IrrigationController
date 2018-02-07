@@ -19,6 +19,7 @@ import { IIrrigationProgram } from '../model/irrigationprogram';
 })
 
 export class StatusComponent implements OnInit {  
+  id = 3;
   ticks = 0;
   status: IStatus;
   device: IDevice;
@@ -40,14 +41,14 @@ export class StatusComponent implements OnInit {
   }
 
   ngOnInit() {
-    this.getSolenoids(1);
+    this.getSolenoids(this.id);
     let timer = Observable.timer(0,5000);
     timer.subscribe(t => {
       this.onTick(t);
     });
   }
   onTick(t) {
-    this.getData(1);
+    this.getData(this.id);
     this.ticks = t;
   }
 

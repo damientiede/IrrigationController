@@ -45,28 +45,28 @@ namespace DeviceController.IO.Solenoids
             get { return solenoid.RequiresPump; }
         }
         private Solenoid _solenoid;
-        private DataServer dataServer;
+        private DataServerWebClient dataServer;
         public Solenoid solenoid { get { return _solenoid; } }
 
-        public DistributedSolenoid(Solenoid s, DataServer d)
+        public DistributedSolenoid(Solenoid s, DataServerWebClient d)
         {
             _solenoid = s;
             dataServer = d;
         }
-        public async void On()
+        public void On()
         {
             if (!State)
             {
                 State = true;
-                await dataServer.PutSolenoid(_solenoid);
+                dataServer.PutSolenoid(_solenoid);
             }
         }
-        public async void Off()
+        public void Off()
         {
             if (State)
             {
                 State = false;
-                await dataServer.PutSolenoid(_solenoid);
+                dataServer.PutSolenoid(_solenoid);
             }
         }
         public string Report()

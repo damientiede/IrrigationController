@@ -15,7 +15,7 @@ namespace DeviceController.IO.Alarms
         public string Address { get { return alarm.Address; } }
         public Alarm alarm { get { return _alarm; } }
         private Alarm _alarm;
-        private DataServer dataServer;
+        private DataServerWebClient dataServer;
 
         public bool State
         {
@@ -35,7 +35,7 @@ namespace DeviceController.IO.Alarms
                 }
             }
         }
-        public DistributedAlarm(Alarm a, DataServer d)
+        public DistributedAlarm(Alarm a, DataServerWebClient d)
         {
             _alarm = a;
             dataServer = d;

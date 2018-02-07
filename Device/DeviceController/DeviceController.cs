@@ -61,7 +61,7 @@ namespace DeviceController
             Init();            
         }
         #region Config
-        protected async void Init()
+        protected  void Init()
         {
             log.Info("=====================================================");
             log.InfoFormat("DeviceController.Init(): Initializing device...");
@@ -83,8 +83,8 @@ namespace DeviceController
                 try
                 {
                     log.DebugFormat("Registering device {0} with server...",macAddress);
-                    //await Register();
-                    device = await dataServer.Register(macAddress);
+                    // Register();
+                    device = dataServer.Register(macAddress);
                     //device = new Device();
                     if (device == null)
                     {
@@ -94,6 +94,7 @@ namespace DeviceController
                 catch (Exception ex)
                 {
                     log.Error(ex.Message);
+                    Thread.Sleep(5000);
                 }                
             }
 
@@ -103,38 +104,6 @@ namespace DeviceController
 
             LoadConfig();
         }
-        //protected async Task Register()
-        //{
-        //    using (HttpClient client = new HttpClient(null))
-        //    {
-        //        client.BaseAddress = new Uri(dataServerUrl);
-        //        client.DefaultRequestHeaders.Accept.Clear();
-        //        client.DefaultRequestHeaders.Accept.Add(new MediaTypeWithQualityHeaderValue("application/json"));
-
-        //        HttpResponseMessage response = await client.GetAsync(string.Format("devices/{0}/register", macAddress));
-        //        if (response.IsSuccessStatusCode)
-        //        {
-        //            device = await response.Content.ReadAsAsync<Device>();
-        //            log.DebugFormat("Got device: {0}", device.Id);
-        //        } else
-        //        {
-        //            log.ErrorFormat("Device is null");
-        //        }
-
-                
-        //    }
-
-
-
-        //        //try
-        //        //{
-        //        //    device = await dataServer.Register(macAddress);
-        //        //}
-        //        //catch (Exception ex)
-        //        //{
-        //        //    log.Error(ex.Message);
-        //        //}
-        //}
         protected void LoadConfig()
         {
             //get device config            
@@ -146,16 +115,16 @@ namespace DeviceController
             CreateEvent(EventTypes.Application, "DeviceController configuration complete");
             log.InfoFormat("DeviceController.LoadConfig(): Configuration complete.");
         }
-        protected async void LoadCommandTypes()
+        protected  void LoadCommandTypes()
         {
             log.InfoFormat("LoadCommandTypes()");
-            CommandTypes = await dataServer.GetCommandTypes();            
+            CommandTypes =  dataServer.GetCommandTypes();            
         }
-        protected async void LoadSpis()
+        protected  void LoadSpis()
         {
             log.InfoFormat("LoadSpis()");
             Spis.Clear();          
-            List<Spi> spis = await dataServer.GetSpis(device.Id);
+            List<Spi> spis =  dataServer.GetSpis(device.Id);
             foreach (Spi s in spis)
             {
                 SpiDevice spiDevice = new SpiDevice(s.Id, s.Name, s.Clock, s.CS, s.MISO, s.MOSI);
@@ -164,11 +133,11 @@ namespace DeviceController
                 log.Info(spiDevice.Report());
             }
         }
-        protected async void LoadSolenoids()
+        protected  void LoadSolenoids()
         {
             log.InfoFormat("LoadSolenoids()");
             Solenoids.Clear();
-            List<Solenoid> solenoids = await dataServer.GetSolenoids(device.Id);
+            List<Solenoid> solenoids =  dataServer.GetSolenoids(device.Id);
             if (solenoids != null)
             {
                 foreach (Solenoid s in solenoids)
@@ -187,11 +156,11 @@ namespace DeviceController
             }
             log.DebugFormat("{0} Solenoids configured", Solenoids.Count());
         }
-        protected async void LoadAlarms()
+        protected  void LoadAlarms()
         {
             log.InfoFormat("LoadAlarms()");
             Alarms.Clear();
-            List<Alarm> alarms = await dataServer.GetAlarms(device.Id);
+            List<Alarm> alarms =  dataServer.GetAlarms(device.Id);
             foreach (Alarm a in alarms)
             {
                 Alarms.Add(ioFactory.CreateAlarm(a));               
@@ -202,11 +171,11 @@ namespace DeviceController
             }
             log.DebugFormat("{0} Alarms configured",Alarms.Count());
         }
-        protected async void LoadAnalogs()
+        protected  void LoadAnalogs()
         {
             log.InfoFormat("LoadAnalogs()");
             Analogs.Clear();
-            List<Analog> analogs = await dataServer.GetAnalogs(device.Id);
+            List<Analog> analogs =  dataServer.GetAnalogs(device.Id);
             foreach (Analog a in analogs)
             {
                 Analogs.Add(ioFactory.CreateAnalog(a));
@@ -217,11 +186,11 @@ namespace DeviceController
             }
             log.DebugFormat("{0} Analogs configured", Analogs.Count());
         }
-        protected async void LoadSchedules()
+        protected  void LoadSchedules()
         {
             log.InfoFormat("LoadSchedules()");
             Schedules.Clear();
-            Schedules = await dataServer.GetSchedules(device.Id);
+            Schedules =  dataServer.GetSchedules(device.Id);
             log.DebugFormat("{0} Schedules configured", Schedules.Count());
         }
         protected string ReportConfig()
@@ -358,51 +327,48 @@ namespace DeviceController
             }
             log.InfoFormat("Device controller shutdown.");
         }
-        public async void CreateEvent(EventTypes eventType, string desc)
+        public  void CreateEvent(EventTypes eventType, string desc)
         {            
             try
-            {
-                log.Debug("Debug1");
-                Event e = new Event { EventType = (int)eventType, CreatedAt = DateTime.Now, EventValue = desc, DeviceId=device.Id };
-                log.Debug("Debug2");
-                await dataServer.PostEvent(e);
-                log.Debug("Debug10");
+            {                
+                Event e = new Event { EventType = (int)eventType, CreatedAt = DateTime.Now, EventValue = desc, DeviceId=device.Id };               
+                dataServer.PostEvent(e);                
             }
             catch (Exception ex)
             {
                 log.ErrorFormat("CreateEvent(): {0}", ex.Message);
             }
         }
-        public async void CreateIrrigationProgram(string name, int duration, int solenoidId)
+        public  void CreateIrrigationProgram(string name, int duration, int solenoidId)
         {
             ActiveProgram = new ActiveIrrigationProgram(name,duration,solenoidId,device.Id);
             try
             {
-                ActiveProgram.Id = await dataServer.PostIrrigationProgram(ActiveProgram);                
+                ActiveProgram.Id =  dataServer.PostIrrigationProgram(ActiveProgram);                
             }
             catch (Exception ex)
             {
                 log.ErrorFormat("CreateIrrigationProgram(): {0}", ex.Message);
             }            
         }
-        public async void UpdateIrrigationProgram(IrrigationProgram p)
+        public  void UpdateIrrigationProgram(IrrigationProgram p)
         {
             try
             {
-                await dataServer.PutIrrigationProgram(p);
+                 dataServer.PutIrrigationProgram(p);
             }
             catch (Exception ex)
             {
                 log.ErrorFormat("UpdateIrrigationProgram(): {0}", ex.Message);
             }
         }
-        public async void ProcessCommands()
+        public  void ProcessCommands()
         {
             //log.Debug("ProcessCommands()");
             //get commands
             try
             {
-                List<Command> commands = await dataServer.GetCommands(device.Id);
+                List<Command> commands =  dataServer.GetCommands(device.Id);
                 //log.DebugFormat("Retrieved {0} commands", commands.Count());
                 foreach (Command cmd in commands)
                 {
@@ -518,7 +484,7 @@ namespace DeviceController
                 ActiveSolenoid = null;
             }
         }
-        public async void ReportStatus()
+        public  void ReportStatus()
         {                 
             if (device.Mode == DeviceMode.Auto)
             {
@@ -548,14 +514,14 @@ namespace DeviceController
 
             try
             {
-                await dataServer.PutDevice(device);
+                 dataServer.PutDevice(device);
             }
             catch (Exception ex)
             {
                 log.ErrorFormat("ReportStatus(): {0}", ex.Message);
             }
         }
-        public async void SwitchSolenoid(int solenoidId, bool value)
+        public  void SwitchSolenoid(int solenoidId, bool value)
         {           
             foreach (ISolenoid s in Solenoids)
             {
@@ -581,12 +547,12 @@ namespace DeviceController
                 }
             }                     
         }        
-        public async void ActionCommand(Command cmd)
+        public  void ActionCommand(Command cmd)
         {
             cmd.Actioned = DateTime.Now;
-            await dataServer.PutCommand(cmd);
+             dataServer.PutCommand(cmd);
         }
-        public async void Shutdown()
+        public  void Shutdown()
         {
             log.Info("DeviceController application shutdown");
             CreateEvent(EventTypes.Application, "DeviceController application shutdown");

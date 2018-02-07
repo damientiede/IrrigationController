@@ -10,7 +10,7 @@ namespace DeviceController
     {
         static void Main(string[] args)
         {
-            DeviceController d = new DeviceController("http://192.168.1.51:8000/api/");
+            DeviceController d = new DeviceController("http://192.168.1.51:8000/api");
             //DeviceController d = new DeviceController("http://192.168.178.125:8000/api/");
             d.Run();
         }

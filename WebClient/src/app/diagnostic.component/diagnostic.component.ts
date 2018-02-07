@@ -22,7 +22,7 @@ export class DiagnosticComponent implements OnInit {
               ) {  }
 
   ngOnInit() {
-    this.getDevice(1);
+    this.getDevice(3);
   }
 
   getDevice(id: number) {
