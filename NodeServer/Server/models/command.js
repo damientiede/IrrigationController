@@ -1,22 +1,22 @@
 module.exports = (sequelize, DataTypes) => {
     const Command = sequelize.define('Command', {
-        commandType: { 
+        CommandType: { 
           type: DataTypes.STRING,
           allowNull:false
         },
-        params: DataTypes.STRING,
-        issued: {
+        Params: DataTypes.STRING,
+        Issued: {
           type: DataTypes.DATE,
           allowNull:false
         },
-        actioned: {
+        Actioned: {
           type:DataTypes.DATE,
           allowNull:true
         },
     });
     Command.associate = (models) => {
       Command.belongsTo(models.Device, {
-          foreignKey: 'deviceId',
+          foreignKey: 'DeviceId',
           onDelete: 'CASCADE',
       });
     }; 

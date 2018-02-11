@@ -1,17 +1,17 @@
 module.exports = (sequelize, DataTypes) => {
     const Event = sequelize.define('Event', {
-      eventType: {
+      EventType: {
         type: DataTypes.INTEGER,
         allowNull:false
       },
-      eventValue: {
+      EventValue: {
         type: DataTypes.STRING,
         allowNull:false
       }  
     });
     Event.associate = (models) => {
       Event.belongsTo(models.Device, {
-          foreignKey: 'deviceId',
+          foreignKey: 'DeviceId',
           onDelete: 'CASCADE',
       });
     }; 

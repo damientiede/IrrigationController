@@ -7,10 +7,10 @@ module.exports = {
 	    .then(u => { 
 	        if (u ==0) {
                 User.create({
-                    name:'Damien Tiede',
-                    email:'damien@tiede.co.nz',
-                    mobile:'0279201482',
-                    address: '123 Test Street, Testville'
+                    Name:'Damien Tiede',
+                    Email:'damien@tiede.co.nz',
+                    Mobile:'0279201482',
+                    Address: '123 Test Street, Testville'
 	            });
                 console.log('Created 1 user record');	   		
 	        }

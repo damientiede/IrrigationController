@@ -4,13 +4,13 @@ module.exports = {
    create(req, res) {      
         return Spi
             .create({   
-                name: req.body.Name,                         
-                description: req.body.Description,                
+                Name: req.body.Name,                         
+                Description: req.body.Description,                
                 Clock: parseInt(req.body.Clock),            
                 CS: parseInt(req.body.CS),            
                 MISO: parseInt(req.body.MISO),            
                 MOSI: parseInt(req.body.MOSI), 
-                deviceId: parseInt(req.body.DeviceId)
+                DeviceId: parseInt(req.body.DeviceId)
             })
             .then(spi => res.status(201).send(spi))
             .catch(error => res.status(400).send(error));
@@ -24,7 +24,7 @@ module.exports = {
    list(req, res) {
         return Spi
             .findAll({ 
-                where: { deviceId: parseInt(req.params.deviceId) }
+                where: { DeviceId: parseInt(req.params.deviceId) }
 	        })
             .then(spis => res.status(200).send(spis))
             .catch(error => res.status(400).send(error));
@@ -32,13 +32,13 @@ module.exports = {
    update(req, res) {
         return Spi
             .update({                        
-                name: req.body.Name,
+                Name: req.body.Name,
                 Clock: parseInt(req.body.Clock),            
                 CS: parseInt(req.body.CS),            
                 MISO: parseInt(req.body.MISO),            
                 MOSI: parseInt(req.body.MOSI)           
             }, {
-	            where: { id: req.body.id }
+	            where: { Id: req.body.id }
             })
             .then(spi => res.status(200).send(spi))
             .catch(error => res.status(400).send(error));
@@ -46,7 +46,7 @@ module.exports = {
    listByDevice(req, res) {    
         return Spi
         .findAll({
-            where: {deviceId: req.params.deviceId}        
+            where: {DeviceId: req.params.deviceId}        
         })
         .then(spis => res.status(200).send(spis))
         .catch(error => res.status(400).send(error));  

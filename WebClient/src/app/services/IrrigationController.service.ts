@@ -39,6 +39,12 @@ export class IrrigationControllerService {
     getSolenoids(id: number): Observable <ISolenoid[]> {
         const url = `${this.restUrl}/devices/${id}/solenoids`;
         return this.http.get(url)
+            .map((res: Response) => res.json())
+            .catch((error: any) => Observable.throw(error.json().error || 'Server error'));
+    }
+    getSolenoid(id: number): Observable <ISolenoid> {
+        const url = `${this.restUrl}/solenoids/${id}`;
+        return this.http.get(url)
             // ...and calling .json() on the response to return data
             .map((res: Response) => res.json())
             // ...errors if any
@@ -85,6 +91,16 @@ export class IrrigationControllerService {
         let url = `${this.restUrl}/commands`;
         console.log(cmd);
         return this.http.post(url,cmd)
+            // ...and calling .json() on the response to return data
+            .map((res:Response) => res.json())
+            //...errors if any
+            .catch((error:any) => Observable.throw(error.json().error || 'Server error'));        
+
+    }
+
+    saveSolenoid(solenoid: ISolenoid): Observable <ISolenoid> {
+        let url = `${this.restUrl}/solenoids/${solenoid.Id}`;
+        return this.http.put(url, solenoid)
             // ...and calling .json() on the response to return data
             .map((res:Response) => res.json())
             //...errors if any

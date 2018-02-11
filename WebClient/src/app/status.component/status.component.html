@@ -1,9 +1,9 @@
 <div *ngIf="!loaded">Loading...</div>
 <div class="row" *ngIf="loaded">
-    <div class="col-md-3"></div>
-    <div class="col-md-6">
+    <div class="col-3"></div>
+    <div class="col-6">
         <div [ngClass]="getStatusClass()">
-            <div class="panel-heading">
+            <div class="alert alert-secondary">
                 <div class="panel-title">
                     {{device.status}}
                 </div>
@@ -17,10 +17,10 @@
                         </div>
                     </div>
                     <div class="row">
-                        <div class="col-md-6">
+                        <div class="col-6">
                             Start:{{getStartTime()}}
                         </div>
-                        <div class="col-md-6">
+                        <div class="col-6">
                             End:{{getEnd()}}
                         </div>
                     </div>
@@ -28,12 +28,12 @@
             </div>
         </div>        
     </div>
-    <div class="col-md-3"></div>
+    <div class="col-3"></div>
 </div>
 <div class="row">
-    <div class="col-md-3"></div>
-    <div class="col-md-3">
-        <div class="panel panel-info">
+    <div class="col-3"></div>
+    <div class="col-3">
+        <div class="alert alert-primary">
             <div class="panel-heading">
                 <div class="panel-title">
                     Pressure: {{getPressure()}}
@@ -41,8 +41,8 @@
             </div>
         </div>
     </div>
-    <div class="col-md-3">
-        <div class="panel panel-info">
+    <div class="col-3">
+        <div class="alert alert-primary">
             <div class="panel-heading">
                 <div class="panel-title">
                     {{getLastUpdated()}}                    
@@ -50,14 +50,16 @@
             </div>
         </div>
     </div>                              
-    <div class="col-md-3"></div>
+    <div class="col-3"></div>
 </div>
 <div class="row">
     <!--form name="ManualProgram"-->
-    <div class="col-md-3"></div>
-    <div class="col-md-3">    
+    <div class="col-3"></div>
+    <div class="col-3">    
         <div class="input-group input-group-lg">
-            <span class="input-group-addon">Station  </span>
+            <div class="input-group-prepend">
+                <div class="input-group-text">Station</div>
+            </div>            
             <select id="selStation" class="form-control" [(ngModel)]="manualStation" required>
                 <option *ngFor="let solenoid of solenoids" [value]="solenoid.id">
                     {{solenoid.name}}
@@ -73,9 +75,11 @@
             </select>          
         </div> 
     </div>
-    <div class="col-md-3">    
-        <div class="input-group input-group-lg">
-            <span class="input-group-addon">Duration</span>
+    <div class="col-3">    
+        <div class="input-group input-group-lg">       
+            <div class="input-group-prepend">
+                <div class="input-group-text" >Duration</div>
+            </div>
             <select id="tbDuration" class="form-control" [(ngModel)]="manualDuration" required>
                 <option value="5">5 minutes</option>
                 <option value="30">30 minutes</option>
@@ -95,15 +99,15 @@
             <!--input type="number" class="form-control" id="tbDuration" aria-describedby="addon1" placeholder="1 - 360" ng-model="ManualDuration" min="1" max="360" required> </input-->
         </div>
     </div>
-    <div class="col-md-3"></div>              
+    <div class="col-3"></div>              
     <!--/form-->
 </div>
 <div class="row">
-    <div class="col-md-3"></div>
-    <div class="col-md-6">          
+    <div class="col-3"></div>
+    <div class="col-6">          
         <button type="button" class="btn btn-success btn-lg" (click)="manualStart()">Start</button>
         <button type="button" class="btn btn-danger btn-lg" (click)="manualStop()">Stop</button>               
         <p class="bg-danger">{{errorMessage}}</p>    
     </div>
-    <div class="col-md-3"></div>
+    <div class="col-3"></div>
 </div>

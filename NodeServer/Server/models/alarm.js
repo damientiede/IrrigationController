@@ -1,22 +1,22 @@
 module.exports = (sequelize, DataTypes) => {
     const Alarm = sequelize.define('Alarm', {           
-        name: {
+        Name: {
             type: DataTypes.STRING,
             allowNull:false
         },
-        description: {
+        Description: {
             type: DataTypes.STRING,
             allowNull:false
         },
-        hardwareType: {
+        HardwareType: {
             type: DataTypes.ENUM,
             values:['GPIO','Distributed','SPI']
         },
-        address: {
+        Address: {
             type: DataTypes.STRING,
             allowNull:false
         },  
-        value: {
+        Value: {
             type: DataTypes.INTEGER,
             allowNull:false
         }    
@@ -24,7 +24,7 @@ module.exports = (sequelize, DataTypes) => {
     
     Alarm.associate = (models) => {
         Alarm.belongsTo(models.Device, {
-            foreignKey: 'deviceId',
+            foreignKey: 'DeviceId',
             onDelete: 'CASCADE',
         });
     };

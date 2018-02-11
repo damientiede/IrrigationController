@@ -1,31 +1,31 @@
 module.exports = (sequelize, DataTypes) => {
     const Solenoid = sequelize.define('Solenoid', {          
-        name: {
+        Name: {
             type: DataTypes.STRING,
             allowNull:false
         },
-        description: {
+        Description: {
             type: DataTypes.STRING,
             allowNull:false
         },
-        hardwareType: {
+        HardwareType: {
             type: DataTypes.ENUM,
             values: ['GPIO', 'Distributed', 'SPI']
         },
-        address: {
+        Address: {
             type: DataTypes.STRING,
             allowNull:false
         }, 
-        value: {
+        Value: {
             type: DataTypes.INTEGER,
             allowNull:false
         },
-        requiresPump: DataTypes.BOOLEAN     
+        RequiresPump: DataTypes.BOOLEAN     
     });
     
     Solenoid.associate = (models) => {
         Solenoid.belongsTo(models.Device, {
-            foreignKey: 'deviceId',
+            foreignKey: 'DeviceId',
             onDelete: 'CASCADE',
         });
     };

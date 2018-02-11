@@ -7,9 +7,9 @@ module.exports = {
 	.then(c => { 
 	   if (c ==0) {
 	      Command.create(
-              { commandType:3,
-                params:'1,360',
-                issued: new Date()
+              { CommandType:3,
+                Params:'1,360',
+                Issued: new Date()
                });
               console.log('Created 1 command');	   		
 	   }

@@ -1,26 +1,26 @@
 module.exports = (sequelize, DataTypes) => {
     const IrrigationProgram = sequelize.define('IrrigationProgram', {
-      name: {
+      Name: {
         type: DataTypes.STRING,
         allowNull: false
       },
-      start: {
+      Start: {
         type: DataTypes.DATE,
         allowNull: false
       },
-      finished: {
+      Finished: {
         type: DataTypes.DATE,
         allowNull: true
       },
-      duration:{
+      Duration:{
         type: DataTypes.INTEGER,
         allowNull: false
       },
-      solenoidId:{
+      SolenoidId:{
         type: DataTypes.INTEGER,
         allowNull: false
       },      
-      requiresPump:{
+      RequiresPump:{
         type: DataTypes.BOOLEAN,
         allowNull: false
       }
@@ -28,7 +28,7 @@ module.exports = (sequelize, DataTypes) => {
 
     IrrigationProgram.associate = (models) => {
         IrrigationProgram.belongsTo(models.Device, {
-            foreignKey: 'deviceId',
+            foreignKey: 'DeviceId',
             onDelete: 'CASCADE',
         });
     };

@@ -4,15 +4,15 @@ module.exports = {
    create(req, res) {      
         return Analog
             .create({            
-                name: req.body.Name,
-                description: req.body.Description,
-                hardwareType: req.body.HardwareType,            
-                address: req.body.Address,
-                multiplier: parseFloat(req.body.Multiplier),
-                rawValue: 0,
-                units: req.body.Units,
-                deviceId: parseInt(req.body.DeviceId),
-                value:0
+                Name: req.body.Name,
+                Description: req.body.Description,
+                HardwareType: req.body.HardwareType,            
+                Address: req.body.Address,
+                Multiplier: parseFloat(req.body.Multiplier),
+                RawValue: 0,
+                Units: req.body.Units,
+                DeviceId: parseInt(req.body.DeviceId),
+                Value:0
             })
             .then(analog => res.status(201).send(analog))
             .catch(error => res.status(400).send(error));
@@ -32,17 +32,17 @@ module.exports = {
    update(req, res) {
         return Analog
             .update({        
-                name: req.body.Name,
-                description: req.body.Description,
-                hardwareType: req.body.Hardwaretype,            
-                address: req.body.Address,
-                multiplier: parseFloat(req.body.Multiplier),
-                rawValue: parseInt(req.body.RawValue),
-                units: req.body.Units,
-                deviceId: parseInt(req.body.DeviceId),
-                value:parseFloat(req.body.Value)
+                Name: req.body.Name,
+                Description: req.body.Description,
+                HardwareType: req.body.Hardwaretype,            
+                Address: req.body.Address,
+                Multiplier: parseFloat(req.body.Multiplier),
+                RawValue: parseInt(req.body.RawValue),
+                Units: req.body.Units,
+                DeviceId: parseInt(req.body.DeviceId),
+                Value:parseFloat(req.body.Value)
             }, {
-	            where: { id: req.body.id }
+	            where: { Id: req.body.id }
             })
             .then(analog => res.status(200).send(analog))
             .catch(error => res.status(400).send(error));
@@ -50,7 +50,7 @@ module.exports = {
    listByDevice(req, res) {    
         return Analog
         .findAll({
-            where: {deviceId: req.params.deviceId}        
+            where: {DeviceId: req.params.deviceId}        
         })
         .then(analogs => res.status(200).send(analogs))
         .catch(error => res.status(400).send(error));  

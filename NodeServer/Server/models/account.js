@@ -1,10 +1,10 @@
 module.exports = (sequelize, DataTypes) => {
     const Account = sequelize.define('Account', {      
-        name: {
+        Name: {
             type: DataTypes.STRING,
             allowNull:false
         },
-        address: {
+        Address: {
             type: DataTypes.STRING,
             allowNull:false
         },      

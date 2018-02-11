@@ -1,6 +1,6 @@
 module.exports = (sequelize, DataTypes) => {
     const Spi = sequelize.define('Spi', {                  
-        name: {
+        Name: {
             type: DataTypes.STRING,
             allowNull:false
         },
@@ -24,7 +24,7 @@ module.exports = (sequelize, DataTypes) => {
 
     Spi.associate = (models) => {
       Spi.belongsTo(models.Device, {
-        foreignKey: 'deviceId',
+        foreignKey: 'DeviceId',
         onDelete: 'CASCADE',
       });
     };

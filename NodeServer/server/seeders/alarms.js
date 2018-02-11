@@ -7,33 +7,33 @@ module.exports = {
 	    .then(s => { 
 	        if (s ==0) {
                 Alarm.create({
-                    name:'Station1',
-                    description:'Test alarm 1',
-                    hardwareType:'Distributed',
-                    address:'http://192.168.1.100/k2',	
-                    deviceId:1,		        
-                    value:0});
+                    Name:'Station1',
+                    Description:'Test alarm 1',
+                    HardwareType:'Distributed',
+                    Address:'http://192.168.1.100/k2',	
+                    DeviceId:1,		        
+                    Value:0});
                 Alarm.create({
-                    name:'Station2',
-                    description:'Test alarm 2',
-                    hardwareType:'GPIO',
-                    address:'P1Pin28',	
-                    deviceId:1,		        
-                    value:0});
+                    Name:'Station2',                    
+                    Description:'Test alarm 2',
+                    HardwareType:'GPIO',
+                    Address:'P1Pin28',	
+                    DeviceId:1,		        
+                    Value:0});
                 Alarm.create({
-                    name:'Station3',
-                    description:'Test alarm 3',
-                    hardwareType:'SPI',
-                    address:'1',	
-                    deviceId:1,		        
-                    value:0});
+                    Name:'Station3',
+                    Description:'Test alarm 3',
+                    HardwareType:'SPI',
+                    Address:'1',	
+                    DeviceId:1,		        
+                    Value:0});
                 Alarm.create({
-                    name:'Station4',
-                    description:'Test alarm 4',
-                    hardwareType:'GPIO',
-                    address:'P1Pin21',
-                    deviceId:1,			        
-                    value:0});
+                    Name:'Station4',
+                    Description:'Test alarm 4',
+                    HardwareType:'GPIO',
+                    Address:'P1Pin21',
+                    DeviceId:1,			        
+                    Value:0});
                 console.log('Created 4 alarms records');	   		
 	        }
 	    })

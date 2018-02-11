@@ -28,13 +28,13 @@ module.exports = {
    update(req, res) {
         return User
             .update({        
-                firstName: req.body.firstName,
-                lastName: req.body.lastName,
-                email: req.body.email,
-                mobile: req.body.mobile,            
-                password: req.body.password             
+                FirstName: req.body.firstName,
+                LastName: req.body.lastName,
+                Email: req.body.email,
+                Mobile: req.body.mobile,            
+                Password: req.body.password             
             }, {
-	            where: { id: req.body.id }
+	            where: { Id: req.body.id }
             })
             .then(user => res.status(200).send(user))
             .catch(error => res.status(400).send(error));

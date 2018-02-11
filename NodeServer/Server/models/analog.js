@@ -1,34 +1,34 @@
 module.exports = (sequelize, DataTypes) => {
     const Analog = sequelize.define('Analog', {           
-        name: {
+        Name: {
             type: DataTypes.STRING,
             allowNull:false
         },
-        description: {
+        Description: {
             type: DataTypes.STRING,
             allowNull:false
         },
-        hardwareType: {
+        HardwareType: {
             type: DataTypes.STRING,
             allowNull:false
         },
-        address: {
+        Address: {
             type: DataTypes.STRING,
             allowNull:false
         }, 
-        multiplier: {
+        Multiplier: {
             type: DataTypes.DOUBLE,
             allowNull:false
         },
-        rawValue: {
+        RawValue: {
             type: DataTypes.INTEGER,
             allowNull:false
         },
-        units: {
+        Units: {
             type: DataTypes.STRING,
             allowNull:false
         }, 
-        value: {
+        Value: {
             type: DataTypes.DOUBLE,
             allowNull:false
         }    
@@ -36,7 +36,7 @@ module.exports = (sequelize, DataTypes) => {
 
     Analog.associate = (models) => {
         Analog.belongsTo(models.Device, {
-            foreignKey: 'deviceId',
+            foreignKey: 'DeviceId',
             onDelete: 'CASCADE',
         });
     };

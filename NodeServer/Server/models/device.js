@@ -1,28 +1,28 @@
 module.exports = (sequelize, DataTypes) => {
   const Device = sequelize.define('Device', {
-    name: {
+    Name: {
       type: DataTypes.STRING,
       allowNull: false
     },
-    description: {
+    Description: {
       type: DataTypes.STRING,
       allowNull: false
     },
-    mode: {
+    Mode: {
       type: DataTypes.ENUM,
       values:['Manual','Auto','Diagnostic']
     },
-    state: {
+    State: {
         type: DataTypes.ENUM,
         values:['Standby','Irrigating','Fault']
     },
-    status: DataTypes.STRING,
-    pumpSolenoidId: DataTypes.INTEGER,
-    softwareVersion: {
+    Status: DataTypes.STRING,
+    PumpSolenoidId: DataTypes.INTEGER,
+    SoftwareVersion: {
       type: DataTypes.STRING,
       allowNull: false
     },
-    deviceMAC: {
+    DeviceMAC: {
       type: DataTypes.STRING,
       allowNull: false
     }
@@ -30,24 +30,24 @@ module.exports = (sequelize, DataTypes) => {
 
   Device.associate = (models) => {
     Device.hasMany(models.Solenoid, {
-      foreignKey: 'deviceId',
-      as: 'solenoids',
+      foreignKey: 'DeviceId',
+      as: 'Solenoids',
     });
     Device.hasMany(models.Alarm, {
-      foreignKey: 'deviceId',
-      as: 'alarms'
+      foreignKey: 'DeviceId',
+      as: 'Alarms'
     });
     Device.hasMany(models.Analog, {
-      foreignKey: 'id',
-      as: 'analogs'
+      foreignKey: 'DeviceId',
+      as: 'Analogs'
     });
     Device.hasMany(models.Spi, {
-      foreignKey: 'deviceId',
-      as: 'spis'
+      foreignKey: 'DeviceId',
+      as: 'Spis'
     });
     Device.hasMany(models.Schedule, {
-      foreignKey: 'deviceId',
-      as: 'schedules'
+      foreignKey: 'DeviceId',
+      as: 'Schedules'
     }); 
   };
 

@@ -7,8 +7,8 @@ module.exports = {
 	    .then(a => { 
 	        if (a ==0) {
                 Account.create({
-                    name:'Test account 1',
-                    address: '123 Test Street, Testville'
+                    Name:'Test account 1',
+                    Address: '123 Test Street, Testville'
 	            });
                 console.log('Created 1 device record');	   		
 	        }

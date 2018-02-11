@@ -4,8 +4,8 @@ module.exports = {
    create(req, res) {      
         return Account
             .create({            
-                name: req.body.firstName,
-                address: req.body.lastName
+                Name: req.body.firstName,
+                Address: req.body.lastName
             })
             .then(account => res.status(201).send(account))
             .catch(error => res.status(400).send(error));
@@ -25,8 +25,8 @@ module.exports = {
    update(req, res) {
         return Account
             .update({        
-                name: req.body.firstName,
-                address: req.body.lastName             
+                Name: req.body.firstName,
+                Address: req.body.lastName             
             }, {
 	            where: { id: req.body.id }
             })

@@ -1,10 +1,10 @@
 module.exports = (sequelize, DataTypes) => {
   const EventType = sequelize.define('EventType', {
-    name: {
+    Name: {
       type:DataTypes.STRING,
       allowNull:false
     },
-    description: DataTypes.STRING
+    Description: DataTypes.STRING
   });
   return EventType;
 };

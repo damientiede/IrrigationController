@@ -1,10 +1,10 @@
 module.exports = (sequelize, DataTypes) => {
     const CommandType = sequelize.define('CommandType', {
-      title: {
+      Title: {
         type: DataTypes.STRING,
         allowNull:false
       },
-      description: DataTypes.STRING
+      Description: DataTypes.STRING
     }, {
       classMethods: {
         associate: function(models) {

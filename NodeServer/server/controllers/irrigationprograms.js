@@ -7,12 +7,12 @@ module.exports = {
    create(req, res) {      
         return IrrigationProgram
             .create({            
-                name: req.body.Name,
-                start: req.body.Start,
-                duration: req.body.Duration,
-                solenoidId: parseInt(req.body.SolenoidId),
-                requiresPump: req.body.RequiresPump,
-                deviceId: req.body.DeviceId
+                Name: req.body.Name,
+                Start: req.body.Start,
+                Duration: req.body.Duration,
+                SolenoidId: parseInt(req.body.SolenoidId),
+                RequiresPump: req.body.RequiresPump,
+                DeviceId: req.body.DeviceId
             })
             .then(irrigationProgram => res.status(201).send(irrigationProgram))
             .catch(error => res.status(400).send(error));
@@ -32,9 +32,9 @@ module.exports = {
    update(req, res) {       
         return IrrigationProgram
             .update({                    
-                finished: req.body.Finished,                                  
+                Finished: req.body.Finished,                                  
             }, {
-                where: { id: req.params.id }
+                where: { Id: req.params.id }
             })
             .then(irrigationProgram => res.status(200).send(irrigationProgram))
             .catch(error => res.status(400).send(error));
@@ -42,7 +42,7 @@ module.exports = {
    listByDevice(req, res) {       
         return IrrigationProgram
             .findAll({
-                where: {deviceId: req.params.deviceId}        
+                where: {DeviceId: req.params.deviceId}        
             })
             .then(irrigationPrograms => res.status(200).send(irrigationPrograms))
             .catch(error => res.status(400).send(error));  
@@ -52,10 +52,10 @@ module.exports = {
        return IrrigationProgram
             .findOne({
                 where: {
-                    deviceId: req.params.deviceId
+                    DeviceId: req.params.deviceId
                 },
                 order: [
-                    ['createdAt','DESC']
+                    ['CreatedAt','DESC']
                 ],
                 limit: 1               
             })

@@ -5,12 +5,12 @@ module.exports = {
    create(req, res) {      
         return Solenoid
             .create({            
-                name: req.body.Name,
-                description: req.body.Description,
-                hardwareType: req.body.HardwareType,            
-                address: req.body.Address,
-                value:0,
-                deviceId: req.body.DeviceId
+                Name: req.body.Name,
+                Description: req.body.Description,
+                HardwareType: req.body.HardwareType,            
+                Address: req.body.Address,
+                Value:0,
+                DeviceId: req.body.DeviceId
             })
             .then(solenoid => res.status(201).send(solenoid))
             .catch(error => res.status(400).send(error));
@@ -29,15 +29,15 @@ module.exports = {
    },
    update(req, res) {
         return Solenoid.update({        
-            deviceId: parseInt(req.body.DeviceId),
-            name: req.body.Name,
-            description: req.body.Description,
-            hardwareType: Utils.parseHardwareType(req.body.HardwareType),
-            requiresPump: req.body.RequiresPump,
-            address: req.body.Address,
-            value: parseInt(req.body.Value)
+            DeviceId: parseInt(req.body.DeviceId),
+            Name: req.body.Name,
+            Description: req.body.Description,
+            HardwareType: Utils.parseHardwareType(req.body.HardwareType),
+            RequiresPump: req.body.RequiresPump,
+            Address: req.body.Address,
+            Value: parseInt(req.body.Value)
         }, {
-	        where: { id: req.params.id }
+	        where: { Id: req.params.id }
         })
         .then(solenoid => res.status(200).send(solenoid))
         .catch(error => res.status(400).send(error));
@@ -45,7 +45,7 @@ module.exports = {
    listByDevice(req, res) {       
         return Solenoid
         .findAll({
-            where: {deviceId: req.params.deviceId}        
+            where: {DeviceId: req.params.deviceId}        
         })
         .then(solenoids => res.status(200).send(solenoids))
         .catch(error => res.status(400).send(error));  

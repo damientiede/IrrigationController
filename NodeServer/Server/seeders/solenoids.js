@@ -7,37 +7,37 @@ module.exports = {
 	    .then(s => { 
 	        if (s ==0) {
                 Solenoid.create({
-                    name:'Station1',
-                    description:'Test solenoid 1',
-                    hardwareType:'GPIO',
-                    address:'P1Pin25',
-                    requiresPump:true,
-                    deviceId:1,			        
-                    value:0});
+                    Name:'Station1',
+                    Description:'Test solenoid 1',
+                    HardwareType:'GPIO',
+                    Address:'P1Pin25',
+                    RequiresPump:true,
+                    DeviceId:1,			        
+                    Value:0});
                 Solenoid.create({
-                    name:'Station2',
-                    description:'Test solenoid 2',
-                    hardwareType:'GPIO',
-                    address:'P1Pin28',
-                    requiresPump:true,
-                    deviceId:1,			        
-                    value:0});
+                    Name:'Station2',
+                    Description:'Test solenoid 2',
+                    HardwareType:'GPIO',
+                    Address:'P1Pin28',
+                    RequiresPump:true,
+                    DeviceId:1,			        
+                    Value:0});
                 Solenoid.create({
-                    name:'Station3',
-                    description:'Test solenoid 3',
-                    hardwareType:'GPIO',
-                    address:'P1Pin26',
-                    requiresPump:false,	
-                    deviceId:1,		        
-                    value:0});
+                    Name:'Station3',
+                    Description:'Test solenoid 3',
+                    HardwareType:'GPIO',
+                    Address:'P1Pin26',
+                    RequiresPump:false,	
+                    DeviceId:1,		        
+                    Value:0});
                 Solenoid.create({
-                    name:'Station4',
-                    description:'Test solenoid 4',
-                    hardwareType:'GPIO',
-                    address:'P1Pin21',
-                    requiresPump:false,	
-                    deviceId:1,		        
-                    value:0});
+                    Name:'Station4',
+                    Description:'Test solenoid 4',
+                    HardwareType:'GPIO',
+                    Address:'P1Pin21',
+                    RequiresPump:false,	
+                    DeviceId:1,		        
+                    Value:0});
                 console.log('Created 4 solenoid records');	   		
 	        }
 	    })

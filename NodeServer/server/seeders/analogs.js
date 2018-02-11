@@ -7,15 +7,15 @@ module.exports = {
 	    .then(s => { 
 	        if (s ==0) {
                 Analog.create({
-                    name:'Pump pressure',
-                    description:'Pressure in the head works',
-                    hardwareType:'Distributed',
-                    address:'http://192.168.1.100/k2',	
-                    multiplier: 1.23,
-                    rawValue: 0.0,
-                    units:'kPa',
-                    deviceId:1,		        
-                    value:0.0});
+                    Name:'Pump pressure',
+                    Description:'Pressure in the head works',
+                    HardwareType:'Distributed',
+                    Address:'http://192.168.1.100/k2',	
+                    Multiplier: 1.23,
+                    RawValue: 0.0,
+                    Units:'kPa',
+                    DeviceId:1,		        
+                    Value:0.0});
 
                 console.log('Created 1 analog record');	   		
 	        }

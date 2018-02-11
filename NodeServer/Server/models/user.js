@@ -1,22 +1,22 @@
 module.exports = (sequelize, DataTypes) => {
     const User = sequelize.define('User', {        
-      firstName: {
+      FirstName: {
         type: DataTypes.STRING,
         allowNull:false
       },
-      lastName: {
+      LastName: {
         type: DataTypes.STRING,
         allowNull:false
       },
-      email: {
+      Email: {
           type: DataTypes.STRING,
           allowNull:false
       },
-      mobile: {
+      Mobile: {
         type: DataTypes.STRING,
         allowNull:false
       },      
-      password: {
+      Password: {
         type: DataTypes.STRING,
         allowNull:false
       }    
@@ -24,8 +24,8 @@ module.exports = (sequelize, DataTypes) => {
 
     User.associate = (models) => {
       User.hasOne(models.Account, {
-        foreignKey: 'accountId',
-        as: 'account'
+        foreignKey: 'AccountId',
+        as: 'Account'
       })
     };
 

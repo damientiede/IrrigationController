@@ -16,6 +16,12 @@
                 <tr><td>Status: {{device.status}}</td></tr>                
             </tbody>
         </table>
+        <h4>Solenoids</h4>  
+        <ul>
+          <li *ngFor="let solenoid of solenoids">
+              <app-newedit-solenoid [solenoid]="solenoid"></app-newedit-solenoid>
+          </li>
+        </ul>             
         <h4>Irrigation programs</h4>        
         <table class="table table-striped">
             <tbody>           

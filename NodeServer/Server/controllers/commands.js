@@ -4,11 +4,11 @@ module.exports = {
    create(req, res) {      
       return Command
          .create({
-            commandType: req.body.CommandType,
-            params: req.body.Params,
-	      issued: req.body.Issued,
-            actioned: null,
-            deviceId: parseInt(req.body.DeviceId)
+            CommandType: req.body.CommandType,
+            Params: req.body.Params,
+	      Issued: req.body.Issued,
+            Actioned: null,
+            DeviceId: parseInt(req.body.DeviceId)
          })
          .then(command => res.status(201).send(command))
          .catch(error => res.status(400).send(error));
@@ -23,7 +23,7 @@ module.exports = {
       return Command
          .findAll({ 
             where: { 
-                  deviceId: parseInt(req.params.deviceId)                  
+                  DeviceId: parseInt(req.params.deviceId)                  
             },
             limit:100
           })         
@@ -34,8 +34,8 @@ module.exports = {
       return Command
          .findAll({ 
             where: { 
-                  deviceId: parseInt(req.params.deviceId),
-                  actioned:null
+                  DeviceId: parseInt(req.params.deviceId),
+                  Actioned:null
             }
           })         
          .then(commands => res.status(200).send(commands))
@@ -43,9 +43,9 @@ module.exports = {
    },
    update(req, res) {
       return Command.update({
-         actioned: Date.parse(req.body.Actioned)
+         Actioned: Date.parse(req.body.Actioned)
       }, {
-	 where: { id: req.params.commandId }
+	 where: { Id: req.params.commandId }
       })
       .then(command => res.status(200).send(command))
       .catch(error => res.status(400).send(error));

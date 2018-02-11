@@ -1,12 +1,12 @@
 export class ISolenoid {
     constructor(
-        public id: number,
-        public name: string,
-        public description: string,
-        public hardwareType: string,
-        public address: string,
-        public value: number,
-        public requiresPump: boolean,
-        public deviceId: number
+        public Id: number,
+        public Name: string,
+        public Description: string,
+        public HardwareType: string,
+        public Address: string,
+        public Value: number,
+        public RequiresPump: boolean,
+        public DeviceId: number
     ) {}
 }

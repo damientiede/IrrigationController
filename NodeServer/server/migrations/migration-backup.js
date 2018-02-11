@@ -4,268 +4,268 @@ module.exports = {
     return [
         //devices        
         queryInterface.createTable('Devices', {
-            Id: {
+            id: {
                 allowNull: false,
                 autoIncrement: true,
                 primaryKey: true,
                 type: Sequelize.INTEGER
             },
-            Name: {
+            name: {
                 type: Sequelize.STRING,
                 allowNull:false
             },
-            Description: {
+            description: {
                 type: Sequelize.STRING,
                 allowNull: false
             },
-            Mode: {
+            mode: {
                 type: Sequelize.ENUM,
                 values:['Manual','Auto','Diagnostic'],
                 default:'Manual'
             },
-            State: {
+            state: {
                 type: Sequelize.ENUM,
                 values:['Standby','Irrigating','Fault'],
                 default:'Standby'
             },   
-            Status: {
+            status: {
                 type: Sequelize.STRING
             },
-            PumpSolenoidId: {
+            pumpSolenoidId: {
                 type: Sequelize.INTEGER
             }, 
-            DeviceMAC: {
+            deviceMAC: {
                 type: Sequelize.STRING
             },
-            SoftwareVersion: {
+            softwareVersion: {
                 type: Sequelize.STRING,
                 allowNull: false
             },
-            CreatedAt: {
+            createdAt: {
                 allowNull: false,
                 type: Sequelize.DATE
             },
-            UpdatedAt: {
+            updatedAt: {
                 allowNull: false,
                 type: Sequelize.DATE
             }
         }),         
         //accounts
         queryInterface.createTable('Accounts', {
-            Id: {
+            id: {
                 allowNull: false,
                 autoIncrement: true,
                 primaryKey: true,
                 type: Sequelize.INTEGER
             },
-            Name: {
+            name: {
                 type: Sequelize.STRING,
                 allowNull:false
             },
-            Address: {
+            address: {
                 type: Sequelize.STRING,
                 allowNull:false
             },
-            CreatedAt: {
+            createdAt: {
                 allowNull: false,
                 type: Sequelize.DATE
             },
-            UpdatedAt: {
+            updatedAt: {
                 allowNull: false,
                 type: Sequelize.DATE
             }
         }),   
         //users                
         queryInterface.createTable('Users', {
-            Id: {
+            id: {
                 allowNull: false,
                 autoIncrement: true,
                 primaryKey: true,
                 type: Sequelize.INTEGER
             },
-            FirstName: {
+            firstName: {
                 type: Sequelize.STRING,
                 allowNull:false
             },
-            LastName: {
+            lastName: {
                 type: Sequelize.STRING,
                 allowNull:false
             },
-            Email: {
+            email: {
                 type: Sequelize.STRING,
                 allowNull:false
             },
-            Mobile: {
+            mobile: {
                 type: Sequelize.STRING,
                 allowNull:false
             },      
-            Password: {
+            password: {
                 type: Sequelize.STRING,
                 allowNull:false
             },
-            CreatedAt: {
+            createdAt: {
                 allowNull: false,
                 type: Sequelize.DATE
             },
-            UpdatedAt: {
+            updatedAt: {
                 allowNull: false,
                 type: Sequelize.DATE
             }           
         }),             
         //commandtype
         queryInterface.createTable('CommandTypes', {
-            Id: {
+            id: {
                 allowNull: false,
                 autoIncrement: true,
                 primaryKey: true,
                 type: Sequelize.INTEGER
             },
-            Title: {
+            title: {
                 type: Sequelize.STRING
             },
-            Description: {
+            description: {
                 type: Sequelize.STRING
             },
-            CreatedAt: {
+            createdAt: {
                 allowNull: false,
                 type: Sequelize.DATE
             },
-            UpdatedAt: {
+            updatedAt: {
                 allowNull: false,
                 type: Sequelize.DATE
             }
         }),                
         //eventtype
         queryInterface.createTable('EventTypes', {
-            Id: {
+            id: {
                 allowNull: false,
                 autoIncrement: true,
                 primaryKey: true,
                 type: Sequelize.INTEGER
             },
-            Name: {
+            name: {
                 type: Sequelize.STRING
             },
-            Description: {
+            description: {
                 type: Sequelize.STRING
             },
-            CreatedAt: {
+            createdAt: {
                 allowNull: false,
                 type: Sequelize.DATE
             },
-            UpdatedAt: {
+            updatedAt: {
                 allowNull: false,
                 type: Sequelize.DATE
             }
         }),
         //irrigation programs
         queryInterface.createTable('IrrigationPrograms', {
-            Id: {
+            id: {
                 allowNull: false,
                 autoIncrement: true,
                 primaryKey: true,
                 type: Sequelize.INTEGER
             },
-            Name: {
+            name: {
                 type: Sequelize.STRING,
                 allowNull:false
             },
-            Start: {
+            start: {
                 type: Sequelize.DATE,
                 allowNull:false
             },
-            Finished: {
+            finished: {
                 type: Sequelize.DATE,
                 allowNull:true
             },
-            Duration: {
+            duration: {
                 type: Sequelize.INTEGER,
                 allowNull:false
             },
-            SolenoidId:{
+            solenoidId:{
                 type: Sequelize.INTEGER,
                 allowNull: false
             },
-            RequiresPump:{
+            requiresPump:{
                 type: Sequelize.BOOLEAN,
                 allowNull: false
             },
-            CreatedAt: {
+            createdAt: {
                 allowNull: false,
                 type: Sequelize.DATE
             },
-            UpdatedAt: {
+            updatedAt: {
                 allowNull: false,
                 type: Sequelize.DATE
             },
-            DeviceId: {
+            deviceId: {
                 type: Sequelize.INTEGER,
                 onDelete: 'CASCADE',
                 references: {
                     model: 'Devices',
-                    key: 'Id',
-                    as: 'DeviceId'
+                    key: 'id',
+                    as: 'deviceId'
                 },
             }
         }),
         //solenoids
         queryInterface.createTable('Solenoids', {
-            Id: {
+            id: {
                 allowNull: false,
                 autoIncrement: true,
                 primaryKey: true,
                 type: Sequelize.INTEGER
             },
-            Name: {
+            name: {
                 type: Sequelize.STRING,
                 allowNull:false
             },
-            Description: {
+            description: {
                 type: Sequelize.STRING,
                 allowNull:false
             },
-            HardwareType: {
+            hardwareType: {
                 type: Sequelize.ENUM,
                 values: ['GPIO', 'Distributed', 'SPI']
             },
-            Address: {
+            address: {
                 type: Sequelize.STRING,
                 allowNull:false
             }, 
-            Value: {
+            value: {
                 type: Sequelize.INTEGER,
                 allowNull:false
             },
-            RequiresPump: {
+            requiresPump: {
                 type: Sequelize.BOOLEAN
             },
-            CreatedAt: {
+            createdAt: {
                 allowNull: false,
                 type: Sequelize.DATE
             },
-            UpdatedAt: {
+            updatedAt: {
                 allowNull: false,
                 type: Sequelize.DATE
             },
-            DeviceId: {
+            deviceId: {
                 type: Sequelize.INTEGER,
                 onDelete: 'CASCADE',
                 references: {
                     model: 'Devices',
-                    key: 'Id',
-                    as: 'DeviceId'
+                    key: 'id',
+                    as: 'deviceId'
                 },
             }
         }),                  
         //spis
         queryInterface.createTable('Spis', {
-            Id: {
+            id: {
                 allowNull: false,
                 autoIncrement: true,
                 primaryKey: true,
                 type: Sequelize.INTEGER
             },
-            Name: {
+            name: {
                 type: Sequelize.STRING,
                 allowNull:false
             },
@@ -285,255 +285,255 @@ module.exports = {
                 type: Sequelize.INTEGER,
                 allowNull:false
             },
-            CreatedAt: {
+            createdAt: {
                 allowNull: false,
                 type: Sequelize.DATE
             },
-            UpdatedAt: {
+            updatedAt: {
                 allowNull: false,
                 type: Sequelize.DATE
             },
-            DeviceId: {
+            deviceId: {
                 type: Sequelize.INTEGER,
                 onDelete: 'CASCADE',
                 references: {
                     model: 'Devices',
-                    key: 'Id',
-                    as: 'DeviceId'
+                    key: 'id',
+                    as: 'deviceId'
                 },
             }
         }),  
         //alarms
         queryInterface.createTable('Alarms', {
-            Id: {
+            id: {
                 allowNull: false,
                 autoIncrement: true,
                 primaryKey: true,
                 type: Sequelize.INTEGER
             },
-            Name: {
+            name: {
                 type: Sequelize.STRING,
                 allowNull:false
             },
-            Description: {
+            description: {
                 type: Sequelize.STRING,
                 allowNull:false
             },
-            HardwareType: {
+            hardwareType: {
                 type: Sequelize.ENUM,
                 values:['GPIO','Distributed','SPI']
             },
-            Address: {
+            address: {
                 type: Sequelize.STRING,
                 allowNull:false
             },  
-            Value: {
+            value: {
                 type: Sequelize.INTEGER,
                 allowNull:false
             },
-            CreatedAt: {
+            createdAt: {
                 allowNull: false,
                 type: Sequelize.DATE
             },
-            UpdatedAt: {
+            updatedAt: {
                 allowNull: false,
                 type: Sequelize.DATE
             },
-            DeviceId: {
+            deviceId: {
                 type: Sequelize.INTEGER,
                 onDelete: 'CASCADE',
                 references: {
                     model: 'Devices',
-                    key: 'Id',
-                    as: 'DeviceId'
+                    key: 'id',
+                    as: 'deviceId'
                 },
             }
         }),
         //analogs
         queryInterface.createTable('Analogs', {
-            Id: {
+            id: {
                 allowNull: false,
                 autoIncrement: true,
                 primaryKey: true,
                 type: Sequelize.INTEGER
             },
-            Name: {
+            name: {
                 type: Sequelize.STRING,
                 allowNull:false
             },
-            Description: {
+            description: {
                 type: Sequelize.STRING,
                 allowNull:false
             },
-            HardwareType: {
+            hardwareType: {
                 type: Sequelize.STRING,
                 allowNull:false
             },
-            Address: {
+            address: {
                 type: Sequelize.STRING,
                 allowNull:false
             }, 
-            Multiplier: {
+            multiplier: {
                 type: Sequelize.DOUBLE,
                 allowNull:false
             },
-            RawValue: {
+            rawValue: {
                 type: Sequelize.INTEGER,
                 allowNull:false
             },
-            Units: {
+            units: {
                 type: Sequelize.STRING,
                 allowNull:false
             }, 
-            Value: {
+            value: {
                 type: Sequelize.DOUBLE,
                 allowNull:false
             },
-            CreatedAt: {
+            createdAt: {
                 allowNull: false,
                 type: Sequelize.DATE
             },
-            UpdatedAt: {
+            updatedAt: {
                 allowNull: false,
                 type: Sequelize.DATE
             },
-            DeviceId: {
+            deviceId: {
                 type: Sequelize.INTEGER,
                 onDelete: 'CASCADE',
                 references: {
                     model: 'Devices',
-                    key: 'Id',
-                    as: 'DeviceId'
+                    key: 'id',
+                    as: 'deviceId'
                 },
             }
         }), 
         //commands
         queryInterface.createTable('Commands', {
-            Id: {
+            id: {
                 allowNull: false,
                 autoIncrement: true,
                 primaryKey: true,
                 type: Sequelize.INTEGER
             },
-            CommandType: {
+            commandType: {
                 type: Sequelize.STRING
             },
-            Params: {
+            params: {
                 type: Sequelize.STRING
             },
-            Issued: {
+            issued: {
                 type: Sequelize.DATE,
                 allowNull:false
             },
-            Actioned: {
+            actioned: {
                 type:Sequelize.DATE,
                 allowNull:true
             },
-            CreatedAt: {
+            createdAt: {
                 allowNull: false,
                 type: Sequelize.DATE
             },
-            UpdatedAt: {
+            updatedAt: {
                 allowNull: false,
                 type: Sequelize.DATE
             },
-            DeviceId: {
+            deviceId: {
                 type: Sequelize.INTEGER,
                 onDelete: 'CASCADE',
                 references: {
                     model: 'Devices',
-                    key: 'Id',
-                    as: 'DeviceId'
+                    key: 'id',
+                    as: 'deviceId'
                 },
             },
         }),          
         //schedules
         queryInterface.createTable('Schedules', {
-            Id: {
+            id: {
                 allowNull: false,
                 autoIncrement: true,
                 primaryKey: true,
                 type: Sequelize.INTEGER
             },
-            Name: {
+            name: {
                 type: Sequelize.STRING
             },            
-            StartDate: {
+            startDate: {
                 type: Sequelize.DATE
             },
-            StartHours: {
+            startHours: {
                 type: Sequelize.INTEGER
             },
-            StartMins: {
+            startMins: {
                 type: Sequelize.INTEGER
             },
-            Duration: {
+            duration: {
                 type: Sequelize.INTEGER
             },
-            Days: {
+            days: {
                 type: Sequelize.STRING
             },
-            Repeat: {
+            repeat: {
                 type: Sequelize.BOOLEAN
             },            
-            Enabled: {
+            enabled: {
                 type: Sequelize.BOOLEAN
             },
-            CreatedAt: {
+            createdAt: {
                 allowNull: false,
                 type: Sequelize.DATE
             },
-            UpdatedAt: {
+            updatedAt: {
                 allowNull: false,
                 type: Sequelize.DATE
             },
-            DeviceId: {
+            deviceId: {
                 type: Sequelize.INTEGER,
                 onDelete: 'CASCADE',
                 references: {
                     model: 'Devices',
-                    key: 'Id',
-                    as: 'DeviceId'
+                    key: 'id',
+                    as: 'deviceId'
                 },
             },
-            SolenoidId: {
+            solenoidId: {
                 type: Sequelize.INTEGER,
                 references: {
                     model: 'Solenoids',
-                    key: 'Id',
-                    as: 'SolenoidId'
+                    key: 'id',
+                    as: 'solenoidId'
                 }
             }
         }),   
         //event
         queryInterface.createTable('Events', {
-            Id: {
+            id: {
                 type: Sequelize.INTEGER,
                 allowNull: false,
                 autoIncrement: true,
                 primaryKey: true
             },
-            EventType: {
+            eventType: {
                 type: Sequelize.INTEGER
             },
-            EventValue: {
+            eventValue: {
                 type: Sequelize.STRING
             },
-            CreatedAt: {
+            createdAt: {
                 allowNull: false,
                 type: Sequelize.DATE
             },
-            UpdatedAt: {
+            updatedAt: {
                 allowNull: false,
                 type: Sequelize.DATE
             },
-            DeviceId: {
+            deviceId: {
                 type: Sequelize.INTEGER,
                 onDelete: 'CASCADE',
                 references: {
                     model: 'Devices',
-                    key: 'Id',
-                    as: 'DeviceId'
+                    key: 'id',
+                    as: 'deviceId'
                 },
             }
         })             

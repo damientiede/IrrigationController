@@ -4,16 +4,16 @@ module.exports = {
    create(req, res) {      
         return Schedule
             .create({            
-                name: req.body.Name,
-                startDate: req.body.StartDate,
-                startHours: req.body.StartHours,
-                startMins: req.body.StartMins,
-                duration: parseInt(req.body.Duration),  
-                days: req.body.Days,          
-                repeat: req.body.Repeat,                
-                enabled: req.body.Enabled,
-                solenoidId: parseInt(req.body.SolenoidId),
-                deviceId: parseInt(req.body.DeviceId)
+                Name: req.body.Name,
+                StartDate: req.body.StartDate,
+                StartHours: req.body.StartHours,
+                StartMins: req.body.StartMins,
+                Duration: parseInt(req.body.Duration),  
+                Days: req.body.Days,          
+                Repeat: req.body.Repeat,                
+                Enabled: req.body.Enabled,
+                SolenoidId: parseInt(req.body.SolenoidId),
+                DeviceId: parseInt(req.body.DeviceId)
             })
             .then(schedule => res.status(201).send(schedule))
             .catch(error => res.status(400).send(error));
@@ -33,18 +33,18 @@ module.exports = {
    update(req, res) {
         return Schedule
             .update({        
-                name: req.body.Name,
-                startDate: req.body.StartDate,
-                startHours: parseInt(req.body.StartHours),
-                startMins: parseInt(req.body.StartMins),
-                duration: parseInt(req.body.Duration),            
-                repeat: req.body.Repeat,
-                interval: parseInt(req.body.Interval),
-                enabled:req.body.Enabled,
-                solenoidId: parseInt(req.body.SolenoidId),
-                deviceId: parseInt(req.body.DeviceId)
+                Name: req.body.Name,
+                StartDate: req.body.StartDate,
+                StartHours: parseInt(req.body.StartHours),
+                StartMins: parseInt(req.body.StartMins),
+                Duration: parseInt(req.body.Duration),            
+                Repeat: req.body.Repeat,
+                Interval: parseInt(req.body.Interval),
+                Enabled:req.body.Enabled,
+                SolenoidId: parseInt(req.body.SolenoidId),
+                DeviceId: parseInt(req.body.DeviceId)
             }, {
-	            where: { id: parseInt(req.body.Id) }
+	            where: { Id: parseInt(req.body.Id) }
             })
             .then(schedule => res.status(200).send(schedule))
             .catch(error => res.status(400).send(error));
@@ -52,7 +52,7 @@ module.exports = {
    listByDevice(req, res) {    
     return Schedule
     .findAll({
-        where: {deviceId: req.params.deviceId}        
+        where: {DeviceId: req.params.deviceId}        
     })
     .then(schedules => res.status(200).send(schedules))
     .catch(error => res.status(400).send(error));  

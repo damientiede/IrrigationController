@@ -1,26 +1,26 @@
 module.exports = (sequelize, DataTypes) => {
   const Status = sequelize.define('Status', {
-    state: {
+    State: {
       type:DataTypes.STRING,
       allowNull:false
     },
-    mode: {
+    Mode: {
       type:DataTypes.STRING,
       allowNull:false
     },
-    pressure: {
+    Pressure: {
       type:DataTypes.INTEGER,
       allowNull:false
     },
-    station: {
+    Station: {
       type:DataTypes.INTEGER,
       allowNull:false
     },
-    start: DataTypes.DATE,
-    duration: DataTypes.INTEGER,
-    scheduleId: DataTypes.INTEGER,
-    inputs: DataTypes.STRING,
-    outputs: DataTypes.STRING
+    Start: DataTypes.DATE,
+    Duration: DataTypes.INTEGER,
+    ScheduleId: DataTypes.INTEGER,
+    Inputs: DataTypes.STRING,
+    Outputs: DataTypes.STRING
   }, {
     classMethods: {
       associate: function(models) {

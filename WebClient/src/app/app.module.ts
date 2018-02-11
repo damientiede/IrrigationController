@@ -14,6 +14,8 @@ import { HistoryComponent} from './history.component/history.component';
 import { DiagnosticComponent } from './diagnostic.component/diagnostic.component';
 import { IrrigationControllerService} from './services/IrrigationController.service';
 import { routes } from './app.routes';
+import { ConfigComponent } from './config.component/config.component';
+import { NewEditSolenoidComponent } from './newedit-solenoid/newedit-solenoid.component';
 
 @NgModule({
   declarations: [
@@ -21,18 +23,20 @@ import { routes } from './app.routes';
     StatusComponent,
     NavComponent,
     HistoryComponent,
-    DiagnosticComponent
+    DiagnosticComponent,
+    ConfigComponent,
+    NewEditSolenoidComponent
   ],
   imports: [
     BrowserModule,
     BrowserAnimationsModule,
     FormsModule,
     ToastModule.forRoot(),
-    HttpModule, 
+    HttpModule,
     JsonpModule,
     RouterModule.forRoot(routes)
   ],
-  providers: [IrrigationControllerService,AuthGuard],
+  providers: [IrrigationControllerService, AuthGuard],
   bootstrap: [AppComponent]
 })
 export class AppModule { }

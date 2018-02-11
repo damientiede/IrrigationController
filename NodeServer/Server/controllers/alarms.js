@@ -4,12 +4,12 @@ module.exports = {
    create(req, res) {      
         return Alarm
             .create({            
-                name: req.body.Name,
-                description: req.body.Description,
-                hardwareType: req.body.HardwareType,            
-                address: req.body.Address,
-                deviceId: parseInt(req.body.DeviceId),
-                value:0
+                Name: req.body.Name,
+                Description: req.body.Description,
+                HardwareType: req.body.HardwareType,            
+                Address: req.body.Address,
+                DeviceId: parseInt(req.body.DeviceId),
+                Value:0
             })
             .then(alarm => res.status(201).send(alarm))
             .catch(error => res.status(400).send(error));
@@ -29,13 +29,13 @@ module.exports = {
    update(req, res) {
         return Alarm
             .update({        
-                deviceId: parseInt(req.body.DeviceId),
-                name: req.body.Name,
-                hardwareType: req.body.HardwareType,            
-                address: req.body.Address,
-                value: req.body.Value
+                DeviceId: parseInt(req.body.DeviceId),
+                Name: req.body.Name,
+                HardwareType: req.body.HardwareType,            
+                Address: req.body.Address,
+                Value: req.body.Value
             }, {
-	            where: { id: req.body.id }
+	            where: { Id: req.body.id }
             })
             .then(alarm => res.status(200).send(alarm))
             .catch(error => res.status(400).send(error));
@@ -43,7 +43,7 @@ module.exports = {
    listByDevice(req, res) {    
         return Alarm
         .findAll({
-            where: {deviceId: req.params.deviceId}        
+            where: {DeviceId: req.params.deviceId}        
         })
         .then(alarms => res.status(200).send(alarms))
         .catch(error => res.status(400).send(error));  

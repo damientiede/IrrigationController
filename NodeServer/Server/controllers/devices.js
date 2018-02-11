@@ -5,14 +5,14 @@ module.exports = {
    create(req, res) {      
         return Device
             .create({            
-                name: req.body.FirstName,
-                description: req.body.Description,
-                mode:'Manual',
-                state:'Standby',
-                status:'Created',               
-                pumpSolenoid:req.body.PumpSolenoid,
-                softwareVersion:req.body.SoftwareVersion,
-                deviceMAC:req.body.DeviceMAC
+                Name: req.body.FirstName,
+                Description: req.body.Description,
+                Mode:'Manual',
+                State:'Standby',
+                Status:'Created',               
+                PumpSolenoid:req.body.PumpSolenoid,
+                SoftwareVersion:req.body.SoftwareVersion,
+                DeviceMAC:req.body.DeviceMAC
             })
             .then(device => res.status(201).send(device))
             .catch(error => res.status(400).send(error));
@@ -20,7 +20,7 @@ module.exports = {
    single(req, res) {
         return Device
             .find({
-                where: {id: req.params.id}
+                where: {Id: req.params.id}
                 //include: [{all:true}]
              })
             .then(device => res.status(200).send(device))
@@ -35,16 +35,16 @@ module.exports = {
    update(req, res) {
         return Device
             .update({        
-                name: req.body.Name,
-                description: req.body.Description,
-                mode: Utils.parseDeviceMode(req.body.Mode),
-                state: Utils.parseDeviceState(req.body.State),
-                status: req.body.Status,
-                pumpSolenoidId:req.body.PumpSolenoid,
-                softwareVersion:req.body.SoftwareVersion,
-                updatedAt:new Date()            
+                Name: req.body.Name,
+                Description: req.body.Description,
+                Mode: Utils.parseDeviceMode(req.body.Mode),
+                State: Utils.parseDeviceState(req.body.State),
+                Status: req.body.Status,
+                PumpSolenoidId:req.body.PumpSolenoid,
+                SoftwareVersion:req.body.SoftwareVersion,
+                UpdatedAt:new Date()            
             }, {
-	            where: { id: req.params.id }
+	            where: { Id: req.params.id }
             })
             .then(device => res.status(200).send(device))
             .catch(error => res.status(400).send(error));
@@ -54,12 +54,12 @@ module.exports = {
             .findOrCreate({
                 where:{deviceMAC:req.params.deviceMAC},
                 defaults:{
-                    name:'DeviceName',
-                    description:'Device description',
-                    mode:'Manual',
-                    state:'Standby',
-                    status:'Created',
-                    softwareVersion:'0.0.0.1'
+                    Name:'DeviceName',
+                    Description:'Device description',
+                    Mode:'Manual',
+                    State:'Standby',
+                    Status:'Created',
+                    SoftwareVersion:'0.0.0.1'
                     //deviceMAC: req.params.mac
                 }
             })
