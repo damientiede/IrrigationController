@@ -99,7 +99,7 @@ export class IrrigationControllerService {
     }
 
     saveSolenoid(solenoid: ISolenoid): Observable <ISolenoid> {
-        let url = `${this.restUrl}/solenoids/${solenoid.Id}`;
+        let url = `${this.restUrl}/solenoids/${solenoid.id}`;
         return this.http.put(url, solenoid)
             // ...and calling .json() on the response to return data
             .map((res:Response) => res.json())

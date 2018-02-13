@@ -1,6 +1,6 @@
 export class ISolenoid {
     constructor(
-        public Id: number,
+        public id: number,
         public Name: string,
         public Description: string,
         public HardwareType: string,

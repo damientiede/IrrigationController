@@ -32,7 +32,7 @@ module.exports = {
             DeviceId: parseInt(req.body.DeviceId),
             Name: req.body.Name,
             Description: req.body.Description,
-            HardwareType: Utils.parseHardwareType(req.body.HardwareType),
+            HardwareType: req.body.HardwareType,
             RequiresPump: req.body.RequiresPump,
             Address: req.body.Address,
             Value: parseInt(req.body.Value)

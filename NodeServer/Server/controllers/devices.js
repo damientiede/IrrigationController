@@ -52,7 +52,7 @@ module.exports = {
    register(req, res) {
         return Device
             .findOrCreate({
-                where:{deviceMAC:req.params.deviceMAC},
+                where:{DeviceMAC:req.params.DeviceMAC},
                 defaults:{
                     Name:'DeviceName',
                     Description:'Device description',
@@ -69,6 +69,9 @@ module.exports = {
                 }
                 res.status(201).send(device);
             })
-            .catch(error => res.status(400).send(error));
+            .catch(error => {
+                console.log('DeviceController.Register(): '+ error);
+                res.status(400).send(error);
+            });
    }
 };

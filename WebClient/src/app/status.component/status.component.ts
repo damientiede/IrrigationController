@@ -19,7 +19,7 @@ import { IIrrigationProgram } from '../model/irrigationprogram';
 })
 
 export class StatusComponent implements OnInit {  
-  id = 3;
+  id = 1;
   ticks = 0;
   status: IStatus;
   device: IDevice;

@@ -22,7 +22,7 @@ export class NewEditSolenoidComponent implements OnInit {
   ngOnInit() {
     console.log(this.solenoid);
     if (this.solenoid != null) {
-      this.title = `Edit Solenoid - ${this.solenoid.Id}`;
+      this.title = `Edit Solenoid - ${this.solenoid.id}`;
     } else {
       this.title = 'New Solenoid';
     }
@@ -33,7 +33,8 @@ export class NewEditSolenoidComponent implements OnInit {
     this.editMode = true;
   }
   onSelect(ht) {
-    console.log(`${ht} selected`);
+    console.log(`${ht.target.value} selected`);
+    this.solenoid.HardwareType = ht.target.value;
   }
   cancel() {
     this.editMode = false;

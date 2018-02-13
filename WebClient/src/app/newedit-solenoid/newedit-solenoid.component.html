@@ -3,12 +3,12 @@
     <table *ngIf="!editMode">
       <tbody>
         <tr>
-          <td>{{solenoid.name}} </td>
-          <td>{{solenoid.description}} </td>
-          <td>{{solenoid.hardwareType}} </td>
-          <td>{{solenoid.address}} </td>
+          <td>{{solenoid.Name}} </td>
+          <td>{{solenoid.Description}} </td>
+          <td>{{solenoid.HardwareType}} </td>
+          <td>{{solenoid.Address}} </td>
           <!--td>{{s.requiresPump}} </td-->
-          <td>{{solenoid.value}} </td>   
+          <td>{{solenoid.Value}} </td>   
           <td (click)="editClick()"><i class="fas fa-cog fa-fw"></i></td>                 
         </tr>
       </tbody>
@@ -27,7 +27,7 @@
 
       <div class="form-group">
         <label for="hardwareType">Hardware Type</label>          
-        <select class="form-control" id="hardwareType"> <!-- [(ngModel)]="solenoid.hardwareType" required-->
+        <select class="form-control" id="hardwareType" (change)="onSelect($event)" [(ngModel)]="solenoid.HardwareType" required>
           <option *ngFor="let ht of hardwareTypes" value="{{ht}}">{{ht}}</option>
         </select>
       </div>
