@@ -20,13 +20,15 @@ module.exports = (sequelize, DataTypes) => {
     Duration: DataTypes.INTEGER,
     ScheduleId: DataTypes.INTEGER,
     Inputs: DataTypes.STRING,
-    Outputs: DataTypes.STRING
-  }, {
-    classMethods: {
-      associate: function(models) {
-        // associations can be defined here
-      }
-    }
+    Outputs: DataTypes.STRING  
   });
+
+  Status.associate = (models) => {
+    Status.belongsTo(models.Device, {
+        foreignKey: 'DeviceId',
+        onDelete: 'CASCADE',
+    });
+  };
+  
   return Status;
 };

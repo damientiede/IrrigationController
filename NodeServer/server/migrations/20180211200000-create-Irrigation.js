@@ -31,6 +31,20 @@ module.exports = {
             Status: {
                 type: Sequelize.STRING
             },
+            Pressure: {
+                type: Sequelize.INTEGER,
+                default: 0
+            },
+            ScheduleId: {
+                type: Sequelize.INTEGER,
+                default: null
+            },
+            Inputs: {
+                type: Sequelize.STRING
+            },
+            Outputs: {
+                type: Sequelize.STRING
+            },
             PumpSolenoidId: {
                 type: Sequelize.INTEGER
             }, 

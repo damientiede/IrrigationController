@@ -29,7 +29,7 @@ export class ConfigComponent implements OnInit {
               ) {  }
 
   ngOnInit() {
-    this.getDevice(1);
+    this.getDevice(2);
   }
 
   getDevice(id: number) {

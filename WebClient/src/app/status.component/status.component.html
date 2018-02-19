@@ -8,14 +8,14 @@
                     {{device.status}}
                 </div>
                 <div class="panel-content" *ngIf="getDuration() > 0">
-                    <div class="row" >
-                        <div class="progress" >
-                            <div class="progress-bar progress-bar-success progress-bar-striped" role="progressbar" 
-                                attr.aria-valuenow="{{elapsed}}" attr.aria-valuemin="0" attr.aria-valuemax="{{activeProgram.duration}}" style="width: {{elapsed}}%;min-width:2em;">
-                                {{elapsed}}%
+                    
+                        <div class="progress" style="margin-left:0px;margin-right:0px;">
+                            <div class="progress-bar bg-success progress-bar-striped" role="progressbar" 
+                                attr.aria-valuenow="percentComplete" attr.aria-valuemin="0" attr.aria-valuemax="100" style="min-width:2em;" [style.width]="percentComplete+'%'" >
+                                {{percentComplete}}%
                             </div>
                         </div>
-                    </div>
+                       
                     <div class="row">
                         <div class="col-6">
                             Start:{{getStartTime()}}
@@ -62,7 +62,7 @@
             </div>            
             <select id="selStation" class="form-control" [(ngModel)]="manualStation" required>
                 <option *ngFor="let solenoid of solenoids" [value]="solenoid.id">
-                    {{solenoid.name}}
+                    {{solenoid.Name}}
                 </option>
                 <!--option value="1">1</option>
                 <option value="2">2</option>

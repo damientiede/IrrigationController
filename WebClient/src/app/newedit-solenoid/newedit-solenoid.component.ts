@@ -49,8 +49,7 @@ export class NewEditSolenoidComponent implements OnInit {
       },
       () => {
         console.log('Success');
-        this.toastr.success('It will take a few moments to process.','Command sent' );
-        //this._slimLoadingBarService.complete();
+        this.toastr.success('Changes saved' );
     });
   }
 }

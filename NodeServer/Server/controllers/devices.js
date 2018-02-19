@@ -40,6 +40,10 @@ module.exports = {
                 Mode: Utils.parseDeviceMode(req.body.Mode),
                 State: Utils.parseDeviceState(req.body.State),
                 Status: req.body.Status,
+                Pressure: parseInt(req.body.Pressure),
+                ScheduleId: parseInt(req.body.ScheduleId),
+                Inputs: req.body.Inputs,
+                Outputs: req.body.Outputs,                
                 PumpSolenoidId:req.body.PumpSolenoid,
                 SoftwareVersion:req.body.SoftwareVersion,
                 UpdatedAt:new Date()            

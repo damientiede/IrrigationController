@@ -1,6 +1,31 @@
-const Statuses = require('../models').Status;
+const Status = require('../models').Status;
 
 module.exports = {
+      update(req,res) {
+            return Status
+                  .findOrCreate({
+                        where:{DeviceId:req.params.DeviceId},
+                        defaults:{
+                              State:'Unknown',
+                              Pressure:'Device description',
+                              Mode:'Manual',
+                              State:'Standby',
+                              Status:'Created',
+                              SoftwareVersion:'0.0.0.1'
+                              //deviceMAC: req.params.mac
+                        }
+                  })
+                  .spread((device,created) => {
+                        if (created) {
+                        console.log("New device successfully registered");
+                        }
+                        res.status(201).send(device);
+                  })
+                  .catch(error => {
+                        console.log('DeviceController.Register(): '+ error);
+                        res.status(400).send(error);
+                  });
+      },
       get(req,res) {
 
             Solenoid.findAll({ where: { deviceId: req.query.id } })

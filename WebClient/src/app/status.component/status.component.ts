@@ -18,18 +18,20 @@ import { IIrrigationProgram } from '../model/irrigationprogram';
   templateUrl: './status.component.html'
 })
 
-export class StatusComponent implements OnInit {  
-  id = 1;
+export class StatusComponent implements OnInit {
+  id = 2;
   ticks = 0;
   status: IStatus;
   device: IDevice;
   solenoids: ISolenoid[];
   activeProgram: IIrrigationProgram;
-  manualStation: number = 1;
-  manualDuration: number = 5;
-  elapsed: number = 0;
-  loaded: boolean = false;
-  irrigating: boolean = false;
+  manualStation = 1;
+  manualDuration = 5;
+  elapsed = 0;
+  duration = 0;
+  percentComplete = 0;
+  loaded = false;
+  irrigating = false;
 
   dateFormat='YYYY-MM-DD HH:mm:ss';
   constructor (private dataService: IrrigationControllerService,
@@ -99,11 +101,14 @@ export class StatusComponent implements OnInit {
       .getActiveProgram(id)
       .subscribe((p: IIrrigationProgram) => {
             console.log(p);
-            const now = moment();
-            const start = moment(p.start);
-            const fin = start.add(p.duration,'minutes');
-            this.elapsed = now.diff(start) / (p.duration * 1000);
-            if (moment().isBefore(fin)) {
+            const now = moment.utc();
+            const start = moment.utc(p.Start);
+            const fin = moment.utc(p.Start);
+            fin.add(p.Duration,'minutes');
+            this.elapsed = now.diff(start);
+            this.duration = p.Duration * 60 * 1000;
+            this.percentComplete = Math.floor(this.elapsed / this.duration * 100);
+            if (moment.utc().isBefore(fin)) {
               this.activeProgram = p;
               this.irrigating = true;
             }
@@ -151,7 +156,7 @@ export class StatusComponent implements OnInit {
   }
   getDuration() {
     if (this.activeProgram != null) {
-      return this.activeProgram.duration;
+      return this.activeProgram.Duration;
     }
     return 0;
   }
@@ -172,27 +177,28 @@ export class StatusComponent implements OnInit {
   }
   getStartTime() {
     if (this.activeProgram != null) {
-      return moment(this.activeProgram.start).format("HH:mm");
+      return moment(this.activeProgram.Start).format("HH:mm");
     }
     return '';
   }
   getEnd() {
     if (this.activeProgram != null) {
-      return moment(this.activeProgram.start).add(this.activeProgram.duration,'minutes').format("HH:mm");
+      return moment(this.activeProgram.Start).add(this.activeProgram.Duration,'minutes').format("HH:mm");
     }
     return '';
   }
   getPressure() {
-    if (this.status != null) {
-      return `${this.status.pressure} kPa`;
+    if (this.device != null) {
+      return '?? kPa';
+      //return `${this.device.Pressure} kPa`;
     }
     return '';
   }
   getLastUpdated() {
     if (this.device != null) {
-      return moment(this.device.updatedAt).format("Do MMM YYYY h:mm:ss a");
+      return moment(this.device.updatedAt).format("Do MMM YYYY HH:mm");
     }
-    return '';    
+    return '';
   }
   manualStop() {
     let cmd = new ICommand(
@@ -210,12 +216,12 @@ export class StatusComponent implements OnInit {
   manualStart() {
     if (this.manualStation != null && this.manualDuration != null) {
       let cmd = new ICommand(
-        0,  //id
+         0,  //id
         'Manual',  //commandType
         `${this.manualStation}, ${this.manualDuration}`,
         new Date, //issued
         null, //actioned
-        1, //deviceId
+        this.id, //deviceId
         new Date, //createdAt
         null  //updatedAt
       );

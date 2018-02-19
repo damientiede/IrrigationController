@@ -16,6 +16,10 @@ namespace DeviceController.Data
         public DeviceState State;
         public DeviceMode Mode;
         public string Status;
+        public double Pressure;
+        public int ScheduleId;
+        public string Inputs;
+        public string Outputs;
         public string SoftwareVersion;        
         public string DeviceMAC;
         public int PumpSolenoid;

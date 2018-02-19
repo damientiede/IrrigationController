@@ -1,7 +1,6 @@
 const eventsController = require('../controllers').events;
 const commandsController = require('../controllers').commands;
 const commandTypesController = require ('../controllers').commandTypes;
-const statusController = require('../controllers').status;
 const accountsController = require('../controllers').accounts;
 const devicesController = require('../controllers').devices;
 const solenoidsController = require('../controllers').solenoids;
@@ -12,6 +11,7 @@ const usersController = require('../controllers').users;
 const deviceStatusController = require('../controllers').deviceStatuses;
 const schedulesController = require('../controllers').schedules;
 const irrigationProgramsController = require('../controllers').irrigationPrograms;
+
 
 module.exports = (app) => {
    app.get('/api',(req, res) => res.status(200).send({
@@ -94,5 +94,6 @@ module.exports = (app) => {
    app.put('/api/irrigationprograms/:id', irrigationProgramsController.update);
    app.get('/api/devices/:deviceId/irrigationprograms', irrigationProgramsController.listByDevice);
    app.get('/api/devices/:deviceId/activeprogram',irrigationProgramsController.activeByDevice);
+  
 };
 

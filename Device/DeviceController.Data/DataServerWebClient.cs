@@ -100,6 +100,11 @@ namespace DeviceController.Data
             string data = JsonConvert.SerializeObject(d);
             string response = Put(string.Format("devices/{0}", d.Id), data);
         }
+        public void PutStatus(Status s)
+        {
+            string data = JsonConvert.SerializeObject(s);
+            string response = Put(string.Format("devices/{0}", s.Id), data);
+        }
         public List<Command> GetCommands(int deviceId)
         {
             string Uri = string.Format("devices/{0}/pendingcommands", deviceId);
