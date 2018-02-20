@@ -1,5 +1,5 @@
-import { Component } from '@angular/core';
-import {Router} from "@angular/router";
+import { Component, OnInit } from '@angular/core';
+import {ActivatedRoute, Params} from "@angular/router";
 //import {ToasterModule, ToasterService, ToasterConfig} from 'angular2-toaster';
 
 @Component({
@@ -7,4 +7,13 @@ import {Router} from "@angular/router";
   templateUrl: './app.component.html'
 })
 
-export class AppComponent { }
+export class AppComponent implements OnInit {
+  public id = 0;
+  constructor (private route: ActivatedRoute) {}
+  ngOnInit() {
+    this.route.params
+      .subscribe((params: Params) => {
+        this.id = params['id'];
+      });
+    }
+ }

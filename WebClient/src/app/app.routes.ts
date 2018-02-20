@@ -14,9 +14,9 @@ export const routes: Routes = [
   { path: '', redirectTo:'status', pathMatch:'full'},
   //{ path: 'login',  component: Login },
   //{ path: 'signup', component: Signup },
-  { path: 'status',   component: StatusComponent, canActivate: [AuthGuard] },
-  { path: 'history',   component: HistoryComponent, canActivate: [AuthGuard] },
-  { path: 'config',   component: ConfigComponent, canActivate: [AuthGuard] },
-  { path: 'diagnostic',   component: DiagnosticComponent, canActivate: [AuthGuard] },
+  { path: 'status/:id',   component: StatusComponent, canActivate: [AuthGuard] },
+  { path: 'history/:id',   component: HistoryComponent, canActivate: [AuthGuard] },
+  { path: 'config/:id',   component: ConfigComponent, canActivate: [AuthGuard] },
+  { path: 'diagnostic/:id',   component: DiagnosticComponent, canActivate: [AuthGuard] },
   { path: '**',     component: StatusComponent },
 ];

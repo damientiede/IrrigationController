@@ -1,5 +1,5 @@
 import { Component, OnInit, ViewContainerRef  } from '@angular/core';
-import {Router} from "@angular/router";
+import {Router, ActivatedRoute, Params} from "@angular/router";
 import {Observable} from 'rxjs/Rx';
 import * as moment from 'moment';
 //import { ToasterService } from 'angular2-toaster/angular2-toaster';
@@ -37,17 +37,24 @@ export class StatusComponent implements OnInit {
   constructor (private dataService: IrrigationControllerService,
                public toastr: ToastsManager,
                vcr: ViewContainerRef,
-               private router: Router
+               private route: ActivatedRoute
               ) {
     this.toastr.setRootViewContainerRef(vcr);
   }
 
   ngOnInit() {
-    this.getSolenoids(this.id);
-    let timer = Observable.timer(0,5000);
-    timer.subscribe(t => {
-      this.onTick(t);
-    });
+    this.route.params
+      .subscribe((params: Params) => {
+        this.id = params['id'];
+        if (Number.isNaN(this.id)) {
+          alert('Missing Device ID');
+        }
+        this.getSolenoids(this.id);
+        let timer = Observable.timer(0, 5000);
+        timer.subscribe(t => {
+          this.onTick(t);
+        });
+      });
   }
   onTick(t) {
     this.getData(this.id);
@@ -91,8 +98,8 @@ export class StatusComponent implements OnInit {
           },
           () => {
               console.log('Success');
-              //this._toasterService.pop('success', 'Complete', 'Getting all values complete');
-              //this._slimLoadingBarService.complete();
+              // this._toasterService.pop('success', 'Complete', 'Getting all values complete');
+              // this._slimLoadingBarService.complete();
           });
   }
   getActiveProgram(id: number) {
@@ -101,13 +108,20 @@ export class StatusComponent implements OnInit {
       .getActiveProgram(id)
       .subscribe((p: IIrrigationProgram) => {
             console.log(p);
+            const finished = moment.utc(p.Finished);
+            if (moment.utc().isAfter(finished)) {
+              // this program is finished
+              this.activeProgram = null;
+              this.irrigating = false;
+              return;
+            }
             const now = moment.utc();
             const start = moment.utc(p.Start);
             const fin = moment.utc(p.Start);
             fin.add(p.Duration,'minutes');
             this.elapsed = now.diff(start);
             this.duration = p.Duration * 60 * 1000;
-            this.percentComplete = Math.floor(this.elapsed / this.duration * 100);
+            this.percentComplete = Math.ceil(this.elapsed / this.duration * 100);
             if (moment.utc().isBefore(fin)) {
               this.activeProgram = p;
               this.irrigating = true;
@@ -196,7 +210,7 @@ export class StatusComponent implements OnInit {
   }
   getLastUpdated() {
     if (this.device != null) {
-      return moment(this.device.updatedAt).format("Do MMM YYYY HH:mm");
+      return moment(this.device.updatedAt).format("DD MMM YYYY HH:mm");
     }
     return '';
   }
@@ -207,7 +221,7 @@ export class StatusComponent implements OnInit {
       '', //params
       new Date, //issued
       null, //actioned
-      1, //deviceId
+      this.id, //deviceId
       new Date, //createdAt
       null  //updatedAt
     );
