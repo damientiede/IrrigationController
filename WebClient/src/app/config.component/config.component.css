@@ -1,1 +1,5 @@
 ul {list-style: none;padding-left:0px;}
+li:hover {cursor: pointer;}
+table.solenoids {width:100%;}
+table.solenoids td {border-top:1px solid #777;}
+table.solenoids tr:hover {cursor: pointer;}

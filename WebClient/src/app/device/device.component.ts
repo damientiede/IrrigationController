@@ -1,8 +1,9 @@
 import { Component, OnInit, ViewContainerRef  } from '@angular/core';
-import {Router, ActivatedRoute, Params} from "@angular/router";
+import { ActivatedRoute, Params} from "@angular/router";
 import {Observable} from 'rxjs/Rx';
 import * as moment from 'moment';
 import { ToastsManager } from 'ng2-toastr/ng2-toastr';
+import { DeviceToolsComponent } from '../device/device-tools/device-tools.component';
 import { IrrigationControllerService} from '../services/IrrigationController.service';
 import { IStatus} from '../model/status';
 import { IDevice } from '../model/device';
@@ -12,12 +13,12 @@ import { ICommand } from '../model/command';
 import { IIrrigationProgram } from '../model/irrigationprogram';
 
 @Component({
-  selector: 'status-component',
-  templateUrl: './status.component.html'
+  selector: 'app-device',
+  templateUrl: './device.component.html',
+  styleUrls: ['./device.component.css']
 })
-
-export class StatusComponent implements OnInit {
-  id = 2;
+export class DeviceComponent implements OnInit {
+  id = 0;
   ticks = 0;
   status: IStatus;
   device: IDevice;
@@ -32,13 +33,10 @@ export class StatusComponent implements OnInit {
   irrigating = false;
 
   dateFormat='YYYY-MM-DD HH:mm:ss';
-  constructor (private dataService: IrrigationControllerService,
-               public toastr: ToastsManager,
-               vcr: ViewContainerRef,
-               private route: ActivatedRoute
-              ) {
-    this.toastr.setRootViewContainerRef(vcr);
-  }
+  constructor(private dataService: IrrigationControllerService,
+              public toastr: ToastsManager,
+              vcr: ViewContainerRef,
+              private route: ActivatedRoute) { }
 
   ngOnInit() {
     this.route.params
@@ -73,8 +71,7 @@ export class StatusComponent implements OnInit {
             this.loaded = true;
           },
           error => () => {
-              console.log('Something went wrong...');
-              //this._toasterService.pop('error', 'Damn', 'Something went wrong...');
+            console.log('Something went wrong...');              
           },
           () => {
               console.log('Success');
@@ -160,7 +157,7 @@ export class StatusComponent implements OnInit {
     }
     return 0;
   }
-  getStatusClass(){
+  getStatusClass() {
     /* if (this.status == null) return;
     if(this.status.state.indexOf("Irrigating") > -1) { return "panel panel-success"; }
     if(this.status.state.indexOf("Fault") > -1) { return "panel panel-danger"; } */

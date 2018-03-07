@@ -1,4 +1,6 @@
+import {Injectable} from "@angular/core";
 import { Component, OnInit } from '@angular/core';
+import {Location} from '@angular/common';
 import {Router} from "@angular/router";
 @Component({
     selector: 'nav-component',
@@ -6,18 +8,24 @@ import {Router} from "@angular/router";
     styles:['a:hover{cursor:pointer}'] 
   })
 
+  @Injectable()
   export class NavComponent {
-      constructor(private router:Router){}
+      constructor(private router: Router,
+                  private location: Location) {}
 
-      getActive(route):string {
-          //console.log(route);
+      getActive(route): string {
           if (this.router.url.indexOf(route) > 0) {
               return 'active';
           }
           return '';
       }
 
-      navTo(url){
+      public NavTo(url) {
           this.router.navigate([url]);
       }
+
+      public Back() {
+          this.location.back();
+      }
   }
+  

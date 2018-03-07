@@ -1,22 +1,27 @@
 // Import our dependencies
 import { Routes } from '@angular/router';
+import { HomeComponent } from './home/home.component';
+import { DeviceComponent } from './device/device.component';
 import { StatusComponent } from './status.component/status.component';
 import { HistoryComponent } from './history.component/history.component';
 import { ConfigComponent } from './config.component/config.component';
 import { DiagnosticComponent } from './diagnostic.component/diagnostic.component';
-
-//import { Login } from './login';
-//import { Signup } from './signup';
+import { SolenoidComponent } from './device/solenoid/solenoid.component';
+import { AlarmComponent } from './device/alarm/alarm.component';
+import { AnalogComponent } from './device/analog/analog.component';
+import { SpiComponent } from './device/spi/spi.component';
 import { AuthGuard } from './common/auth.guard';
 
 // Define which component should be loaded based on the current URL
 export const routes: Routes = [
-  { path: '', redirectTo:'status', pathMatch:'full'},
-  //{ path: 'login',  component: Login },
-  //{ path: 'signup', component: Signup },
-  { path: 'status/:id',   component: StatusComponent, canActivate: [AuthGuard] },
-  { path: 'history/:id',   component: HistoryComponent, canActivate: [AuthGuard] },
-  { path: 'config/:id',   component: ConfigComponent, canActivate: [AuthGuard] },
-  { path: 'diagnostic/:id',   component: DiagnosticComponent, canActivate: [AuthGuard] },
-  { path: '**',     component: StatusComponent },
+  { path: '', redirectTo: 'home', pathMatch: 'full'},
+  { path: 'device/:id',   component: DeviceComponent, canActivate: [AuthGuard] },
+  { path: 'device/:id/history',   component: HistoryComponent, canActivate: [AuthGuard] },
+  { path: 'device/:id/config',   component: ConfigComponent, canActivate: [AuthGuard] },
+  { path: 'device/:id/solenoid/:id', component: SolenoidComponent, canActivate: [AuthGuard] },
+  { path: 'device/:id/alarm/:id', component: AlarmComponent, canActivate: [AuthGuard] },
+  { path: 'device/:id/analog/:id', component: AnalogComponent, canActivate: [AuthGuard] },
+  { path: 'device/:id/spi/:id', component: SpiComponent, canActivate: [AuthGuard] },
+  { path: 'device/:id/diagnostic',   component: DiagnosticComponent, canActivate: [AuthGuard] },
+  { path: '**',     component: HomeComponent },
 ];

@@ -1,38 +1,132 @@
 <div *ngIf="!loaded"></div>
 <div class="row" *ngIf="loaded">
-    <div class="col-3"></div>
-    <div class="col-6">
-        <h4>Device</h4>
-        <table class="table table-striped">
-            <tbody>
-                <tr><td>Name: {{device.Name}}</td></tr>
-                <tr><td>Description: {{device.Description}}</td></tr>
-                <tr><td>Last updated: {{getLastUpdated()}}</td></tr>
-                <tr><td>Device MAC: {{device.DeviceMAC}}</td></tr>
-                <tr><td>Software version: {{device.SoftwareVersion}}</td></tr>
-                <tr><td>Device ID: {{device.id}}</td></tr>
-                <tr><td>Mode: {{device.Mode}}</td></tr>
-                <tr><td>State: {{device.State}}</td></tr>
-                <tr><td>Status: {{device.Status}}</td></tr>                
-            </tbody>
-        </table>
-        <h4>Solenoids</h4>  
-        <ul>
-          <li *ngFor="let solenoid of solenoids">
-              <app-newedit-solenoid [solenoid]="solenoid"></app-newedit-solenoid>
-          </li>
-        </ul>             
-        <h4>Irrigation programs</h4>        
-        <table class="table table-striped">
-            <tbody>           
-                <tr *ngFor="let p of irrigationPrograms" class="tr">
-                    <td>{{p.name}} </td>
-                    <td>{{dateTimeFormat(p.start)}} </td>
-                    <td>{{dateTimeFormat(p.finished)}} </td>
-                    <td>{{p.duration}} </td>
-                </tr>
-            </tbody>
-        </table>
+    <div class="col-2"></div>
+    <div class="col-8">
+      <app-device-tools [device]="device"></app-device-tools>
     </div>
-    <div class="col-3"></div>
+    <div class="col-2"></div>
+</div>
+<div class="row" *ngIf="loaded">
+    <div class="col-2"></div>
+    <div class="col-8">
+        <h3>Settings</h3>
+        <ul class="nav nav-tabs">
+            <li class="nav-item">
+              <a class="nav-link" [ngClass]="getActiveClass('Device')" (click)="deviceClicked()">Device</a>
+            </li>
+            <li class="nav-item">
+              <a class="nav-link" [ngClass]="getActiveClass('Solenoids')" (click)="solenoidsClicked()">Solenoids</a>
+            </li>
+            <li class="nav-item">
+              <a class="nav-link" [ngClass]="getActiveClass('Alarms')" (click)="alarmsClicked()">Alarms</a>
+            </li>
+            <li class="nav-item">
+              <a class="nav-link" [ngClass]="getActiveClass('Analogs')" (click)="analogsClicked()">Analogs</a>
+            </li>
+            <li class="nav-item">
+                <a class="nav-link" [ngClass]="getActiveClass('SPIs')" (click)="spisClicked()">SPIs</a>
+            </li>
+          </ul>
+    </div>
+    <div class="col-2"></div>
+</div>
+
+<div class="row" *ngIf="loaded">
+    <div class="col-2"></div>
+    <div class="col-8"> 
+        <!-- Device section -->
+        <div *ngIf="isView('Device')">            
+            <table>
+                <tbody>                                     
+                    <tr><td>Name: {{device.Name}}</td></tr>                    
+                    <tr><td>Description: {{device.Description}}</td></tr>
+                    <tr><td>Last updated: {{getLastUpdated()}}</td></tr>
+                    <tr><td>Device MAC: {{device.DeviceMAC}}</td></tr>
+                    <tr><td>Software version: {{device.SoftwareVersion}}</td></tr>
+                    <tr><td>Device ID: {{device.id}}</td></tr>
+                    <tr><td>Mode: {{device.Mode}}</td></tr>
+                    <tr><td>State: {{device.State}}</td></tr>
+                    <tr><td>Status: {{device.Status}}</td></tr>  
+                               
+                </tbody>
+            </table>
+        </div>
+        <!-- Solenoids section -->
+        <div *ngIf="isView('Solenoids')">
+                <h5 *ngIf="solenoids.length==0">No solenoids configured</h5>
+            <table class="solenoids">
+                <tbody>
+                    <tr *ngFor="let solenoid of solenoids" (click)="editSolenoid(solenoid)">
+                        <td>{{solenoid.Name}} </td>
+                        <td>{{solenoid.Description}} </td>
+                        <td>{{solenoid.HardwareType}} </td>
+                        <td>{{solenoid.Address}} </td>
+                        <td>{{solenoid.Value}} </td> 
+                    </tr>
+                </tbody>
+            </table>
+            <button type="button" class="btn btn-success" (click)="newSolenoid()">
+                <i class="fa fa-plus"></i>
+            </button>
+            <br>
+        </div>
+        <!-- Alarms section -->
+        <div *ngIf="isView('Alarms')">
+            <h5 *ngIf="alarms.length==0">No alarms configured</h5>
+            <table class="solenoids">
+                <tbody>
+                    <tr *ngFor="let alarm of alarms" (click)="editAlarm(alarm)">
+                        <td>{{alarm.Name}} </td>
+                        <td>{{alarm.Description}} </td>
+                        <td>{{alarm.HardwareType}} </td>
+                        <td>{{alarm.Address}} </td>
+                        <td>{{alarm.Value}} </td> 
+                    </tr>
+                </tbody>
+            </table>
+            <button type="button" class="btn btn-success" (click)="newAlarm()">
+                <i class="fa fa-plus"></i>
+            </button>
+            <br>
+        </div>
+        <!-- Analogs section -->
+        <div *ngIf="isView('Analogs')">
+            <h5 *ngIf="analogs.length==0">No analogs configured</h5>
+            <table class="solenoids">
+                <tbody>
+                    <tr *ngFor="let analog of analogs" (click)="editAnalog(analog)">
+                        <td>{{analog.Name}} </td>
+                        <td>{{analog.Description}} </td>
+                        <td>{{analog.HardwareType}} </td>
+                        <td>{{analog.Address}} </td>
+                        <td>{{analog.Value}} </td> 
+                    </tr>
+                </tbody>
+            </table>
+            <button type="button" class="btn btn-success" (click)="newAnalog()">
+                <i class="fa fa-plus"></i>
+            </button>
+            <br>
+        </div>
+        <!-- SPIs section -->
+        <div *ngIf="isView('SPIs')">
+                <h5 *ngIf="spis.length==0">No SPIs configured</h5>
+                <table class="solenoids">
+                    <tbody>
+                        <tr *ngFor="let spi of spis" (click)="editSPI(spi)">
+                            <td>{{spi.Name}} </td>
+                            <td>{{spi.Description}} </td>
+                            <td>{{spi.HardwareType}} </td>
+                            <td>{{spi.Address}} </td>
+                            <td>{{spi.Value}} </td> 
+                        </tr>
+                    </tbody>
+                </table>
+                <button type="button" class="btn btn-success" (click)="newSPI()">
+                    <i class="fa fa-plus"></i>
+                </button>
+                <br>
+            </div>
+    </div>
+    <div class="col-2"></div>
 </div>

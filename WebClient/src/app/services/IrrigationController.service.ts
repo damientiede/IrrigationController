@@ -3,6 +3,9 @@ import { Http, Response, Headers, RequestOptions } from '@angular/http';
 import { IStatus } from '../model/status';
 import { IDevice } from '../model/device';
 import { ISolenoid } from '../model/solenoid';
+import { IAlarm } from '../model/alarm';
+import { IAnalog } from '../model/analog';
+import { ISpi } from '../model/spi';
 import { IIrrigationProgram} from '../model/irrigationprogram';
 import { IEvent } from '../model/event';
 import { ICommand } from '../model/command';
@@ -36,8 +39,33 @@ export class IrrigationControllerService {
             .catch((error: any) => Observable.throw(error.json().error || 'Server error'));
     }
 
+    getDevices(username: string): Observable <IDevice[]> {
+        const url = `${this.restUrl}/devices`;
+        return this.http.get(url)
+            .map((res: Response) => res.json())
+            .catch((error: any) => Observable.throw(error.json().error || 'Server error'));
+    }
+
     getSolenoids(id: number): Observable <ISolenoid[]> {
         const url = `${this.restUrl}/devices/${id}/solenoids`;
+        return this.http.get(url)
+            .map((res: Response) => res.json())
+            .catch((error: any) => Observable.throw(error.json().error || 'Server error'));
+    }
+    getAlarms(id: number): Observable <IAlarm[]> {
+        const url = `${this.restUrl}/devices/${id}/alarms`;
+        return this.http.get(url)
+            .map((res: Response) => res.json())
+            .catch((error: any) => Observable.throw(error.json().error || 'Server error'));
+    }
+    getAnalogs(id: number): Observable <IAnalog[]> {
+        const url = `${this.restUrl}/devices/${id}/analogs`;
+        return this.http.get(url)
+            .map((res: Response) => res.json())
+            .catch((error: any) => Observable.throw(error.json().error || 'Server error'));
+    }
+    getSpis(id: number): Observable <ISpi[]> {
+        const url = `${this.restUrl}/devices/${id}/spis`;
         return this.http.get(url)
             .map((res: Response) => res.json())
             .catch((error: any) => Observable.throw(error.json().error || 'Server error'));
@@ -50,7 +78,12 @@ export class IrrigationControllerService {
             // ...errors if any
             .catch((error: any) => Observable.throw(error.json().error || 'Server error'));
     }
-
+    getAlarm(id: number): Observable <IAlarm> {
+        const url = `${this.restUrl}/alarms/${id}`;
+        return this.http.get(url)
+            .map((res: Response) => res.json())
+            .catch((error: any) => Observable.throw(error.json().error || 'Server error'));
+    }
     getIrrigationPrograms(id: number): Observable <IIrrigationProgram[]> {
         const url = `${this.restUrl}/devices/${id}/irrigationprograms`;
         return this.http.get(url)
@@ -104,7 +137,13 @@ export class IrrigationControllerService {
             // ...and calling .json() on the response to return data
             .map((res:Response) => res.json())
             //...errors if any
-            .catch((error:any) => Observable.throw(error.json().error || 'Server error'));        
+            .catch((error:any) => Observable.throw(error.json().error || 'Server error'));
+    }
 
+    saveAlarm(alarm: IAlarm): Observable <IAlarm> {
+        let url = `${this.restUrl}/alarms/${alarm.id}`;
+        return this.http.put(url, alarm)
+            .map((res:Response) => res.json())
+            .catch((error:any) => Observable.throw(error.json().error || 'Server error'));
     }
 }
