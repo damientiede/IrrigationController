@@ -127,8 +127,26 @@ export class IrrigationControllerService {
             // ...and calling .json() on the response to return data
             .map((res:Response) => res.json())
             //...errors if any
-            .catch((error:any) => Observable.throw(error.json().error || 'Server error'));        
+            .catch((error:any) => Observable.throw(error.json().error || 'Server error'));
 
+    }
+
+    createSolenoid(solenoid: ISolenoid): Observable <ISolenoid> {
+        let url = `${this.restUrl}/solenoids`;
+        return this.http.post(url, solenoid)
+            // ...and calling .json() on the response to return data
+            .map((res:Response) => res.json())
+            //...errors if any
+            .catch((error:any) => Observable.throw(error.json().error || 'Server error'));
+    }
+
+    createAlarm(alarm: IAlarm): Observable <ISolenoid> {
+        let url = `${this.restUrl}/alarms`;
+        return this.http.post(url, alarm)
+            // ...and calling .json() on the response to return data
+            .map((res:Response) => res.json())
+            //...errors if any
+            .catch((error:any) => Observable.throw(error.json().error || 'Server error'));
     }
 
     saveSolenoid(solenoid: ISolenoid): Observable <ISolenoid> {
@@ -143,6 +161,20 @@ export class IrrigationControllerService {
     saveAlarm(alarm: IAlarm): Observable <IAlarm> {
         let url = `${this.restUrl}/alarms/${alarm.id}`;
         return this.http.put(url, alarm)
+            .map((res:Response) => res.json())
+            .catch((error:any) => Observable.throw(error.json().error || 'Server error'));
+    }
+
+    deleteSolenoid(solenoid: ISolenoid): Observable <ISolenoid> {
+        let url = `${this.restUrl}/solenoids/${solenoid.id}`;
+        return this.http.delete(url)
+            .map((res:Response) => res.json())
+            .catch((error:any) => Observable.throw(error.json().error || 'Server error'));
+    }
+
+    deleteAlarm(alarm: IAlarm): Observable <IAlarm> {
+        let url = `${this.restUrl}/alarms/${alarm.id}`;
+        return this.http.delete(url)
             .map((res:Response) => res.json())
             .catch((error:any) => Observable.throw(error.json().error || 'Server error'));
     }

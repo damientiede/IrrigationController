@@ -47,5 +47,14 @@ module.exports = {
         })
         .then(alarms => res.status(200).send(alarms))
         .catch(error => res.status(400).send(error));  
-        }
+    },
+    delete (req, res) {
+        return Alarm.destroy({
+            where: {
+             id:req.params.id
+            }
+        })
+        .then(affectedRows => res.status(204))
+        .catch(error => res.status(400).send(error));
+    }
 };

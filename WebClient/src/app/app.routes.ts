@@ -15,13 +15,13 @@ import { AuthGuard } from './common/auth.guard';
 // Define which component should be loaded based on the current URL
 export const routes: Routes = [
   { path: '', redirectTo: 'home', pathMatch: 'full'},
-  { path: 'device/:id',   component: DeviceComponent, canActivate: [AuthGuard] },
-  { path: 'device/:id/history',   component: HistoryComponent, canActivate: [AuthGuard] },
-  { path: 'device/:id/config',   component: ConfigComponent, canActivate: [AuthGuard] },
-  { path: 'device/:id/solenoid/:id', component: SolenoidComponent, canActivate: [AuthGuard] },
-  { path: 'device/:id/alarm/:id', component: AlarmComponent, canActivate: [AuthGuard] },
-  { path: 'device/:id/analog/:id', component: AnalogComponent, canActivate: [AuthGuard] },
-  { path: 'device/:id/spi/:id', component: SpiComponent, canActivate: [AuthGuard] },
-  { path: 'device/:id/diagnostic',   component: DiagnosticComponent, canActivate: [AuthGuard] },
+  { path: 'device/:deviceid',   component: DeviceComponent, canActivate: [AuthGuard] },
+  { path: 'device/:deviceid/history',   component: HistoryComponent, canActivate: [AuthGuard] },
+  { path: 'device/:deviceid/config',   component: ConfigComponent, canActivate: [AuthGuard] },
+  { path: 'device/:deviceid/solenoid/:id', component: SolenoidComponent, canActivate: [AuthGuard] },
+  { path: 'device/:deviceid/alarm/:id', component: AlarmComponent, canActivate: [AuthGuard] },
+  { path: 'device/:deviceid/analog/:id', component: AnalogComponent, canActivate: [AuthGuard] },
+  { path: 'device/:deviceid/spi/:id', component: SpiComponent, canActivate: [AuthGuard] },
+  { path: 'device/:deviceid/diagnostic',   component: DiagnosticComponent, canActivate: [AuthGuard] },
   { path: '**',     component: HomeComponent },
 ];

@@ -18,7 +18,7 @@ import { IIrrigationProgram } from '../model/irrigationprogram';
   styleUrls: ['./device.component.css']
 })
 export class DeviceComponent implements OnInit {
-  id = 0;
+  deviceid = 0;
   ticks = 0;
   status: IStatus;
   device: IDevice;
@@ -41,11 +41,11 @@ export class DeviceComponent implements OnInit {
   ngOnInit() {
     this.route.params
       .subscribe((params: Params) => {
-        this.id = params['id'];
-        if (Number.isNaN(this.id)) {
+        this.deviceid = params['deviceid'];
+        if (Number.isNaN(this.deviceid)) {
           alert('Missing Device ID');
         }
-        this.getSolenoids(this.id);
+        this.getSolenoids(this.deviceid);
         let timer = Observable.timer(0, 5000);
         timer.subscribe(t => {
           this.onTick(t);
@@ -53,7 +53,7 @@ export class DeviceComponent implements OnInit {
       });
   }
   onTick(t) {
-    this.getData(this.id);
+    this.getData(this.deviceid);
     this.ticks = t;
   }
 
@@ -209,7 +209,7 @@ export class DeviceComponent implements OnInit {
       '', //params
       new Date, //issued
       null, //actioned
-      this.id, //deviceId
+      this.deviceid, //deviceId
       new Date, //createdAt
       null  //updatedAt
     );
@@ -223,7 +223,7 @@ export class DeviceComponent implements OnInit {
         `${this.manualStation}, ${this.manualDuration}`,
         new Date, //issued
         null, //actioned
-        this.id, //deviceId
+        this.deviceid, //deviceId
         new Date, //createdAt
         null  //updatedAt
       );

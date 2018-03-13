@@ -1,4 +1,4 @@
-import { Component, Input, OnInit } from '@angular/core';
+import { Component, Input, OnInit, ViewContainerRef } from '@angular/core';
 import { ActivatedRoute, Params} from "@angular/router";
 import { ISolenoid } from '../../model/solenoid';
 import { NavComponent } from '../../nav.component/nav.component';
@@ -12,26 +12,39 @@ import { ToastsManager } from 'ng2-toastr/ng2-toastr';
 })
 export class SolenoidComponent implements OnInit {
   id= 0;
-  title= 'New solenoid';
+  deviceid = 0;
   loaded = false;
   solenoid: ISolenoid;
   hardwareTypes: string[] = ['GPIO', 'Distributed', 'SPI'];
   constructor(private service: IrrigationControllerService,
               private route: ActivatedRoute,
               private nav: NavComponent,
-              public toastr: ToastsManager) { }
+              vcr: ViewContainerRef,
+              public toastr: ToastsManager) {
+                this.toastr.setRootViewContainerRef(vcr);
+              }
 
   ngOnInit() {
     this.route.params
     .subscribe((params: Params) => {
-      this.id = params['id'];
-      if (Number.isNaN(this.id)) {
-        alert('Missing Solenoid ID');
-        this.loaded = true;
+      // parse device id
+      this.deviceid = params['deviceid'];
+      console.log(params);
+      if (Number.isNaN(this.deviceid)) {
+        alert('Missing Device ID');
       }
-      if (this.id > 0) {
-        this.title = `Edit solenoid - ${this.id}`;
+
+      // parse solenoid id
+      const id = params['id'];
+      if (id === 'new') {
+        this.solenoid = new ISolenoid(-1, '', '', '', '' , 0, false, this.deviceid);
+        this.loaded = true;
+      } else if (Number.isNaN(id)) {
+          alert(`Invalid Solenoid ID ${id}`);
+      } else {
+        this.id = id;
         this.getSolenoid(this.id);
+        this.loaded = true;
       }
     });
   }
@@ -51,13 +64,36 @@ export class SolenoidComponent implements OnInit {
               console.log('Success');
           });
   }
+  getTitle() {
+    if (this.solenoid == null) { return; }
+    if (this.solenoid.id === -1) {
+      return 'New solenoid';
+    }
+    return `Edit solenoid - ${this.solenoid.id}`;
+  }
   save() {
     console.log(this.solenoid);
+    if (this.solenoid.id === -1) {
+      this.service.createSolenoid(this.solenoid)
+      .subscribe((s: ISolenoid) => {
+        console.log(s);
+        this.solenoid = s;
+      },
+      error => () => {
+        console.log('Something went wrong...');
+        this.toastr.error('Something went wrong...', 'Damn');
+      },
+      () => {
+        console.log('Success');
+        this.toastr.success('Changes saved' );
+      });
+      return;
+    }
     this.service.saveSolenoid(this.solenoid)
       .subscribe(() => {},
       error => () => {
         console.log('Something went wrong...');
-        this.toastr.error('Something went wrong...','Damn');
+        this.toastr.error('Something went wrong...', 'Damn');
       },
       () => {
         console.log('Success');
@@ -70,4 +106,16 @@ export class SolenoidComponent implements OnInit {
   cancel() {
     this.nav.Back();
   }
-}
+  delete() {
+    console.log(`Deleting solenoid ${this.solenoid.Name}`);
+    this.service.deleteSolenoid(this.solenoid)
+    .subscribe(() => {},
+    error => () => {
+      console.log('Something went wrong...');
+      this.toastr.error('Something went wrong...','Damn');
+    },
+    () => {
+      console.log('Success');
+      this.toastr.success('Changes saved' );
+  });
+}}

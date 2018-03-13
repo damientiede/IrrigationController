@@ -58,6 +58,7 @@ module.exports = (app) => {
    app.get('/api/solenoids', solenoidsController.list);
    app.put('/api/solenoids/:id', solenoidsController.update);
    app.get('/api/devices/:deviceId/solenoids', solenoidsController.listByDevice);
+   app.delete('/api/solenoids/:id',solenoidsController.delete);
 
    //Alarms
    app.post('/api/alarms', alarmsController.create);
@@ -65,6 +66,7 @@ module.exports = (app) => {
    app.get('/api/alarms', alarmsController.list);
    app.put('/api/alarms/:id', alarmsController.update);
    app.get('/api/devices/:deviceId/alarms', alarmsController.listByDevice);
+   app.delete('/api/alarms/:id',alarmsController.delete);
 
    //Analogs   
    app.post('/api/analogs', analogsController.create);

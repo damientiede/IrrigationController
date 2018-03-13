@@ -1,4 +1,4 @@
-import { Component, OnInit } from '@angular/core';
+import { Component, Input, OnInit, ViewContainerRef } from '@angular/core';
 import { ActivatedRoute, Params} from "@angular/router";
 import { IAlarm } from '../../model/alarm';
 import { NavComponent } from '../../nav.component/nav.component';
@@ -12,34 +12,45 @@ import { ToastsManager } from 'ng2-toastr/ng2-toastr';
 })
 export class AlarmComponent implements OnInit {
   id= 0;
-  title= 'New alarm';
+  deviceid = 0;
   loaded = false;
   alarm: IAlarm;
   hardwareTypes: string[] = ['GPIO', 'Distributed', 'SPI'];
   constructor(private service: IrrigationControllerService,
               private route: ActivatedRoute,
               private nav: NavComponent,
-              public toastr: ToastsManager) { }
+              vcr: ViewContainerRef,
+              public toastr: ToastsManager) {
+                this.toastr.setRootViewContainerRef(vcr);
+              }
 
   ngOnInit() {
     this.route.params
     .subscribe((params: Params) => {
-      this.id = params['id'];
-      if (Number.isNaN(this.id)) {
-        alert('Missing alarm ID');
+      // parse device id
+      this.deviceid = params['deviceid'];
+      console.log(params);
+      if (Number.isNaN(this.deviceid)) {
+        alert('Missing Device ID');
       }
-      if (this.id > 0) {
-        this.title = `Edit alarm - ${this.id}`;
+
+      // parse alarm id
+      const id = params['id'];
+      if (id === 'new') {
+        this.alarm = new IAlarm(-1, '', '', '', '' , 0 , this.deviceid);
+        this.loaded = true;
+      } else if (Number.isNaN(id)) {
+          alert(`Invalid Alarm ID ${id}`);
+      } else {
+        this.id = id;
         this.getAlarm(this.id);
       }
     });
   }
   getAlarm(id: number) {
-    console.log('getAlarm()');
     this.service
       .getAlarm(id)
       .subscribe((a: IAlarm) => {
-            console.log(a);
             this.alarm = a;
             this.loaded = true;
           },
@@ -50,13 +61,36 @@ export class AlarmComponent implements OnInit {
               console.log('Success');
           });
   }
+  getTitle() {
+    if (this.alarm == null) { return; }
+    if (this.alarm.id === -1) {
+      return 'New alarm';
+    }
+    return `Edit alarm - ${this.alarm.id}`;
+  }
   save() {
     console.log(this.alarm);
+    if (this.alarm.id === -1) {
+      this.service.createAlarm(this.alarm)
+      .subscribe((s: IAlarm) => {
+        console.log(s);
+        this.alarm = s;
+      },
+      error => () => {
+        console.log('Something went wrong...');
+        this.toastr.error('Something went wrong...', 'Damn');
+      },
+      () => {
+        console.log('Success');
+        this.toastr.success('Changes saved' );
+      });
+      return;
+    }
     this.service.saveAlarm(this.alarm)
       .subscribe(() => {},
       error => () => {
         console.log('Something went wrong...');
-        this.toastr.error('Something went wrong...','Damn');
+        this.toastr.error('Something went wrong...', 'Damn');
       },
       () => {
         console.log('Success');
@@ -69,4 +103,16 @@ export class AlarmComponent implements OnInit {
   cancel() {
     this.nav.Back();
   }
-}
+  delete() {
+    console.log(`Deleting alarm ${this.alarm.Name}`);
+    this.service.deleteAlarm(this.alarm)
+    .subscribe(() => {},
+    error => () => {
+      console.log('Something went wrong...');
+      this.toastr.error('Something went wrong...','Damn');
+    },
+    () => {
+      console.log('Success');
+      this.toastr.success('Changes saved' );
+  });
+}}

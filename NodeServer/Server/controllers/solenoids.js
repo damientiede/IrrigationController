@@ -49,5 +49,14 @@ module.exports = {
         })
         .then(solenoids => res.status(200).send(solenoids))
         .catch(error => res.status(400).send(error));  
+   },
+   delete (req, res) {
+       return Solenoid.destroy({
+           where: {
+            id:req.params.id
+           }
+       })
+       .then(affectedRows => res.status(204))
+       .catch(error => res.status(400).send(error));
    }
 };

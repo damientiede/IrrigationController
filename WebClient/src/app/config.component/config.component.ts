@@ -21,7 +21,7 @@ import { ISpi } from '../model/spi';
 })
 
 export class ConfigComponent implements OnInit {
-  id=0;
+  deviceid=0;
   device: IDevice;
   irrigationPrograms: IIrrigationProgram[];
   solenoids: ISolenoid[];
@@ -43,11 +43,11 @@ export class ConfigComponent implements OnInit {
   ngOnInit() {
     this.route.params
     .subscribe((params: Params) => {
-      this.id = params['id'];
-      if (Number.isNaN(this.id)) {
+      this.deviceid = params['deviceid'];
+      if (Number.isNaN(this.deviceid)) {
         alert('Missing Device ID');
       }
-      this.getDevice(this.id);
+      this.getDevice(this.deviceid);
     });
   }
 
@@ -136,45 +136,43 @@ export class ConfigComponent implements OnInit {
   editSolenoid(s: ISolenoid) {
     this.nav.NavTo(`/device/${this.device.id}/solenoid/${s.id}`);
   }
+  editAlarm(a: IAlarm) {
+    this.nav.NavTo(`/device/${this.device.id}/alarm/${a.id}`);
+  }
   newSolenoid() {
-    this.nav.NavTo(`/device/${this.device.id}/solenoid/-1`);
+    this.nav.NavTo(`/device/${this.device.id}/solenoid/new`);
+  }
+  newAlarm() {
+    this.nav.NavTo(`/device/${this.device.id}/alarm/new`);
   }
   deviceClicked() {
     this.activeView = 'Device';
     this.showDevice = true;
     this.showSolenoids = false;
     this.showAlarms = false;
-    console.log(`activeView:${this.activeView}`);
   }
   solenoidsClicked() {
     this.activeView = 'Solenoids';
-    console.log(`activeView:${this.activeView}`);
     this.showDevice = false;
     this.showSolenoids = true;
     this.showAlarms = false;
   }
   alarmsClicked() {
     this.activeView = 'Alarms';
-    console.log(`activeView:${this.activeView}`);
   }
   analogsClicked() {
     this.activeView = 'Analogs';
-    console.log(`activeView:${this.activeView}`);
   }
   spisClicked() {
     this.activeView = 'SPIs';
-    console.log(`activeView:${this.activeView}`);
   }
   getActiveClass(v) {
-    console.log(`${v} - ${this.activeView}`);
     if (this.activeView === v) {
-      console.log('returning active');
       return 'active';
     }
     return;
   }
   isView(v) {
-    console.log(`isView(${v}) : ${this.activeView == v}`);
     return (this.activeView == v);
   }
 }
