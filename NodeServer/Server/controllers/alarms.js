@@ -31,6 +31,7 @@ module.exports = {
             .update({        
                 DeviceId: parseInt(req.body.DeviceId),
                 Name: req.body.Name,
+                Description: req.body.Description,
                 HardwareType: req.body.HardwareType,            
                 Address: req.body.Address,
                 Value: req.body.Value

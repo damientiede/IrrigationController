@@ -7,7 +7,7 @@ export class IAnalog {
         public Address: string,
         public Multiplier: number,
         public RawValue: number,
-        public Units: number,
+        public Units: string,
         public Value: number,
         public DeviceId: number
     ) {}

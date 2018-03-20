@@ -51,6 +51,7 @@ export class AlarmComponent implements OnInit {
     this.service
       .getAlarm(id)
       .subscribe((a: IAlarm) => {
+            console.log(a);
             this.alarm = a;
             this.loaded = true;
           },
@@ -87,7 +88,10 @@ export class AlarmComponent implements OnInit {
       return;
     }
     this.service.saveAlarm(this.alarm)
-      .subscribe(() => {},
+      .subscribe(() => {
+        console.log(`Saving alarm`);
+        console.log(this.alarm);
+      },
       error => () => {
         console.log('Something went wrong...');
         this.toastr.error('Something went wrong...', 'Damn');
@@ -98,10 +102,10 @@ export class AlarmComponent implements OnInit {
     });
   }
   back() {
-    this.nav.Back();
+    this.nav.NavTo(`/device/${this.deviceid}/config`);
   }
   cancel() {
-    this.nav.Back();
+    this.nav.NavTo(`/device/${this.deviceid}/config`);
   }
   delete() {
     console.log(`Deleting alarm ${this.alarm.Name}`);

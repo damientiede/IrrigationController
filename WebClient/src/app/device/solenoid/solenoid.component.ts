@@ -44,7 +44,7 @@ export class SolenoidComponent implements OnInit {
       } else {
         this.id = id;
         this.getSolenoid(this.id);
-        this.loaded = true;
+        //this.loaded = true;
       }
     });
   }
@@ -101,10 +101,10 @@ export class SolenoidComponent implements OnInit {
     });
   }
   back() {
-    this.nav.Back();
+    this.nav.NavTo(`/device/${this.deviceid}/config`);
   }
   cancel() {
-    this.nav.Back();
+    this.nav.NavTo(`/device/${this.deviceid}/config`);
   }
   delete() {
     console.log(`Deleting solenoid ${this.solenoid.Name}`);
@@ -116,6 +116,7 @@ export class SolenoidComponent implements OnInit {
     },
     () => {
       console.log('Success');
-      this.toastr.success('Changes saved' );
-  });
+      //this.toastr.success('Changes saved' );
+    });
+    this.nav.NavTo(`/device/${this.deviceid}/config`);
 }}

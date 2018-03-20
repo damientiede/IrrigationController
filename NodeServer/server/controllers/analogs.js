@@ -34,7 +34,7 @@ module.exports = {
             .update({        
                 Name: req.body.Name,
                 Description: req.body.Description,
-                HardwareType: req.body.Hardwaretype,            
+                HardwareType: req.body.HardwareType,            
                 Address: req.body.Address,
                 Multiplier: parseFloat(req.body.Multiplier),
                 RawValue: parseInt(req.body.RawValue),

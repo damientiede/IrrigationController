@@ -84,6 +84,18 @@ export class IrrigationControllerService {
             .map((res: Response) => res.json())
             .catch((error: any) => Observable.throw(error.json().error || 'Server error'));
     }
+    getAnalog(id: number): Observable <IAnalog> {
+        const url = `${this.restUrl}/analogs/${id}`;
+        return this.http.get(url)
+            .map((res: Response) => res.json())
+            .catch((error: any) => Observable.throw(error.json().error || 'Server error'));
+    }
+    getSpi(id: number): Observable <ISpi> {
+        const url = `${this.restUrl}/spis/${id}`;
+        return this.http.get(url)
+            .map((res: Response) => res.json())
+            .catch((error: any) => Observable.throw(error.json().error || 'Server error'));
+    }
     getIrrigationPrograms(id: number): Observable <IIrrigationProgram[]> {
         const url = `${this.restUrl}/devices/${id}/irrigationprograms`;
         return this.http.get(url)
@@ -100,8 +112,8 @@ export class IrrigationControllerService {
             // ...errors if any
             .catch((error: any) => Observable.throw(error.json().error || 'Server error'));
     }
-    getEvents(): Observable <IEvent[]> {
-        const url = `${this.restUrl}/events`;
+    getEvents(id: number): Observable <IEvent[]> {
+        const url = `${this.restUrl}/devices/${id}/events`;
         console.log('IrrigationControllerService.getEvents() '+this.restUrl);
         return this.http.get(url)
             // ...and calling .json() on the response to return data
@@ -149,6 +161,24 @@ export class IrrigationControllerService {
             .catch((error:any) => Observable.throw(error.json().error || 'Server error'));
     }
 
+    createAnalog(analog: IAnalog): Observable <IAnalog> {
+        let url = `${this.restUrl}/analogs`;
+        return this.http.post(url, analog)
+            // ...and calling .json() on the response to return data
+            .map((res:Response) => res.json())
+            //...errors if any
+            .catch((error:any) => Observable.throw(error.json().error || 'Server error'));
+    }
+
+    createSpi(analog: ISpi): Observable <ISpi> {
+        let url = `${this.restUrl}/spis`;
+        return this.http.post(url, analog)
+            // ...and calling .json() on the response to return data
+            .map((res:Response) => res.json())
+            //...errors if any
+            .catch((error:any) => Observable.throw(error.json().error || 'Server error'));
+    }
+
     saveSolenoid(solenoid: ISolenoid): Observable <ISolenoid> {
         let url = `${this.restUrl}/solenoids/${solenoid.id}`;
         return this.http.put(url, solenoid)
@@ -159,8 +189,25 @@ export class IrrigationControllerService {
     }
 
     saveAlarm(alarm: IAlarm): Observable <IAlarm> {
+        console.log(alarm);
         let url = `${this.restUrl}/alarms/${alarm.id}`;
         return this.http.put(url, alarm)
+            .map((res:Response) => res.json())
+            .catch((error:any) => Observable.throw(error.json().error || 'Server error'));
+    }
+
+    saveSpi(spi: ISpi): Observable <ISpi> {
+        console.log(spi);
+        let url = `${this.restUrl}/spis/${spi.id}`;
+        return this.http.put(url, spi)
+            .map((res:Response) => res.json())
+            .catch((error:any) => Observable.throw(error.json().error || 'Server error'));
+    }
+
+    saveAnalog(analog: IAnalog): Observable <IAnalog> {
+        console.log(analog);
+        let url = `${this.restUrl}/analogs/${analog.id}`;
+        return this.http.put(url, analog)
             .map((res:Response) => res.json())
             .catch((error:any) => Observable.throw(error.json().error || 'Server error'));
     }
@@ -174,6 +221,20 @@ export class IrrigationControllerService {
 
     deleteAlarm(alarm: IAlarm): Observable <IAlarm> {
         let url = `${this.restUrl}/alarms/${alarm.id}`;
+        return this.http.delete(url)
+            .map((res:Response) => res.json())
+            .catch((error:any) => Observable.throw(error.json().error || 'Server error'));
+    }
+
+    deleteAnalog(analog: IAnalog): Observable <IAnalog> {
+        let url = `${this.restUrl}/alarms/${analog.id}`;
+        return this.http.delete(url)
+            .map((res:Response) => res.json())
+            .catch((error:any) => Observable.throw(error.json().error || 'Server error'));
+    }
+
+    deleteSpi(analog: ISpi): Observable <ISpi> {
+        let url = `${this.restUrl}/spis/${analog.id}`;
         return this.http.delete(url)
             .map((res:Response) => res.json())
             .catch((error:any) => Observable.throw(error.json().error || 'Server error'));

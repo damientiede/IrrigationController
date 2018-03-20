@@ -46,14 +46,13 @@
                     <tr><td>Device ID: {{device.id}}</td></tr>
                     <tr><td>Mode: {{device.Mode}}</td></tr>
                     <tr><td>State: {{device.State}}</td></tr>
-                    <tr><td>Status: {{device.Status}}</td></tr>  
-                               
+                    <tr><td>Status: {{device.Status}}</td></tr>        
                 </tbody>
             </table>
         </div>
         <!-- Solenoids section -->
         <div *ngIf="isView('Solenoids')">
-                <h5 *ngIf="solenoids.length==0">No solenoids configured</h5>
+                <h5 *ngIf="solenoids?.length==0">No solenoids configured</h5>
             <table class="solenoids">
                 <tbody>
                     <tr *ngFor="let solenoid of solenoids" (click)="editSolenoid(solenoid)">
@@ -72,7 +71,7 @@
         </div>
         <!-- Alarms section -->
         <div *ngIf="isView('Alarms')">
-            <h5 *ngIf="alarms.length==0">No alarms configured</h5>
+            <h5 *ngIf="alarms?.length==0">No alarms configured</h5>
             <table class="solenoids">
                 <tbody>
                     <tr *ngFor="let alarm of alarms" (click)="editAlarm(alarm)">

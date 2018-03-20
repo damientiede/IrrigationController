@@ -7,8 +7,8 @@
             <!--tbody class="tr"-->
                 <tr *ngFor="let event of events" class="tr">
                     <td>{{timeFormat(event.createdAt)}} </td>
-                    <td>{{this.eventTypes[event.eventtype]}} </td>
-                    <td>{{event.eventvalue}} </td>
+                    <td>{{this.eventTypes[event.EventType-1]}} </td>
+                    <td>{{event.EventValue}} </td>
                 </tr>
             </tbody>
         </table>

@@ -142,6 +142,7 @@ namespace DeviceController
             {
                 foreach (Solenoid s in solenoids)
                 {
+                    log.DebugFormat("{0}  {1} {2}",s.Id,s.Description, s.HardwareType.ToString());
                     ISolenoid sol = ioFactory.CreateSolenoid(s);
                     Solenoids.Add(sol);  
                     if (s.Id == device.PumpSolenoid)

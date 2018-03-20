@@ -54,6 +54,7 @@
     <Compile Include="Solenoids\GPIOSolenoid.cs" />
     <Compile Include="Solenoids\ISolenoid.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
+    <Compile Include="Solenoids\SPISolenoid.cs" />
     <Compile Include="SpiDevice.cs" />
   </ItemGroup>
   <ItemGroup>

@@ -41,8 +41,16 @@ export class ConfigComponent implements OnInit {
                private nav: NavComponent ) {  }
 
   ngOnInit() {
-    this.route.params
-    .subscribe((params: Params) => {
+    // extract query params
+    this.route.queryParams.subscribe((queryparams: Params) => {
+      const view = queryparams['view'];
+      if (view != null) {
+        console.log(`activeView: ${view}`);
+        this.activeView = view;
+      }
+    });
+    // extract route params
+    this.route.params.subscribe((params: Params) => {
       this.deviceid = params['deviceid'];
       if (Number.isNaN(this.deviceid)) {
         alert('Missing Device ID');
@@ -139,11 +147,23 @@ export class ConfigComponent implements OnInit {
   editAlarm(a: IAlarm) {
     this.nav.NavTo(`/device/${this.device.id}/alarm/${a.id}`);
   }
+  editAnalog(a: IAnalog) {
+    this.nav.NavTo(`/device/${this.device.id}/analog/${a.id}`);
+  }
+  editSPI(s: ISpi) {
+    this.nav.NavTo(`/device/${this.device.id}/spi/${s.id}`);
+  }
   newSolenoid() {
     this.nav.NavTo(`/device/${this.device.id}/solenoid/new`);
   }
   newAlarm() {
     this.nav.NavTo(`/device/${this.device.id}/alarm/new`);
+  }
+  newAnalog() {
+    this.nav.NavTo(`/device/${this.device.id}/analog/new`);
+  }
+  newSPI() {
+    this.nav.NavTo(`/device/${this.device.id}/spi/new`);
   }
   deviceClicked() {
     this.activeView = 'Device';
@@ -173,6 +193,6 @@ export class ConfigComponent implements OnInit {
     return;
   }
   isView(v) {
-    return (this.activeView == v);
+    return (this.activeView === v);
   }
 }

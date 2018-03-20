@@ -25,7 +25,8 @@ namespace DeviceController.IO
                     return new GPIOSolenoid(s, dataServer);                    
                 case HardwareTypes.Distributed:
                     return new DistributedSolenoid(s, dataServer);                    
-                case HardwareTypes.SPI:                    
+                case HardwareTypes.SPI:
+                    return new SPISolenoid(s, dataServer);                  
                 default:
                     break;
             }
