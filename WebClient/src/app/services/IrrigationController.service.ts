@@ -2,6 +2,7 @@ import {Injectable} from "@angular/core";
 import { Http, Response, Headers, RequestOptions } from '@angular/http';
 import { IStatus } from '../model/status';
 import { IDevice } from '../model/device';
+import { ISchedule } from '../model/schedule';
 import { ISolenoid } from '../model/solenoid';
 import { IAlarm } from '../model/alarm';
 import { IAnalog } from '../model/analog';
@@ -45,7 +46,12 @@ export class IrrigationControllerService {
             .map((res: Response) => res.json())
             .catch((error: any) => Observable.throw(error.json().error || 'Server error'));
     }
-
+    getSchedules(id: number): Observable <ISchedule[]> {
+        const url = `${this.restUrl}/devices/${id}/schedules`;
+        return this.http.get(url)
+            .map((res: Response) => res.json())
+            .catch((error: any) => Observable.throw(error.json().error || 'Server error'));
+    }
     getSolenoids(id: number): Observable <ISolenoid[]> {
         const url = `${this.restUrl}/devices/${id}/solenoids`;
         return this.http.get(url)

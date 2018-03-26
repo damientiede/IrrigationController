@@ -15,7 +15,7 @@ import { IAnalog } from '../model/analog';
 import { ISpi } from '../model/spi';
 
 @Component({
-  selector: 'config-component',
+  selector: 'app-config',
   templateUrl: './config.component.html',
   styleUrls: ['./config.component.css']
 })
@@ -194,5 +194,14 @@ export class ConfigComponent implements OnInit {
   }
   isView(v) {
     return (this.activeView === v);
+  }
+
+  getDeviceName() {
+    if (this.device != null) {
+      return this.device.Name;
+    }
+  }
+  backClick() {
+    this.nav.Back();
   }
 }

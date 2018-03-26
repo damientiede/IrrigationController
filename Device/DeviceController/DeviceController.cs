@@ -63,49 +63,58 @@ namespace DeviceController
         #region Config
         protected  void Init()
         {
-            log.Info("=====================================================");
-            log.InfoFormat("DeviceController.Init(): Initializing device...");
-            //get device mac address
-            macAddress =
-            (
-                from nic in NetworkInterface.GetAllNetworkInterfaces()
-                where nic.OperationalStatus == OperationalStatus.Up
-                select nic.GetPhysicalAddress().ToString()
-            ).FirstOrDefault();
-            if (string.IsNullOrEmpty(macAddress))
+            try
             {
-                throw new Exception("Could not read device mac address");
-            }            
-
-            //register with server
-            while (device == null)
-            {
-                try
+                log.Info("=====================================================");
+                log.InfoFormat("DeviceController.Init(): Initializing device...");
+                //get device mac address
+                macAddress =
+                (
+                    from nic in NetworkInterface.GetAllNetworkInterfaces()
+                    where nic.OperationalStatus == OperationalStatus.Up
+                    select nic.GetPhysicalAddress().ToString()
+                ).FirstOrDefault();
+                if (string.IsNullOrEmpty(macAddress))
                 {
-                    log.DebugFormat("Registering device {0} with server...",macAddress);
-                    // Register();
-                    device = dataServer.Register(macAddress);
-                    //device = new Device();
-                    if (device == null)
+                    throw new Exception("Could not read device mac address");
+                }
+
+                //register with server
+                while (device == null)
+                {
+                    try
                     {
+                        log.DebugFormat("Registering device {0} with server...", macAddress);
+                        // Register();
+                        device = dataServer.Register(macAddress);
+                        //device = new Device();
+                        if (device == null)
+                        {
+                            Thread.Sleep(5000);
+                        }
+                    }
+                    catch (Exception ex)
+                    {
+                        log.Error(ex.Message);
                         Thread.Sleep(5000);
                     }
                 }
-                catch (Exception ex)
-                {
-                    log.Error(ex.Message);
-                    Thread.Sleep(5000);
-                }                
+
+                //dataServer.DeviceId = device.Id;
+                log.DebugFormat("DeviceController start, registered with deviceId:{0}", device.Id);
+                CreateEvent(EventTypes.Application, string.Format("DeviceController start, registered with deviceId:{0}", device.Id));
+
+                LoadConfig();
             }
-
-            //dataServer.DeviceId = device.Id;
-            log.DebugFormat("DeviceController start, registered with deviceId:{0}", device.Id);
-            CreateEvent(EventTypes.Application, string.Format("DeviceController start, registered with deviceId:{0}",device.Id));
-
-            LoadConfig();
+            catch (Exception ex)
+            {
+                log.ErrorFormat("Initialization failure: {0}", ex.Message);
+                throw ex;
+            }
         }
         protected void LoadConfig()
         {
+            
             //get device config            
             LoadSpis();
             LoadSolenoids();

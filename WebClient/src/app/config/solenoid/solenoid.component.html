@@ -3,6 +3,7 @@
   <div class="col-8">
     <div *ngIf="loaded">
         <div class="row left">
+
           <button (click)="back()" class="btn btn-primary" data-toggle="tooltip" data-placement="top" title="Back">
               <i class="fa fa-angle-left"></i>
           </button>
@@ -21,7 +22,7 @@
 
         <div class="form-group">
           <label for="hardwareType">Hardware Type</label>          
-          <select class="form-control" id="hardwareType" [ngModel]="solenoid?.HardwareType" (ngModelChange)="solenoid.HardwareType=$event" required>
+          <select class="form-control" id="hardwareType" name="hardwareType" [ngModel]="solenoid?.HardwareType" (ngModelChange)="solenoid.HardwareType=$event" required>
             <option *ngFor="let ht of hardwareTypes" value="{{ht}}">{{ht}}</option>
           </select>
         </div>

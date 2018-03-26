@@ -1,15 +1,15 @@
 <div *ngIf="!loaded"></div>
 <div class="row" *ngIf="loaded">
     <div class="col-2"></div>
+
     <div class="col-8">
-      <app-device-tools [device]="device"></app-device-tools>
+        <app-device-tools [device]="device"></app-device-tools>
     </div>
     <div class="col-2"></div>
 </div>
 <div class="row" *ngIf="loaded">
     <div class="col-2"></div>
     <div class="col-8">
-        <h3>Settings</h3>
         <ul class="nav nav-tabs">
             <li class="nav-item">
               <a class="nav-link" [ngClass]="getActiveClass('Device')" (click)="deviceClicked()">Device</a>
@@ -52,7 +52,7 @@
         </div>
         <!-- Solenoids section -->
         <div *ngIf="isView('Solenoids')">
-                <h5 *ngIf="solenoids?.length==0">No solenoids configured</h5>
+            <h5 *ngIf="solenoids?.length==0">No solenoids configured</h5>
             <table class="solenoids">
                 <tbody>
                     <tr *ngFor="let solenoid of solenoids" (click)="editSolenoid(solenoid)">

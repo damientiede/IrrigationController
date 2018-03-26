@@ -3,7 +3,7 @@ import { ActivatedRoute, Params} from "@angular/router";
 import {Observable} from 'rxjs/Rx';
 import * as moment from 'moment';
 import { ToastsManager } from 'ng2-toastr/ng2-toastr';
-import { DeviceToolsComponent } from '../device/device-tools/device-tools.component';
+import { DeviceToolsComponent } from '../device-tools/device-tools.component';
 import { IrrigationControllerService} from '../services/IrrigationController.service';
 import { IStatus} from '../model/status';
 import { IDevice } from '../model/device';
@@ -13,11 +13,11 @@ import { ICommand } from '../model/command';
 import { IIrrigationProgram } from '../model/irrigationprogram';
 
 @Component({
-  selector: 'app-device',
-  templateUrl: './device.component.html',
-  styleUrls: ['./device.component.css']
+  selector: 'app-status',
+  templateUrl: './status.component.html',
+  styleUrls: ['./status.component.css']
 })
-export class DeviceComponent implements OnInit {
+export class StatusComponent implements OnInit {
   deviceid = 0;
   ticks = 0;
   status: IStatus;
@@ -36,7 +36,9 @@ export class DeviceComponent implements OnInit {
   constructor(private dataService: IrrigationControllerService,
               public toastr: ToastsManager,
               vcr: ViewContainerRef,
-              private route: ActivatedRoute) { }
+              private route: ActivatedRoute) {
+                this.toastr.setRootViewContainerRef(vcr);
+               }
 
   ngOnInit() {
     this.route.params
@@ -239,7 +241,7 @@ export class DeviceComponent implements OnInit {
       },
       () => {
         console.log('Success');
-        this.toastr.success('It will take a few moments to process.', 'Command sent' );
+        this.toastr.success('Command sent' );
     });
   }
 }

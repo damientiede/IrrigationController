@@ -1,7 +1,15 @@
-<div class="row">
-    <div class="col-md-3"></div>
-    <div class="col-md-6">
-        <h3>Irrigation History</h3>
+<div *ngIf="!loaded"></div>
+<div class="row" *ngIf="loaded">
+    <div class="col-2"></div>
+    <div class="col-8">
+        <app-device-tools [device]="device"></app-device-tools>
+    </div>
+    <div class="col-2"></div>
+</div>
+<div class="row" *ngIf="loaded">
+    <div class="col-2"></div>
+    <div class="col-8">
+        
         <table class="table table-striped">
             <tbody>
             <!--tbody class="tr"-->
@@ -13,5 +21,5 @@
             </tbody>
         </table>
     </div>
-    <div class="col-md-3"></div>
+    <div class="col-2"></div>
 </div>

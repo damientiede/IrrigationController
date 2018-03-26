@@ -7,37 +7,31 @@ import { FormsModule } from '@angular/forms';
 import { AuthGuard } from './common/auth.guard';
 import { AppComponent } from './app.component';
 import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
-import { HomeComponent } from './home/home.component';
-import { StatusComponent } from './status.component/status.component';
 import { NavComponent } from './nav.component/nav.component';
-import { HistoryComponent} from './device/history/history.component';
-import { DiagnosticComponent } from './diagnostic.component/diagnostic.component';
+import { HistoryComponent} from './history/history.component';
 import { IrrigationControllerService} from './services/IrrigationController.service';
 import { routes } from './app.routes';
-import { ConfigComponent } from './config.component/config.component';
-import { NewEditSolenoidComponent } from './newedit-solenoid/newedit-solenoid.component';
-import { DeviceComponent } from './device/device.component';
-import { SolenoidComponent } from './device/solenoid/solenoid.component';
-import { AlarmComponent } from './device/alarm/alarm.component';
-import { AnalogComponent } from './device/analog/analog.component';
-import { SpiComponent } from './device/spi/spi.component';
-import { DeviceToolsComponent } from './device/device-tools/device-tools.component';
+import { ConfigComponent } from './config/config.component';
+import { SolenoidComponent } from './config/solenoid/solenoid.component';
+import { AlarmComponent } from './config/alarm/alarm.component';
+import { AnalogComponent } from './config/analog/analog.component';
+import { SpiComponent } from './config/spi/spi.component';
+import { StatusComponent } from './status/status.component';
+import { DeviceToolsComponent } from './device-tools/device-tools.component';
+import { SchedulesComponent } from './schedules/schedules.component';
 
 @NgModule({
   declarations: [
     AppComponent,
-    HomeComponent,
     StatusComponent,
     HistoryComponent,
-    DiagnosticComponent,
     ConfigComponent,
-    NewEditSolenoidComponent,
-    DeviceComponent,
     SolenoidComponent,
     AlarmComponent,
     AnalogComponent,
     SpiComponent,
-    DeviceToolsComponent
+    DeviceToolsComponent,
+    SchedulesComponent
   ],
   imports: [
     BrowserModule,

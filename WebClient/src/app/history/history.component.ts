@@ -2,16 +2,18 @@ import { Component, OnInit, ViewContainerRef  } from '@angular/core';
 import { ActivatedRoute, Params} from "@angular/router";
 import * as moment from 'moment';
 import { ToastsManager } from 'ng2-toastr/ng2-toastr';
-import { IDevice } from '../../model/device';
-import { IrrigationControllerService} from '../../services/IrrigationController.service';
-import { IEvent } from '../../model/event';
+import { NavComponent } from '../nav.component/nav.component';
+import { IDevice } from '../model/device';
+import { IrrigationControllerService} from '../services/IrrigationController.service';
+import { IEvent } from '../model/event';
 
 @Component({
-  selector: 'history-component',
-  templateUrl: './history.component.html'
+  selector: 'app-history',
+  templateUrl: './history.component.html',
+  styleUrls: ['./history.component.css']
 })
 
-export class HistoryComponent implements OnInit { 
+export class HistoryComponent implements OnInit {
   deviceid = 0;
   device: IDevice;
   events: IEvent[] = [];
@@ -22,8 +24,11 @@ export class HistoryComponent implements OnInit {
 
   constructor (private dataService: IrrigationControllerService,
     public toastr: ToastsManager,
+    private nav: NavComponent,
     vcr: ViewContainerRef,
-    private route: ActivatedRoute) { }
+    private route: ActivatedRoute) {
+      this.toastr.setRootViewContainerRef(vcr);
+     }
 
   ngOnInit() {
     this.route.params
@@ -32,7 +37,7 @@ export class HistoryComponent implements OnInit {
       if (Number.isNaN(this.deviceid)) {
         alert('Missing Device ID');
       }
-      this.getEvents(this.deviceid);
+      this.getDevice(this.deviceid);
     });
   }
 
@@ -56,14 +61,36 @@ export class HistoryComponent implements OnInit {
               //this._slimLoadingBarService.complete();
           });
   }
-
+  getDevice(id: number) {
+    console.log('getDevice()');
+    this.dataService
+      .getDevice(id)
+      .subscribe((d: IDevice) => {
+            console.log(d);
+            this.device = d;
+            this.getEvents(this.deviceid);
+            this.loaded = true;
+          },
+          error => () => {
+              console.log('Something went wrong...');
+          },
+          () => {
+              console.log('Success');
+          });
+  }
   timeFormat(date) {
     return moment(date).format("h:mm:ss a");
   }
 
+  getDeviceName() {
+    if (this.device != null) {
+      return this.device.Name;
+    }
+  }
   getEventType(et) {
 
   }
-
-
+  backClick() {
+    this.nav.Back();
+  }
 }
