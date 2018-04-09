@@ -232,6 +232,7 @@ export class StatusComponent implements OnInit {
       this.sendCommand(cmd);
     }
   }
+  
   sendCommand(cmd: ICommand) {
     this.dataService.sendCommand(cmd)
     .subscribe(() => {},

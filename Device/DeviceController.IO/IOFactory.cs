@@ -7,25 +7,30 @@ using DeviceController.IO.Solenoids;
 using DeviceController.IO.Alarms;
 using DeviceController.IO.Analogs;
 using DeviceController.Data;
+using Raspberry.IO;
+using Raspberry.IO.GeneralPurpose;
 
 namespace DeviceController.IO
 {
     public class IOFactory
     {
         private DataServerWebClient dataServer;
-        public IOFactory(DataServerWebClient d)
+        private GpioConnection gpio;
+        public IOFactory(DataServerWebClient d, GpioConnection g)
         {
             dataServer = d;
+            gpio = g;
         }
         public ISolenoid CreateSolenoid(Solenoid s)
         {
             switch(s.HardwareType)
             {
-                case HardwareTypes.GPIO:
-                    return new GPIOSolenoid(s, dataServer);                    
-                case HardwareTypes.Distributed:
+                case "GPIO":
+                    GPIOSolenoid sol = new GPIOSolenoid(s, dataServer, gpio);
+                    return sol;                    
+                case "Distributed":
                     return new DistributedSolenoid(s, dataServer);                    
-                case HardwareTypes.SPI:
+                case "SPI":
                     return new SPISolenoid(s, dataServer);                  
                 default:
                     break;

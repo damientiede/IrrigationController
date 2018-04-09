@@ -3,6 +3,7 @@ import { NgIf } from '@angular/common';
 import { ActivatedRoute, Params} from "@angular/router";
 import { NavComponent } from '../nav.component/nav.component';
 import * as moment from 'moment';
+import { ToastsManager } from 'ng2-toastr/ng2-toastr';
 import { IrrigationControllerService} from '../services/IrrigationController.service';
 import { IDevice } from '../model/device';
 import { IIrrigationProgram} from '../model/irrigationprogram';
@@ -38,7 +39,11 @@ export class ConfigComponent implements OnInit {
 
   constructor (private service: IrrigationControllerService,
                private route: ActivatedRoute,
-               private nav: NavComponent ) {  }
+               public toastr: ToastsManager,
+               vcr: ViewContainerRef,
+               private nav: NavComponent ) {
+                this.toastr.setRootViewContainerRef(vcr);
+                }
 
   ngOnInit() {
     // extract query params
@@ -203,5 +208,30 @@ export class ConfigComponent implements OnInit {
   }
   backClick() {
     this.nav.Back();
+  }
+  sendCommand(cmd: ICommand) {
+    this.service.sendCommand(cmd)
+    .subscribe(() => {},
+      error => () => {
+        console.log('Something went wrong...');
+        this.toastr.error('Something went wrong...', 'Damn');
+      },
+      () => {
+        console.log('Success');
+        this.toastr.success('Command sent' );
+    });
+  }
+  refreshConfig() {
+    let cmd = new ICommand(
+      0,  //id
+     'LoadConfig',  //commandType
+     '', //params
+     new Date, //issued
+     null, //actioned
+     this.deviceid, //deviceId
+     new Date, //createdAt
+     null  //updatedAt
+   );
+   this.sendCommand(cmd);
   }
 }

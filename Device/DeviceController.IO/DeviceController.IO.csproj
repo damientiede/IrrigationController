@@ -30,8 +30,16 @@
     <WarningLevel>4</WarningLevel>
   </PropertyGroup>
   <ItemGroup>
-    <Reference Include="Raspberry.IO.GeneralPurpose">
-      <HintPath>..\..\..\..\..\Documents\Visual Studio 2015\Projects\raspberry-sharp-io-master\Raspberry.IO.GeneralPurpose\bin\Debug\Raspberry.IO.GeneralPurpose.dll</HintPath>
+    <Reference Include="log4net, Version=1.2.15.0, Culture=neutral, PublicKeyToken=669e0ddf0bb1aa2a, processorArchitecture=MSIL">
+      <SpecificVersion>False</SpecificVersion>
+      <HintPath>..\..\..\..\lib\log4net.dll</HintPath>
+    </Reference>
+    <Reference Include="Raspberry.IO.GeneralPurpose, Version=2.1.0.0, Culture=neutral, processorArchitecture=MSIL">
+      <SpecificVersion>False</SpecificVersion>
+      <HintPath>..\..\..\raspberry-sharp-io\Raspberry.IO.GeneralPurpose\bin\Debug\Raspberry.IO.GeneralPurpose.dll</HintPath>
+    </Reference>
+    <Reference Include="Raspberry.IO.SerialPeripheralInterface">
+      <HintPath>..\..\..\raspberry-sharp-io\Raspberry.IO.SerialPeripheralInterface\bin\Debug\Raspberry.IO.SerialPeripheralInterface.dll</HintPath>
     </Reference>
     <Reference Include="System" />
     <Reference Include="System.Core" />

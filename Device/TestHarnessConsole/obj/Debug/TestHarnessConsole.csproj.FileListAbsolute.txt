@@ -12,3 +12,4 @@ C:\Users\Dad\Source\Repos\IrrigationController\Device\TestHarnessConsole\bin\Deb
 C:\Users\Dad\Source\Repos\IrrigationController\Device\TestHarnessConsole\bin\Debug\Newtonsoft.Json.dll
 C:\Users\Dad\Source\Repos\IrrigationController\Device\TestHarnessConsole\bin\Debug\Newtonsoft.Json.xml
 C:\Users\Dad\Source\Repos\IrrigationController\Device\TestHarnessConsole\obj\Debug\TestHarnessConsole.csproj.TestHarnessConsole.exe.config
+C:\Users\Dad\Source\Repos\IrrigationController\Device\TestHarnessConsole\bin\Debug\log4net.dll

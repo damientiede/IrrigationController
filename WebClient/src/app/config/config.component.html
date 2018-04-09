@@ -49,6 +49,9 @@
                     <tr><td>Status: {{device.Status}}</td></tr>        
                 </tbody>
             </table>
+            <button type="button" class="btn btn-success" (click)="refreshConfig()">
+                <i class="fa fa-plus"></i>Refresh config
+            </button>
         </div>
         <!-- Solenoids section -->
         <div *ngIf="isView('Solenoids')">

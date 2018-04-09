@@ -21,3 +21,7 @@ C:\Users\Dad\Source\Repos\IrrigationController\Device\DeviceController.IO\bin\De
 C:\Users\Dad\Source\Repos\IrrigationController\Device\DeviceController.IO\bin\Debug\log4net.dll
 C:\Users\Dad\Source\Repos\IrrigationController\Device\DeviceController.IO\bin\Debug\Newtonsoft.Json.dll
 C:\Users\Dad\Source\Repos\IrrigationController\Device\DeviceController.IO\bin\Debug\Newtonsoft.Json.xml
+C:\Users\Dad\Source\Repos\IrrigationController\Device\DeviceController.IO\bin\Debug\Raspberry.IO.SerialPeripheralInterface.dll
+C:\Users\Dad\Source\Repos\IrrigationController\Device\DeviceController.IO\bin\Debug\Raspberry.IO.SerialPeripheralInterface.pdb
+C:\Users\Dad\Source\Repos\IrrigationController\Device\DeviceController.IO\bin\Debug\Raspberry.IO.SerialPeripheralInterface.xml
+C:\Users\Dad\Source\Repos\IrrigationController\Device\DeviceController.IO\bin\Debug\Raspberry.System.pdb

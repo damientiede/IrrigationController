@@ -147,6 +147,16 @@
             Pi 2 Model B.
             </summary>
         </member>
+        <member name="F:Raspberry.Model.Zero">
+            <summary>
+            Pi Zero.
+            </summary>
+        </member>
+        <member name="F:Raspberry.Model.B3">
+            <summary>
+            Pi 3 Model B.
+            </summary>
+        </member>
         <member name="T:Raspberry.ModelExtensionMethods">
             <summary>
             Provides extension methods for <see cref="T:Raspberry.Model"/>.

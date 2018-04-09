@@ -12,7 +12,7 @@ namespace DeviceController.Data
         public int Id;
         public string Name;
         public string Description;
-        public HardwareTypes HardwareType;
+        public string HardwareType;
         public string Address;
         public int Value;
         public bool RequiresPump;

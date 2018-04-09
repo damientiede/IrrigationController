@@ -147,6 +147,16 @@
             Pi 2 Model B.
             </summary>
         </member>
+        <member name="F:Raspberry.Model.Zero">
+            <summary>
+            Pi Zero.
+            </summary>
+        </member>
+        <member name="F:Raspberry.Model.B3">
+            <summary>
+            Pi 3 Model B.
+            </summary>
+        </member>
         <member name="T:Raspberry.ModelExtensionMethods">
             <summary>
             Provides extension methods for <see cref="T:Raspberry.Model"/>.
@@ -179,63 +189,19 @@
             Processor is a BCM2709.
             </summary>
         </member>
+        <member name="F:Raspberry.Processor.Bcm2835">
+            <summary>
+            Processor is a BCM2835.
+            </summary>
+        </member>
         <member name="T:Raspberry.Timers.HighResolutionTimer">
             <summary>
             Represents a high-resolution timer.
             </summary>
         </member>
-        <member name="T:Raspberry.Timers.ITimer">
-            <summary>
-            Provides an interface for a timer.
-            </summary>
-        </member>
-        <member name="M:Raspberry.Timers.ITimer.Start(System.TimeSpan)">
-            <summary>
-            Starts this instance.
-            </summary>
-            <param name="startDelay">The delay before the first occurence.</param>
-        </member>
-        <member name="M:Raspberry.Timers.ITimer.Stop">
-            <summary>
-            Stops this instance.
-            </summary>
-        </member>
-        <member name="P:Raspberry.Timers.ITimer.Interval">
-            <summary>
-            Gets or sets the interval.
-            </summary>
-            <value>
-            The interval.
-            </value>
-        </member>
-        <member name="P:Raspberry.Timers.ITimer.Action">
-            <summary>
-            Gets or sets the action.
-            </summary>
-            <value>
-            The action.
-            </value>
-        </member>
         <member name="M:Raspberry.Timers.HighResolutionTimer.#ctor">
             <summary>
             Initializes a new instance of the <see cref="T:Raspberry.Timers.HighResolutionTimer"/> class.
-            </summary>
-        </member>
-        <member name="M:Raspberry.Timers.HighResolutionTimer.Sleep(System.TimeSpan)">
-            <summary>
-            Sleeps the specified delay.
-            </summary>
-            <param name="delay">The delay.</param>
-        </member>
-        <member name="M:Raspberry.Timers.HighResolutionTimer.Start(System.TimeSpan)">
-            <summary>
-            Starts this instance.
-            </summary>
-            <param name="startDelay">The delay before the first occurence, in milliseconds.</param>
-        </member>
-        <member name="M:Raspberry.Timers.HighResolutionTimer.Stop">
-            <summary>
-            Stops this instance.
             </summary>
         </member>
         <member name="P:Raspberry.Timers.HighResolutionTimer.Interval">
@@ -254,20 +220,58 @@
             The action.
             </value>
         </member>
-        <member name="T:Raspberry.Timers.StandardTimer">
+        <member name="M:Raspberry.Timers.HighResolutionTimer.Sleep(System.TimeSpan)">
             <summary>
-            Represents a timer.
+            Sleeps the specified delay.
             </summary>
+            <param name="delay">The delay.</param>
         </member>
-        <member name="M:Raspberry.Timers.StandardTimer.Start(System.TimeSpan)">
+        <member name="M:Raspberry.Timers.HighResolutionTimer.Start(System.TimeSpan)">
             <summary>
             Starts this instance.
             </summary>
             <param name="startDelay">The delay before the first occurence, in milliseconds.</param>
         </member>
-        <member name="M:Raspberry.Timers.StandardTimer.Stop">
+        <member name="M:Raspberry.Timers.HighResolutionTimer.Stop">
             <summary>
             Stops this instance.
+            </summary>
+        </member>
+        <member name="T:Raspberry.Timers.ITimer">
+            <summary>
+            Provides an interface for a timer.
+            </summary>
+        </member>
+        <member name="P:Raspberry.Timers.ITimer.Interval">
+            <summary>
+            Gets or sets the interval.
+            </summary>
+            <value>
+            The interval.
+            </value>
+        </member>
+        <member name="P:Raspberry.Timers.ITimer.Action">
+            <summary>
+            Gets or sets the action.
+            </summary>
+            <value>
+            The action.
+            </value>
+        </member>
+        <member name="M:Raspberry.Timers.ITimer.Start(System.TimeSpan)">
+            <summary>
+            Starts this instance.
+            </summary>
+            <param name="startDelay">The delay before the first occurence.</param>
+        </member>
+        <member name="M:Raspberry.Timers.ITimer.Stop">
+            <summary>
+            Stops this instance.
+            </summary>
+        </member>
+        <member name="T:Raspberry.Timers.StandardTimer">
+            <summary>
+            Represents a timer.
             </summary>
         </member>
         <member name="P:Raspberry.Timers.StandardTimer.Interval">
@@ -285,6 +289,17 @@
             <value>
             The action.
             </value>
+        </member>
+        <member name="M:Raspberry.Timers.StandardTimer.Start(System.TimeSpan)">
+            <summary>
+            Starts this instance.
+            </summary>
+            <param name="startDelay">The delay before the first occurence, in milliseconds.</param>
+        </member>
+        <member name="M:Raspberry.Timers.StandardTimer.Stop">
+            <summary>
+            Stops this instance.
+            </summary>
         </member>
         <member name="T:Raspberry.Timers.Timer">
             <summary>

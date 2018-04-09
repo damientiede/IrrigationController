@@ -12,6 +12,8 @@ using DeviceController.Data;
 using System.Threading;
 using System.Net.Http;
 using System.Net.Http.Headers;
+using Raspberry.IO;
+using Raspberry.IO.GeneralPurpose;
 using log4net;
 
 
@@ -41,23 +43,35 @@ namespace DeviceController
         ISolenoid ActiveSolenoid;
 
         Device device;
-        Schedule ActiveSchedule;       
+        Schedule ActiveSchedule;
+
+        GpioConnection gpio;
 
         public DeviceController(string url)
         {
             log4net.Config.XmlConfigurator.Configure();            
             log = LogManager.GetLogger("Device");
             dataServerUrl = url;
+
+            log.DebugFormat("About to initialize GPIO");
+            PinConfiguration[] outputs = new PinConfiguration[]
+            {
+                ConnectorPin.P1Pin15.Output().Name("Output1"),
+                ConnectorPin.P1Pin37.Output().Name("Output2")
+            };
+            gpio = new GpioConnection(outputs);
+            log.DebugFormat("Success");
+
             dataServer = new DataServerWebClient(url);
-            ioFactory = new IOFactory(dataServer);
+            ioFactory = new IOFactory(dataServer, gpio);
 
             Spis = new List<SpiDevice>();
             Solenoids = new List<ISolenoid>();
             Alarms = new List<IAlarm>();
             Analogs = new List<IAnalog>();
             Schedules = new List<Schedule>();
-            CommandTypes = new List<CommandType>();
-
+            CommandTypes = new List<CommandType>();         
+            
             Init();            
         }
         #region Config
@@ -105,6 +119,8 @@ namespace DeviceController
                 CreateEvent(EventTypes.Application, string.Format("DeviceController start, registered with deviceId:{0}", device.Id));
 
                 LoadConfig();
+
+                gpio.Open();
             }
             catch (Exception ex)
             {
@@ -114,15 +130,24 @@ namespace DeviceController
         }
         protected void LoadConfig()
         {
-            
-            //get device config            
-            LoadSpis();
-            LoadSolenoids();
-            LoadAlarms();
-            LoadAnalogs();
-            LoadSchedules();
-            CreateEvent(EventTypes.Application, "DeviceController configuration complete");
-            log.InfoFormat("DeviceController.LoadConfig(): Configuration complete.");
+            try
+            {
+                //clear any existing pins
+                gpio.Clear();
+
+                //get device config            
+                LoadSpis();
+                LoadSolenoids();
+                LoadAlarms();
+                LoadAnalogs();
+                LoadSchedules();
+                CreateEvent(EventTypes.Application, "DeviceController configuration complete");
+                log.InfoFormat("DeviceController.LoadConfig(): Configuration complete.");
+            }
+            catch (Exception ex)
+            {
+                log.ErrorFormat("LoadConfig(): {0}", ex.Message);
+            }
         }
         protected  void LoadCommandTypes()
         {
@@ -154,6 +179,7 @@ namespace DeviceController
                     log.DebugFormat("{0}  {1} {2}",s.Id,s.Description, s.HardwareType.ToString());
                     ISolenoid sol = ioFactory.CreateSolenoid(s);
                     Solenoids.Add(sol);  
+                    
                     if (s.Id == device.PumpSolenoid)
                     {
                         PumpSolenoid = sol;
@@ -335,6 +361,8 @@ namespace DeviceController
                     }
                 }
             }
+
+            gpio.Close();
             log.InfoFormat("Device controller shutdown.");
         }
         public  void CreateEvent(EventTypes eventType, string desc)
