@@ -199,14 +199,23 @@ namespace DeviceController
             List<Alarm> alarms =  dataServer.GetAlarms(device.Id);
             foreach (Alarm a in alarms)
             {
-                Alarms.Add(ioFactory.CreateAlarm(a));               
-            }
-            foreach (IAlarm alarm in Alarms)
-            {
+                IAlarm alarm = ioFactory.CreateAlarm(a);
+                log.InfoFormat("Registering StatusChanged on {0}", alarm.Name);
+                alarm.StatusChanged += Alarm_StatusChanged;                
+                Alarms.Add(alarm);
                 log.Info(alarm.Report());
-            }
-            log.DebugFormat("{0} Alarms configured",Alarms.Count());
+            }            
+            log.DebugFormat("{0} Alarms configured", Alarms.Count());
+        }        
+
+        private void Alarm_StatusChanged(object sender, AlarmStatusChangedEventArgs e)
+        {
+            IAlarm alarm = sender as IAlarm;
+            string s = string.Format("Alarm '{0}' {1}", alarm.Name, e.Value ? "on" : "off");
+            log.Debug(s);
+            CreateEvent(EventTypes.IO, s);            
         }
+
         protected  void LoadAnalogs()
         {
             log.InfoFormat("LoadAnalogs()");

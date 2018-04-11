@@ -53,6 +53,7 @@
   <ItemGroup>
     <Compile Include="Alarms\DistributedAlarm.cs" />
     <Compile Include="Alarms\GPIOAlarm.cs" />
+    <Compile Include="Alarms\AlarmStatusChangedEventArgs.cs" />
     <Compile Include="Alarms\IAlarm.cs" />
     <Compile Include="Alarms\SPIAlarm.cs" />
     <Compile Include="Analogs\IAnalog.cs" />

@@ -15,6 +15,8 @@ namespace DeviceController.IO.Alarms
         public string Address { get { return alarm.Address; } }
         public Alarm alarm { get { return _alarm; } }
         private Alarm _alarm;
+        public event AlarmStatusChangedEventHandler StatusChanged;
+
         private DataServerWebClient dataServer;
 
         public bool State

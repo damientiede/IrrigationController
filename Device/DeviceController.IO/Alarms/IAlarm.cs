@@ -16,5 +16,6 @@ namespace DeviceController.IO.Alarms
         string Address { get; }
         string Report();
         Alarm alarm { get; }
+        event AlarmStatusChangedEventHandler StatusChanged;        
     }
 }

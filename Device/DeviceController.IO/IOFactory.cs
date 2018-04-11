@@ -42,7 +42,7 @@ namespace DeviceController.IO
             switch (a.HardwareType)
             {
                 case HardwareTypes.GPIO:
-                    return new GPIOAlarm(a, dataServer);
+                    return new GPIOAlarm(a, dataServer, gpio);
                 case HardwareTypes.Distributed:
                     return new DistributedAlarm(a, dataServer);
                 case HardwareTypes.SPI:

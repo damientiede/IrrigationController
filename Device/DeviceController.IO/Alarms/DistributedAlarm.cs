@@ -14,6 +14,8 @@ namespace DeviceController.IO.Alarms
         public string Description { get { return alarm.Description; } }
         public string Address { get { return alarm.Address; } }
         public Alarm alarm { get { return _alarm; } }
+        public event AlarmStatusChangedEventHandler StatusChanged;
+
         private Alarm _alarm;
         private DataServerWebClient dataServer;
 
