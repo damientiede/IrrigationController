@@ -19,7 +19,7 @@ import 'rxjs/add/operator/catch';
 
 @Injectable()
 export class IrrigationControllerService {
-    private restUrl = 'http://192.168.1.51:8000/api';
+    private restUrl = 'http://delta:8000/api';
     constructor(private http: Http) {}
     eventTypes: IEventType[] = [];
     getStatus(): Observable <IStatus[]> {

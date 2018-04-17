@@ -52,9 +52,7 @@ module.exports = {
    },
    delete (req, res) {
        return Solenoid.destroy({
-           where: {
-            id:req.params.id
-           }
+           where: { Id: req.params.id }
        })
        .then(affectedRows => res.status(204))
        .catch(error => res.status(400).send(error));

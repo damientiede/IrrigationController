@@ -15,7 +15,7 @@ h2 {color:#333399;}
 }
 .header h1 {text-align:center; font-size:28px;margin-top:15px;margin-bottom:15px;}
 .header p {text-align:center;}
-.container { padding-top:10px; }
+.container { padding-top:0px; }
 .footer {
     /*position: absolute;
     bottom: 0;

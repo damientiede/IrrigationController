@@ -6,4 +6,5 @@ li {
     list-style-type: none;
     margin:8px;
     float: left;
+    margin-bottom:1rem;
 }

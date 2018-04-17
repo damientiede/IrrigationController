@@ -1,42 +1,44 @@
-<ul class="list-unstyled">
-    <li>
+<div>
+  <ul class="list-unstyled">
+      <li>
+          <button type="button" class="btn" 
+                [ngClass]="getActiveClass('status')"
+                data-toggle="tooltip" data-placement="top" 
+                title="Device home" (click)="status()">
+            <i class="fa fa-tachometer-alt"></i>
+            Status
+          </button>
+      </li>    
+      <li>
         <button type="button" class="btn" 
-              [ngClass]="getActiveClass('status')"
-              data-toggle="tooltip" data-placement="top" 
-              title="Device home" (click)="status()">
-          <i class="fa fa-tachometer-alt"></i>
-          Status
+                [ngClass]="getActiveClass('schedules')"
+                data-toggle="tooltip" 
+                data-placement="top" 
+                title="Schedules" (click)="schedules()">
+          <i class="fa fa-clock"></i>
+          Schedules
         </button>
-    </li>    
-    <li>
-      <button type="button" class="btn" 
-              [ngClass]="getActiveClass('schedules')"
-              data-toggle="tooltip" 
-              data-placement="top" 
-              title="Schedules" (click)="schedules()">
-        <i class="fa fa-clock"></i>
-        Schedules
-      </button>
-    </li>
-    <li>
-      <button type="button" class="btn"
-              [ngClass]="getActiveClass('config')" 
-              data-toggle="tooltip" 
-              data-placement="top" 
-              title="Settings" (click)="settings()">
-        <i class="fa fa-cog"></i>
-        Config
-      </button>
-    </li>
-    <li>
-      <button type="button" class="btn"
-              [ngClass]="getActiveClass('history')" 
-              data-toggle="tooltip"
-              data-placement="top"
-              title="History"
-              (click)="history()">
-        <i class="fab fa-elementor"></i>    
-        History  
-      </button>
-    </li>
-</ul>
+      </li>
+      <li>
+        <button type="button" class="btn"
+                [ngClass]="getActiveClass('config')" 
+                data-toggle="tooltip" 
+                data-placement="top" 
+                title="Settings" (click)="settings()">
+          <i class="fa fa-cog"></i>
+          Config
+        </button>
+      </li>
+      <li>
+        <button type="button" class="btn"
+                [ngClass]="getActiveClass('history')" 
+                data-toggle="tooltip"
+                data-placement="top"
+                title="History"
+                (click)="history()">
+          <i class="fab fa-elementor"></i>    
+          History  
+        </button>
+      </li>
+  </ul>
+</div>

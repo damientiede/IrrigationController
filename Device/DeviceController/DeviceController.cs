@@ -60,7 +60,7 @@ namespace DeviceController
                 ConnectorPin.P1Pin37.Output().Name("Output2")
             };
             gpio = new GpioConnection(outputs);
-            log.DebugFormat("Success");
+            //log.DebugFormat("Success");
 
             dataServer = new DataServerWebClient(url);
             ioFactory = new IOFactory(dataServer, gpio);
@@ -550,7 +550,7 @@ namespace DeviceController
             {
                 if (ActiveProgram != null && ActiveSolenoid !=null)
                 {
-                    device.Status = string.Format("Irrigating '{0}' from manual program. {1} minutes remaining."
+                    device.Status = string.Format("Irrigating '{0}' - {1} minutes remaining."
                         , ActiveSolenoid.Name, ActiveProgram.MinsRemaining);
                 }
                 else

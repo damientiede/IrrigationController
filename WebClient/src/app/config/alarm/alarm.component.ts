@@ -119,4 +119,5 @@ export class AlarmComponent implements OnInit {
       console.log('Success');
       this.toastr.success('Changes saved' );
   });
+  this.nav.NavTo(`/device/${this.deviceid}/config`);
 }}

@@ -18,7 +18,7 @@ import { IIrrigationProgram } from '../model/irrigationprogram';
   styleUrls: ['./status.component.css']
 })
 export class StatusComponent implements OnInit {
-  deviceid = 0;
+  deviceid = 2;
   ticks = 0;
   status: IStatus;
   device: IDevice;
@@ -43,7 +43,7 @@ export class StatusComponent implements OnInit {
   ngOnInit() {
     this.route.params
       .subscribe((params: Params) => {
-        this.deviceid = params['deviceid'];
+        this.deviceid = 2;//params['deviceid'];
         if (Number.isNaN(this.deviceid)) {
           alert('Missing Device ID');
         }
@@ -160,10 +160,10 @@ export class StatusComponent implements OnInit {
     return 0;
   }
   getStatusClass() {
-    /* if (this.status == null) return;
-    if(this.status.state.indexOf("Irrigating") > -1) { return "panel panel-success"; }
-    if(this.status.state.indexOf("Fault") > -1) { return "panel panel-danger"; } */
-    return "panel panel-default";
+    if (this.device == null) {return; }
+    if(this.device.State.indexOf("Irrigating") > -1) { return "alert alert-success"; }
+    if(this.device.State.indexOf("Fault") > -1) { return "alert alert-danger"; }
+    return "alert alert-secondary";
   }
   formatDateShort(date) {
     return moment(date).format("dd/MM/yyyy");
@@ -176,13 +176,13 @@ export class StatusComponent implements OnInit {
   }
   getStartTime() {
     if (this.activeProgram != null) {
-      return moment(this.activeProgram.Start).format("HH:mm");
+      return moment(this.activeProgram.Start).format("DD MMM YYYY HH:mm");
     }
     return '';
   }
   getEnd() {
     if (this.activeProgram != null) {
-      return moment(this.activeProgram.Start).add(this.activeProgram.Duration,'minutes').format("HH:mm");
+      return moment(this.activeProgram.Start).add(this.activeProgram.Duration,'minutes').format("DD MMM YYYY HH:mm");
     }
     return '';
   }
