@@ -4,75 +4,42 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 using DeviceController.Data;
+using log4net;
 
 namespace DeviceController.IO.Solenoids
 {
     public class SPISolenoid: ISolenoid
     {
-        public int Id
-        {
-            get { return solenoid.Id; }
-        }
-        public string Name
-        {
-            get { return solenoid.Name; }
-        }
-        public string Description
-        {
-            get { return solenoid.Description; }
-        }
-        public string Address
-        {
-            get { return solenoid.Address; }
-        }
-        public bool State
-        {
-            get { return (solenoid.Value == 1); }
-            set
-            {
-                if (value)
-                {
-                    solenoid.Value = 1;
-                }
-                else
-                {
-                    solenoid.Value = 0;
-                }
-            }
-        }
-        public bool RequiresPump
-        {
-            get { return solenoid.RequiresPump; }
-        }
-        private Solenoid _solenoid;
-        private DataServerWebClient dataServer;
-        public Solenoid solenoid { get { return _solenoid; } }
+        ILog log;
+        public string Name { get; set; }
+        public string Address { get; set; }
+        public bool State { get; set; }
 
-        public SPISolenoid(Solenoid s, DataServerWebClient d)
+        public SPISolenoid(string name, string address)
         {
-            _solenoid = s;
-            dataServer = d;
+            log4net.Config.XmlConfigurator.Configure();
+            log = LogManager.GetLogger("Device");
+            Name = name;
+            Address = address;
+
         }
         public void On()
         {
             if (!State)
             {
+                //gpio.Toggle(pinConfig);
                 State = true;
-                dataServer.PutSolenoid(_solenoid);
+                log.DebugFormat("Solenoid: {0} On", Name);
             }
         }
         public void Off()
         {
             if (State)
             {
+                //gpio.Toggle(pinConfig);
                 State = false;
-                dataServer.PutSolenoid(_solenoid);
+                log.DebugFormat("Solenoid: {0} Off", Name);
             }
-        }
-        public string Report()
-        {
-            return string.Format("SPISolenoid Id:{0} Name:{1} Description:{2} Address:{3} State:{4}",
-                Id, Name, Description, Address, State);
         }
     }
 }

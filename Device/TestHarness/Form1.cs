@@ -13,6 +13,9 @@ using DeviceController.IO;
 using DeviceController.IO.Solenoids;
 using DeviceController.IO.Analogs;
 using DeviceController.IO.Alarms;
+using DeviceController.IO.Spis;
+using Raspberry.IO;
+
 using log4net;
 
 namespace TestHarness
@@ -154,8 +157,8 @@ namespace TestHarness
             }
             foreach (Spi s in spis)
             {
-                SpiDevice spiDevice = new SpiDevice(s.Id, s.Name, s.Clock, s.CS, s.MISO, s.MOSI);
-                textBox1.Text += string.Format("Id:{0} name:{1} Clock:{2} CS:{3} MISO:{4} MOSI:{5} \r\n", spiDevice.Id, spiDevice.Name, spiDevice.Clock, spiDevice.CS, spiDevice.MISO, spiDevice.MOSI);
+                //SpiDevice spiDevice = new SpiDevice(s.Id, s.Name, s.Clock, s.CS, s.MISO, s.MOSI);
+                //textBox1.Text += string.Format("Id:{0} name:{1} Clock:{2} CS:{3} MISO:{4} MOSI:{5} \r\n", spiDevice.Id, spiDevice.Name, spiDevice.Clock, spiDevice.CS, spiDevice.MISO, spiDevice.MOSI);
             }
         }
 

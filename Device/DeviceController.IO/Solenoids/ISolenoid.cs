@@ -9,15 +9,15 @@ namespace DeviceController.IO.Solenoids
 {
     public interface ISolenoid
     {
-        int Id { get; }
+        //int Id { get; }
         string Name { get; }
-        string Description { get; }
+        //string Description { get; }
         void On();
         void Off();
         bool State { get; set; }
-        bool RequiresPump { get; }
+        //bool RequiresPump { get; }
         string Address { get; }
-        string Report();
-        Solenoid solenoid { get; }
+        //string Report();
+        //Solenoid solenoid { get; }
     }
 }

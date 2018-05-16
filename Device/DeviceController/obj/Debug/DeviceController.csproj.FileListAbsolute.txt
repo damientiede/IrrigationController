@@ -29,3 +29,14 @@ C:\Users\Dad\Source\Repos\IrrigationController\Device\DeviceController\bin\Debug
 C:\Users\Dad\Source\Repos\IrrigationController\Device\DeviceController\bin\Debug\Raspberry.IO.SerialPeripheralInterface.pdb
 C:\Users\Dad\Source\Repos\IrrigationController\Device\DeviceController\bin\Debug\Raspberry.IO.SerialPeripheralInterface.xml
 C:\Users\Dad\Source\Repos\IrrigationController\Device\DeviceController\bin\Debug\Raspberry.System.pdb
+C:\Users\Dad\Source\Repos\IrrigationController\Device\DeviceController\bin\Debug\Raspberry.IO.Components.dll
+C:\Users\Dad\Source\Repos\IrrigationController\Device\DeviceController\bin\Debug\Raspberry.IO.InterIntegratedCircuit.dll
+C:\Users\Dad\Source\Repos\IrrigationController\Device\DeviceController\bin\Debug\Common.Logging.Core.dll
+C:\Users\Dad\Source\Repos\IrrigationController\Device\DeviceController\bin\Debug\Common.Logging.dll
+C:\Users\Dad\Source\Repos\IrrigationController\Device\DeviceController\bin\Debug\Raspberry.IO.Components.pdb
+C:\Users\Dad\Source\Repos\IrrigationController\Device\DeviceController\bin\Debug\Raspberry.IO.InterIntegratedCircuit.pdb
+C:\Users\Dad\Source\Repos\IrrigationController\Device\DeviceController\bin\Debug\Raspberry.IO.InterIntegratedCircuit.xml
+C:\Users\Dad\Source\Repos\IrrigationController\Device\DeviceController\bin\Debug\Common.Logging.Core.pdb
+C:\Users\Dad\Source\Repos\IrrigationController\Device\DeviceController\bin\Debug\Common.Logging.Core.xml
+C:\Users\Dad\Source\Repos\IrrigationController\Device\DeviceController\bin\Debug\Common.Logging.pdb
+C:\Users\Dad\Source\Repos\IrrigationController\Device\DeviceController\bin\Debug\Common.Logging.xml

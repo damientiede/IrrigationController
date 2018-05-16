@@ -9,6 +9,7 @@ module.exports = {
                 Description: req.body.Description,
                 HardwareType: req.body.HardwareType,            
                 Address: req.body.Address,
+                RequiresPump: req.body.RequiresPump,
                 Value:0,
                 DeviceId: req.body.DeviceId
             })
