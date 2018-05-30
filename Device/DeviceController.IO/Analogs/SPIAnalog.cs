@@ -49,7 +49,7 @@ namespace DeviceController.IO.Analogs
             RawValue = sample.Millivolts;
             Value = RawValue * Multiplier;
 
-            log.DebugFormat("SPIAnalog.Sample() rawValue:{0} mV prevSample:{0} mV", RawValue, prevSample.Millivolts);
+            //log.DebugFormat("SPIAnalog.Sample() rawValue:{0} mV prevSample:{0} mV", RawValue, prevSample.Millivolts);
 
             //check to see if new reading exceeds threshold
             double delta = Math.Abs(sample.Millivolts - prevSample.Millivolts);

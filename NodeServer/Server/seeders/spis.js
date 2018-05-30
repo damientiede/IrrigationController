@@ -8,10 +8,10 @@ module.exports = {
 	        if (s ==0) {
               Spi.create({
                     Name:'Test SPI 1',
-                    Clock: 0,
-                    CS:0,
-                    MISO:18,
-                    MOSI:20,
+                    Clock: 23,
+                    CS:24,
+                    MISO:21,
+                    MOSI:19,
                     DeviceId:1
 	      });
           console.log('Created 1 spi record');	   		

@@ -12,15 +12,18 @@ const commands = require('./commands');
 const seedAll = () => {
     eventTypes.seed();
     commandTypes.seed();
-    devices.seed();
-    accounts.seed();
-    analogs.seed();    
-    solenoids.seed();
-    schedules.seed();
-    spis.seed();
-    alarms.seed();
+    devices.seed(spis, analogs, solenoids, alarms, schedules, ()=> {
+        spis.seed();
+        analogs.seed();
+        solenoids.seed(schedules, () => {
+            schedules.seed();
+        });
+        alarms.seed();
+    });    
+    accounts.seed();    
     commands.seed();
 }
+
 module.exports = {    
     seedAll
 };

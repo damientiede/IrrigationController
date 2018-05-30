@@ -31,11 +31,9 @@ namespace DeviceController.IO.Solenoids
         {
             log4net.Config.XmlConfigurator.Configure();
             log = LogManager.GetLogger("Device");
-
-            //_solenoid = s;
-            //dataServer = d;
-            //gpio = g;
-            pin = p;// IOFactory.GetGPIOPin(_solenoid.Address);
+           
+            gpio = g;
+            pin = p;
             
             pinConfig = pin.Output().Name(name);
             gpio.Add(pinConfig);
@@ -59,11 +57,6 @@ namespace DeviceController.IO.Solenoids
                 log.DebugFormat("Solenoid: {0} Off", Name);
                 //dataServer.PutSolenoid(_solenoid);
             }            
-        }
-        public string Report()
-        {
-            return string.Format("GPIOSolenoid Id:{0} Name:{1} Description:{2} Address:{3} State:{4}",
-                Id, Name, Description, Address, State);
-        }
+        }        
     }
 }

@@ -10,50 +10,22 @@ using log4net;
 namespace DeviceController.IO.Alarms
 {
     public class GPIOAlarm : IAlarm
-    {
-        public int Id { get { return alarm.Id; } }
-        public string Name { get { return alarm.Name; } }
-        public string Description { get { return alarm.Description; } }
-        public string Address { get { return alarm.Address; } }
-        
-        public event AlarmStatusChangedEventHandler StatusChanged;
-
-        public Alarm alarm { get { return _alarm; } }        
-        private Alarm _alarm;
-        private DataServerWebClient dataServer;
+    {        
+        public string Name { get; set; } 
+        public bool State { get; set; }       
+        public event AlarmStatusChangedEventHandler StatusChanged;             
         private GpioConnection gpio;
         private ConnectorPin pin;
-        private PinConfiguration pinConfig;
-
-
-        public bool State {
-            get { return (alarm.Value == 1); }
-            set
-            {
-                if (value != (alarm.Value == 1))
-                {
-                    if (value)
-                    {
-                        alarm.Value = 1;
-                    }
-                    else
-                    {
-                        alarm.Value = 0;
-                    }
-                }
-            }
-        }
-        public GPIOAlarm(Alarm a, DataServerWebClient d, GpioConnection g)
+        private PinConfiguration pinConfig;        
+        public GPIOAlarm(ConnectorPin p, string name, GpioConnection g)
         {
-            _alarm = a;
-            dataServer = d;
+            Name = name;            
             gpio = g;
-            pin = IOFactory.GetGPIOPin(_alarm.Address);            
-
-            pinConfig = pin.Input().Name(_alarm.Name).OnStatusChanged(b =>
+            pin = p;          
+            pinConfig = pin.Input().Name(Name).OnStatusChanged(b =>
             {
-                _alarm.Value = b ? 1 : 0;
-                Console.WriteLine("Alarm {0} {1}", _alarm.Name, b ? "on" : "off");
+                State = b ? true : false;
+                Console.WriteLine("Alarm {0} {1}", Name, b ? "on" : "off");
                 AlarmStatusChangedEventArgs e = new AlarmStatusChangedEventArgs();
                 e.Value = b;
                 OnStatusChanged(e);
@@ -69,10 +41,6 @@ namespace DeviceController.IO.Alarms
             {
                 StatusChanged(this, e);
             }
-        }
-        public string Report()
-        {
-            return string.Format("GPIOAlarm Id:{0} Name:{1} Address:{2} Description:{3} State:{4}", Id, Name, Address, Description, State);
-        }
+        }        
     }
 }

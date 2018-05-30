@@ -12,7 +12,7 @@ import { AuthGuard } from './common/auth.guard';
 
 // Define which component should be loaded based on the current URL
 export const routes: Routes = [
-  { path: '', redirectTo: 'home', pathMatch: 'full'},
+  { path: '', redirectTo: 'device/1/status', pathMatch: 'full'},
   { path: 'device/:deviceid/status', component: StatusComponent, canActivate: [AuthGuard] },
   { path: 'device/:deviceid/schedules', component: SchedulesComponent, canActivate: [AuthGuard] },
   { path: 'device/:deviceid/history', component: HistoryComponent, canActivate: [AuthGuard] },

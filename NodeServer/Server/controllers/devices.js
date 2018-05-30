@@ -33,6 +33,7 @@ module.exports = {
             .catch(error => res.status(400).send(error));
    },
    update(req, res) {
+       //console.log(req);
         return Device
             .update({        
                 Name: req.body.Name,
@@ -40,7 +41,7 @@ module.exports = {
                 Mode: Utils.parseDeviceMode(req.body.Mode),
                 State: Utils.parseDeviceState(req.body.State),
                 Status: req.body.Status,
-                Pressure: parseInt(req.body.Pressure),
+                Pressure: req.body.Pressure,
                 ScheduleId: parseInt(req.body.ScheduleId),
                 Inputs: req.body.Inputs,
                 Outputs: req.body.Outputs,                

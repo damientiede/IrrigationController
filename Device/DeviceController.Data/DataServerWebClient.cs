@@ -89,11 +89,15 @@ namespace DeviceController.Data
             string data = JsonConvert.SerializeObject(c);
             string response = Put(string.Format("commands/{0}", c.Id), data);
         }
-
         public void PutSolenoid(Solenoid s)
         {
             string data = JsonConvert.SerializeObject(s);
             string response = Put(string.Format("solenoids/{0}", s.Id), data);
+        }
+        public void PutAnalog(Analog a)
+        {
+            string data = JsonConvert.SerializeObject(a);
+            string response = Put(string.Format("analogs/{0}", a.Id), data);
         }
         public void PutDevice(Device d)
         {

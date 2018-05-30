@@ -16,7 +16,7 @@ namespace DeviceController.Data
         public double Multiplier;
         public double RawValue;
         public string Units;
-        public int Value;
+        public double Value;
         public int DeviceId;
         public DateTime? CreatedAt;
         public DateTime? UpdatedAt;

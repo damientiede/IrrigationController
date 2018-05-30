@@ -1,7 +1,7 @@
 const Solenoid = require('../models').Solenoid;
 
 module.exports = {
-    seed() {
+    seed(schedules, callback) {
        Solenoid
 	    .count()
 	    .then(s => { 
@@ -40,6 +40,10 @@ module.exports = {
                     Value:0});
                 console.log('Created 4 solenoid records');	   		
 	        }
-	    })
+        });
+        if (typeof callback === "function")
+        {
+            callback(schedules);
+        }
     }
 };

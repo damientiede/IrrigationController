@@ -18,7 +18,7 @@ module.exports = (sequelize, DataTypes) => {
     },
     Status: DataTypes.STRING,
     Pressure: {
-      type:DataTypes.INTEGER,
+      type:DataTypes.DOUBLE,
       allowNull:false
     },
     ScheduleId: {
@@ -59,10 +59,10 @@ module.exports = (sequelize, DataTypes) => {
       foreignKey: 'DeviceId',
       as: 'Schedules'
     }); 
-    Device.hasOne(models.Status, {
+    /* Device.hasOne(models.Status, {
       foreignKey: 'DeviceId',
       as: 'Status'
-    });
+    }); */
   };
 
   return Device;

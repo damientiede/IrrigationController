@@ -8,14 +8,9 @@ using DeviceController.Data;
 namespace DeviceController.IO.Alarms
 {
     public interface IAlarm
-    {
-        int Id { get; }
-        string Name { get; }
-        string Description { get; }       
-        bool State { get; set; }
-        string Address { get; }
-        string Report();
-        Alarm alarm { get; }
+    {        
+        string Name { get; }           
+        bool State { get; set; }             
         event AlarmStatusChangedEventHandler StatusChanged;        
     }
 }

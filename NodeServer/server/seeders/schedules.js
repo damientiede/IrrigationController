@@ -17,7 +17,7 @@ module.exports = {
                     Repeat:1,                    
                     Enabled:1,
                     DeviceId:1,
-                    SolenoidId:5        
+                    SolenoidId:1     
                     });
                 Schedule.create({
                     Name:'Block 1',
@@ -30,7 +30,7 @@ module.exports = {
                     Repeat:1,                    
                     Enabled:1,
                     DeviceId:1,
-                    SolenoidId:6        
+                    SolenoidId:2      
                     });
 
                 console.log('Created 2 schedules');	   		

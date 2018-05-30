@@ -45,7 +45,7 @@ namespace DeviceController
             Init();            
         }
         
-        protected  void Init()
+        protected void Init()
         {
             try
             {
@@ -113,6 +113,8 @@ namespace DeviceController
                       
                         //read analogs
                         interfaceService.ReadAnalogs();
+                        device.Pressure = interfaceService.Analogs[0].Data.Value;
+                        log.DebugFormat("device.Pressure: {0} kPa", device.Pressure);
 
                         if (ActiveProgram != null)
                         {
@@ -192,56 +194,22 @@ namespace DeviceController
 
                         //update the server
                         ReportStatus();                        
-
-                        Thread.Sleep(5000);
-                        //log.Debug("Waking up");
-                        //bShutdown = true;
+                      
                     }
                     catch (Exception ex)
                     {
                         log.Error(ex.Message);
                     }
+
+                    //powernap
+                    Thread.Sleep(5000);
                 }
             }
 
             interfaceService.Close();
             log.InfoFormat("Device controller shutdown.");
         }
-        //public  void CreateEvent(EventTypes eventType, string desc)
-        //{            
-        //    try
-        //    {                
-        //        Event e = new Event { EventType = (int)eventType, CreatedAt = DateTime.Now, EventValue = desc, DeviceId=device.Id };               
-        //        dataServer.PostEvent(e);                
-        //    }
-        //    catch (Exception ex)
-        //    {
-        //        log.ErrorFormat("CreateEvent(): {0}", ex.Message);
-        //    }
-        //}
-        //public void CreateIrrigationProgram(string name, int duration, int solenoidId)
-        //{
-        //    ActiveProgram = new ActiveIrrigationProgram(name,duration,solenoidId,device.Id);
-        //    try
-        //    {
-        //        ActiveProgram.Id =  dataServer.PostIrrigationProgram(ActiveProgram);                
-        //    }
-        //    catch (Exception ex)
-        //    {
-        //        log.ErrorFormat("CreateIrrigationProgram(): {0}", ex.Message);
-        //    }            
-        //}
-        //public  void UpdateIrrigationProgram(IrrigationProgram p)
-        //{
-        //    try
-        //    {
-        //         dataServer.PutIrrigationProgram(p);
-        //    }
-        //    catch (Exception ex)
-        //    {
-        //        log.ErrorFormat("UpdateIrrigationProgram(): {0}", ex.Message);
-        //    }
-        //}
+        
         public  void ProcessCommands()
         {
             //log.Debug("ProcessCommands()");
@@ -394,43 +362,18 @@ namespace DeviceController
 
             try
             {
-                 dataServer.PutDevice(device);
+                interfaceService.PutDevice(device);
             }
             catch (Exception ex)
             {
                 log.ErrorFormat("ReportStatus(): {0}", ex.Message);
             }
         }
-        //public void SwitchSolenoid(int solenoidId, bool value)
-        //{           
-        //    foreach (ISolenoid s in Solenoids)
-        //    {
-        //        if (s.Id == solenoidId)
-        //        {
-        //            if (value)
-        //            {
-        //                s.On();
-        //                ActiveSolenoid = s;
-        //                if (s.RequiresPump)
-        //                {
-        //                    if (PumpSolenoid != null) { PumpSolenoid.On(); }
-        //                }                    
-        //            }
-        //            else
-        //            {
-        //                s.Off();
-        //            }
-        //        }
-        //        else
-        //        {
-        //            s.Off();
-        //        }
-        //    }                     
-        //}        
+               
         public  void ActionCommand(Command cmd)
         {
             cmd.Actioned = DateTime.Now;
-             dataServer.PutCommand(cmd);
+            interfaceService.PutCommand(cmd);
         }
         public void Shutdown()
         {
@@ -438,21 +381,6 @@ namespace DeviceController
             interfaceService.CreateEvent(EventTypes.Application, "DeviceController application shutdown");
             bShutdown = true;
         }
-        //public void SolenoidsOff()
-        //{
-        //    log.Debug("SolenoidsOff()");
-        //    foreach (ISolenoid s in Solenoids)
-        //    {
-        //        s.Off();
-        //    }
-        //}
-        //public void ReadAnalogs()
-        //{
-        //    foreach (IAnalog analog in Analogs)
-        //    {
-        //        analog.Sample();
-        //        log.InfoFormat("Analog {0} Raw:{1} Value:{2}", analog.Name, analog.RawValue, analog.Value);
-        //    }
-        //}
+        
     }
 }

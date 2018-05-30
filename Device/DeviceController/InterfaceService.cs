@@ -49,7 +49,15 @@ namespace DeviceController
 
             //initialize data server
             dataServer = new DataServerWebClient(url);
-            //ioFactory = new IOFactory(dataServer, gpio);            
+
+            //initialize hardware collections
+            Spis = new List<SpiTuple>();
+            Solenoids = new List<SolenoidTuple>();
+            Alarms = new List<AlarmTuple>();
+            Analogs = new List<AnalogTuple>();
+            Commands = new List<Command>();
+            CommandTypes = new List<CommandType>();
+            Schedules = new List<Schedule>();            
         }
         public Device Register(string mac)
         {
@@ -138,7 +146,7 @@ namespace DeviceController
                 log.InfoFormat("Registering StatusChanged on {0}", alarm.Name);
                 alarm.StatusChanged += Alarm_StatusChanged;
                 Alarms.Add(new AlarmTuple { Data = a, Hardware = alarm });
-                log.Info(alarm.Report());
+                //log.Info(alarm.Report());
             }
             log.DebugFormat("{0} Alarms configured", Alarms.Count());
         }
@@ -169,9 +177,19 @@ namespace DeviceController
         private void Analog_ValueChanged(object sender, AnalogValueChangedEventArgs e)
         {
             IAnalog analog = sender as IAnalog;
+            foreach (AnalogTuple at in Analogs)
+            {
+                if (at.Hardware.Name == analog.Name)
+                {
+                    at.Data.RawValue = analog.RawValue;
+                    at.Data.Value = analog.Value;                    
+                    dataServer.PutAnalog(at.Data);
+                }
+            }
             string s = string.Format("Analog '{0}' {1} {2}", analog.Name, e.Value, analog.Units);
             log.Debug(s);
             CreateEvent(EventTypes.IO, s);
+            //dataServer.PutAnalog(analog.Data);         
         }
 
         public void LoadSchedules()
@@ -196,10 +214,13 @@ namespace DeviceController
         }
         public ISolenoid CreateSolenoid(Solenoid s)
         {
+            log.DebugFormat("InterfaceService.CreateSolenoid()");
             switch (s.HardwareType)
             {
                 case "GPIO":
+                    log.DebugFormat("{0}", s.Address);
                     ConnectorPin pin = GetGPIOPin(s.Address);
+                    log.DebugFormat("Got pin {0}", pin.ToString());
                     GPIOSolenoid sol = new GPIOSolenoid(pin, s.Name, gpio);
                     return sol;
                 case "Distributed":
@@ -216,7 +237,8 @@ namespace DeviceController
             switch (a.HardwareType)
             {
                 case HardwareTypes.GPIO:
-                    return new GPIOAlarm(a, dataServer, gpio);
+                    ConnectorPin pin = GetGPIOPin(a.Address);
+                    return new GPIOAlarm(pin, a.Name, gpio);
                 case HardwareTypes.Distributed:
                     return new DistributedAlarm(a, dataServer);
                 case HardwareTypes.SPI:
@@ -325,6 +347,14 @@ namespace DeviceController
                 //}
             }
         }
+        public void PutDevice(Device d)
+        {
+            dataServer.PutDevice(d);
+        }
+        public void PutCommand(Command c)
+        {
+            dataServer.PutCommand(c);
+        }
         public ActiveIrrigationProgram CreateIrrigationProgram(string name, int duration, int solenoidId)
         {
             ActiveIrrigationProgram activeProgram = new ActiveIrrigationProgram(name, duration, solenoidId, device.Id);
@@ -359,11 +389,14 @@ namespace DeviceController
             foreach (AnalogTuple analog in Analogs)                
             {
                 analog.Hardware.Sample();
-                log.InfoFormat("Analog {0} Raw:{1} Value:{2}", analog.Data.Name, analog.Hardware.RawValue, analog.Hardware.Value);
+                analog.Data.RawValue = analog.Hardware.RawValue;
+                analog.Data.Value = analog.Hardware.Value;
+                dataServer.PutAnalog(analog.Data);
+                //log.InfoFormat("Analog {0} Raw:{1} Value:{2}", analog.Data.Name, analog.Hardware.RawValue, analog.Hardware.Value);
             }
         }
         public static ConnectorPin GetGPIOPin(string _pin)
-        {
+        {            
             switch (_pin)
             {
                 case "P1Pin03":
