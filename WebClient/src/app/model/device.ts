@@ -6,6 +6,7 @@ export class IDevice {
         public State: string,
         public Mode: string,
         public Status: string,
+        public Pressure: Number,
         public PumpSolenoidId: number,
         public SoftwareVersion: string,
         public DeviceMAC: string,

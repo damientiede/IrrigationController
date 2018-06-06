@@ -10,7 +10,7 @@ module.exports = {
                     Name:'Station1',
                     Description:'Test solenoid 1',
                     HardwareType:'GPIO',
-                    Address:'P1Pin25',
+                    Address:'P1Pin22',
                     RequiresPump:true,
                     DeviceId:1,			        
                     Value:0});
@@ -18,7 +18,7 @@ module.exports = {
                     Name:'Station2',
                     Description:'Test solenoid 2',
                     HardwareType:'GPIO',
-                    Address:'P1Pin28',
+                    Address:'P1Pin26',
                     RequiresPump:true,
                     DeviceId:1,			        
                     Value:0});
@@ -26,7 +26,7 @@ module.exports = {
                     Name:'Station3',
                     Description:'Test solenoid 3',
                     HardwareType:'GPIO',
-                    Address:'P1Pin26',
+                    Address:'P1Pin27',
                     RequiresPump:false,	
                     DeviceId:1,		        
                     Value:0});
@@ -34,7 +34,7 @@ module.exports = {
                     Name:'Station4',
                     Description:'Test solenoid 4',
                     HardwareType:'GPIO',
-                    Address:'P1Pin21',
+                    Address:'P1Pin19',
                     RequiresPump:false,	
                     DeviceId:1,		        
                     Value:0});

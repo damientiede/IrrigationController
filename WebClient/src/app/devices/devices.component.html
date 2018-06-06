@@ -1,0 +1,25 @@
+<div class="row">
+  <div class="col-2"></div>
+  <div class="col-8">
+    <h5>Devices</h5>
+    <div *ngIf="loaded">
+        <div class="row">
+            <table class="devices">
+                <tbody>
+                    <tr *ngFor="let device of devices" (click)="navToDevice(device)">
+                        <td>
+                            <app-status-widget [LastSeen]="device.updatedAt" 
+                                               [Radius]="'30'" 
+                                               [MarginTop]="'15'">
+                            </app-status-widget>
+                        </td>                        
+                        <td>{{device.Name}} </td>
+                        <td>{{device.Description}} </td>
+                        <td>{{device.Status}} </td>                        
+                    </tr>
+                </tbody>
+            </table>          
+        </div>
+    </div>
+  </div>
+</div>

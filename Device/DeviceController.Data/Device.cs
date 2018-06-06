@@ -17,7 +17,7 @@ namespace DeviceController.Data
         public DeviceMode Mode;
         public string Status;
         public double Pressure;
-        public int ScheduleId;
+        public int? ScheduleId;
         public string Inputs;
         public string Outputs;
         public string SoftwareVersion;        

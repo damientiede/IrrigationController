@@ -19,6 +19,8 @@ import { SpiComponent } from './config/spi/spi.component';
 import { StatusComponent } from './status/status.component';
 import { DeviceToolsComponent } from './device-tools/device-tools.component';
 import { SchedulesComponent } from './schedules/schedules.component';
+import { DevicesComponent } from './devices/devices.component';
+import { StatusWidgetComponent } from './status-widget/status-widget.component';
 
 @NgModule({
   declarations: [
@@ -31,7 +33,9 @@ import { SchedulesComponent } from './schedules/schedules.component';
     AnalogComponent,
     SpiComponent,
     DeviceToolsComponent,
-    SchedulesComponent
+    SchedulesComponent,
+    DevicesComponent,
+    StatusWidgetComponent
   ],
   imports: [
     BrowserModule,

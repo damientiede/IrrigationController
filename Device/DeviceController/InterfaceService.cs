@@ -12,6 +12,7 @@ using DeviceController.Data;
 using Raspberry.IO;
 using Raspberry.IO.GeneralPurpose;
 using Raspberry.IO.Components.Converters.Mcp3008;
+using UnitsNet;
 using log4net;
 
 namespace DeviceController
@@ -43,7 +44,7 @@ namespace DeviceController
 
             //initialize hardware
             gpio = new GpioConnection();            
-            gpioDriver = GpioConnectionSettings.DefaultDriver;
+            gpioDriver = new MemoryGpioConnectionDriver(); //GpioConnectionSettings.DefaultDriver;
 
             log.DebugFormat("InterfaceManager.Ctor()");
 
@@ -98,15 +99,9 @@ namespace DeviceController
             Spis.Clear();
             List<Spi> spis = dataServer.GetSpis(device.Id);
             foreach (Spi s in spis)
-            {
-                ConnectorPin spiClock = GetGPIOPin(string.Format("P1Pin{0}", s.Clock));
-                ConnectorPin spiCs = GetGPIOPin(string.Format("P1Pin{0}", s.CS));
-                ConnectorPin spiMISO = GetGPIOPin(string.Format("P1Pin{0}", s.MISO));
-                ConnectorPin spiMOSI = GetGPIOPin(string.Format("P1Pin{0}", s.MOSI));
-                SpiDevice spiDevice = new SpiDevice(spiClock,spiCs,spiMISO, spiMOSI, gpioDriver);
-
+            {                
                 log.DebugFormat("LoadSpis(): Id:{0} name:{1} Clock:{2} CS:{3} MISO:{4} MOSI:{5} \r\n", s.Id, s.Name, s.Clock, s.CS, s.MISO, s.MOSI);
-                Spis.Add(new SpiTuple { Data = s, Hardware = spiDevice });
+                Spis.Add(new SpiTuple { Data = s, Hardware = null });
                 //log.Info(spiDevice.Report());
             }
         }
@@ -251,6 +246,7 @@ namespace DeviceController
 
         public IAnalog CreateAnalog(Analog a)
         {
+            log.DebugFormat("InterfaceService.CreateAnalog() {0}", a.Name);
             //Address property will be SPI:CHANNEL, eg 0:1
             //The following code parses out the address to get SPI and CHANNEL
             string[] parts = a.Address.Split(':');
@@ -260,14 +256,21 @@ namespace DeviceController
             {
                 throw new Exception(string.Format("Configuration error: unknown SPI Id {0}", spiId));
             }
-            SpiDevice spi = Spis[spiId].Hardware;
+            
+            ConnectorPin spiClock = GetGPIOPin(string.Format("P1Pin{0}", 23));
+            ConnectorPin spiCs = GetGPIOPin(string.Format("P1Pin{0}", 24));
+            ConnectorPin spiMISO = GetGPIOPin(string.Format("P1Pin{0}", 21));
+            ConnectorPin spiMOSI = GetGPIOPin(string.Format("P1Pin{0}", 19));
+            SpiDevice spi = new SpiDevice(spiClock, spiCs, spiMISO, spiMOSI, gpioDriver);
+
+            Spis[spiId].Hardware = spi;
 
             if (spi == null)
             {
                 throw new Exception(string.Format("Configuration error: unknown SPI Id {0}", spiId));
             }
-            log.DebugFormat("CreateAnalog(): SPI:{0} Channel:{1}", spiId, channel);
-            log.DebugFormat("Spi {0}", Spis[0].Hardware.Name);
+            //log.DebugFormat("CreateAnalog(): SPI:{0} Channel:{1}", spiId, channel);
+            //log.DebugFormat("Spi {0}", Spis[0].Data.Name);
             log.DebugFormat("Analog name {0}", a.Name);
 
             IInputAnalogPin pin;
@@ -300,7 +303,27 @@ namespace DeviceController
                 default:
                     throw new Exception(string.Format("Configuration error: unknown analog input channel {0}", channel));
             }
-            return new SPIAnalog(pin, a.Name, a.Multiplier, a.Units);
+
+
+            //ElectricPotential referenceVoltage = ElectricPotential.FromVolts(3.3);
+            //var driver = new MemoryGpioConnectionDriver(); //GpioConnectionSettings.DefaultDriver;
+
+            //Mcp3008SpiConnection _spi = new Mcp3008SpiConnection(
+            //    driver.Out(GetGPIOPin("P1Pin23")),
+            //    driver.Out(GetGPIOPin("P1Pin24")),
+            //    driver.In(GetGPIOPin("P1Pin21")),
+            //    driver.Out(GetGPIOPin("P1Pin19")));
+            //IInputAnalogPin inputPin = spi.Connection.In(Mcp3008Channel.Channel0);
+
+            //var sample = referenceVoltage * (double)pin.Read().Relative;
+            //log.DebugFormat("CreateAnalog() sample: {0} mV", sample.Millivolts);
+
+            SPIAnalog ana = new SPIAnalog(pin, a.Name, a.Multiplier, a.Units);
+            ana.Sample();
+            log.DebugFormat("CreateAnalog() sample: {0} mV", ana.Value);
+            //ana.Value;
+
+            return ana;
         }
         public void SolenoidsOff()
         {
@@ -386,6 +409,7 @@ namespace DeviceController
         }
         public void ReadAnalogs()
         {
+
             foreach (AnalogTuple analog in Analogs)                
             {
                 analog.Hardware.Sample();

@@ -25,7 +25,7 @@ namespace DeviceController.IO.Alarms
             pinConfig = pin.Input().Name(Name).OnStatusChanged(b =>
             {
                 State = b ? true : false;
-                Console.WriteLine("Alarm {0} {1}", Name, b ? "on" : "off");
+                //Console.WriteLine("Alarm {0} {1}", Name, b ? "on" : "off");
                 AlarmStatusChangedEventArgs e = new AlarmStatusChangedEventArgs();
                 e.Value = b;
                 OnStatusChanged(e);

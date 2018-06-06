@@ -18,7 +18,7 @@ import { IIrrigationProgram } from '../model/irrigationprogram';
   styleUrls: ['./status.component.css']
 })
 export class StatusComponent implements OnInit {
-  deviceid = 2;
+  deviceid = -1;
   ticks = 0;
   status: IStatus;
   device: IDevice;
@@ -43,7 +43,7 @@ export class StatusComponent implements OnInit {
   ngOnInit() {
     this.route.params
       .subscribe((params: Params) => {
-        this.deviceid = 2;//params['deviceid'];
+        this.deviceid = params['deviceid'];
         if (Number.isNaN(this.deviceid)) {
           alert('Missing Device ID');
         }
@@ -73,7 +73,7 @@ export class StatusComponent implements OnInit {
             this.loaded = true;
           },
           error => () => {
-            console.log('Something went wrong...');              
+            console.log('Something went wrong...');
           },
           () => {
               console.log('Success');
@@ -193,8 +193,8 @@ export class StatusComponent implements OnInit {
   }
   getPressure() {
     if (this.device != null) {
-      return '?? kPa';
-      //return `${this.device.Pressure} kPa`;
+      //return '?? kPa';
+      return `${this.device.Pressure} kPa`;
     }
     return '';
   }

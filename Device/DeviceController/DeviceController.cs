@@ -114,7 +114,7 @@ namespace DeviceController
                         //read analogs
                         interfaceService.ReadAnalogs();
                         device.Pressure = interfaceService.Analogs[0].Data.Value;
-                        log.DebugFormat("device.Pressure: {0} kPa", device.Pressure);
+                        //log.DebugFormat("device.Pressure: {0} kPa", device.Pressure);
 
                         if (ActiveProgram != null)
                         {

@@ -40,7 +40,7 @@ export class IrrigationControllerService {
             .catch((error: any) => Observable.throw(error.json().error || 'Server error'));
     }
 
-    getDevices(username: string): Observable <IDevice[]> {
+    getDevices(userid: Number): Observable <IDevice[]> {
         const url = `${this.restUrl}/devices`;
         return this.http.get(url)
             .map((res: Response) => res.json())

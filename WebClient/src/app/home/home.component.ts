@@ -21,7 +21,7 @@ export class HomeComponent implements OnInit {
   getDevices(username: string) {
     console.log('getDevice()');
     this.service
-      .getDevices(username)
+      .getDevices(0)
       .subscribe((d: IDevice[]) => {
         console.log(d);
         this.devices = d;
