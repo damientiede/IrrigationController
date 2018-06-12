@@ -2,7 +2,7 @@ import { Component, OnInit, ViewContainerRef  } from '@angular/core';
 import { ActivatedRoute, Params} from "@angular/router";
 import * as moment from 'moment';
 import { ToastsManager } from 'ng2-toastr/ng2-toastr';
-import { NavComponent } from '../nav.component/nav.component';
+import { NavService } from '../services/nav.service';
 import { IDevice } from '../model/device';
 import { IrrigationControllerService} from '../services/IrrigationController.service';
 import { IEvent } from '../model/event';
@@ -24,7 +24,7 @@ export class HistoryComponent implements OnInit {
 
   constructor (private dataService: IrrigationControllerService,
     public toastr: ToastsManager,
-    private nav: NavComponent,
+    private nav: NavService,
     vcr: ViewContainerRef,
     private route: ActivatedRoute) {
       this.toastr.setRootViewContainerRef(vcr);

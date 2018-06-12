@@ -1,7 +1,7 @@
 import { Component, Input, OnInit, ViewContainerRef } from '@angular/core';
 import { ActivatedRoute, Params} from "@angular/router";
 import { ISpi } from '../../model/spi';
-import { NavComponent } from '../../nav.component/nav.component';
+import { NavService } from '../../services/nav.service';
 import { IrrigationControllerService} from '../../services/IrrigationController.service';
 import { ToastsManager } from 'ng2-toastr/ng2-toastr';
 
@@ -18,7 +18,7 @@ export class SpiComponent implements OnInit {
   hardwareTypes: string[] = ['GPIO', 'Distributed', 'SPI'];
   constructor(private service: IrrigationControllerService,
               private route: ActivatedRoute,
-              private nav: NavComponent,
+              private nav: NavService,
               vcr: ViewContainerRef,
               public toastr: ToastsManager) {
                 this.toastr.setRootViewContainerRef(vcr);

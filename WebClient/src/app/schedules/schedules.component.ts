@@ -1,6 +1,6 @@
 import { Component, OnInit, ViewContainerRef } from '@angular/core';
 import { ActivatedRoute, Params} from "@angular/router";
-import { NavComponent } from '../nav.component/nav.component';
+import { NavService } from '../services/nav.service';
 import * as moment from 'moment';
 import { IrrigationControllerService} from '../services/IrrigationController.service';
 import { IDevice } from '../model/device';
@@ -18,7 +18,7 @@ export class SchedulesComponent implements OnInit {
   schedules: ISchedule[];
   constructor (private service: IrrigationControllerService,
     private route: ActivatedRoute,
-    private nav: NavComponent ) {  }
+    private nav: NavService ) {  }
 
   ngOnInit() {
   // extract route params

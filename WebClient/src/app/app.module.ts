@@ -7,7 +7,7 @@ import { FormsModule } from '@angular/forms';
 import { AuthGuard } from './common/auth.guard';
 import { AppComponent } from './app.component';
 import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
-import { NavComponent } from './nav.component/nav.component';
+import { NavService } from './services/nav.service';
 import { HistoryComponent} from './history/history.component';
 import { IrrigationControllerService} from './services/IrrigationController.service';
 import { routes } from './app.routes';
@@ -46,7 +46,7 @@ import { StatusWidgetComponent } from './status-widget/status-widget.component';
     JsonpModule,
     RouterModule.forRoot(routes)
   ],
-  providers: [IrrigationControllerService, NavComponent, AuthGuard],
+  providers: [IrrigationControllerService, NavService, AuthGuard],
   bootstrap: [AppComponent]
 })
 export class AppModule { }

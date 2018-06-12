@@ -1,7 +1,7 @@
 import { Component, OnInit, ViewContainerRef  } from '@angular/core';
 import { NgIf } from '@angular/common';
 import { ActivatedRoute, Params} from "@angular/router";
-import { NavComponent } from '../nav.component/nav.component';
+import { NavService } from '../services/nav.service';
 import * as moment from 'moment';
 import { ToastsManager } from 'ng2-toastr/ng2-toastr';
 import { IrrigationControllerService} from '../services/IrrigationController.service';
@@ -41,7 +41,7 @@ export class ConfigComponent implements OnInit {
                private route: ActivatedRoute,
                public toastr: ToastsManager,
                vcr: ViewContainerRef,
-               private nav: NavComponent ) {
+               private nav: NavService ) {
                 this.toastr.setRootViewContainerRef(vcr);
                 }
 

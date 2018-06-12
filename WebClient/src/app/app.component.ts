@@ -1,6 +1,6 @@
 import { Component } from '@angular/core';
 import {ActivatedRoute, Params} from "@angular/router";
-import { NavComponent } from './nav.component/nav.component';
+import { NavService } from './services/nav.service';
 
 @Component({
   selector: 'app-root',
@@ -9,7 +9,7 @@ import { NavComponent } from './nav.component/nav.component';
 
 export class AppComponent {
 
-  constructor(private nav: NavComponent ) {}
+  constructor(private nav: NavService ) {}
 
   home() {
     this.nav.Home();

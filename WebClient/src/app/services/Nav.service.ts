@@ -1,17 +1,11 @@
 import {Injectable} from "@angular/core";
-import { Component, OnInit } from '@angular/core';
 import {Location} from '@angular/common';
 import {Router} from "@angular/router";
-@Component({
-    selector: 'nav-component',
-    templateUrl: './nav.component.html',
-    styles:['a:hover{cursor:pointer}']
-})
 
 @Injectable()
-export class NavComponent {
+export class NavService {
     constructor(private router: Router,
-                private location: Location) {}
+        private location: Location) {}
 
     getActive(route): string {
         if (this.router.url.indexOf(route) > 0) {

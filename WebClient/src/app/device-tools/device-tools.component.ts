@@ -2,7 +2,7 @@ import { Component, OnInit, Input } from '@angular/core';
 import { IrrigationControllerService} from '../services/IrrigationController.service';
 import { ActivatedRoute, Params} from "@angular/router";
 import { IDevice } from '../model/device';
-import { NavComponent } from '../nav.component/nav.component';
+import { NavService } from '../services/nav.service';
 
 @Component({
   selector: 'app-device-tools',
@@ -14,7 +14,7 @@ export class DeviceToolsComponent implements OnInit {
   url: string;
   constructor(private service: IrrigationControllerService,
               public route: ActivatedRoute,
-              private nav: NavComponent) { }
+              private nav: NavService) { }
   ngOnInit() {
     this.url = this.route.snapshot.url.join('');
   }

@@ -3,7 +3,7 @@ import { ActivatedRoute, Params} from "@angular/router";
 import {Observable} from 'rxjs/Rx';
 import { IDevice } from '../model/device';
 import * as moment from 'moment';
-import { NavComponent } from '../nav.component/nav.component';
+import { NavService } from '../services/nav.service';
 import { IrrigationControllerService} from '../services/IrrigationController.service';
 import { ToastsManager } from 'ng2-toastr/ng2-toastr';
 
@@ -20,7 +20,7 @@ export class DevicesComponent implements OnInit {
   constructor(private dataService: IrrigationControllerService,
               public toastr: ToastsManager,
               vcr: ViewContainerRef,
-              private nav: NavComponent,
+              private nav: NavService,
               private route: ActivatedRoute) {
         this.toastr.setRootViewContainerRef(vcr);
      }
