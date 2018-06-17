@@ -1,5 +1,5 @@
 import { Component, Input, OnInit, ViewContainerRef } from '@angular/core';
-import { ActivatedRoute, Params} from "@angular/router";
+import { ActivatedRoute, Router, Params} from "@angular/router";
 import {Observable} from 'rxjs/Rx';
 import { IDevice } from '../model/device';
 import * as moment from 'moment';
@@ -20,6 +20,7 @@ export class DevicesComponent implements OnInit {
   constructor(private dataService: IrrigationControllerService,
               public toastr: ToastsManager,
               vcr: ViewContainerRef,
+              private router: Router,
               private nav: NavService,
               private route: ActivatedRoute) {
         this.toastr.setRootViewContainerRef(vcr);
@@ -28,7 +29,9 @@ export class DevicesComponent implements OnInit {
   ngOnInit() {
     this.getData();
     let timer = Observable.timer(0, 5000);
-      timer.subscribe(t => {
+    timer
+      .takeUntil(this.router.events)
+      .subscribe(t => {
         this.onTick(t);
       });
   }

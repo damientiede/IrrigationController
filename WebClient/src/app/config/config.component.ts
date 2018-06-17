@@ -1,6 +1,7 @@
 import { Component, OnInit, ViewContainerRef  } from '@angular/core';
 import { NgIf } from '@angular/common';
-import { ActivatedRoute, Params} from "@angular/router";
+import { ActivatedRoute, Router, Params} from "@angular/router";
+import {Observable} from 'rxjs/Rx';
 import { NavService } from '../services/nav.service';
 import * as moment from 'moment';
 import { ToastsManager } from 'ng2-toastr/ng2-toastr';
@@ -23,6 +24,7 @@ import { ISpi } from '../model/spi';
 
 export class ConfigComponent implements OnInit {
   deviceid=0;
+  ticks=0;
   device: IDevice;
   irrigationPrograms: IIrrigationProgram[];
   solenoids: ISolenoid[];
@@ -39,6 +41,7 @@ export class ConfigComponent implements OnInit {
 
   constructor (private service: IrrigationControllerService,
                private route: ActivatedRoute,
+               private router: Router,
                public toastr: ToastsManager,
                vcr: ViewContainerRef,
                private nav: NavService ) {
@@ -60,10 +63,19 @@ export class ConfigComponent implements OnInit {
       if (Number.isNaN(this.deviceid)) {
         alert('Missing Device ID');
       }
-      this.getDevice(this.deviceid);
+      let timer = Observable.timer(0, 5000);
+      timer
+        .takeUntil(this.router.events)
+        .subscribe(t => {
+          this.onTick(t);
+        });
+      //this.getDevice(this.deviceid);
     });
   }
-
+  onTick(t) {
+    this.getDevice(this.deviceid);
+    this.ticks = t;
+  }
   getDevice(id: number) {
     console.log('getDevice()');
     this.service

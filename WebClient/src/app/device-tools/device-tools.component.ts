@@ -37,4 +37,10 @@ export class DeviceToolsComponent implements OnInit {
       return 'btn-secondary';
     }
   }
+  lastSeen() {
+    if (this.device != null) {
+      return this.device.updatedAt;
+    }
+    return null;
+  }
 }

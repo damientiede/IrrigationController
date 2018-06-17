@@ -1,5 +1,6 @@
 import { Component, OnInit, ViewContainerRef  } from '@angular/core';
-import { ActivatedRoute, Params} from "@angular/router";
+import { ActivatedRoute, Router, Params} from "@angular/router";
+import {Observable} from 'rxjs/Rx';
 import * as moment from 'moment';
 import { ToastsManager } from 'ng2-toastr/ng2-toastr';
 import { NavService } from '../services/nav.service';
@@ -15,6 +16,7 @@ import { IEvent } from '../model/event';
 
 export class HistoryComponent implements OnInit {
   deviceid = 0;
+  ticks=0;
   device: IDevice;
   events: IEvent[] = [];
   loaded = false;
@@ -26,6 +28,7 @@ export class HistoryComponent implements OnInit {
     public toastr: ToastsManager,
     private nav: NavService,
     vcr: ViewContainerRef,
+    private router: Router,
     private route: ActivatedRoute) {
       this.toastr.setRootViewContainerRef(vcr);
      }
@@ -37,10 +40,19 @@ export class HistoryComponent implements OnInit {
       if (Number.isNaN(this.deviceid)) {
         alert('Missing Device ID');
       }
-      this.getDevice(this.deviceid);
+      let timer = Observable.timer(0, 5000);
+      timer
+        .takeUntil(this.router.events)
+        .subscribe(t => {
+          this.onTick(t);
+        });
+      //this.getDevice(this.deviceid);
     });
   }
-
+  onTick(t) {
+    this.getDevice(this.deviceid);
+    this.ticks = t;
+  }
   getEvents(id: number) {
     console.log('getEvents()');
     this.dataService

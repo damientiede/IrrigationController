@@ -1,5 +1,5 @@
 import { Component, OnInit, ViewContainerRef  } from '@angular/core';
-import { ActivatedRoute, Params} from "@angular/router";
+import { ActivatedRoute, Router, Params} from "@angular/router";
 import {Observable} from 'rxjs/Rx';
 import * as moment from 'moment';
 import { ToastsManager } from 'ng2-toastr/ng2-toastr';
@@ -36,6 +36,7 @@ export class StatusComponent implements OnInit {
   constructor(private dataService: IrrigationControllerService,
               public toastr: ToastsManager,
               vcr: ViewContainerRef,
+              private router: Router,
               private route: ActivatedRoute) {
                 this.toastr.setRootViewContainerRef(vcr);
                }
@@ -49,9 +50,11 @@ export class StatusComponent implements OnInit {
         }
         this.getSolenoids(this.deviceid);
         let timer = Observable.timer(0, 5000);
-        timer.subscribe(t => {
-          this.onTick(t);
-        });
+        timer
+          .takeUntil(this.router.events)
+          .subscribe(t => {
+            this.onTick(t);
+          });
       });
   }
   onTick(t) {
@@ -232,7 +235,7 @@ export class StatusComponent implements OnInit {
       this.sendCommand(cmd);
     }
   }
-  
+
   sendCommand(cmd: ICommand) {
     this.dataService.sendCommand(cmd)
     .subscribe(() => {},

@@ -1,5 +1,6 @@
 import { Component, OnInit, ViewContainerRef } from '@angular/core';
-import { ActivatedRoute, Params} from "@angular/router";
+import { ActivatedRoute, Router, Params} from "@angular/router";
+import {Observable} from 'rxjs/Rx';
 import { NavService } from '../services/nav.service';
 import * as moment from 'moment';
 import { IrrigationControllerService} from '../services/IrrigationController.service';
@@ -14,10 +15,12 @@ import { ISchedule } from '../model/schedule';
 export class SchedulesComponent implements OnInit {
   loaded = true;
   deviceid= 0;
+  ticks = 0;
   device: IDevice;
   schedules: ISchedule[];
   constructor (private service: IrrigationControllerService,
     private route: ActivatedRoute,
+    private router: Router,
     private nav: NavService ) {  }
 
   ngOnInit() {
@@ -27,9 +30,20 @@ export class SchedulesComponent implements OnInit {
     if (Number.isNaN(this.deviceid)) {
       alert('Missing Device ID');
     }
-    this.getDevice(this.deviceid);
+    let timer = Observable.timer(0, 5000);
+    timer
+      .takeUntil(this.router.events)
+      .subscribe(t => {
+        this.onTick(t);
+      });
+    //this.getDevice(this.deviceid);
     });
   }
+  onTick(t) {
+    this.getDevice(this.deviceid);
+    this.ticks = t;
+  }
+
   getDevice(id: number) {
     console.log('getDevice()');
     this.service
@@ -48,6 +62,7 @@ export class SchedulesComponent implements OnInit {
           });
   }
   getSchedules() {
+    console.log('getSchedules()');
     if (this.device != null) {
       this.service.getSchedules(this.device.id)
       .subscribe((data: ISchedule[]) => {

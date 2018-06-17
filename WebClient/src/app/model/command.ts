@@ -5,7 +5,7 @@ export class ICommand {
         public Params:string,
         public Issued:Date,
         public Actioned:Date, 
-        public DeviceId: number,              
+        public DeviceId: number,
         public CreatedAt:Date,
         public UpdatedAt:Date
     ){}
