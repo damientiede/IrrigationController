@@ -200,6 +200,10 @@ module.exports = {
                 type: Sequelize.INTEGER,
                 allowNull: false
             },
+            SolenoidName: {
+                type: Sequelize.STRING,
+                allowNull:false
+            },
             RequiresPump:{
                 type: Sequelize.BOOLEAN,
                 allowNull: false

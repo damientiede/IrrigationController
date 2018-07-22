@@ -229,6 +229,7 @@ namespace DeviceController
         }
         public IAlarm CreateAlarm(Alarm a)
         {
+            log.DebugFormat("InterfaceService.CreateAlarm() Address:{0}", a.Address);
             switch (a.HardwareType)
             {
                 case HardwareTypes.GPIO:
@@ -380,7 +381,21 @@ namespace DeviceController
         }
         public ActiveIrrigationProgram CreateIrrigationProgram(string name, int duration, int solenoidId)
         {
-            ActiveIrrigationProgram activeProgram = new ActiveIrrigationProgram(name, duration, solenoidId, device.Id);
+            log.DebugFormat("InterfaceService.CreateIrrigationProgram() Name:{0} SolenoidId:{1}", name, solenoidId);
+            SolenoidTuple st = null;
+            foreach (SolenoidTuple s in Solenoids)
+            {
+                if (s.Data.Id == solenoidId)
+                {
+                    st = s;
+                    break;
+                }
+            }            
+            if (st == null)
+            {
+                throw new Exception(string.Format("Unknown solenoidId '{0}'", solenoidId));
+            }
+            ActiveIrrigationProgram activeProgram = new ActiveIrrigationProgram(name, duration, solenoidId, st.Data.Name, device.Id);
             try
             {
                 activeProgram.Id = dataServer.PostIrrigationProgram(activeProgram);

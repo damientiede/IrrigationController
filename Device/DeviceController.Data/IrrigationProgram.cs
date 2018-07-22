@@ -14,7 +14,8 @@ namespace DeviceController.Data
         public DateTime Finished;
         public int Duration;
         public int DeviceId;
-        public int SolenoidId;        
+        public int SolenoidId;
+        public string SolenoidName;        
         public bool RequiresPump;        
     }
 }

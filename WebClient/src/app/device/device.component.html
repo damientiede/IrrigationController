@@ -1,0 +1,73 @@
+<div class="row" *ngIf="loaded">
+  <div class="col-2"></div>
+  <div class="col-8">
+    <div>
+      <app-status-widget [LastSeen]="lastSeen()" [Radius]="40" [MarginTop]="10"></app-status-widget>
+      <ul class="list-unstyled">
+          <li>
+              <button type="button" class="btn" title="Device home"
+                    [ngClass]="getActiveClass('status')"
+                    data-toggle="tooltip" data-placement="top" 
+                    (click)="status()">                    
+                <i class="fa fa-tachometer-alt"></i>
+                Status
+              </button>
+          </li>    
+          <li>
+            <button type="button" class="btn" 
+                    [ngClass]="getActiveClass('schedules')"
+                    data-toggle="tooltip" 
+                    data-placement="top" 
+                    title="Schedules" (click)="schedules()">
+              <i class="fa fa-clock"></i>
+              Schedules
+            </button>
+          </li>
+          <li>
+            <button type="button" class="btn"
+                    [ngClass]="getActiveClass('config')" 
+                    data-toggle="tooltip" 
+                    data-placement="top" 
+                    title="Settings" (click)="config()">
+              <i class="fa fa-cog"></i>
+              Settings
+            </button>
+          </li>
+          <li>
+            <button type="button" class="btn"
+                    [ngClass]="getActiveClass('history')" 
+                    data-toggle="tooltip"
+                    data-placement="top"
+                    title="History"
+                    (click)="history()">
+              <i class="fab fa-elementor"></i>    
+              History  
+            </button>
+          </li>
+      </ul>
+    </div>
+  </div>
+  <div class="col-2"></div>
+</div>
+<!-- Status section -->
+<div *ngIf="isView('status')">
+  <app-status [Device] = "this.device" [Solenoids]="this.solenoids"></app-status>
+</div>
+
+<div *ngIf="isView('config')">
+    <app-config [Device] = "this.device"></app-config>
+</div>
+<!--
+<div *ngIf="isView('schedules')">
+    <app-schedules [Device] = "this.device"></app-status>
+</div>
+<div *ngIf="isView('history')">
+    <app-history [Device] = "this.device"></app-status>
+</div>
+-->
+<!-- div class="row" *ngIf="loaded">
+  <div class="col-2"></div>
+  <div class="col-8">
+    <router-outlet name="device"></router-outlet>
+  </div>
+</div -->

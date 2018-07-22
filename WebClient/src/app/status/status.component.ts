@@ -67,7 +67,7 @@ export class StatusComponent implements OnInit {
     this.getActiveProgram(id);
   }
   getDevice(id: number) {
-    console.log('getDevice()');
+    console.log('StatusComponant.getDevice()');
     this.dataService
       .getDevice(id)
       .subscribe((d: IDevice) => {

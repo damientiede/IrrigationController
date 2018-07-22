@@ -1,5 +1,6 @@
 import {Injectable} from "@angular/core";
 import { Http, Response, Headers, RequestOptions } from '@angular/http';
+import * as moment from 'moment';
 import { IStatus } from '../model/status';
 import { IDevice } from '../model/device';
 import { ISchedule } from '../model/schedule';
@@ -19,6 +20,9 @@ import 'rxjs/add/operator/catch';
 
 @Injectable()
 export class IrrigationControllerService {
+    cacheExpiry: Number = 5;
+    // devices: { [index: string]: any; } = {};
+    deviceCache: IDevice[] = [];
     private restUrl = 'http://delta:8000/api';
     constructor(private http: Http) {}
     eventTypes: IEventType[] = [];
@@ -30,6 +34,32 @@ export class IrrigationControllerService {
             // ...errors if any
             .catch((error: any) => Observable.throw(error.json().error || 'Server error'));
     }
+
+    /* getCachedDevice(id: number): Observable <IDevice> {
+        if (this.deviceCache.length === 0) {
+            this.getDevice(id).subscribe((device: IDevice) => {
+                this.deviceCache.push(device);
+                console.log(`Added device ${id} to cache`);
+                return Observable.of(device);
+            });
+        }
+        for (let n = 0; n < this.deviceCache.length; n++) {
+            const d = this.deviceCache[n];
+            if (d.id === id) {
+                const now = moment.utc();
+                if (moment.utc(d.updatedAt).add(5, 'seconds').isAfter(now)) {
+                    console.log(`Retrieving cached version of ${id}`);
+                    return Observable.of(d);
+                } else {
+                    console.log(`Getting fresh data for ${id}`);
+                    this.getDevice(id).subscribe((device: IDevice) => {
+                        this.deviceCache[n] = device;
+                        return Observable.of(device);
+                    });
+                }
+            }
+        }
+    }*/
 
     getDevice(id: number): Observable <IDevice> {
         const url = `${this.restUrl}/devices/${id}`;

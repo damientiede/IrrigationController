@@ -31,7 +31,7 @@ namespace DeviceController
 
         ISolenoid PumpSolenoid;       
         ActiveIrrigationProgram ActiveProgram;
-        ISolenoid ActiveSolenoid;
+        //ISolenoid ActiveSolenoid;
 
         Device device;
         Schedule ActiveSchedule;      
@@ -131,7 +131,7 @@ namespace DeviceController
                                 interfaceService.UpdateIrrigationProgram(ActiveProgram);                                
                                                                 
                                 ActiveProgram = null;
-                                ActiveSolenoid = null;
+                                //ActiveSolenoid = null;
                                
                                 device.State = DeviceState.Standby;
                             }
@@ -212,12 +212,12 @@ namespace DeviceController
         
         public  void ProcessCommands()
         {
-            //log.Debug("ProcessCommands()");
+            log.Debug("ProcessCommands()");
             //get commands
             try
             {
                 List<Command> commands =  interfaceService.GetCommands();
-                //log.DebugFormat("Retrieved {0} commands", commands.Count());
+                log.DebugFormat("Retrieved {0} commands", commands.Count());
                 foreach (Command cmd in commands)
                 {
                     log.DebugFormat("Command {0}", cmd.CommandType);
@@ -274,6 +274,7 @@ namespace DeviceController
                             }
                             catch (Exception ex)
                             {
+                                log.ErrorFormat(ex.Message);
                                 log.ErrorFormat("Manual command failed, invalid parameters");
                                 interfaceService.CreateEvent(EventTypes.Fault, "Manual command failed, invalid parameters");
                                 device.Mode = DeviceMode.Manual;
@@ -329,30 +330,31 @@ namespace DeviceController
                 ActiveProgram.Finished = DateTime.Now;
                 interfaceService.UpdateIrrigationProgram(ActiveProgram);
                 ActiveProgram = null;
-                ActiveSolenoid = null;
+                //ActiveSolenoid = null;
             }
         }
         public  void ReportStatus()
         {                 
             if (device.Mode == DeviceMode.Auto)
             {
-                if (ActiveProgram != null && ActiveSolenoid != null)
+                if (ActiveProgram != null)// && ActiveSolenoid != null)
                 {
                     device.Status = string.Format("Irrigating '{0}' from schedule '{1}'. {2} minutes remaining."
-                        , ActiveSolenoid.Name, ActiveProgram.Name, ActiveProgram.MinsRemaining);
+                        , ActiveProgram.SolenoidName, ActiveProgram.Name, ActiveProgram.MinsRemaining);
                 }
                 else
                 {
+                    log.Debug("Debug1");
                     device.Status = "Standby. Waiting for next scheduled program to start.";
                 }
             }
 
             if (device.Mode == DeviceMode.Manual)
             {
-                if (ActiveProgram != null && ActiveSolenoid !=null)
+                if (ActiveProgram != null)// && ActiveSolenoid !=null)
                 {
                     device.Status = string.Format("Irrigating '{0}' - {1} minutes remaining."
-                        , ActiveSolenoid.Name, ActiveProgram.MinsRemaining);
+                        , ActiveProgram.SolenoidName, ActiveProgram.MinsRemaining);
                 }
                 else
                 {

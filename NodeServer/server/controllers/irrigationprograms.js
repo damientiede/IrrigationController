@@ -11,6 +11,7 @@ module.exports = {
                 Start: req.body.Start,
                 Duration: req.body.Duration,
                 SolenoidId: parseInt(req.body.SolenoidId),
+                SolenoidName: req.body.SolenoidName,
                 RequiresPump: req.body.RequiresPump,
                 DeviceId: req.body.DeviceId
             })

@@ -4,23 +4,23 @@ import { RouterModule } from '@angular/router';
 import { HttpModule, JsonpModule } from '@angular/http';
 import {ToastModule} from 'ng2-toastr/ng2-toastr';
 import { FormsModule } from '@angular/forms';
-import { AuthGuard } from './common/auth.guard';
+import { AuthGuard } from './shared/auth.guard';
 import { AppComponent } from './app.component';
 import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
 import { NavService } from './services/nav.service';
-import { HistoryComponent} from './history/history.component';
+import { HistoryComponent} from './device/history/history.component';
 import { IrrigationControllerService} from './services/IrrigationController.service';
 import { routes } from './app.routes';
-import { ConfigComponent } from './config/config.component';
-import { SolenoidComponent } from './config/solenoid/solenoid.component';
-import { AlarmComponent } from './config/alarm/alarm.component';
-import { AnalogComponent } from './config/analog/analog.component';
-import { SpiComponent } from './config/spi/spi.component';
-import { StatusComponent } from './status/status.component';
-import { DeviceToolsComponent } from './device-tools/device-tools.component';
-import { SchedulesComponent } from './schedules/schedules.component';
+import { ConfigComponent } from './device/config/config.component';
+import { SolenoidComponent } from './device/config/solenoid/solenoid.component';
+import { AlarmComponent } from './device/config/alarm/alarm.component';
+import { AnalogComponent } from './device/config/analog/analog.component';
+import { SpiComponent } from './device/config/spi/spi.component';
+import { StatusComponent } from './device/status/status.component';
+import { SchedulesComponent } from './device/schedules/schedules.component';
 import { DevicesComponent } from './devices/devices.component';
 import { StatusWidgetComponent } from './status-widget/status-widget.component';
+import { DeviceComponent } from './device/device.component';
 
 @NgModule({
   declarations: [
@@ -32,10 +32,11 @@ import { StatusWidgetComponent } from './status-widget/status-widget.component';
     AlarmComponent,
     AnalogComponent,
     SpiComponent,
-    DeviceToolsComponent,
+    // DeviceToolsComponent,
     SchedulesComponent,
     DevicesComponent,
-    StatusWidgetComponent
+    StatusWidgetComponent,
+    DeviceComponent
   ],
   imports: [
     BrowserModule,

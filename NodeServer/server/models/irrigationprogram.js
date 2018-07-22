@@ -19,6 +19,10 @@ module.exports = (sequelize, DataTypes) => {
       SolenoidId:{
         type: DataTypes.INTEGER,
         allowNull: false
+      },
+      SolenoidName:{
+        type: DataTypes.STRING,
+        allowNull:false
       },      
       RequiresPump:{
         type: DataTypes.BOOLEAN,

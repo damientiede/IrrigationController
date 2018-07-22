@@ -30,3 +30,4 @@ C:\Users\Dad\Source\Repos\IrrigationController\Device\GPIOTestHarness\bin\Debug\
 C:\Users\Dad\Source\Repos\IrrigationController\Device\GPIOTestHarness\bin\Debug\Raspberry.IO.SerialPeripheralInterface.xml
 C:\Users\Dad\Source\Repos\IrrigationController\Device\GPIOTestHarness\bin\Debug\Common.Logging.pdb
 C:\Users\Dad\Source\Repos\IrrigationController\Device\GPIOTestHarness\bin\Debug\Common.Logging.xml
+C:\Users\Dad\Source\Repos\IrrigationController\Device\GPIOTestHarness\obj\Debug\GPIOTestHarness.csprojResolveAssemblyReference.cache

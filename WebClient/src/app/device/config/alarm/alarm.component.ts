@@ -1,20 +1,20 @@
 import { Component, Input, OnInit, ViewContainerRef } from '@angular/core';
 import { ActivatedRoute, Params} from "@angular/router";
-import { ISolenoid } from '../../model/solenoid';
-import { NavService } from '../../services/nav.service';
-import { IrrigationControllerService} from '../../services/IrrigationController.service';
+import { IAlarm } from '../../../model/alarm';
+import { NavService } from '../../../services/nav.service';
+import { IrrigationControllerService} from '../../../services/IrrigationController.service';
 import { ToastsManager } from 'ng2-toastr/ng2-toastr';
 
 @Component({
-  selector: 'app-solenoid',
-  templateUrl: './solenoid.component.html',
-  styleUrls: ['./solenoid.component.css']
+  selector: 'app-alarm',
+  templateUrl: './alarm.component.html',
+  styleUrls: ['./alarm.component.css']
 })
-export class SolenoidComponent implements OnInit {
+export class AlarmComponent implements OnInit {
   id= 0;
   deviceid = 0;
   loaded = false;
-  solenoid: ISolenoid;
+  alarm: IAlarm;
   hardwareTypes: string[] = ['GPIO', 'Distributed', 'SPI'];
   constructor(private service: IrrigationControllerService,
               private route: ActivatedRoute,
@@ -34,27 +34,25 @@ export class SolenoidComponent implements OnInit {
         alert('Missing Device ID');
       }
 
-      // parse solenoid id
+      // parse alarm id
       const id = params['id'];
       if (id === 'new') {
-        this.solenoid = new ISolenoid(-1, '', '', '', '' , 0, false, this.deviceid);
+        this.alarm = new IAlarm(-1, '', '', '', '' , 0 , this.deviceid);
         this.loaded = true;
       } else if (Number.isNaN(id)) {
-          alert(`Invalid Solenoid ID ${id}`);
+          alert(`Invalid Alarm ID ${id}`);
       } else {
         this.id = id;
-        this.getSolenoid(this.id);
-        //this.loaded = true;
+        this.getAlarm(this.id);
       }
     });
   }
-  getSolenoid(id: number) {
-    console.log('getSolenoid()');
+  getAlarm(id: number) {
     this.service
-      .getSolenoid(id)
-      .subscribe((d: ISolenoid) => {
-            console.log(d);
-            this.solenoid = d;
+      .getAlarm(id)
+      .subscribe((a: IAlarm) => {
+            console.log(a);
+            this.alarm = a;
             this.loaded = true;
           },
           error => () => {
@@ -65,19 +63,19 @@ export class SolenoidComponent implements OnInit {
           });
   }
   getTitle() {
-    if (this.solenoid == null) { return; }
-    if (this.solenoid.id === -1) {
-      return 'New solenoid';
+    if (this.alarm == null) { return; }
+    if (this.alarm.id === -1) {
+      return 'New alarm';
     }
-    return `Edit solenoid - ${this.solenoid.id}`;
+    return `Edit alarm - ${this.alarm.id}`;
   }
   save() {
-    console.log(this.solenoid);
-    if (this.solenoid.id === -1) {
-      this.service.createSolenoid(this.solenoid)
-      .subscribe((s: ISolenoid) => {
+    console.log(this.alarm);
+    if (this.alarm.id === -1) {
+      this.service.createAlarm(this.alarm)
+      .subscribe((s: IAlarm) => {
         console.log(s);
-        this.solenoid = s;
+        this.alarm = s;
       },
       error => () => {
         console.log('Something went wrong...');
@@ -89,8 +87,11 @@ export class SolenoidComponent implements OnInit {
       });
       return;
     }
-    this.service.saveSolenoid(this.solenoid)
-      .subscribe(() => {},
+    this.service.saveAlarm(this.alarm)
+      .subscribe(() => {
+        console.log(`Saving alarm`);
+        console.log(this.alarm);
+      },
       error => () => {
         console.log('Something went wrong...');
         this.toastr.error('Something went wrong...', 'Damn');
@@ -107,8 +108,8 @@ export class SolenoidComponent implements OnInit {
     this.nav.NavTo(`/device/${this.deviceid}/config`);
   }
   delete() {
-    console.log(`Deleting solenoid ${this.solenoid.Name}`);
-    this.service.deleteSolenoid(this.solenoid)
+    console.log(`Deleting alarm ${this.alarm.Name}`);
+    this.service.deleteAlarm(this.alarm)
     .subscribe(() => {},
     error => () => {
       console.log('Something went wrong...');
@@ -116,7 +117,7 @@ export class SolenoidComponent implements OnInit {
     },
     () => {
       console.log('Success');
-      //this.toastr.success('Changes saved' );
-    });
-    this.nav.NavTo(`/device/${this.deviceid}/config`);
+      this.toastr.success('Changes saved' );
+  });
+  this.nav.NavTo(`/device/${this.deviceid}/config`);
 }}

@@ -8,10 +8,11 @@ namespace DeviceController.Data
 {
     public class ActiveIrrigationProgram:IrrigationProgram
     {        
-        public ActiveIrrigationProgram(string name, int duration, int solenoidId, int deviceId)
+        public ActiveIrrigationProgram(string name, int duration, int solenoidId, string solenoidName, int deviceId)
         {
             Name = name;        
-            SolenoidId = solenoidId;            
+            SolenoidId = solenoidId;
+            SolenoidName = solenoidName;            
             Duration = duration;
             Start = DateTime.Now;            
             DeviceId = deviceId;

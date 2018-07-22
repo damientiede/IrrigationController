@@ -1,20 +1,20 @@
 import { Component, Input, OnInit, ViewContainerRef } from '@angular/core';
 import { ActivatedRoute, Params} from "@angular/router";
-import { IAnalog } from '../../model/analog';
-import { NavService } from '../../services/nav.service';
-import { IrrigationControllerService} from '../../services/IrrigationController.service';
+import { ISpi } from '../../../model/spi';
+import { NavService } from '../../../services/nav.service';
+import { IrrigationControllerService} from '../../../services/IrrigationController.service';
 import { ToastsManager } from 'ng2-toastr/ng2-toastr';
 
 @Component({
-  selector: 'app-analog',
-  templateUrl: './analog.component.html',
-  styleUrls: ['./analog.component.css']
+  selector: 'app-spi',
+  templateUrl: './spi.component.html',
+  styleUrls: ['./spi.component.css']
 })
-export class AnalogComponent implements OnInit {
+export class SpiComponent implements OnInit {
   id= 0;
   deviceid = 0;
   loaded = false;
-  analog: IAnalog;
+  spi: ISpi;
   hardwareTypes: string[] = ['GPIO', 'Distributed', 'SPI'];
   constructor(private service: IrrigationControllerService,
               private route: ActivatedRoute,
@@ -34,24 +34,24 @@ export class AnalogComponent implements OnInit {
         alert('Missing Device ID');
       }
 
-      // parse analog id
+      // parse spi id
       const id = params['id'];
       if (id === 'new') {
-        this.analog = new IAnalog(-1, '', '', '', '' , 0 , 0, '', 0, this.deviceid);
+        this.spi = new ISpi(-1, '', 0, 0, 0, 0, this.deviceid);
         this.loaded = true;
       } else if (Number.isNaN(id)) {
           alert(`Invalid Analog ID ${id}`);
       } else {
         this.id = id;
-        this.getAnalog(this.id);
+        this.getSpi(this.id);
       }
     });
   }
-  getAnalog(id: number) {
+  getSpi(id: number) {
     this.service
-      .getAnalog(id)
-      .subscribe((a: IAnalog) => {
-            this.analog = a;
+      .getSpi(id)
+      .subscribe((a: ISpi) => {
+            this.spi = a;
             this.loaded = true;
           },
           error => () => {
@@ -62,19 +62,19 @@ export class AnalogComponent implements OnInit {
           });
   }
   getTitle() {
-    if (this.analog == null) { return; }
-    if (this.analog.id === -1) {
-      return 'New analog';
+    if (this.spi == null) { return; }
+    if (this.spi.id === -1) {
+      return 'New spi';
     }
-    return `Edit analog - ${this.analog.id}`;
+    return `Edit spi - ${this.spi.id}`;
   }
   save() {
-    console.log(this.analog);
-    if (this.analog.id === -1) {
-      this.service.createAnalog(this.analog)
-      .subscribe((s: IAnalog) => {
+    console.log(this.spi);
+    if (this.spi.id === -1) {
+      this.service.createSpi(this.spi)
+      .subscribe((s: ISpi) => {
         console.log(s);
-        this.analog = s;
+        this.spi = s;
       },
       error => () => {
         console.log('Something went wrong...');
@@ -86,7 +86,7 @@ export class AnalogComponent implements OnInit {
       });
       return;
     }
-    this.service.saveAnalog(this.analog)
+    this.service.saveSpi(this.spi)
       .subscribe(() => {},
       error => () => {
         console.log('Something went wrong...');
@@ -104,8 +104,8 @@ export class AnalogComponent implements OnInit {
     this.nav.NavTo(`/device/${this.deviceid}/config`);
   }
   delete() {
-    console.log(`Deleting analog ${this.analog.Name}`);
-    this.service.deleteAnalog(this.analog)
+    console.log(`Deleting spi ${this.spi.Name}`);
+    this.service.deleteSpi(this.spi)
     .subscribe(() => {},
     error => () => {
       console.log('Something went wrong...');

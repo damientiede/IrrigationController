@@ -16,7 +16,7 @@ export class StatusWidgetComponent implements OnInit {
   }
 
   loaded() {
-    console.log(`${this.LastSeen} is date: ${moment(this.LastSeen).isValid()}`);
+    // console.log(`${this.LastSeen} is date: ${moment(this.LastSeen).isValid()}`);
     return (moment(this.LastSeen).isValid());
   }
   getImageSrc() {
