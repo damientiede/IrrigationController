@@ -55,19 +55,11 @@
 </div>
 
 <div *ngIf="isView('config')">
-    <app-config [Device] = "this.device"></app-config>
+  <app-config [Device] = "this.device"></app-config>
 </div>
-<!--
 <div *ngIf="isView('schedules')">
-    <app-schedules [Device] = "this.device"></app-status>
+    <app-schedules [Device] = "this.device"></app-schedules>
 </div>
 <div *ngIf="isView('history')">
-    <app-history [Device] = "this.device"></app-status>
+    <app-history [Device] = "this.device"></app-history>
 </div>
--->
-<!-- div class="row" *ngIf="loaded">
-  <div class="col-2"></div>
-  <div class="col-8">
-    <router-outlet name="device"></router-outlet>
-  </div>
-</div -->

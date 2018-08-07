@@ -1,13 +1,17 @@
 <div class="row" *ngIf="loaded">
     <div class="col-2"></div>
     <div class="col-8">
-        <table class="solenoids">
+        <table class="configItems">
             <tbody>
+                <tr>
+                    <th>Name</th>
+                    <th>Start</th>
+                    <th>Duration (minutes)</th>
+                    <th>DOW</th>
+                </tr>
                 <tr *ngFor="let schedule of schedules" (click)="editSchedule(schedule)">
                     <td>{{schedule.Name}} </td>
-                    <td>{{schedule.StartDate}} </td>
-                    <td>{{schedule.StartHours}} </td>
-                    <td>{{schedule.StartMins}} </td>
+                    <td>{{getStartDateTime(schedule)}}</td>                    
                     <td>{{schedule.Duration}} </td> 
                     <td>{{schedule.Days}} </td>                    
                 </tr>

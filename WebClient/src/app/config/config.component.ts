@@ -63,7 +63,7 @@ export class ConfigComponent implements OnInit {
       if (Number.isNaN(this.deviceid)) {
         alert('Missing Device ID');
       }
-      let timer = Observable.timer(0, 5000);
+      const timer = Observable.timer(0, 5000);
       timer
         .takeUntil(this.router.events)
         .subscribe(t => {

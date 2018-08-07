@@ -1,8 +1,9 @@
-import { Component, OnInit, ViewContainerRef } from '@angular/core';
+import { Component, Input, OnInit, ViewContainerRef } from '@angular/core';
 import { ActivatedRoute, Router, Params} from "@angular/router";
 import {Observable} from 'rxjs/Rx';
-import { NavService } from '../../services/nav.service';
 import * as moment from 'moment';
+import { ToastsManager } from 'ng2-toastr/ng2-toastr';
+import { NavService } from '../../services/nav.service';
 import { IrrigationControllerService} from '../../services/IrrigationController.service';
 import { IDevice } from '../../model/device';
 import { ISchedule } from '../../model/schedule';
@@ -13,62 +14,44 @@ import { ISchedule } from '../../model/schedule';
   styleUrls: ['./schedules.component.css']
 })
 export class SchedulesComponent implements OnInit {
+  @Input() Device: IDevice;
+
   loaded = true;
-  deviceid= 0;
   ticks = 0;
-  device: IDevice;
   schedules: ISchedule[];
   constructor(private service: IrrigationControllerService,
-    private route: ActivatedRoute,
     private router: Router,
-    private nav: NavService) { }
+               public toastr: ToastsManager,
+               vcr: ViewContainerRef,
+               private nav: NavService ) {
+                this.toastr.setRootViewContainerRef(vcr);
+                }
 
   ngOnInit() {
-  // extract route params
-  this.route.params.subscribe((params: Params) => {
-    this.deviceid = params['deviceid'];
-    if (Number.isNaN(this.deviceid)) {
-      alert('Missing Device ID');
-    }
-    const timer = Observable.timer(0, 5000);
+    const timer = Observable.timer(0, 15000);
     timer
       .takeUntil(this.router.events)
       .subscribe(t => {
         this.onTick(t);
       });
-    // this.getDevice(this.deviceid);
-    });
   }
   onTick(t) {
-    this.getDevice(this.deviceid);
+    if (this.Device != null) {
+      this.loaded = true;
+      this.getSchedules(this.Device.id);
+    }
     this.ticks = t;
   }
-
-  getDevice(id: number) {
-    console.log('getDevice()');
-    this.service
-      .getDevice(id)
-      .subscribe((d: IDevice) => {
-            console.log(d);
-            this.device = d;
-            this.getSchedules();
-            this.loaded = true;
-          },
-          error => () => {
-              console.log('Something went wrong...');
-          },
-          () => {
-              console.log('Success');
-          });
+  getSchedules(id) {
+    this.service.getSchedules(id)
+    .subscribe((data: ISchedule[]) => {
+        this.schedules = data;
+        console.log(data);
+    });
   }
-  getSchedules() {
-    console.log('getSchedules()');
-    if (this.device != null) {
-      this.service.getSchedules(this.device.id)
-      .subscribe((data: ISchedule[]) => {
-          this.schedules = data;
-          console.log(data);
-      });
-    }
+  getStartDateTime(s) {
+    if (s == null) { return; }
+    const date = moment(s.StartDate).add(s.StartHours, 'h').add(s.StartMinutes, 'm');
+    return moment(date).format('Do MMM YYYY h:mm:ss a');
   }
 }

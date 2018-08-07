@@ -1,5 +1,5 @@
-import { Component, OnInit, ViewContainerRef  } from '@angular/core';
-import { ActivatedRoute, Router, Params} from "@angular/router";
+import { Component, Input, OnInit, ViewContainerRef  } from '@angular/core';
+import { Router, Params} from '@angular/router';
 import {Observable} from 'rxjs/Rx';
 import * as moment from 'moment';
 import { ToastsManager } from 'ng2-toastr/ng2-toastr';
@@ -15,9 +15,11 @@ import { IEvent } from '../../model/event';
 })
 
 export class HistoryComponent implements OnInit {
+  @Input() Device: IDevice;
+
   deviceid = 0;
   ticks= 0;
-  device: IDevice;
+  // device: IDevice;
   events: IEvent[] = [];
   loaded = false;
   eventTypes: string[] = [
@@ -28,29 +30,23 @@ export class HistoryComponent implements OnInit {
     public toastr: ToastsManager,
     private nav: NavService,
     vcr: ViewContainerRef,
-    private router: Router,
-    private route: ActivatedRoute) {
+    private router: Router) {
       this.toastr.setRootViewContainerRef(vcr);
      }
 
   ngOnInit() {
-    this.route.params
-    .subscribe((params: Params) => {
-      this.deviceid = params['deviceid'];
-      if (Number.isNaN(this.deviceid)) {
-        alert('Missing Device ID');
-      }
       const timer = Observable.timer(0, 5000);
       timer
         .takeUntil(this.router.events)
         .subscribe(t => {
           this.onTick(t);
         });
-      // this.getDevice(this.deviceid);
-    });
   }
   onTick(t) {
-    this.getDevice(this.deviceid);
+    if (this.Device != null) {
+      this.loaded = true;
+      this.getEvents(this.Device.id);
+    }
     this.ticks = t;
   }
   getEvents(id: number) {
@@ -68,26 +64,9 @@ export class HistoryComponent implements OnInit {
               console.log('Something went wrong...');
           },
           () => {
-              console.log('Success');
+              // console.log('Success');
               // this._toasterService.pop('success', 'Complete', 'Getting all values complete');
               // this._slimLoadingBarService.complete();
-          });
-  }
-  getDevice(id: number) {
-    console.log('getDevice()');
-    this.dataService
-      .getDevice(id)
-      .subscribe((d: IDevice) => {
-            console.log(d);
-            this.device = d;
-            this.getEvents(this.deviceid);
-            this.loaded = true;
-          },
-          error => () => {
-              console.log('Something went wrong...');
-          },
-          () => {
-              console.log('Success');
           });
   }
   timeFormat(date) {
@@ -95,8 +74,8 @@ export class HistoryComponent implements OnInit {
   }
 
   getDeviceName() {
-    if (this.device != null) {
-      return this.device.Name;
+    if (this.Device != null) {
+      return this.Device.Name;
     }
   }
   getEventType(et) {

@@ -1,8 +1,8 @@
 import { Component, OnInit, OnDestroy, Input } from '@angular/core';
 import { IrrigationControllerService} from '../services/IrrigationController.service';
 import { ActivatedRoute, Router, Params} from '@angular/router';
-import { Observable } from 'rxjs/Rx';
-import { untilComponentDestroyed } from 'ng2-rx-componentdestroyed';
+import {Observable} from 'rxjs/Rx';
+// import {untilComponentDestroyed} from 'ng2-rx-componentdestroyed;
 import { IDevice } from '../model/device';
 import { ISolenoid } from '../model/solenoid';
 import { NavService } from '../services/nav.service';
@@ -40,15 +40,16 @@ export class DeviceComponent implements OnInit, OnDestroy {
         }
         this.getSolenoids(this.deviceid);
         const timer = Observable.timer(0, 5000);
-        this.sub = timer
-          .takeUntil(untilComponentDestroyed(this))
-          .subscribe(t => {
-            this.onTick(t);
-          });
+        timer.takeUntil(this.router.events)
+             .subscribe(t => {
+                this.onTick(t);
+              });
       });
   }
 
   ngOnDestroy() {
+    console.log('Unsubscribing timer');
+    this.sub.unsubscribe();
   }
 
   onTick(t) {
@@ -61,7 +62,7 @@ export class DeviceComponent implements OnInit, OnDestroy {
     this.service
       .getDevice(id)
       .subscribe((d: IDevice) => {
-            console.log(d);
+            // console.log(d);
             this.device = d;
             this.loaded = true;
           },

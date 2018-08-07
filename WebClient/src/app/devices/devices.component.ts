@@ -28,7 +28,7 @@ export class DevicesComponent implements OnInit {
 
   ngOnInit() {
     this.getData();
-    let timer = Observable.timer(0, 5000);
+    const timer = Observable.timer(0, 5000);
     timer
       .takeUntil(this.router.events)
       .subscribe(t => {

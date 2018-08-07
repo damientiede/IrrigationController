@@ -219,7 +219,8 @@ namespace DeviceController
                     GPIOSolenoid sol = new GPIOSolenoid(pin, s.Name, gpio);
                     return sol;
                 case "Distributed":
-                    return new DistributedSolenoid(s.Name, s.Address);
+                    //return new DistributedSolenoid(s.Name, s.Address);
+                    return new BEM106EthernetSolenoid(s.Name, s.Address);
                 case "SPI":
                     return new SPISolenoid(s.Name, s.Address);
                 default:

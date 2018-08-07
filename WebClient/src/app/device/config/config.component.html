@@ -47,7 +47,7 @@
         <!-- Solenoids section -->
         <div *ngIf="isView('Solenoids')">
             <h5 *ngIf="solenoids?.length==0">No solenoids configured</h5>
-            <table class="solenoids">
+            <table class="configItems">
                 <tbody>
                     <tr *ngFor="let solenoid of solenoids" (click)="editSolenoid(solenoid)">
                         <td>{{solenoid.Name}} </td>
@@ -66,7 +66,7 @@
         <!-- Alarms section -->
         <div *ngIf="isView('Alarms')">
             <h5 *ngIf="alarms?.length==0">No alarms configured</h5>
-            <table class="solenoids">
+            <table class="configItems">
                 <tbody>
                     <tr *ngFor="let alarm of alarms" (click)="editAlarm(alarm)">
                         <td>{{alarm.Name}} </td>
@@ -85,7 +85,7 @@
         <!-- Analogs section -->
         <div *ngIf="isView('Analogs')">
             <h5 *ngIf="analogs.length==0">No analogs configured</h5>
-            <table class="solenoids">
+            <table class="configItems">
                 <tbody>
                     <tr *ngFor="let analog of analogs" (click)="editAnalog(analog)">
                         <td>{{analog.Name}} </td>
@@ -104,7 +104,7 @@
         <!-- SPIs section -->
         <div *ngIf="isView('SPIs')">
                 <h5 *ngIf="spis.length==0">No SPIs configured</h5>
-                <table class="solenoids">
+                <table class="configItems">
                     <tbody>
                         <tr *ngFor="let spi of spis" (click)="editSPI(spi)">
                             <td>{{spi.Name}} </td>

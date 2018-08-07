@@ -91,27 +91,9 @@ export class StatusComponent implements OnInit {
               console.log('Something went wrong...');
           },
           () => {
-              console.log('Success');
+              // console.log('Success');
           });
   }
-  /* getStatus() {
-    console.log('getStatus()');
-    this.dataService
-      .getStatus()
-      .subscribe((data: IStatus[]) => {
-            console.log(data.length);
-            if (data.length > 0) {
-              this.status = data[0];
-              this.loaded = true;
-            }
-          },
-          error => () => {
-              console.log('Something went wrong...');
-          },
-          () => {
-              console.log('Success');
-          });
-  } */
   getStatusText() {
     if (this.Device != null) {
       return this.Device.Status;
