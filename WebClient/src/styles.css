@@ -42,3 +42,4 @@ textarea { max-width:500px;}
 ul.nav li a{font-size:18px;}
 .table-striped>tbody>tr:nth-of-type(odd) { background-color:#e9e9e9; }
 .nav {margin-bottom:20px;}
+img.loading {height:120px;display:block;margin-left:auto;margin-right:auto;}

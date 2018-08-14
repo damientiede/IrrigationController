@@ -23,21 +23,25 @@ import { ISpi } from '../model/spi';
 })
 
 export class ConfigComponent implements OnInit {
-  deviceid=0;
-  ticks=0;
+  deviceid= 0;
+  ticks= 0;
   device: IDevice;
   irrigationPrograms: IIrrigationProgram[];
   solenoids: ISolenoid[];
+  solenoidsLoaded = false;
   alarms: IAlarm[];
+  alarmsLoaded = false;
   analogs: IAnalog[];
+  analogsLoaded = false;
   spis: ISpi[];
+  spisLoaded = false;
   loaded = false;
   selection= 'Device';
   views: ['Device', 'Solenoids', 'Alarms', 'Analogs', 'SPIs'];
   activeView = 'Device';
-  showDevice: boolean = true;
-  showSolenoids: boolean = false;
-  showAlarms: boolean = false;
+  showDevice = true;
+  showSolenoids = false;
+  showAlarms = false;
 
   constructor (private service: IrrigationControllerService,
                private route: ActivatedRoute,
@@ -49,6 +53,21 @@ export class ConfigComponent implements OnInit {
                 }
 
   ngOnInit() {
+    // extract route params
+    this.route.params.subscribe((params: Params) => {
+      this.deviceid = params['deviceid'];
+      if (Number.isNaN(this.deviceid)) {
+        alert('Missing Device ID');
+      }
+      // this.getDevice(this.deviceid);
+      this.getData();
+      const timer = Observable.timer(0, 5000);
+      timer
+        .takeUntil(this.router.events)
+        .subscribe(t => {
+          this.onTick(t);
+        });
+    });
     // extract query params
     this.route.queryParams.subscribe((queryparams: Params) => {
       const view = queryparams['view'];
@@ -57,45 +76,35 @@ export class ConfigComponent implements OnInit {
         this.activeView = view;
       }
     });
-    // extract route params
-    this.route.params.subscribe((params: Params) => {
-      this.deviceid = params['deviceid'];
-      if (Number.isNaN(this.deviceid)) {
-        alert('Missing Device ID');
-      }
-      const timer = Observable.timer(0, 5000);
-      timer
-        .takeUntil(this.router.events)
-        .subscribe(t => {
-          this.onTick(t);
-        });
-      //this.getDevice(this.deviceid);
-    });
-  }
-  onTick(t) {
-    this.getDevice(this.deviceid);
-    this.ticks = t;
   }
   getDevice(id: number) {
-    console.log('getDevice()');
+    console.log('ConfigComponent.getDevice()');
     this.service
       .getDevice(id)
       .subscribe((d: IDevice) => {
             console.log(d);
             this.device = d;
-            //this.getIrrigationPrograms();
+            this.loaded = true;
             this.getSolenoids();
             this.getAlarms();
             this.getAnalogs();
             this.getSpis();
-            this.loaded = true;
           },
           error => () => {
-              console.log('Something went wrong...');
+            console.log('Something went wrong...');
           },
           () => {
               console.log('Success');
           });
+  }
+  onTick(t) {
+    this.getData();
+    this.ticks = t;
+  }
+  getData() {
+    console.log('getData()');
+    this.getDevice(this.deviceid);
+    this.loaded = true;
   }
   getIrrigationPrograms() {
       if (this.device != null) {
@@ -110,6 +119,7 @@ export class ConfigComponent implements OnInit {
       this.service.getSolenoids(this.device.id)
       .subscribe((data: ISolenoid[]) => {
           this.solenoids = data;
+          this.solenoidsLoaded = true;
           console.log(data);
       });
     }
@@ -119,6 +129,7 @@ export class ConfigComponent implements OnInit {
       this.service.getAlarms(this.device.id)
       .subscribe((data: IAlarm[]) => {
           this.alarms = data;
+          this.alarmsLoaded = true;
           console.log(data);
       });
     }
@@ -128,6 +139,7 @@ export class ConfigComponent implements OnInit {
       this.service.getAnalogs(this.device.id)
       .subscribe((data: IAnalog[]) => {
           this.analogs = data;
+          this.analogsLoaded = true;
           console.log(data);
       });
     }
@@ -137,6 +149,7 @@ export class ConfigComponent implements OnInit {
       this.service.getSpis(this.device.id)
       .subscribe((data: ISpi[]) => {
           this.spis = data;
+          this.spisLoaded = true;
           console.log(data);
       });
     }
@@ -147,7 +160,6 @@ export class ConfigComponent implements OnInit {
     }
     return '';
   }
-
   timeFormat(date) {
     return moment(date).format('h:mm:ss a');
   }
@@ -157,7 +169,6 @@ export class ConfigComponent implements OnInit {
       }
       return '';
   }
-
   editSolenoid(s: ISolenoid) {
     this.nav.NavTo(`/device/${this.device.id}/solenoid/${s.id}`);
   }
@@ -234,15 +245,15 @@ export class ConfigComponent implements OnInit {
     });
   }
   refreshConfig() {
-    let cmd = new ICommand(
-      0,  //id
-     'LoadConfig',  //commandType
-     '', //params
-     new Date, //issued
-     null, //actioned
-     this.deviceid, //deviceId
-     new Date, //createdAt
-     null  //updatedAt
+    const cmd = new ICommand(
+      0,  // id
+     'LoadConfig',  // commandType
+     '', // params
+     new Date, // issued
+     null, // actioned
+     this.deviceid, // deviceId
+     new Date, // createdAt
+     null  // updatedAt
    );
    this.sendCommand(cmd);
   }

@@ -1,24 +1,26 @@
-<div class="row" *ngIf="loaded">
-    <div class="col-2"></div>
-    <div class="col-8">
-        <app-device-tools [device]="device"></app-device-tools>
+<div *ngIf="loaded">
+    <div class="row">
+        <div class="col-2"></div>
+        <div class="col-8">
+            <app-device-menu [Device]="device"></app-device-menu>
+        </div>
+        <div class="col-2"></div>
     </div>
-    <div class="col-2"></div>
-</div>
-<div class="row" *ngIf="loaded">
-    <div class="col-2"></div>
-    <div class="col-8">
-        
-        <table class="table table-striped">
-            <tbody>
-            <!--tbody class="tr"-->
-                <tr *ngFor="let event of events" class="tr">
-                    <td>{{timeFormat(event.createdAt)}} </td>
-                    <td>{{this.eventTypes[event.EventType-1]}} </td>
-                    <td>{{event.EventValue}} </td>
-                </tr>
-            </tbody>
-        </table>
+    <div class="row">
+        <div class="col-2"></div>
+        <div class="col-8">
+            
+            <table class="table table-striped">
+                <tbody>
+                <!--tbody class="tr"-->
+                    <tr *ngFor="let event of events" class="tr">
+                        <td>{{timeFormat(event.createdAt)}} </td>
+                        <td>{{this.eventTypes[event.EventType-1]}} </td>
+                        <td>{{event.EventValue}} </td>
+                    </tr>
+                </tbody>
+            </table>
+        </div>
+        <div class="col-2"></div>
     </div>
-    <div class="col-2"></div>
 </div>

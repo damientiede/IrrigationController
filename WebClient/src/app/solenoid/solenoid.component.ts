@@ -1,20 +1,20 @@
 import { Component, Input, OnInit, ViewContainerRef } from '@angular/core';
 import { ActivatedRoute, Params} from "@angular/router";
-import { IAnalog } from '../../../model/analog';
-import { NavService } from '../../../services/nav.service';
-import { IrrigationControllerService} from '../../../services/IrrigationController.service';
+import { ISolenoid } from '../model/solenoid';
+import { NavService } from '../services/nav.service';
+import { IrrigationControllerService} from '../services/IrrigationController.service';
 import { ToastsManager } from 'ng2-toastr/ng2-toastr';
 
 @Component({
-  selector: 'app-analog',
-  templateUrl: './analog.component.html',
-  styleUrls: ['./analog.component.css']
+  selector: 'app-solenoid',
+  templateUrl: './solenoid.component.html',
+  styleUrls: ['./solenoid.component.css']
 })
-export class AnalogComponent implements OnInit {
+export class SolenoidComponent implements OnInit {
   id= 0;
   deviceid = 0;
   loaded = false;
-  analog: IAnalog;
+  solenoid: ISolenoid;
   hardwareTypes: string[] = ['GPIO', 'Distributed', 'SPI'];
   constructor(private service: IrrigationControllerService,
               private route: ActivatedRoute,
@@ -34,24 +34,27 @@ export class AnalogComponent implements OnInit {
         alert('Missing Device ID');
       }
 
-      // parse analog id
+      // parse solenoid id
       const id = params['id'];
       if (id === 'new') {
-        this.analog = new IAnalog(-1, '', '', '', '' , 0 , 0, '', 0, this.deviceid);
+        this.solenoid = new ISolenoid(-1, '', '', '', '' , 0, false, this.deviceid);
         this.loaded = true;
       } else if (Number.isNaN(id)) {
-          alert(`Invalid Analog ID ${id}`);
+          alert(`Invalid Solenoid ID ${id}`);
       } else {
         this.id = id;
-        this.getAnalog(this.id);
+        this.getSolenoid(this.id);
+        // this.loaded = true;
       }
     });
   }
-  getAnalog(id: number) {
+  getSolenoid(id: number) {
+    console.log('getSolenoid()');
     this.service
-      .getAnalog(id)
-      .subscribe((a: IAnalog) => {
-            this.analog = a;
+      .getSolenoid(id)
+      .subscribe((d: ISolenoid) => {
+            console.log(d);
+            this.solenoid = d;
             this.loaded = true;
           },
           error => () => {
@@ -62,19 +65,19 @@ export class AnalogComponent implements OnInit {
           });
   }
   getTitle() {
-    if (this.analog == null) { return; }
-    if (this.analog.id === -1) {
-      return 'New analog';
+    if (this.solenoid == null) { return; }
+    if (this.solenoid.id === -1) {
+      return 'New solenoid';
     }
-    return `Edit analog - ${this.analog.id}`;
+    return `Edit solenoid - ${this.solenoid.id}`;
   }
   save() {
-    console.log(this.analog);
-    if (this.analog.id === -1) {
-      this.service.createAnalog(this.analog)
-      .subscribe((s: IAnalog) => {
+    console.log(this.solenoid);
+    if (this.solenoid.id === -1) {
+      this.service.createSolenoid(this.solenoid)
+      .subscribe((s: ISolenoid) => {
         console.log(s);
-        this.analog = s;
+        this.solenoid = s;
       },
       error => () => {
         console.log('Something went wrong...');
@@ -86,7 +89,7 @@ export class AnalogComponent implements OnInit {
       });
       return;
     }
-    this.service.saveAnalog(this.analog)
+    this.service.saveSolenoid(this.solenoid)
       .subscribe(() => {},
       error => () => {
         console.log('Something went wrong...');
@@ -104,15 +107,16 @@ export class AnalogComponent implements OnInit {
     this.nav.NavTo(`/device/${this.deviceid}/config`);
   }
   delete() {
-    console.log(`Deleting analog ${this.analog.Name}`);
-    this.service.deleteAnalog(this.analog)
+    console.log(`Deleting solenoid ${this.solenoid.Name}`);
+    this.service.deleteSolenoid(this.solenoid)
     .subscribe(() => {},
     error => () => {
       console.log('Something went wrong...');
-      this.toastr.error('Something went wrong...','Damn');
+      this.toastr.error('Something went wrong...', 'Damn');
     },
     () => {
       console.log('Success');
-      this.toastr.success('Changes saved' );
-  });
+      // this.toastr.success('Changes saved' );
+    });
+    this.nav.NavTo(`/device/${this.deviceid}/config`);
 }}

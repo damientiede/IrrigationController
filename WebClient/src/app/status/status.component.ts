@@ -3,7 +3,7 @@ import { ActivatedRoute, Router, Params} from "@angular/router";
 import {Observable} from 'rxjs/Rx';
 import * as moment from 'moment';
 import { ToastsManager } from 'ng2-toastr/ng2-toastr';
-import { DeviceToolsComponent } from '../device-tools/device-tools.component';
+// import { DeviceToolsComponent } from '../device-tools/device-tools.component';
 import { IrrigationControllerService} from '../services/IrrigationController.service';
 import { IStatus} from '../model/status';
 import { IDevice } from '../model/device';
@@ -11,7 +11,7 @@ import { ISolenoid } from '../model/solenoid';
 import { IEvent } from '../model/event';
 import { ICommand } from '../model/command';
 import { IIrrigationProgram } from '../model/irrigationprogram';
-
+import { DeviceMenuComponent } from '../device-menu/device-menu.component';
 @Component({
   selector: 'app-status',
   templateUrl: './status.component.html',
@@ -32,7 +32,7 @@ export class StatusComponent implements OnInit {
   loaded = false;
   irrigating = false;
 
-  dateFormat='YYYY-MM-DD HH:mm:ss';
+  dateFormat= 'YYYY-MM-DD HH:mm:ss';
   constructor(private dataService: IrrigationControllerService,
               public toastr: ToastsManager,
               vcr: ViewContainerRef,
@@ -49,7 +49,7 @@ export class StatusComponent implements OnInit {
           alert('Missing Device ID');
         }
         this.getSolenoids(this.deviceid);
-        let timer = Observable.timer(0, 5000);
+        const timer = Observable.timer(0, 5000);
         timer
           .takeUntil(this.router.events)
           .subscribe(t => {
@@ -67,7 +67,7 @@ export class StatusComponent implements OnInit {
     this.getActiveProgram(id);
   }
   getDevice(id: number) {
-    console.log('StatusComponant.getDevice()');
+    console.log('StatusComponent.getDevice()');
     this.dataService
       .getDevice(id)
       .subscribe((d: IDevice) => {
@@ -80,8 +80,6 @@ export class StatusComponent implements OnInit {
           },
           () => {
               console.log('Success');
-              //this._toasterService.pop('success', 'Complete', 'Getting all values complete');
-              //this._slimLoadingBarService.complete();
           });
   }
   getSolenoids(id: number) {
@@ -90,11 +88,11 @@ export class StatusComponent implements OnInit {
       .getSolenoids(id)
       .subscribe((s: ISolenoid[]) => {
             this.solenoids = s;
-            //this.loaded = true;
+            // this.loaded = true;
           },
           error => () => {
               console.log('Something went wrong...');
-              //this._toasterService.pop('error', 'Damn', 'Something went wrong...');
+              // this._toasterService.pop('error', 'Damn', 'Something went wrong...');
           },
           () => {
               console.log('Success');
@@ -118,7 +116,7 @@ export class StatusComponent implements OnInit {
             const now = moment.utc();
             const start = moment.utc(p.Start);
             const fin = moment.utc(p.Start);
-            fin.add(p.Duration,'minutes');
+            fin.add(p.Duration, 'minutes');
             this.elapsed = now.diff(start);
             this.duration = p.Duration * 60 * 1000;
             this.percentComplete = Math.ceil(this.elapsed / this.duration * 100);
@@ -164,12 +162,12 @@ export class StatusComponent implements OnInit {
   }
   getStatusClass() {
     if (this.device == null) {return; }
-    if(this.device.State.indexOf("Irrigating") > -1) { return "alert alert-success"; }
-    if(this.device.State.indexOf("Fault") > -1) { return "alert alert-danger"; }
-    return "alert alert-secondary";
+    if (this.device.State.indexOf('Irrigating') > -1) { return 'alert alert-success'; }
+    if (this.device.State.indexOf('Fault') > -1) { return 'alert alert-danger'; }
+    return 'alert alert-secondary';
   }
   formatDateShort(date) {
-    return moment(date).format("dd/MM/yyyy");
+    return moment(date).format('dd/MM/yyyy');
   }
   getState() {
     if (this.status != null) {
@@ -179,13 +177,13 @@ export class StatusComponent implements OnInit {
   }
   getStartTime() {
     if (this.activeProgram != null) {
-      return moment(this.activeProgram.Start).format("DD MMM YYYY HH:mm");
+      return moment(this.activeProgram.Start).format('DD MMM YYYY HH:mm');
     }
     return '';
   }
   getEnd() {
     if (this.activeProgram != null) {
-      return moment(this.activeProgram.Start).add(this.activeProgram.Duration,'minutes').format("DD MMM YYYY HH:mm");
+      return moment(this.activeProgram.Start).add(this.activeProgram.Duration, 'minutes').format('DD MMM YYYY HH:mm');
     }
     return '';
   }
@@ -196,41 +194,41 @@ export class StatusComponent implements OnInit {
   }
   getPressure() {
     if (this.device != null) {
-      //return '?? kPa';
+      // return '?? kPa';
       return `${this.device.Pressure} kPa`;
     }
     return '';
   }
   getLastUpdated() {
     if (this.device != null) {
-      return moment(this.device.updatedAt).format("DD MMM YYYY HH:mm");
+      return moment(this.device.updatedAt).format('DD MMM YYYY HH:mm');
     }
     return '';
   }
   manualStop() {
-    let cmd = new ICommand(
-      0,  //id
-      'Stop',  //commandtype
-      '', //params
-      new Date, //issued
-      null, //actioned
-      this.deviceid, //deviceId
-      new Date, //createdAt
-      null  //updatedAt
+    const cmd = new ICommand(
+      0,  // id
+      'Stop',  // commandtype
+      '', // params
+      new Date, // issued
+      null, // actioned
+      this.deviceid, // deviceId
+      new Date, // createdAt
+      null  // updatedAt
     );
     this.sendCommand(cmd);
   }
   manualStart() {
     if (this.manualStation != null && this.manualDuration != null) {
-      let cmd = new ICommand(
-         0,  //id
-        'Manual',  //commandType
+      const cmd = new ICommand(
+         0,  // id
+        'Manual',  // commandType
         `${this.manualStation}, ${this.manualDuration}`,
-        new Date, //issued
-        null, //actioned
-        this.deviceid, //deviceId
-        new Date, //createdAt
-        null  //updatedAt
+        new Date, // issued
+        null, // actioned
+        this.deviceid, // deviceId
+        new Date, // createdAt
+        null  // updatedAt
       );
       this.sendCommand(cmd);
     }

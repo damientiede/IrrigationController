@@ -21,7 +21,7 @@ export class NavService {
     public Back() {
         this.location.back();
     }
-
+ 
     public Home() {
         this.router.navigate(['/']);
     }

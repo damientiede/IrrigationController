@@ -30,13 +30,13 @@ export class SchedulesComponent implements OnInit {
     if (Number.isNaN(this.deviceid)) {
       alert('Missing Device ID');
     }
-    let timer = Observable.timer(0, 5000);
+    this.getDevice(this.deviceid);
+    const timer = Observable.timer(0, 5000);
     timer
       .takeUntil(this.router.events)
       .subscribe(t => {
         this.onTick(t);
       });
-    //this.getDevice(this.deviceid);
     });
   }
   onTick(t) {

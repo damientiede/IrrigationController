@@ -16,12 +16,12 @@ import { IEvent } from '../model/event';
 
 export class HistoryComponent implements OnInit {
   deviceid = 0;
-  ticks=0;
+  ticks= 0;
   device: IDevice;
   events: IEvent[] = [];
   loaded = false;
   eventTypes: string[] = [
-    'Application', 'Fault','IO','Irrigation start','Irrigation stop'
+    'Application', 'Fault', 'IO', 'Irrigation start', 'Irrigation stop'
   ];
 
   constructor (private dataService: IrrigationControllerService,
@@ -40,13 +40,13 @@ export class HistoryComponent implements OnInit {
       if (Number.isNaN(this.deviceid)) {
         alert('Missing Device ID');
       }
-      let timer = Observable.timer(0, 5000);
+      const timer = Observable.timer(0, 5000);
       timer
         .takeUntil(this.router.events)
         .subscribe(t => {
           this.onTick(t);
         });
-      //this.getDevice(this.deviceid);
+      // this.getDevice(this.deviceid);
     });
   }
   onTick(t) {
@@ -69,8 +69,6 @@ export class HistoryComponent implements OnInit {
           },
           () => {
               console.log('Success');
-              //this._toasterService.pop('success', 'Complete', 'Getting all values complete');
-              //this._slimLoadingBarService.complete();
           });
   }
   getDevice(id: number) {
@@ -91,7 +89,7 @@ export class HistoryComponent implements OnInit {
           });
   }
   timeFormat(date) {
-    return moment(date).format("h:mm:ss a");
+    return moment(date).format('h:mm:ss a');
   }
 
   getDeviceName() {

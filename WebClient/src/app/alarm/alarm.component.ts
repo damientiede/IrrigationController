@@ -1,8 +1,8 @@
 import { Component, Input, OnInit, ViewContainerRef } from '@angular/core';
 import { ActivatedRoute, Params} from "@angular/router";
-import { IAlarm } from '../../../model/alarm';
-import { NavService } from '../../../services/nav.service';
-import { IrrigationControllerService} from '../../../services/IrrigationController.service';
+import { IAlarm } from '../model/alarm';
+import { NavService } from '../services/nav.service';
+import { IrrigationControllerService} from '../services/IrrigationController.service';
 import { ToastsManager } from 'ng2-toastr/ng2-toastr';
 
 @Component({
