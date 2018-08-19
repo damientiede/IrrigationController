@@ -11,7 +11,7 @@
         <div class="col-8">
             <table class="schedules">
                 <tbody>
-                    <tr *ngFor="let schedule of schedules" (click)="editSolenoid(solenoid)">
+                    <tr *ngFor="let schedule of schedules" (click)="editSchedule(schedule)">
                         <td>{{schedule.Name}} </td>
                         <td>{{schedule.StartDate}} </td>
                         <td>{{schedule.StartHours}} </td>
@@ -21,7 +21,7 @@
                     </tr>
                 </tbody>
             </table>
-            <button type="button" class="btn btn-success" (click)="newSolenoid()">
+            <button type="button" class="btn btn-success" (click)="newSchedule()">
                 <i class="fa fa-plus"></i>
             </button>
             <br>

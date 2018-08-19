@@ -84,10 +84,11 @@ module.exports = (app) => {
 
    //Schedules
    app.post('/api/schedules', schedulesController.create);
-   app.get('/api/schedules/:id', schedulesController.single);
+   app.get('/api/schedule/:id', schedulesController.single);
    app.get('/api/schedules', schedulesController.list);
    app.put('/api/schedules/:id', schedulesController.update);
    app.get('/api/devices/:deviceId/schedules', schedulesController.listByDevice);
+   app.delete('/api/schedules/:id',schedulesController.delete);
 
    //IrrigationPrograms
    app.post('/api/irrigationprograms', irrigationProgramsController.create);

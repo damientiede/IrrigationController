@@ -1,7 +1,8 @@
 const Schedule = require('../models').Schedule;
 
 module.exports = {
-   create(req, res) {      
+   create(req, res) {   
+       console.log(req.body);   
         return Schedule
             .create({            
                 Name: req.body.Name,
@@ -56,5 +57,12 @@ module.exports = {
     })
     .then(schedules => res.status(200).send(schedules))
     .catch(error => res.status(400).send(error));  
+    },
+    delete (req, res) {
+        return Schedule.destroy({
+            where: { Id: req.params.id }
+        })
+        .then(affectedRows => res.status(204))
+        .catch(error => res.status(400).send(error));
     }
 };

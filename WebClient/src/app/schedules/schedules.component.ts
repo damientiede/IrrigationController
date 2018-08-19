@@ -71,4 +71,10 @@ export class SchedulesComponent implements OnInit {
       });
     }
   }
+  editSchedule(s: ISchedule) {
+    this.nav.NavTo(`/device/${this.device.id}/schedule/${s.id}`);
+  }
+  newSchedule() {
+    this.nav.NavTo(`/device/${this.device.id}/schedule/new`);
+  }
 }

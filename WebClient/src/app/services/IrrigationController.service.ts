@@ -82,6 +82,13 @@ export class IrrigationControllerService {
             .map((res: Response) => res.json())
             .catch((error: any) => Observable.throw(error.json().error || 'Server error'));
     }
+    getSchedule(id: number): Observable <ISchedule> {
+        const url = `${this.restUrl}/schedules/${id}`;
+        return this.http.get(url)
+            .map((res: Response) => res.json())
+            .catch((error: any) => Observable.throw(error.json().error || 'Server error'));
+    }
+
     getSolenoids(id: number): Observable <ISolenoid[]> {
         const url = `${this.restUrl}/devices/${id}/solenoids`;
         return this.http.get(url)
@@ -150,127 +157,151 @@ export class IrrigationControllerService {
     }
     getEvents(id: number): Observable <IEvent[]> {
         const url = `${this.restUrl}/devices/${id}/events`;
-        console.log('IrrigationControllerService.getEvents() '+this.restUrl);
+        console.log('IrrigationControllerService.getEvents() ' + this.restUrl);
         return this.http.get(url)
             // ...and calling .json() on the response to return data
             .map((res: Response) => res.json())
-            //...errors if any
+            // ...errors if any
             .catch((error: any) => Observable.throw(error.json().error || 'Server error'));
     }
 
     getEventTypes(): Observable <IEventType[]> {
-        let url = `${this.restUrl}/eventtypes`;
+        const url = `${this.restUrl}/eventtypes`;
         console.log('IrrigationControllerService.getEventTypes() '+this.restUrl);
         return this.http.get(url)
             // ...and calling .json() on the response to return data
-            .map((res:Response) => res.json())
-            //...errors if any
-            .catch((error:any) => Observable.throw(error.json().error || 'Server error'));        
+            .map((res: Response) => res.json())
+            // ...errors if any
+            .catch((error: any) => Observable.throw(error.json().error || 'Server error'));        
     }
 
-    sendCommand(cmd:ICommand): Observable <ICommand> {
-        let url = `${this.restUrl}/commands`;
+    sendCommand(cmd: ICommand): Observable <ICommand> {
+        const url = `${this.restUrl}/commands`;
         console.log(cmd);
         return this.http.post(url,cmd)
             // ...and calling .json() on the response to return data
-            .map((res:Response) => res.json())
-            //...errors if any
-            .catch((error:any) => Observable.throw(error.json().error || 'Server error'));
+            .map((res: Response) => res.json())
+            // ...errors if any
+            .catch((error: any) => Observable.throw(error.json().error || 'Server error'));
 
     }
 
     createSolenoid(solenoid: ISolenoid): Observable <ISolenoid> {
-        let url = `${this.restUrl}/solenoids`;
+        const url = `${this.restUrl}/solenoids`;
         return this.http.post(url, solenoid)
             // ...and calling .json() on the response to return data
-            .map((res:Response) => res.json())
-            //...errors if any
-            .catch((error:any) => Observable.throw(error.json().error || 'Server error'));
+            .map((res: Response) => res.json())
+            // ...errors if any
+            .catch((error: any) => Observable.throw(error.json().error || 'Server error'));
+    }
+    createSchedule(schedule: ISchedule): Observable <ISchedule> {
+        const url = `${this.restUrl}/schedules`;
+        return this.http.post(url, schedule)
+            // ...and calling .json() on the response to return data
+            .map((res: Response) => res.json())
+            // ...errors if any
+            .catch((error: any) => Observable.throw(error.json().error || 'Server error'));
     }
 
     createAlarm(alarm: IAlarm): Observable <ISolenoid> {
-        let url = `${this.restUrl}/alarms`;
+        const url = `${this.restUrl}/alarms`;
         return this.http.post(url, alarm)
             // ...and calling .json() on the response to return data
-            .map((res:Response) => res.json())
-            //...errors if any
-            .catch((error:any) => Observable.throw(error.json().error || 'Server error'));
+            .map((res: Response) => res.json())
+            // ...errors if any
+            .catch((error: any) => Observable.throw(error.json().error || 'Server error'));
     }
 
     createAnalog(analog: IAnalog): Observable <IAnalog> {
-        let url = `${this.restUrl}/analogs`;
+        const url = `${this.restUrl}/analogs`;
         return this.http.post(url, analog)
             // ...and calling .json() on the response to return data
-            .map((res:Response) => res.json())
-            //...errors if any
-            .catch((error:any) => Observable.throw(error.json().error || 'Server error'));
+            .map((res: Response) => res.json())
+            // ...errors if any
+            .catch((error: any) => Observable.throw(error.json().error || 'Server error'));
     }
 
     createSpi(analog: ISpi): Observable <ISpi> {
-        let url = `${this.restUrl}/spis`;
+        const url = `${this.restUrl}/spis`;
         return this.http.post(url, analog)
             // ...and calling .json() on the response to return data
-            .map((res:Response) => res.json())
-            //...errors if any
-            .catch((error:any) => Observable.throw(error.json().error || 'Server error'));
+            .map((res: Response) => res.json())
+            // ...errors if any
+            .catch((error: any) => Observable.throw(error.json().error || 'Server error'));
     }
 
     saveSolenoid(solenoid: ISolenoid): Observable <ISolenoid> {
-        let url = `${this.restUrl}/solenoids/${solenoid.id}`;
+        const url = `${this.restUrl}/solenoids/${solenoid.id}`;
         return this.http.put(url, solenoid)
             // ...and calling .json() on the response to return data
-            .map((res:Response) => res.json())
-            //...errors if any
-            .catch((error:any) => Observable.throw(error.json().error || 'Server error'));
+            .map((res: Response) => res.json())
+            // ...errors if any
+            .catch((error: any) => Observable.throw(error.json().error || 'Server error'));
+    }
+
+    saveSchedule(schedule: ISchedule): Observable <ISchedule> {
+        const url = `${this.restUrl}/solenoids/${schedule.id}`;
+        return this.http.put(url, schedule)
+            // ...and calling .json() on the response to return data
+            .map((res: Response) => res.json())
+            // ...errors if any
+            .catch((error: any) => Observable.throw(error.json().error || 'Server error'));
     }
 
     saveAlarm(alarm: IAlarm): Observable <IAlarm> {
         console.log(alarm);
-        let url = `${this.restUrl}/alarms/${alarm.id}`;
+        const url = `${this.restUrl}/alarms/${alarm.id}`;
         return this.http.put(url, alarm)
-            .map((res:Response) => res.json())
-            .catch((error:any) => Observable.throw(error.json().error || 'Server error'));
+            .map((res: Response) => res.json())
+            .catch((error: any) => Observable.throw(error.json().error || 'Server error'));
     }
 
     saveSpi(spi: ISpi): Observable <ISpi> {
         console.log(spi);
-        let url = `${this.restUrl}/spis/${spi.id}`;
+        const url = `${this.restUrl}/spis/${spi.id}`;
         return this.http.put(url, spi)
-            .map((res:Response) => res.json())
-            .catch((error:any) => Observable.throw(error.json().error || 'Server error'));
+            .map((res: Response) => res.json())
+            .catch((error: any) => Observable.throw(error.json().error || 'Server error'));
     }
 
     saveAnalog(analog: IAnalog): Observable <IAnalog> {
         console.log(analog);
-        let url = `${this.restUrl}/analogs/${analog.id}`;
+        const url = `${this.restUrl}/analogs/${analog.id}`;
         return this.http.put(url, analog)
             .map((res:Response) => res.json())
             .catch((error:any) => Observable.throw(error.json().error || 'Server error'));
     }
 
     deleteSolenoid(solenoid: ISolenoid): Observable <ISolenoid> {
-        let url = `${this.restUrl}/solenoids/${solenoid.id}`;
+        const url = `${this.restUrl}/solenoids/${solenoid.id}`;
         return this.http.delete(url)
             .map((res:Response) => res.json())
             .catch((error:any) => Observable.throw(error.json().error || 'Server error'));
     }
 
+    deleteSchedule(schedule: ISchedule): Observable <ISchedule> {
+        const url = `${this.restUrl}/schedules/${schedule.id}`;
+        return this.http.delete(url)
+            .map((res: Response) => res.json())
+            .catch((error: any) => Observable.throw(error.json().error || 'Server error'));
+    }
+
     deleteAlarm(alarm: IAlarm): Observable <IAlarm> {
-        let url = `${this.restUrl}/alarms/${alarm.id}`;
+        const url = `${this.restUrl}/alarms/${alarm.id}`;
         return this.http.delete(url)
             .map((res:Response) => res.json())
             .catch((error:any) => Observable.throw(error.json().error || 'Server error'));
     }
 
     deleteAnalog(analog: IAnalog): Observable <IAnalog> {
-        let url = `${this.restUrl}/alarms/${analog.id}`;
+        const url = `${this.restUrl}/alarms/${analog.id}`;
         return this.http.delete(url)
             .map((res:Response) => res.json())
             .catch((error:any) => Observable.throw(error.json().error || 'Server error'));
     }
 
     deleteSpi(analog: ISpi): Observable <ISpi> {
-        let url = `${this.restUrl}/spis/${analog.id}`;
+        const url = `${this.restUrl}/spis/${analog.id}`;
         return this.http.delete(url)
             .map((res:Response) => res.json())
             .catch((error:any) => Observable.throw(error.json().error || 'Server error'));
