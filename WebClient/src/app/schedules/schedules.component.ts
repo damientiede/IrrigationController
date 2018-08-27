@@ -71,6 +71,9 @@ export class SchedulesComponent implements OnInit {
       });
     }
   }
+  formatDate(date) {
+    return moment.utc(date).format('DD MMM YYYY HH:mm');
+  }
   editSchedule(s: ISchedule) {
     this.nav.NavTo(`/device/${this.device.id}/schedule/${s.id}`);
   }

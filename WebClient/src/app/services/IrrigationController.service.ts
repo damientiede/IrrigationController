@@ -240,7 +240,7 @@ export class IrrigationControllerService {
     }
 
     saveSchedule(schedule: ISchedule): Observable <ISchedule> {
-        const url = `${this.restUrl}/solenoids/${schedule.id}`;
+        const url = `${this.restUrl}/schedules/${schedule.id}`;
         return this.http.put(url, schedule)
             // ...and calling .json() on the response to return data
             .map((res: Response) => res.json())

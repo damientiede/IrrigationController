@@ -1,5 +1,6 @@
 import { Component, Input, OnInit, ViewContainerRef } from '@angular/core';
 import { ActivatedRoute, Params} from "@angular/router";
+import * as moment from 'moment';
 import { ISchedule } from '../model/schedule';
 import { ISolenoid } from '../model/solenoid';
 import { NavService } from '../services/nav.service';
@@ -18,7 +19,7 @@ export class ScheduleComponent implements OnInit {
   schedule: ISchedule;
   solenoids: ISolenoid[];
   solenoid: ISolenoid;
-  hardwareTypes: string[] = ['GPIO', 'Distributed', 'SPI'];
+  startDate: string;
   constructor(private service: IrrigationControllerService,
               private route: ActivatedRoute,
               private nav: NavService,
@@ -58,6 +59,8 @@ export class ScheduleComponent implements OnInit {
       .subscribe((d: ISchedule) => {
             console.log(d);
             this.schedule = d;
+            const sd = moment(this.schedule.StartDate);
+            this.startDate = sd.toISOString().slice(0, 16);
             this.loaded = true;
           },
           error => () => {
@@ -85,6 +88,13 @@ export class ScheduleComponent implements OnInit {
               // this._slimLoadingBarService.complete();
           });
   }
+  solenoidSelected(id) {
+    if (this.schedule != null) {
+      console.log(`${id} ${this.schedule.SolenoidId}`);
+      return (id === this.schedule.SolenoidId);
+    }
+    return false;
+  }
   onSolenoidChange(id) {
     // console.log(JSON.stringify(e));
     this.schedule.SolenoidId = id;
@@ -97,12 +107,14 @@ export class ScheduleComponent implements OnInit {
     return `Edit schedule - ${this.schedule.id}`;
   }
   save() {
+    this.schedule.StartDate = moment.utc(this.startDate).toDate();
     console.log(this.schedule);
     if (this.schedule.id === -1) {
       this.service.createSchedule(this.schedule)
       .subscribe((s: ISchedule) => {
         console.log(s);
         this.schedule = s;
+        this.startDate = moment(s.StartDate).format(); // .toISOString().slice(0, 16);
       },
       error => () => {
         console.log('Something went wrong...');
