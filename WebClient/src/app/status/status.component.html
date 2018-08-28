@@ -12,7 +12,7 @@
         <div class="col-8">        
             <div [ngClass]="getStatusClass()">
                 <div class="panel-title">
-                    {{device.Status}}
+                    {{device.Status}}                    
                 </div>
                 <div class="panel-content" *ngIf="getDuration() > 0">
                     
@@ -104,9 +104,11 @@
     <div class="row">
         <div class="col-2"></div>
         <div class="col-8">          
-            <button type="button" class="btn btn-success btn-lg" (click)="manualStart()">Start</button>
-            <button type="button" class="btn btn-danger btn-lg" (click)="manualStop()">Stop</button>                         
+            <button type="button" class="btn btn-success" (click)="manualStart()">Start</button>
+            <button type="button" class="btn btn-danger" (click)="manualStop()">Stop</button>
+            <button type="button" [ngClass]="getToggleBtnClass()" (click)="toggleMode()">{{getToggleBtnText()}}</button>                                     
         </div>
         <div class="col-2"></div>
     </div>
+    <br>
 </div>

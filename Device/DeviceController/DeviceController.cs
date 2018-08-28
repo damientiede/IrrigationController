@@ -297,8 +297,8 @@ namespace DeviceController
                             break;
                         
                         //Get schedules
-                        case "GetSchedules":
-                            log.Info("GetSchedules");
+                        case "LoadSchedules":
+                            log.Info("LoadSchedules");
                             interfaceService.LoadSchedules();
                             ActionCommand(cmd);
                             break;

@@ -175,6 +175,41 @@ export class StatusComponent implements OnInit {
     }
     return '';
   }
+  getToggleBtnClass() {
+    if (this.device == null) {
+      return 'btn btn-lg';
+    }
+    if (this.device.Mode === 'Auto') {
+      return 'btn btn-info';
+    }
+    if (this.device.Mode === 'Manual') {
+      return 'btn btn-warning';
+    }
+    return 'btn btn-lg';
+  }
+  getToggleBtnText() {
+    if (this.device == null) {
+      return '';
+    }
+    if (this.device.Mode === 'Auto') {
+      return 'Switch to Manual';
+    }
+    if (this.device.Mode === 'Manual') {
+      return 'Switch to Auto';
+    }
+    return '';
+  }
+  toggleMode() {
+    if (this.device == null) {
+      return '';
+    }
+    if (this.device.Mode === 'Manual') {
+      this.setMode('Auto');
+    }
+    if (this.device.Mode === 'Auto') {
+      this.setMode('Manual');
+    }
+  }
   getStartTime() {
     if (this.activeProgram != null) {
       return moment(this.activeProgram.Start).format('DD MMM YYYY HH:mm');
@@ -219,21 +254,35 @@ export class StatusComponent implements OnInit {
     this.sendCommand(cmd);
   }
   manualStart() {
+    let params = null;
     if (this.manualStation != null && this.manualDuration != null) {
-      const cmd = new ICommand(
-         0,  // id
-        'Manual',  // commandType
-        `${this.manualStation}, ${this.manualDuration}`,
-        new Date, // issued
-        null, // actioned
-        this.deviceid, // deviceId
-        new Date, // createdAt
-        null  // updatedAt
-      );
-      this.sendCommand(cmd);
+      params = `${this.manualStation}, ${this.manualDuration}`;
     }
+    const cmd = new ICommand(
+        0,  // id
+      'Manual',  // commandType
+      params,   // params
+      new Date, // issued
+      null, // actioned
+      this.deviceid, // deviceId
+      new Date, // createdAt
+      null  // updatedAt
+    );
+    this.sendCommand(cmd);
   }
-
+  setMode(mode) {
+    const cmd = new ICommand(
+        0,  // id
+      mode,  // commandType
+      null, // params
+      new Date, // issued
+      null, // actioned
+      this.deviceid, // deviceId
+      new Date, // createdAt
+      null  // updatedAt
+    );
+    this.sendCommand(cmd);
+  }
   sendCommand(cmd: ICommand) {
     this.dataService.sendCommand(cmd)
     .subscribe(() => {},
