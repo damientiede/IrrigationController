@@ -22,6 +22,7 @@ import { DevicesComponent } from './devices/devices.component';
 import { StatusWidgetComponent } from './status-widget/status-widget.component';
 import { DeviceMenuComponent } from './device-menu/device-menu.component';
 import { ScheduleComponent } from './schedule/schedule.component';
+import { LoginComponent } from './login/login.component';
 
 @NgModule({
   declarations: [
@@ -37,7 +38,8 @@ import { ScheduleComponent } from './schedule/schedule.component';
     DevicesComponent,
     StatusWidgetComponent,
     DeviceMenuComponent,
-    ScheduleComponent
+    ScheduleComponent,
+    LoginComponent
   ],
   imports: [
     BrowserModule,

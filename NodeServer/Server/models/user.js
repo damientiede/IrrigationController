@@ -19,7 +19,11 @@ module.exports = (sequelize, DataTypes) => {
       Password: {
         type: DataTypes.STRING,
         allowNull:false
-      }    
+      },
+      Salt: {
+        type: DataTypes.STRING,
+        allowNull:false
+      }  
     });
 
     User.associate = (models) => {

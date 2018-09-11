@@ -117,6 +117,10 @@ module.exports = {
                 type: Sequelize.STRING,
                 allowNull:false
             },
+            Salt: {
+                type: Sequelize.STRING,
+                allowNull:false
+            },
             CreatedAt: {
                 allowNull: false,
                 type: Sequelize.DATE

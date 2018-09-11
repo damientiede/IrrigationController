@@ -51,7 +51,8 @@ module.exports = (app) => {
    app.get('/api/users/:id', usersController.single);
    app.get('/api/users', usersController.list);
    app.put('/api/users/:id', usersController.update);  
-   
+   app.post('/api/login', usersController.login);
+
    //Solenoids
    app.post('/api/solenoids', solenoidsController.create);
    app.get('/api/solenoids/:id', solenoidsController.single);

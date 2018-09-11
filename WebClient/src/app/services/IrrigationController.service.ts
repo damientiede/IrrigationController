@@ -3,6 +3,7 @@ import { Http, Response, Headers, RequestOptions } from '@angular/http';
 import * as moment from 'moment';
 import { IStatus } from '../model/status';
 import { IDevice } from '../model/device';
+import { IUser } from '../model/user';
 import { ISchedule } from '../model/schedule';
 import { ISolenoid } from '../model/solenoid';
 import { IAlarm } from '../model/alarm';
@@ -35,31 +36,15 @@ export class IrrigationControllerService {
             .catch((error: any) => Observable.throw(error.json().error || 'Server error'));
     }
 
-    /* getCachedDevice(id: number): Observable <IDevice> {
-        if (this.deviceCache.length === 0) {
-            this.getDevice(id).subscribe((device: IDevice) => {
-                this.deviceCache.push(device);
-                console.log(`Added device ${id} to cache`);
-                return Observable.of(device);
-            });
-        }
-        for (let n = 0; n < this.deviceCache.length; n++) {
-            const d = this.deviceCache[n];
-            if (d.id === id) {
-                const now = moment.utc();
-                if (moment.utc(d.updatedAt).add(5, 'seconds').isAfter(now)) {
-                    console.log(`Retrieving cached version of ${id}`);
-                    return Observable.of(d);
-                } else {
-                    console.log(`Getting fresh data for ${id}`);
-                    this.getDevice(id).subscribe((device: IDevice) => {
-                        this.deviceCache[n] = device;
-                        return Observable.of(device);
-                    });
-                }
-            }
-        }
-    }*/
+    login(email: string, password: string): Observable<any> {
+        const url = `${this.restUrl}/login`;
+        const body = { email, password };
+        return this.http.post(url, body);
+            // ...and calling .json() on the response to return data
+            // .map((res: Response) => res.json())
+            // ...errors if any
+            // .catch((error: any) => Observable.throw('Server error'));
+    }
 
     getDevice(id: number): Observable <IDevice> {
         const url = `${this.restUrl}/devices/${id}`;
@@ -167,18 +152,18 @@ export class IrrigationControllerService {
 
     getEventTypes(): Observable <IEventType[]> {
         const url = `${this.restUrl}/eventtypes`;
-        console.log('IrrigationControllerService.getEventTypes() '+this.restUrl);
+        console.log('IrrigationControllerService.getEventTypes() ' + this.restUrl);
         return this.http.get(url)
             // ...and calling .json() on the response to return data
             .map((res: Response) => res.json())
             // ...errors if any
-            .catch((error: any) => Observable.throw(error.json().error || 'Server error'));        
+            .catch((error: any) => Observable.throw(error.json().error || 'Server error'));
     }
 
     sendCommand(cmd: ICommand): Observable <ICommand> {
         const url = `${this.restUrl}/commands`;
         console.log(cmd);
-        return this.http.post(url,cmd)
+        return this.http.post(url, cmd)
             // ...and calling .json() on the response to return data
             .map((res: Response) => res.json())
             // ...errors if any
@@ -230,6 +215,15 @@ export class IrrigationControllerService {
             .catch((error: any) => Observable.throw(error.json().error || 'Server error'));
     }
 
+    createUser(user: IUser): Observable <IUser> {
+        const url = `${this.restUrl}/users`;
+        return this.http.post(url, user)
+            // ...and calling .json() on the response to return data
+            .map((res: Response) => res.json())
+            // ...errors if any
+            .catch((error: any) => Observable.throw(error.json().error || 'Server error'));
+    }
+
     saveSolenoid(solenoid: ISolenoid): Observable <ISolenoid> {
         const url = `${this.restUrl}/solenoids/${solenoid.id}`;
         return this.http.put(url, solenoid)
@@ -268,15 +262,15 @@ export class IrrigationControllerService {
         console.log(analog);
         const url = `${this.restUrl}/analogs/${analog.id}`;
         return this.http.put(url, analog)
-            .map((res:Response) => res.json())
-            .catch((error:any) => Observable.throw(error.json().error || 'Server error'));
+            .map((res: Response) => res.json())
+            .catch((error: any) => Observable.throw(error.json().error || 'Server error'));
     }
 
     deleteSolenoid(solenoid: ISolenoid): Observable <ISolenoid> {
         const url = `${this.restUrl}/solenoids/${solenoid.id}`;
         return this.http.delete(url)
-            .map((res:Response) => res.json())
-            .catch((error:any) => Observable.throw(error.json().error || 'Server error'));
+            .map((res: Response) => res.json())
+            .catch((error: any) => Observable.throw(error.json().error || 'Server error'));
     }
 
     deleteSchedule(schedule: ISchedule): Observable <ISchedule> {
@@ -289,21 +283,21 @@ export class IrrigationControllerService {
     deleteAlarm(alarm: IAlarm): Observable <IAlarm> {
         const url = `${this.restUrl}/alarms/${alarm.id}`;
         return this.http.delete(url)
-            .map((res:Response) => res.json())
-            .catch((error:any) => Observable.throw(error.json().error || 'Server error'));
+            .map((res: Response) => res.json())
+            .catch((error: any) => Observable.throw(error.json().error || 'Server error'));
     }
 
     deleteAnalog(analog: IAnalog): Observable <IAnalog> {
         const url = `${this.restUrl}/alarms/${analog.id}`;
         return this.http.delete(url)
-            .map((res:Response) => res.json())
-            .catch((error:any) => Observable.throw(error.json().error || 'Server error'));
+            .map((res: Response) => res.json())
+            .catch((error: any) => Observable.throw(error.json().error || 'Server error'));
     }
 
     deleteSpi(analog: ISpi): Observable <ISpi> {
         const url = `${this.restUrl}/spis/${analog.id}`;
         return this.http.delete(url)
-            .map((res:Response) => res.json())
-            .catch((error:any) => Observable.throw(error.json().error || 'Server error'));
+            .map((res: Response) => res.json())
+            .catch((error: any) => Observable.throw(error.json().error || 'Server error'));
     }
 }

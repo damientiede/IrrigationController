@@ -3,6 +3,7 @@ import { ActivatedRoute, Params} from "@angular/router";
 import * as moment from 'moment';
 import { ISchedule } from '../model/schedule';
 import { ISolenoid } from '../model/solenoid';
+import { ICommand } from '../model/command';
 import { NavService } from '../services/nav.service';
 import { IrrigationControllerService} from '../services/IrrigationController.service';
 import { ToastsManager } from 'ng2-toastr/ng2-toastr';
@@ -41,6 +42,7 @@ export class ScheduleComponent implements OnInit {
       // parse schedule id
       const id = params['id'];
       if (id === 'new') {
+        this.startDate = moment().toISOString().slice(0, 16);
         this.schedule = new ISchedule(-1, '', null, 0, 0, 0, '', false, false, 0, this.deviceid);
         this.loaded = true;
       } else if (Number.isNaN(id)) {
@@ -114,7 +116,8 @@ export class ScheduleComponent implements OnInit {
       .subscribe((s: ISchedule) => {
         console.log(s);
         this.schedule = s;
-        this.startDate = moment(s.StartDate).format(); // .toISOString().slice(0, 16);
+        // this.startDate = moment(s.StartDate).format(); // .toISOString().slice(0, 16);
+        this.loadSchedules();
       },
       error => () => {
         console.log('Something went wrong...');
@@ -127,7 +130,9 @@ export class ScheduleComponent implements OnInit {
       return;
     }
     this.service.saveSchedule(this.schedule)
-      .subscribe(() => {},
+      .subscribe((s: ISchedule) => {
+        this.loadSchedules();
+      },
       error => () => {
         console.log('Something went wrong...');
         this.toastr.error('Something went wrong...', 'Damn');
@@ -135,6 +140,28 @@ export class ScheduleComponent implements OnInit {
       () => {
         console.log('Success');
         this.toastr.success('Changes saved' );
+    });
+  }
+  loadSchedules() {
+    const cmd = new ICommand(
+      0,  // id
+      'LoadSchedules',  // commandType
+      null, // params
+      new Date, // issued
+      null, // actioned
+      this.deviceid, // deviceId
+      new Date, // createdAt
+      null  // updatedAt
+    );
+    this.service.sendCommand(cmd)
+    .subscribe(() => {},
+      error => () => {
+        console.log('Something went wrong...');
+        this.toastr.error('Something went wrong...', 'Damn');
+      },
+      () => {
+        console.log('Success');
+        // this.toastr.success('Command sent' );
     });
   }
   back() {

@@ -153,28 +153,28 @@ namespace DeviceController
                                 {
                                     if (s.Enabled)
                                     {
-                                        //log.DebugFormat("Schedule {0}", s.Name);
+                                        log.DebugFormat("Schedule {0}", s.Name);
                                         if (!s.Repeat)
                                         {
                                             //its a one off schedule - delete when finished
 
                                         }
                                         else
-                                        {
+                                        {                                           
                                             //see if schedule has come into active window
                                             int dayOfWeek = (int)DateTime.Now.DayOfWeek;
-                                            if (s.Days.Contains(dayOfWeek.ToString()))
+                                            //log.DebugFormat("DOW: {0} Today:{1}", s.Days, dayOfWeek);
+                                            if (true)  //(s.Days.Contains(dayOfWeek.ToString()))
                                             {
-                                                DateTime start = new DateTime(
-                                                    DateTime.Now.Year,
-                                                    DateTime.Now.Month,
-                                                    DateTime.Now.Day,
-                                                    s.StartHours,
-                                                    s.StartMins,
-                                                    0);
-
-                                                if ((DateTime.Now > start) && (DateTime.Now <= start.AddMinutes(s.Duration)))
+                                                DateTime start = s.StartDate;//.ToUniversalTime();                                                    
+                                                DateTime finish = start.AddMinutes(s.Duration);
+                                                DateTime now = DateTime.Now;
+                                                //log.DebugFormat("Now: {2} Start: {0} Finish: {1}",start.ToString(), finish.ToString(), now.ToString());                                              
+                                                //if (now < start) { log.Debug("< start"); }
+                                                //if (now <= finish) { log.Debug(" <= finish"); }
+                                                if ((now > start) && (now <= finish))
                                                 {
+                                                    log.DebugFormat("Schedule window active: {0}", s.Name);
                                                     //new active schedule
                                                     ActiveSchedule = s;
                                                     ActiveProgram  = interfaceService.CreateIrrigationProgram(s.Name, s.Duration, s.SolenoidId);

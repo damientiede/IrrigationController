@@ -1,15 +1,12 @@
 <div *ngIf="loaded">
-    <div class="row">
-        <div class="col-2"></div>
-        <div class="col-8">
+    <div class="row">        
+        <div class="col-12">
             <app-device-menu [Device]="device"></app-device-menu>
-        </div>
-        <div class="col-2"></div>
+        </div>        
     </div>
 
-    <div class="row">
-        <div class="col-2"></div>
-        <div class="col-8">
+    <div class="row">        
+        <div class="col-12">
             <ul class="nav nav-tabs">
                 <li class="nav-item">
                 <a class="nav-link" [ngClass]="getActiveClass('Device')" (click)="deviceClicked()">Device</a>
@@ -27,13 +24,11 @@
                     <a class="nav-link" [ngClass]="getActiveClass('SPIs')" (click)="spisClicked()">SPIs</a>
                 </li>
             </ul>
-        </div>
-        <div class="col-2"></div>
+        </div>        
     </div>
 
-    <div class="row">
-        <div class="col-2"></div>
-        <div class="col-8"> 
+    <div class="row">        
+        <div class="col-12"> 
             <!-- Device section -->
             <div *ngIf="isView('Device')">            
                 <table *ngIf="device">
@@ -149,7 +144,6 @@
                     <br>
                 </div>
             </div>
-        </div>
-        <div class="col-2"></div>
+        </div>        
     </div>
 </div>

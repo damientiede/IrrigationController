@@ -13,7 +13,7 @@ h2 {color:#333399;}
     background-color:#333399; /*#cdbfe3;*/
     color:#fff;
 }
-.header h1 {text-align:center; font-size:28px;margin-top:15px;margin-bottom:15px;}
+.header h1 { font-size:28px;margin-left:30px;margin-top:15px;margin-bottom:15px;}
 .header p {text-align:center;}
 .container { padding-top:0px; }
 .footer {
@@ -43,3 +43,5 @@ ul.nav li a{font-size:18px;}
 .table-striped>tbody>tr:nth-of-type(odd) { background-color:#e9e9e9; }
 .nav {margin-bottom:20px;}
 img.loading {height:120px;display:block;margin-left:auto;margin-right:auto;}
+img.logo {height:50px;margin:10px;float:left;}
+.vert-centre {margin-top:10px;margin-bottom:15px;}
