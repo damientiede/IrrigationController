@@ -3,6 +3,7 @@ using System.Collections.Generic;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
+using System.Configuration;
 
 namespace DeviceController
 {
@@ -10,8 +11,12 @@ namespace DeviceController
     {
         static void Main(string[] args)
         {
-            DeviceController d = new DeviceController("http://192.168.1.51:8000/api");
-            //DeviceController d = new DeviceController("http://192.168.178.125:8000/api/");
+            string server = "http://192.168.1.51:8000/api";  //Damos Test server
+            if (ConfigurationManager.AppSettings["server"] != null)
+            {
+                server = ConfigurationManager.AppSettings["server"].ToString();
+            }           
+            DeviceController d = new DeviceController(server);            
             d.Run();
         }
     }

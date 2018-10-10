@@ -45,3 +45,16 @@ ul.nav li a{font-size:18px;}
 img.loading {height:120px;display:block;margin-left:auto;margin-right:auto;}
 img.logo {height:50px;margin:10px;float:left;}
 .vert-centre {margin-top:10px;margin-bottom:15px;}
+.app-container {margin-left:auto;margin-right:auto;}
+@media (min-width:576px) {
+    .app-container {max-width:500px;}
+}
+@media (min-width:768px) {
+    .app-container {max-width:600px;}
+}
+@media (min-width:992px) {
+    .app-container {max-width:800px;}
+}
+/* @media (min-width:1200px) {
+    .app-container {max-width:900px;}
+} */

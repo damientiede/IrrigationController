@@ -24,7 +24,9 @@ export class IrrigationControllerService {
     cacheExpiry: Number = 5;
     // devices: { [index: string]: any; } = {};
     deviceCache: IDevice[] = [];
-    private restUrl = 'http://delta:8000/api';
+    private restUrl = 'http://irrigationcentral.co.nz:8000/api';
+    // private restUrl = 'http://delta:8000/api';
+
     constructor(private http: Http) {}
     eventTypes: IEventType[] = [];
     getStatus(): Observable <IStatus[]> {
@@ -68,7 +70,7 @@ export class IrrigationControllerService {
             .catch((error: any) => Observable.throw(error.json().error || 'Server error'));
     }
     getSchedule(id: number): Observable <ISchedule> {
-        const url = `${this.restUrl}/schedules/${id}`;
+        const url = `${this.restUrl}/schedule/${id}`;
         return this.http.get(url)
             .map((res: Response) => res.json())
             .catch((error: any) => Observable.throw(error.json().error || 'Server error'));

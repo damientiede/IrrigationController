@@ -8,11 +8,12 @@ const analogs = require('./analogs');
 const spis = require('./spis');
 const alarms = require('./alarms');
 const commands = require('./commands');
+const users = require('./users');
 
 const seedAll = () => {
     eventTypes.seed();
     commandTypes.seed();
-    devices.seed(spis, analogs, solenoids, alarms, schedules, ()=> {
+    devices.seed(spis, analogs, solenoids, alarms, users, schedules, ()=> {
         spis.seed();
         analogs.seed();
         solenoids.seed(schedules, () => {
@@ -22,6 +23,7 @@ const seedAll = () => {
     });    
     accounts.seed();    
     commands.seed();
+    users.seed();
 }
 
 module.exports = {    

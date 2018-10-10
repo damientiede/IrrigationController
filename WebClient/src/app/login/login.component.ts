@@ -21,10 +21,11 @@ export class LoginComponent {
     console.log(`email: ${this.email} pass: ${this.password}`);
 
     this.service.login(this.email, this.password)
-    .map(res => res.json())
+    // .map((res: Response) => res.json())
     .subscribe(
       data => {
         console.log(data);
+        this.nav.NavTo('/devices');
       },
       error => {
         console.log(error);

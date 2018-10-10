@@ -1,15 +1,11 @@
 <div *ngIf="loaded">
     <div class="row">
-        
-        <div class="col-12">
+        <div class="col-sm-12">
             <app-device-menu [Device]="device"></app-device-menu>
         </div>
-        
     </div>
-
     <div class="row">
-       
-        <div class="col-12">        
+        <div class="col-sm-12">        
             <div [ngClass]="getStatusClass()">
                 <div class="panel-title">
                     {{device.Status}}                    
@@ -24,22 +20,19 @@
                     </div>
                         
                     <div class="row">
-                        <div class="col-6">
+                        <div class="col-sm-6">
                             Start: {{getStartTime()}}
                         </div>
-                        <div class="col-6">
+                        <div class="col-sm-6">
                             End: {{getEnd()}}
                         </div>
                     </div>
                 </div>
             </div>             
         </div>
-        
     </div>
-
     <div class="row">
-        
-        <div class="col-6">
+        <div class="col-sm-6">
             <div class="alert alert-primary">
                 <div class="panel-heading">
                     <div class="panel-title">
@@ -48,7 +41,7 @@
                 </div>
             </div>
         </div>
-        <div class="col-6">
+        <div class="col-sm-6">
             <div class="alert alert-primary">
                 <div class="panel-heading">
                     <div class="panel-title">
@@ -57,12 +50,9 @@
                 </div>
             </div>
         </div>                              
-        
     </div>
-
     <div class="row">
-       
-        <div class="col-6">    
+        <div class="col-sm-6">    
             <div class="input-group input-group-lg">
                 <div class="input-group-prepend">
                     <div class="input-group-text">Station</div>
@@ -74,7 +64,7 @@
                 </select>          
             </div> 
         </div>
-        <div class="col-6">    
+        <div class="col-sm-6">    
             <div class="input-group input-group-lg">       
                 <div class="input-group-prepend">
                     <div class="input-group-text" >Duration</div>
@@ -97,18 +87,14 @@
 
                 <!--input type="number" class="form-control" id="tbDuration" aria-describedby="addon1" placeholder="1 - 360" ng-model="ManualDuration" min="1" max="360" required> </input-->
             </div>
-        </div>
-                  
+        </div>     
     </div>
-
     <div class="row">
-        
-        <div class="col-12">          
+        <div class="col-sm-12">          
             <button type="button" class="btn btn-success" (click)="manualStart()">Start</button>
             <button type="button" class="btn btn-danger" (click)="manualStop()">Stop</button>
             <button type="button" [ngClass]="getToggleBtnClass()" (click)="toggleMode()">{{getToggleBtnText()}}</button>                                     
         </div>
-        
     </div>
     <br>
 </div>

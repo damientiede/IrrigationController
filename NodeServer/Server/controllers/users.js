@@ -56,11 +56,11 @@ module.exports = {
         console.log(req.body);         
         User.findOne({ where: { Email: req.body.email } }).then(function (user) {
             if (!user) {
-                res.status(401).send('{error: Unknown email}');                
+                res.status(401).send('Unknown email');                
             }
             const encryptedPassword = bcrypt.hashSync(req.body.password, user.Salt);
             if (encryptedPassword != user.Password) {
-                res.status(401).send('{error: Password incorrect}');
+                res.status(401).send('Password incorrect');
             } else {
                 res.status(200).send();
             }
