@@ -8,7 +8,7 @@
         <div class="col-sm-12">        
             <div [ngClass]="getStatusClass()">
                 <div class="panel-title">
-                    {{device.Status}}                    
+                    {{getStatusText()}}                    
                 </div>
                 <div class="panel-content" *ngIf="getDuration() > 0">
                     

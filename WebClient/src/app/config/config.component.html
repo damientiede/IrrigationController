@@ -1,12 +1,12 @@
 <div *ngIf="loaded">
     <div class="row">        
-        <div class="col-12">
+        <div class="col-sm-12">
             <app-device-menu [Device]="device"></app-device-menu>
         </div>        
     </div>
 
     <div class="row">        
-        <div class="col-12">
+        <div class="col-sm-12">
             <ul class="nav nav-tabs">
                 <li class="nav-item">
                 <a class="nav-link" [ngClass]="getActiveClass('Device')" (click)="deviceClicked()">Device</a>
@@ -28,7 +28,7 @@
     </div>
 
     <div class="row">        
-        <div class="col-12"> 
+        <div class="col-sm-12"> 
             <!-- Device section -->
             <div *ngIf="isView('Device')">            
                 <table *ngIf="device">

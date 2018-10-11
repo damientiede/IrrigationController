@@ -3,7 +3,6 @@ import { ActivatedRoute, Router, Params} from "@angular/router";
 import {Observable} from 'rxjs/Rx';
 import * as moment from 'moment';
 import { ToastsManager } from 'ng2-toastr/ng2-toastr';
-// import { DeviceToolsComponent } from '../device-tools/device-tools.component';
 import { IrrigationControllerService} from '../services/IrrigationController.service';
 import { IStatus} from '../model/status';
 import { IDevice } from '../model/device';
@@ -160,11 +159,29 @@ export class StatusComponent implements OnInit {
     }
     return 0;
   }
+  lastSeenDuration() {
+    if (this.device == null) {return; }
+    const now = moment.utc();
+    const ls = moment.utc(this.device.updatedAt);
+    return moment.duration(now.diff(ls));
+  }
   getStatusClass() {
     if (this.device == null) {return; }
+    const duration = this.lastSeenDuration();
+    if (duration.as('seconds') > (30000)) {
+      return 'alert alert-danger';
+    }
     if (this.device.State.indexOf('Irrigating') > -1) { return 'alert alert-success'; }
     if (this.device.State.indexOf('Fault') > -1) { return 'alert alert-danger'; }
     return 'alert alert-secondary';
+  }
+  getStatusText() {
+    if (this.device == null) {return 'Unknown device'; }
+    const duration = this.lastSeenDuration();
+    if (duration.as('seconds') > (30000)) {
+      return `Device offline for ${Math.floor(duration.as('minutes'))} minutes`;
+    }
+    return this.device.Status;
   }
   formatDateShort(date) {
     return moment(date).format('dd/MM/yyyy');

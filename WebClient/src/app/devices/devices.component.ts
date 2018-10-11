@@ -48,7 +48,32 @@ export class DevicesComponent implements OnInit {
           console.log(data);
       });
   }
-
+  lastSeenDuration(d: IDevice) {
+    if (d == null) {return; }
+    const now = moment.utc();
+    const ls = moment.utc(d.updatedAt);
+    return moment.duration(now.diff(ls));
+  }
+  getStatusClass(d: IDevice) {
+    if (d == null) {return; }
+    const duration = this.lastSeenDuration(d);
+    if (duration.as('seconds') > (30000)) {
+      return 'alert alert-danger col-sm-12';
+    }
+    if (d.State.indexOf('Irrigating') > -1) { return 'alert alert-success col-sm-12'; }
+    if (d.State.indexOf('Fault') > -1) { return 'alert alert-danger col-sm-12'; }
+    return 'alert alert-secondary col-sm-12';
+  }
+  getStatusText(d: IDevice) {
+    if (d == null) {return 'Unknown device'; }
+    let status = '';
+    const duration = this.lastSeenDuration(d);
+    if (duration.as('seconds') > (30000)) {
+      status =  `Device offline for ${Math.floor(duration.as('minutes'))} minutes`;
+    }
+    status = d.Status;
+    return `${d.Name} - ${status}`;
+  }
   getStatusImg(d: IDevice) {
     const now = moment.utc();
     const dup = moment.utc(d.updatedAt);
