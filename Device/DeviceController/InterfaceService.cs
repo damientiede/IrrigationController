@@ -35,7 +35,7 @@ namespace DeviceController
         public List<Schedule> Schedules;
 
         public ISolenoid PumpSolenoid;
-
+        
         public InterfaceService(string url)
         {
             //initialize logging
@@ -434,6 +434,17 @@ namespace DeviceController
                 dataServer.PutAnalog(analog.Data);
                 //log.InfoFormat("Analog {0} Raw:{1} Value:{2}", analog.Data.Name, analog.Hardware.RawValue, analog.Hardware.Value);
             }
+        }
+        public ISolenoid GetSolenoidById(int solenoidId)
+        {
+            foreach (SolenoidTuple solenoid in Solenoids)
+            {
+                if (solenoid.Data.Id == solenoidId)
+                {
+                    return solenoid.Hardware;
+                }
+            }
+            return null;
         }
         public static ConnectorPin GetGPIOPin(string _pin)
         {            

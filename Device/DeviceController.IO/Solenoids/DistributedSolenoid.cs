@@ -10,18 +10,17 @@ namespace DeviceController.IO.Solenoids
 {
     public class DistributedSolenoid : ISolenoid
     {
-        ILog log;
+        ILog log = LogManager.GetLogger("Device");
+        public int Id { get; set; }
         public string Name { get; set; }
         public string Address { get; set; }
         public bool State { get; set; }
         
-        public DistributedSolenoid(string name, string address)
-        {
-            log4net.Config.XmlConfigurator.Configure();
-            log = LogManager.GetLogger("Device");
+        public DistributedSolenoid(int id, string name, string address)
+        {                        
             Name = name;
             Address = address;
-            
+            Id = id;
         }
         public void On()
         {

@@ -93,7 +93,8 @@
         <div class="col-sm-12">          
             <button type="button" class="btn btn-success" (click)="manualStart()">Start</button>
             <button type="button" class="btn btn-danger" (click)="manualStop()">Stop</button>
-            <button type="button" [ngClass]="getToggleBtnClass()" (click)="toggleMode()">{{getToggleBtnText()}}</button>                                     
+            <button type="button" [ngClass]="getToggleBtnClass()" (click)="toggleMode()">{{getToggleBtnText()}}</button>    
+            <button type="button" class="btn" (click)="config()"><i class="fa fa-cog"></i></button>                              
         </div>
     </div>
     <br>

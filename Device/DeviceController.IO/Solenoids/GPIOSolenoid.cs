@@ -4,7 +4,6 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 using Raspberry.IO.GeneralPurpose;
-using DeviceController.Data;
 using log4net;
 
 namespace DeviceController.IO.Solenoids
@@ -12,50 +11,43 @@ namespace DeviceController.IO.Solenoids
     public class GPIOSolenoid : ISolenoid
     {
         ILog log;
-        //public int Id { get; }
-        public string Name { get; }
+        public int Id { get; set; }
+        public string Name { get; set; }
         //public string Description { get; }
         public string Address { get; }
-        public bool State { get; set; }
-        //public bool RequiresPump { get; }
-
-        private GpioConnection gpio;
+        public bool State { get; set; }        
+        
         private ConnectorPin pin;
-        private PinConfiguration pinConfig;
-
-        //private Solenoid _solenoid;
-        //private DataServerWebClient dataServer;
-        //public Solenoid solenoid { get { return _solenoid; } }
+        private PinConfiguration pinConfig;       
                         
-        public GPIOSolenoid(ConnectorPin p, string name, GpioConnection g)
-        {
-            log4net.Config.XmlConfigurator.Configure();
+        public GPIOSolenoid(int id, string name, string address)
+        {            
             log = LogManager.GetLogger("Device");
-           
-            gpio = g;
-            pin = p;
+            Id = id;
+            Name = name;
+            Address = address;
+
+            pin = GPIOService.GetGPIOPin(Address);
             
             pinConfig = pin.Output().Name(name);
-            gpio.Add(pinConfig);
+            GPIOService.Gpio.Add(pinConfig);
         }
         public void On()
         {
             if (!State)
             {
-                gpio.Toggle(pinConfig);
+                GPIOService.Gpio.Toggle(pinConfig);
                 State = true;
-                log.DebugFormat("Solenoid: {0} On", Name);
-                //dataServer.PutSolenoid(_solenoid);
+                log.DebugFormat("Solenoid: {0} On", Name);                
             }            
         }
         public void Off()
         {
             if (State)
             {
-                gpio.Toggle(pinConfig);
+                GPIOService.Gpio.Toggle(pinConfig);
                 State = false;
-                log.DebugFormat("Solenoid: {0} Off", Name);
-                //dataServer.PutSolenoid(_solenoid);
+                log.DebugFormat("Solenoid: {0} Off", Name);                
             }            
         }        
     }

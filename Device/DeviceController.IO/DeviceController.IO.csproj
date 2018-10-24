@@ -70,6 +70,7 @@
     <Compile Include="Analogs\AnalogValueChangedEventArgs.cs" />
     <Compile Include="Analogs\IAnalog.cs" />
     <Compile Include="Analogs\SPIAnalog.cs" />
+    <Compile Include="GPIOService.cs" />
     <Compile Include="Solenoids\BEM106EthernetSolenoid.cs" />
     <Compile Include="Solenoids\DistributedSolenoid.cs" />
     <Compile Include="Solenoids\GPIOSolenoid.cs" />

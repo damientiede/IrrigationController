@@ -3,7 +3,7 @@ using System.Collections.Generic;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
-using DeviceController.Data;
+using DeviceController.IO.Spis;
 using Raspberry.IO;
 using Raspberry.IO.GeneralPurpose;
 using Raspberry.IO.Components.Converters.Mcp3008;
@@ -14,7 +14,8 @@ namespace DeviceController.IO.Analogs
 {
     public class SPIAnalog : IAnalog
     {
-        ILog log;        
+        ILog log = LogManager.GetLogger("Device");
+        public int Id { get; set; }      
         public string Name { get; set; }
         public double RawValue { get; set; }
         public double Value { get; set; } 
@@ -29,16 +30,62 @@ namespace DeviceController.IO.Analogs
         private ElectricPotential prevSample = ElectricPotential.FromVolts(0);
         private ElectricPotential referenceVoltage = ElectricPotential.FromVolts(3.3);
         
-
-        public SPIAnalog(IInputAnalogPin pin, string name, double multiplier, string units)
+        public SPIAnalog(int id, string name, double multiplier, string units, string address)
         {
-            log4net.Config.XmlConfigurator.Configure();
-            log = LogManager.GetLogger("Device");            
-            spiInput = pin;
+            Id = id;
             Name = name;
-            Threshold = 100.0;
             Multiplier = multiplier;
             Units = units;
+            Address = address;
+            Threshold = 100.0;
+            log.DebugFormat("SPIAnalog() {0}", Name);
+
+            //Address property will be SPI:CHANNEL, eg 0:1
+            //The following code parses out the address to get SPI and CHANNEL
+            string[] parts = Address.Split(':');
+            int spiId = Convert.ToInt32(parts[0]);
+            string channel = parts[1];         
+
+            ConnectorPin spiClock = GPIOService.GetGPIOPin(string.Format("P1Pin{0}", 23));
+            ConnectorPin spiCs = GPIOService.GetGPIOPin(string.Format("P1Pin{0}", 24));
+            ConnectorPin spiMISO = GPIOService.GetGPIOPin(string.Format("P1Pin{0}", 21));
+            ConnectorPin spiMOSI = GPIOService.GetGPIOPin(string.Format("P1Pin{0}", 19));
+            SpiDevice spi = new SpiDevice(1,"Redundant",spiClock, spiCs, spiMISO, spiMOSI);
+
+            if (spi == null)
+            {
+                throw new Exception(string.Format("Configuration error: unknown SPI Id {0}", spiId));
+            }                        
+            
+            switch (channel)
+            {
+                case "0":
+                    spiInput = spi.Connection.In(Mcp3008Channel.Channel0);
+                    break;
+                case "1":
+                    spiInput = spi.Connection.In(Mcp3008Channel.Channel1);
+                    break;
+                case "2":
+                    spiInput = spi.Connection.In(Mcp3008Channel.Channel2);
+                    break;
+                case "3":
+                    spiInput = spi.Connection.In(Mcp3008Channel.Channel3);
+                    break;
+                case "4":
+                    spiInput = spi.Connection.In(Mcp3008Channel.Channel4);
+                    break;
+                case "5":
+                    spiInput = spi.Connection.In(Mcp3008Channel.Channel5);
+                    break;
+                case "6":
+                    spiInput = spi.Connection.In(Mcp3008Channel.Channel6);
+                    break;
+                case "7":
+                    spiInput = spi.Connection.In(Mcp3008Channel.Channel7);
+                    break;
+                default:
+                    throw new Exception(string.Format("Configuration error: unknown analog input channel {0}", channel));
+            }           
         }
         
         public double Sample()

@@ -11,14 +11,15 @@ namespace DeviceController.IO.Solenoids
     public class SPISolenoid: ISolenoid
     {
         ILog log;
+        public int Id { get; set; }
         public string Name { get; set; }
         public string Address { get; set; }
         public bool State { get; set; }
 
-        public SPISolenoid(string name, string address)
-        {
-            log4net.Config.XmlConfigurator.Configure();
+        public SPISolenoid(int id, string name, string address)
+        {            
             log = LogManager.GetLogger("Device");
+            Id = id;
             Name = name;
             Address = address;
 

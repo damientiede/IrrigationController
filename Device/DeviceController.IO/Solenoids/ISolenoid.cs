@@ -9,7 +9,7 @@ namespace DeviceController.IO.Solenoids
 {
     public interface ISolenoid
     {
-        //int Id { get; }
+        int Id { get; }
         string Name { get; }
         //string Description { get; }
         void On();

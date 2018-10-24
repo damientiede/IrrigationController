@@ -11,17 +11,17 @@ namespace DeviceController.IO.Solenoids
     public class BEM106EthernetSolenoid:ISolenoid
     {
         ILog log;
+        public int Id { get; set; }
         public string Name { get; set; }
         public string Address { get; set; }
         public bool State { get; set; }
 
-        public BEM106EthernetSolenoid(string name, string address)
-        {
-            log4net.Config.XmlConfigurator.Configure();
+        public BEM106EthernetSolenoid(int id, string name, string address)
+        {            
             log = LogManager.GetLogger("Device");
             Name = name;
             Address = address;
-
+            Id = id;
         }
         protected void Send(string value)
         {

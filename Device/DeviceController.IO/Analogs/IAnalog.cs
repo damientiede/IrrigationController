@@ -8,6 +8,7 @@ namespace DeviceController.IO.Analogs
 {
     public interface IAnalog
     {        
+        int Id { get; set; }
         string Name { get; set; }
         double Sample();
         double RawValue { get; set; }

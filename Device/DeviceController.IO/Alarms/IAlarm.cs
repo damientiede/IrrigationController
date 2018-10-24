@@ -9,7 +9,9 @@ namespace DeviceController.IO.Alarms
 {
     public interface IAlarm
     {        
-        string Name { get; }           
+        int Id { get; set; }
+        string Name { get; set; }  
+        string Address { get; set; }         
         bool State { get; set; }             
         event AlarmStatusChangedEventHandler StatusChanged;        
     }

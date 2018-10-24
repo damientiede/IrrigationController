@@ -11,17 +11,19 @@ namespace DeviceController.IO.Alarms
 {
     public class GPIOAlarm : IAlarm
     {        
-        public string Name { get; set; } 
+        public int Id { get; set; }
+        public string Name { get; set; }
+        public string Address { get; set; }
         public bool State { get; set; }       
-        public event AlarmStatusChangedEventHandler StatusChanged;             
-        private GpioConnection gpio;
+        public event AlarmStatusChangedEventHandler StatusChanged;                     
         private ConnectorPin pin;
         private PinConfiguration pinConfig;        
-        public GPIOAlarm(ConnectorPin p, string name, GpioConnection g)
+        public GPIOAlarm(int id, string name, string address)
         {
-            Name = name;            
-            gpio = g;
-            pin = p;          
+            Id = id;
+            Name = name;
+            Address = address;
+            pin = GPIOService.GetGPIOPin(Address);          
             pinConfig = pin.Input().Name(Name).OnStatusChanged(b =>
             {
                 State = b ? true : false;
@@ -30,8 +32,8 @@ namespace DeviceController.IO.Alarms
                 e.Value = b;
                 OnStatusChanged(e);
             });
-
-            gpio.Add(pinConfig);                      
+            Id = id;
+            GPIOService.Gpio.Add(pinConfig);                      
         }
 
         protected virtual void OnStatusChanged(AlarmStatusChangedEventArgs e)

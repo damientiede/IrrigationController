@@ -79,7 +79,10 @@
   </ItemGroup>
   <ItemGroup>
     <Compile Include="DeviceController.cs" />
-    <Compile Include="InterfaceService.cs" />
+    <Compile Include="Devices\DeviceAlarm.cs" />
+    <Compile Include="Devices\DeviceAnalog.cs" />
+    <Compile Include="Devices\DeviceProgram.cs" />
+    <Compile Include="Devices\DeviceSolenoid.cs" />
     <Compile Include="Program.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
   </ItemGroup>
@@ -96,6 +99,9 @@
       <Project>{d74196af-7887-4aac-be4a-af257aecec4f}</Project>
       <Name>DeviceController.IO</Name>
     </ProjectReference>
+  </ItemGroup>
+  <ItemGroup>
+    <Folder Include="Services\" />
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
   <!-- To modify your build process, add your task inside one of the targets below and uncomment it. 

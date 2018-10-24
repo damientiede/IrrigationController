@@ -12,9 +12,11 @@ namespace DeviceController.IO.Spis
 {
     public interface ISpi
     {
-        int Id { get; }
-        string Name { get; }            
-        string Report();
-        //Mcp3008InputAnalogPin GetChannel(Mcp3008Channel ch);        
+        int Id { get; }        
+        string Name { get; set; }
+        ConnectorPin Clock { get; set; }
+        ConnectorPin CS { get; set; }
+        ConnectorPin MISO { get; set; }
+        ConnectorPin MOSI { get; set; }              
     }
 }

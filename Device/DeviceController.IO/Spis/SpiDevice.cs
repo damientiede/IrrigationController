@@ -10,8 +10,9 @@ using Raspberry.IO.Components.Converters.Mcp3008;
 
 namespace DeviceController.IO.Spis
 {    
-    public class SpiDevice
+    public class SpiDevice:ISpi
     {        
+        public int Id { get; set; }
         public string Name { get; set; }
         public ConnectorPin Clock { get; set; }
         public ConnectorPin CS { get; set; }
@@ -22,17 +23,20 @@ namespace DeviceController.IO.Spis
         private IGpioConnectionDriver spiDriver;
 
         public SpiDevice(
+            int id,
+            string name,
             ConnectorPin clock,
             ConnectorPin cs,
             ConnectorPin miso,
-            ConnectorPin mosi,
-            IGpioConnectionDriver driver)
+            ConnectorPin mosi)            
         {
+            Id = id;
+            Name = name;
             Clock = clock;
             CS = cs;
             MISO = miso;
             MOSI = mosi;
-            spiDriver = driver;
+            spiDriver = GPIOService.GpioDriver;
                  
             spiConnection = new Mcp3008SpiConnection(
                 spiDriver.Out(Clock),

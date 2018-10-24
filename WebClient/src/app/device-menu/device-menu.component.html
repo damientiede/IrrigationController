@@ -23,16 +23,6 @@
       </li>
       <li>
         <button type="button" class="btn"
-                [ngClass]="getActiveClass('config')" 
-                data-toggle="tooltip" 
-                data-placement="top" 
-                title="Config" (click)="config()">
-          <i class="fa fa-cog"></i>
-          Config
-        </button>
-      </li>
-      <li>
-        <button type="button" class="btn"
                 [ngClass]="getActiveClass('history')" 
                 data-toggle="tooltip"
                 data-placement="top"
@@ -42,6 +32,15 @@
           History  
         </button>
       </li>
+      <!-- <li>
+        <button type="button" class="btn"
+                [ngClass]="getActiveClass('config')" 
+                data-toggle="tooltip" 
+                data-placement="top" 
+                title="Config" (click)="config()">
+          <i class="fa fa-cog"></i>          
+        </button>
+      </li> -->
   </ul>
 </div>
  

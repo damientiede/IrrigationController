@@ -312,4 +312,7 @@ export class StatusComponent implements OnInit {
         this.toastr.success('Command sent' );
     });
   }
+  config() {
+    this.router.navigate([`/device/${this.device.id}/config`]);
+  }
 }
