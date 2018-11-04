@@ -50,12 +50,14 @@ namespace DeviceController.Devices
             hardwareSolenoid.On();
             dataSolenoid.Value = 1;
             DataService.Proxy.PutSolenoid(dataSolenoid);
+            DataService.CreateEvent(EventTypes.IO, string.Format("Solenoid {0} On",dataSolenoid.Name), dataSolenoid.DeviceId);
         }
         public void Off()
         {
             hardwareSolenoid.Off();
             dataSolenoid.Value = 0;
             DataService.Proxy.PutSolenoid(dataSolenoid);
+            DataService.CreateEvent(EventTypes.IO, string.Format("Solenoid {0} Off", dataSolenoid.Name), dataSolenoid.DeviceId);
         }
     }
 }

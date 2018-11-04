@@ -33,8 +33,11 @@ namespace DeviceController.IO
         }
         public static void CloseGpio()
         {
-            gpio.Close();
-            gpio = null;
+            if (gpio != null)
+            {
+                gpio.Close();
+                gpio = null;
+            }            
         }
         public static ConnectorPin GetGPIOPin(string _pin)
         {

@@ -10,7 +10,7 @@ module.exports = {
                 Mode:'Manual',
                 State:'Standby',
                 Status:'Created',               
-                PumpSolenoid:req.body.PumpSolenoid,
+                PumpSolenoidId:req.body.PumpSolenoidId,
                 SoftwareVersion:req.body.SoftwareVersion,
                 DeviceMAC:req.body.DeviceMAC
             })
@@ -45,7 +45,7 @@ module.exports = {
                 ScheduleId: parseInt(req.body.ScheduleId),
                 Inputs: req.body.Inputs,
                 Outputs: req.body.Outputs,                
-                PumpSolenoidId:req.body.PumpSolenoid,
+                PumpSolenoidId:req.body.PumpSolenoidId,
                 SoftwareVersion:req.body.SoftwareVersion,
                 UpdatedAt:new Date()            
             }, {

@@ -64,7 +64,6 @@
     <Reference Include="System.Xml" />
   </ItemGroup>
   <ItemGroup>
-    <Compile Include="ActiveIrrigationProgram.cs" />
     <Compile Include="Alarm.cs" />
     <Compile Include="Analog.cs" />
     <Compile Include="Command.cs" />

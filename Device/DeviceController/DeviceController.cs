@@ -23,8 +23,14 @@ namespace DeviceController
         List<DeviceAnalog> Analogs;
         List<DeviceAlarm> Alarms;
         List<Schedule> Schedules;
+        static DeviceSolenoid pumpSolenoid;
 
-        public static DeviceSolenoid Pump;
+        public static DeviceSolenoid Pump
+        {
+            get { return pumpSolenoid; }
+            set { pumpSolenoid = value; }
+        }
+
         public static int DeviceId;
 
         //private int deviceId = -1;
@@ -38,7 +44,7 @@ namespace DeviceController
         //ISolenoid ActiveSolenoid;
 
         Device device;
-        Schedule ActiveSchedule;      
+        //Schedule ActiveSchedule;      
 
         public DeviceController()
         {
@@ -87,7 +93,7 @@ namespace DeviceController
                 }
 
                 DeviceId = device.Id;
-                log.DebugFormat("DeviceController start, registered with deviceId:{0}", DeviceId);
+                log.DebugFormat("DeviceController start, registered with deviceId:{0} pump solenoid:{1}", DeviceId,device.PumpSolenoidId);
                 DataService.CreateEvent(EventTypes.Application, string.Format("DeviceController start, registered with deviceId:{0}", device.Id),device.Id);
 
                 Solenoids = new List<DeviceSolenoid>();
@@ -106,15 +112,21 @@ namespace DeviceController
         }
         public void LoadConfig()
         {
+            log.Debug("LoadConfig()");
+            //clear the existing interface
+            GPIOService.CloseGpio();
             Solenoids.Clear();
+
             List<Solenoid> solenoids = DataService.Proxy.GetSolenoids(device.Id);
             foreach (Solenoid s in solenoids)
             {
                 DeviceSolenoid sol = new DeviceSolenoid(s);
                 Solenoids.Add(sol);
-                if (device.PumpSolenoid == sol.Id)
+                log.DebugFormat("Solenoid Id:{0}",sol.Id);
+                if (device.PumpSolenoidId == sol.Id)
                 {
                     Pump = sol;
+                    log.DebugFormat("Found pump solenoid {0}",Pump.Id);
                 }
             }
 
@@ -156,88 +168,10 @@ namespace DeviceController
                       
                         //read analogs
                         ReadAnalogs();
-                        device.Pressure = Analogs[0].Sample();
-                        //log.DebugFormat("device.Pressure: {0} kPa", device.Pressure);
-
-                        if (ActiveProgram != null)
-                        {
-                            device.State = DeviceState.Irrigating;
-
-                            //check to see if program is finished
-                            if (ActiveProgram.Completed)
-                            {
-                                //program finished
-                                //interfaceService.SwitchSolenoid(ActiveProgram.SolenoidId, false);
-                                //interfaceService.CreateEvent(EventTypes.IrrigationStop, string.Format("{0} completed", ActiveProgram.Name));
-                                log.DebugFormat("Program {0} completed", ActiveProgram.Name);
-                                ActiveProgram.Finished = DateTime.Now;
-                                //interfaceService.UpdateIrrigationProgram(ActiveProgram);                                
-                                                                
-                                ActiveProgram = null;
-                                //ActiveSolenoid = null;
-                               
-                                device.State = DeviceState.Standby;
-                            }
-                        }
-                        else
-                        {
-                            device.State = DeviceState.Standby;
-                        }
-
-                        if (device.Mode == DeviceMode.Auto)
-                        {
-                            if (ActiveProgram == null)
-                            {
-                                if (device.State != DeviceState.Standby)
-                                    device.State = DeviceState.Standby;
-
-                                //check for next active schedule
-                                foreach (Schedule s in Schedules)
-                                {
-                                    if (s.Enabled)
-                                    {
-                                        log.DebugFormat("Schedule {0}", s.Name);
-                                        if (!s.Repeat)
-                                        {
-                                            //its a one off schedule - delete when finished
-
-                                        }
-                                        else
-                                        {                                           
-                                            //see if schedule has come into active window
-                                            int dayOfWeek = (int)DateTime.Now.DayOfWeek;
-                                            //log.DebugFormat("DOW: {0} Today:{1}", s.Days, dayOfWeek);
-                                            if (true)  //(s.Days.Contains(dayOfWeek.ToString()))
-                                            {
-                                                DateTime start = s.StartDate;//.ToUniversalTime();                                                    
-                                                DateTime finish = start.AddMinutes(s.Duration);
-                                                DateTime now = DateTime.Now;
-                                                //log.DebugFormat("Now: {2} Start: {0} Finish: {1}",start.ToString(), finish.ToString(), now.ToString());                                              
-                                                //if (now < start) { log.Debug("< start"); }
-                                                //if (now <= finish) { log.Debug(" <= finish"); }
-                                                if ((now > start) && (now <= finish))
-                                                {
-                                                    log.DebugFormat("Schedule window active: {0}", s.Name);
-                                                    //new active schedule
-                                                    ActiveSchedule = s;
-                                                    ActiveProgram = new DeviceProgram(s.Name, GetSolenoidById(s.SolenoidId), s.Duration);
-                                                    ActiveProgram.ProgramCompleted += OnProgramCompleted;
-
-                                                        //interfaceService.CreateIrrigationProgram(s.Name, s.Duration, s.SolenoidId);
-
-                                                    //interfaceService.SwitchSolenoid(ActiveProgram.SolenoidId, true);
-                                                    DataService.CreateEvent(EventTypes.IrrigationStart, string.Format("Repeating schedule '{0}' started", ActiveProgram.Name),device.Id);
-                                                    log.InfoFormat("Repeating schedule '{0}' started", ActiveProgram.Name);
-                                                    device.State = DeviceState.Irrigating;
-                                                    break;
-                                                }
-                                            }
-                                        }
-                                    }                                    
-                                }
-                            }
-                        }                       
-
+                        device.Pressure = Analogs[0].Sample();                        
+                       
+                        RunSchedules();
+                           
                         //update the server
                         ReportStatus();                        
                       
@@ -256,6 +190,67 @@ namespace DeviceController
             log.InfoFormat("Device controller shutdown.");
         }
         
+        public void RunSchedules()
+        {
+            if (device.Mode != DeviceMode.Auto || ActiveProgram != null)
+            {
+                //ignore scheduled programs if we are not in Auto mode or if there is a program running
+                return;
+            }
+
+            //check scheduled programs
+            foreach (Schedule s in Schedules)
+            {
+                //if (ActiveProgram != null)
+                //{
+                //    //prevents reinitializing the ActiveSchedule
+                //    if (ActiveProgram.ActiveSchedule != null)
+                //    {
+                //        if (s.Id == ActiveProgram.ActiveSchedule.Id)
+                //        {
+                //            continue;
+                //        }
+                //    }
+                //}
+
+                if (s.Enabled)
+                {
+                    log.DebugFormat("Schedule {0}", s.Name);
+
+                    //see if schedule has come into active window
+                    int dayOfWeek = (int)DateTime.Now.DayOfWeek;
+                    log.DebugFormat("DOW: {0} Today:{1}", s.Days, dayOfWeek);
+                    if (s.Days.Contains(dayOfWeek.ToString()))
+                    {
+                        DateTime start = s.StartDate;//.ToUniversalTime();                                                    
+                        DateTime finish = start.AddMinutes(s.Duration);
+                        DateTime now = DateTime.Now;
+                        log.DebugFormat("Now: {2} Start: {0} Finish: {1}", start.ToString(), finish.ToString(), now.ToString());
+                        if (now < start) { log.Debug("< start"); }
+                        if (now <= finish) { log.Debug(" <= finish"); }
+                        if ((now > start) && (now <= finish))
+                        {
+                            log.DebugFormat("Schedule window active: {0}", s.Name);
+                            //abort existing program
+                            if (ActiveProgram != null)
+                            {
+                                AbortProgram();
+                            }
+
+                            //new active schedule                            
+                            ActiveProgram = new DeviceProgram(s.Name, GetSolenoidById(s.SolenoidId), s.Duration);
+                            ActiveProgram.ProgramCompleted += OnProgramCompleted;
+                            ActiveProgram.ActiveSchedule = s;
+
+                            DataService.CreateEvent(EventTypes.IrrigationStart, string.Format("Scheduled program '{0}' started", ActiveProgram.Name), device.Id);
+                            log.InfoFormat("Scheduled program '{0}' started", ActiveProgram.Name);
+                            device.State = DeviceState.Irrigating;
+                            break;
+                        }
+                    }
+                }
+            }                    
+        }
         public  void ProcessCommands()
         {
             log.Debug("ProcessCommands()");
@@ -302,27 +297,25 @@ namespace DeviceController
                                     int duration = Int32.Parse(parts[1]);
 
                                     //abort the active program if it exists
-                                    AbortProgram();
+                                    if (ActiveProgram != null)
+                                    {
+                                        AbortProgram();
+                                    }                                    
 
                                     //create the new program
-                                    DeviceProgram p = new DeviceProgram("Manual program", 
+                                    ActiveProgram = new DeviceProgram("Manual program", 
                                         GetSolenoidById(solenoidId),
                                          duration);
 
-                                    p.ProgramCompleted += OnProgramCompleted;
+                                    ActiveProgram.ProgramCompleted += OnProgramCompleted;
+                                    DataService.CreateEvent(EventTypes.IrrigationStart,
+                                        string.Format("Manual irrigation program: {0} for {1} minutes", ActiveProgram.Solenoid.Id, ActiveProgram.Duration),
+                                        DeviceId);                                                                       
 
-                                    //IrrigationProgram p = new IrrigationProgram()
-                                    //ActiveProgram = interfaceService.CreateIrrigationProgram("Manual program",duration,solenoidId);                                    
-                                                                                              
                                     device.State = DeviceState.Irrigating;
                                     device.Status = string.Format("Irrigating '{0}' for {1} minutes", ActiveProgram.Solenoid.Name, ActiveProgram.Duration);
                                     log.Info(device.Status);
 
-                                    //switch on solenoid for manual program
-                                    //interfaceService.SwitchSolenoid(ActiveProgram.SolenoidId, true);
-
-                                    //interfaceService.CreateEvent(EventTypes.IrrigationStart,
-                                       // string.Format("Manual irrigation program: {0} for {1} minutes", ActiveProgram.SolenoidId, ActiveProgram.Duration));
                                 }
                             }
                             catch (Exception ex)
@@ -359,11 +352,12 @@ namespace DeviceController
                         //load configuration
                         case "LoadConfig":
                             log.Info("LoadConfig");
-                            //interfaceService.LoadConfig();
+                            LoadConfig();
                             ActionCommand(cmd);
                             break;
                     }
                 }
+                ReportStatus();
 
             }
             catch (Exception ex)
@@ -376,55 +370,30 @@ namespace DeviceController
         private void OnProgramCompleted(object sender, EventArgs e)
         {
             log.DebugFormat("Program {0} completed", ActiveProgram.Name);
-            ActiveProgram = null;
+            
+            DataService.CreateEvent(EventTypes.IrrigationStop, string.Format("{0} completed", ActiveProgram.Name),device.Id);
+            ActiveProgram = null;            
             device.State = DeviceState.Standby;
+            ReportStatus();
         }
 
         public DeviceSolenoid GetSolenoidById(int id)
         {
             return Solenoids.AsQueryable<DeviceSolenoid>().Where(s => s.Id == id).First<DeviceSolenoid>();
         }
-        //public IrrigationProgram CreateIrrigationProgram(string name, int duration, int solenoidId)
-        //{
-        //    log.DebugFormat("InterfaceService.CreateIrrigationProgram() Name:{0} SolenoidId:{1}", name, solenoidId);
-        //    SolenoidTuple st = null;
-        //    foreach (SolenoidTuple s in Solenoids)
-        //    {
-        //        if (s.Data.Id == solenoidId)
-        //        {
-        //            st = s;
-        //            break;
-        //        }
-        //    }
-        //    if (st == null)
-        //    {
-        //        throw new Exception(string.Format("Unknown solenoidId '{0}'", solenoidId));
-        //    }
-        //    ActiveIrrigationProgram activeProgram = new ActiveIrrigationProgram(name, duration, solenoidId, st.Data.Name, device.Id);
-        //    try
-        //    {
-        //        activeProgram.Id = dataServer.PostIrrigationProgram(activeProgram);
-        //    }
-        //    catch (Exception ex)
-        //    {
-        //        log.ErrorFormat("CreateIrrigationProgram(): {0}", ex.Message);
-        //    }
-        //    return activeProgram;
-        //}
+        
         public void AbortProgram()
         {
+            log.Debug("AbortProgram()");
             //abort the active program if it exists
             if (ActiveProgram != null)
             {
-                ActiveProgram.Stop();
-
-                //interfaceService.SwitchSolenoid(ActiveProgram.SolenoidId, false);
-                //interfaceService.CreateEvent(EventTypes.IrrigationStop, string.Format("{0} aborted", ActiveProgram.Name));
+                ActiveProgram.Stop();                
                 log.DebugFormat("Program {0} aborted", ActiveProgram.Name);
-                //ActiveProgram.Finished = DateTime.Now;
-                //interfaceService.UpdateIrrigationProgram(ActiveProgram);
+                DataService.CreateEvent(EventTypes.Application, string.Format("Program {0} aborted",ActiveProgram.Name), device.Id);
+                device.State = DeviceState.Standby;
                 ActiveProgram = null;
-                //ActiveSolenoid = null;
+                ReportStatus();
             }
         }
         public  void ReportStatus()
@@ -438,7 +407,7 @@ namespace DeviceController
                 }
                 else
                 {
-                    log.Debug("Debug1");
+                    log.Debug("ReportStatus() Auto mode.");
                     device.Status = "Standby. Waiting for next scheduled program to start.";
                 }
             }

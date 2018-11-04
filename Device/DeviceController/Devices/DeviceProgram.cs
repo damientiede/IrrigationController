@@ -10,6 +10,7 @@ namespace DeviceController.Devices
         ILog log = LogManager.GetLogger("Device");
         IrrigationProgram program;
         DeviceSolenoid solenoid;
+        Schedule schedule;
         Timer timer;
         public string Name
         {
@@ -37,11 +38,17 @@ namespace DeviceController.Devices
         {
             get { return program.DeviceId; }
         }
+        public Schedule ActiveSchedule
+        {
+            get { return schedule; }
+            set { schedule = value; }
+        }
         public delegate void ProgramCompletedEventHandler(object sender, EventArgs e);
         public event ProgramCompletedEventHandler ProgramCompleted;
 
         public DeviceProgram(string name, DeviceSolenoid sol, int duration)
         {
+            log.Debug("DeviceProgram()");
             solenoid = sol;
             program = new IrrigationProgram()
             {
@@ -56,22 +63,33 @@ namespace DeviceController.Devices
             solenoid.On();
             if (solenoid.RequiresPump)
             {
-                DeviceController.Pump.On();
+                if (DeviceController.Pump != null)
+                {
+                    DeviceController.Pump.On();
+                }
+                else
+                {
+                    log.Debug("Device.Pump is NULL!");
+                }                
             }
+            log.Debug("Starting timer");            
             timer = new Timer(1000);
             timer.Elapsed += Timer_Elapsed;
             timer.Enabled = true;
+
         }
 
         private void Timer_Elapsed(object sender, ElapsedEventArgs e)
         {
+            //log.DebugFormat("{0} Timer_Elapsed()", this.Name);
             if (Completed)
             {
                 Stop();                             
                 if (ProgramCompleted != null)
                 {
-                    EventArgs ea = new EventArgs();                    
-                    ProgramCompleted(this, ea);
+                    log.Debug("Calling ProgramCompleted");
+                    //EventArgs ea = new EventArgs();                    
+                    ProgramCompleted(this, null);
                 }                
             }
             else
@@ -82,6 +100,7 @@ namespace DeviceController.Devices
 
         public void Stop()
         {
+            log.Debug("Stop()");
             timer.Enabled = false;
             timer.Dispose();
             solenoid.Off();
@@ -90,8 +109,8 @@ namespace DeviceController.Devices
                 DeviceController.Pump.Off();
             }
             program.Finished = DateTime.Now;
-            DataService.Proxy.PostIrrigationProgram(program);
-            DataService.CreateEvent(EventTypes.IrrigationStop, string.Format("{0} aborted", Name),program.DeviceId);
+            DataService.Proxy.PutIrrigationProgram(program);
+            DataService.CreateEvent(EventTypes.IrrigationStop, string.Format("{0} stopped", Name),program.DeviceId);
         }
         public bool Completed
         {

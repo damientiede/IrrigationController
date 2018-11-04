@@ -22,7 +22,7 @@ namespace DeviceController.Data
         public string Outputs;
         public string SoftwareVersion;        
         public string DeviceMAC;
-        public int PumpSolenoid;
+        public int PumpSolenoidId;
         public DateTime CreatedAt;
         public DateTime UpdatedAt;       
 
